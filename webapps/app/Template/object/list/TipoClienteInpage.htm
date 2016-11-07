@@ -1,0 +1,16 @@
+@BEGIN_TEMPLATE@
+@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+	
+<select multiple="multiple" id="KEY_tipo_cliente_machine" name="KEY_tipo_cliente_machine"><option value="" selected="selected">tutti i valori</option>
+@BEGIN__system_decode@
+<option value="@tag_sd_value#FLAT@">@tag_sd_description#FLAT@</option>
+@END__system_decode@
+</select>
+
+@END_TEMPLATE@

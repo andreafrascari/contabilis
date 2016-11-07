@@ -1,0 +1,11 @@
+@BEGIN_TEMPLATE@
+	<select id="INP_assegnatoApratica" name="INP_assegnatoApratica" onchange="detailEdit.check(this); " title="inserisci nuova scheda " tabindex="10"> 											
+ 	<option value="">nessuna</option>
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<option value="">nessuna pratica aperta per il cliente</option>
+				@BLOCK_END_RESULT_EMPTY@
+				
+				@BEGIN_Pratica@<option value="@tag_ID#FLAT@">@tag_titolo#FLAT@</option>@END_Pratica@
+	</select>
+@END_TEMPLATE@

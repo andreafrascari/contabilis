@@ -1,0 +1,110 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+
+<script type="text/javascript" >
+$(document).ready(function() {
+ $("#INP_da_metapratica").change(function() {
+		var path="ModuleIndex?q=helpgest/metapratica/id=@ID@";
+		path=path.replace("@ID@",$("#INP_da_metapratica").val());
+		var rep = $.ajax({
+	        url: path,
+	        async: false,
+	        type: "GET",
+	        cache: false
+	        }).responseText;		
+		try
+		{
+			var xmlrep = Anastasis.Utils.parseXML(rep);
+			anastasis.logger.info("res = " + rep);
+			var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+			if(msg.isErrorMessage())
+			{
+				alert("il sistema non riesce a caricare i dati della metapratica!");
+				return;
+			}
+			var titolo=msg.selectSingleNode("metapratica/titolo");
+			var titoloTxt = Anastasis.Ajax.getText(titolo);
+			var titoloxfattura=msg.selectSingleNode("metapratica/titolo_per_fattura");
+			var titoloxfatturaTxt = Anastasis.Ajax.getText(titoloxfattura);
+			var tipo=msg.selectSingleNode("metapratica/tipo");
+			var tipoTxt = Anastasis.Ajax.getText(tipo);
+			var prezzo=msg.selectSingleNode("metapratica/prezzo");
+			var prezzoTxt = Anastasis.Ajax.getText(prezzo);
+			var listaatt=msg.selectSingleNode("metapratica/lista_attivita");
+			var descrizioneTxt = Anastasis.Ajax.getText(listaatt);
+			
+			$("#INP_tipo").val(tipoTxt);
+			$("#INP_titolo").val(titoloTxt);
+			$("#INP_titolo_per_fattura").val(titoloxfatturaTxt);
+			$("#INP_prezzo").val(prezzoTxt);
+			$("#CONTENT_INP_descrizione").text(descrizioneTxt);
+			if ( $("#INP_tipo").val() != 'a ora')	{
+ 				$("#required_INP_prezzo").val('true');
+ 			}
+		}
+		catch(e){alert("errore: "+e);}
+ 	});
+});
+
+$(document).ready(function() {
+ $("#INP_tipo").change(function() {	
+ 		if ( $("#INP_tipo").val() != 'a ora')	{
+ 			$("#required_INP_prezzo").val('true');
+ 		} else {
+ 			$("#required_INP_prezzo").val('false');
+ 		}  
+	});
+});
+
+</script>
+ 	
+	 @BEGIN_ItemListino@<div class="detail-edit">
+						<div id="splash">
+							<h2>@TITLE@</h2>
+						</div>
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+		
+						<div class="form-container">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_da_metapratica@@tag_tipo@@tag_titolo@@tag_titolo_per_fattura@@tag_prezzo@@tag_descrizione@
+									</div>
+									
+		
+									
+									<div class="detail-edit-system">
+										
+										
+									</div>
+									
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								
+							</div>
+		
+						</div>
+					</div>@END_ItemListino@
+		</div>@END_TEMPLATE@

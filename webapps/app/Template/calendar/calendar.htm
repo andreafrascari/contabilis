@@ -1,0 +1,49 @@
+<div id="calendario" class="calendario">
+  <div class="titolo">
+    <h2>Le mie scadenze</h2>
+  </div>
+  
+  @BLOCK_BEGIN_ROW@
+    <tr>@ROW@</tr>
+  @BLOCK_END_ROW@
+  @BLOCK_BEGIN_EMPTY_DAY@
+    <td>&nbsp;</td>
+  @BLOCK_END_EMPTY_DAY@
+  @BLOCK_BEGIN_DAY@
+    <td><a @tooltip="title=Scadenze del giorno,class=tooltip help,position=local,ajax=true,url=ModuleIndex@DAY_LINK@&amp;t=NotificaScadenzaHover" title="vai alle scadenze del giorno @DAY_ALT@"  href="@DAY_LINK@";>@DAY@</a></td>
+  @BLOCK_END_DAY@
+  @BLOCK_BEGIN_DAY_NO_EVENT@
+    <td>@DAY@</td>
+  @BLOCK_END_DAY_NO_EVENT@
+  @BLOCK_BEGIN_TODAY@
+    <td><span class="today"><a @tooltip="title=Scadenze di oggi,class=tooltip help,position=local,ajax=true,url=ModuleIndex@DAY_LINK@&amp;t=NotificaScadenzaHover" title="consulta le scadenze di oggi" href="@DAY_LINK@";>@DAY@</a></span></td>
+  @BLOCK_END_TODAY@
+  @BLOCK_BEGIN_TODAY_NO_EVENT@
+    <td><span class="today">@DAY@</span></td>
+  @BLOCK_END_TODAY_NO_EVENT@
+
+  <div class="box">
+      <table summary="calendario scadenze">
+        <tbody>
+          <tr>
+            <td>
+              <a href="@LINK_PREVIOUS_MONTH@">
+                <img alt="Vai al mese precedente" title="Vai al mese precedente" src="@CONTEXT@/app/Template/metaAmbiente/img/prec.gif" /></a></td>
+            <td colspan="5" style="text-align: center;">
+              <div>@MONTH@ @YEAR@</div>
+            </td>
+            <td style="text-align: right;">
+              <a href="@LINK_NEXT_MONTH@">
+                <img alt="Vai al mese successivo" title="Vai al mese successivo" src="@CONTEXT@/app/Template/metaAmbiente/img/succ.gif" /></a>
+            </td>
+          </tr>
+          
+          <tr><td>L</td><td>M</td><td>M</td><td>G</td><td>V</td><td>S</td><td>D</td></tr>
+          
+          @CALENDAR@
+        </tbody>
+      </table>
+    
+  </div>
+  <a class="all" href="@LINK_ALL@" title="tutte le mie scadenze">Tutti le scadenze</a>
+</div>

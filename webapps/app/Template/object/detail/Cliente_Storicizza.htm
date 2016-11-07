@@ -1,0 +1,46 @@
+@BEGIN_TEMPLATE@<div id="detail" class="tabbed">
+
+@BLOCK_BEGIN_RESULT_ERROR@
+	<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		Si &egrave; verificato un errore: @ERROR_MESSAGE@
+		<br /><br />
+		<a href="javascript:history.back();" title="Indietro">Indietro</a>
+	</div>
+@BLOCK_END_RESULT_ERROR@
+
+@BLOCK_BEGIN_RESULT_EMPTY@
+	<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		Nessun elemento trovato!
+		<br /><br />
+		<a href="javascript:history.back();" title="Indietro">Indietro</a>
+	</div>
+@BLOCK_END_RESULT_EMPTY@
+
+
+@BEGIN_Cliente@
+
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_cliente@
+								@tag_stato_cliente@
+								@tag_codice_cliente@@tag_nickname@@tag_codice_fiscale@@tag_partita_iva@
+								<tr class="operatore_responsabile"><th scope="row">operatore responsabile</th><td>@tag_operatore_responsabile.Operatore.nome_e_cognome#FLAT@</td></tr>
+								@tag_cliente_dal@@tag_cessata_assistenza_il@@tag_note@@tag_tipo_cliente@@tag_non_profit@@tag_sez_contatti@@tag_email@@tag_email2@@tag_email3@@tag_cellulare@@tag_telefono@@tag_fax@@tag_tipo_sollecito@@tag_sez_sede_legale@@tag_indirizzo@@tag_cap@@tag_comune@@tag_sez_recapito@@tag_recapito_indirizzo@@tag_recapito_cap@@tag_recapito_comune@@tag_sez_legale_rappresentante@@tag_legale_rappresentante_cognome@@tag_legale_rappresentante_nome@@tag_legale_rappresentante_cf@@tag_legale_rappresentante_residenza@
+							</tbody>
+						</table>
+					</div>
+						
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>
+
+				
+@END_Cliente@
+</div>@END_TEMPLATE@

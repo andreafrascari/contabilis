@@ -1,0 +1,123 @@
+@BEGIN_TEMPLATE@ 
+@BEGIN_Cliente@
+
+@BLOCK_BEGIN_RESULT_ERROR@
+<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Si &egrave; verificato un errore: @ERROR_MESSAGE@ <br />
+@BLOCK_END_RESULT_ERROR@
+
+<div id="serena-tab-panel" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+
+	<li	id="Cliente" class="ui-state-default ui-corner-top data-exist">
+			<a title="vai alla scheda cliente"
+		href="?q=object/detail&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@">Cliente</a>
+	</li>
+	
+	
+	([ [[@tag_dati_contabili@] != [] ] ?? [
+	<li id="DatiContabili" class="ui-state-default ui-corner-top data-exist"><a
+		title="vai ai dati contabili"
+		href="?q=object/list&amp;p=DatiContabili/_a_inverse_of_dati_contabili/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Dati Contabili</a></li>
+	] :: [
+	<li id="DatiContabili" class="ui-state-default ui-corner-top data-do-not-exist"><a
+		title="registra un nuova scheda dati contabili"
+		href="?q=object/detail_edit&amp;p=DatiContabili&amp;a=_a_inverse_of_dati_contabili/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Dati Contabili</a></li>
+	] ])  	
+	
+	
+	([ [[@tag_dati_crm@] != [] ] ?? [
+	<li id="DatiCRM" class="ui-state-default ui-corner-top data-exist"><a
+		title="vai alla scheda dati CRM"
+		href="?q=object/detail&amp;p=DatiCRM/_a_df_cliente/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">CRM</a></li>
+	] :: [
+	<li id="DatiCRM" class="ui-state-default ui-corner-top data-do-not-exist"><a
+		title="compila la scheda CRM, ancora non presente"
+		href="?q=object/detail_edit&amp;p=DatiCRM&amp;a=/_a_df_cliente/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">CRM</a></li>
+	] ])
+	
+	
+
+	
+
+	([ [[@tag_inverse_of_cliente_doc@] != [] ] ?? [
+	<li id="StoriaDocumento" class="ui-state-default ui-corner-top data-exist"><a
+		title="vai ai documenti del cliente"
+		href="?q=object/list&amp;p=StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=StoriaDocumento_tab">Documenti</a></li>
+	]
+	])
+	
+	([ [[@tag_inverse_of_cliente_doc@] != [] ] ?? [
+	<li id="AUI" class="ui-state-default ui-corner-top data-exist"><a
+		title="vai all'archivio informatico unico del cliente"
+		href="?q=object/list&amp;p=StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=StoriaDocumento_aui&amp;data_source=aui">AUI</a></li>
+	]
+	])
+
+	([ [[@tag_dati_fatturazione@] != [] ] ?? [
+		<li id="DatiFatturazione" class="ui-state-default ui-corner-top data-exist"><a
+			title="vai alla scheda listino"
+			href="?q=object/detail&amp;p=DatiFatturazione/_a_inverse_of_dati_fatturazione/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Listino</a></li>
+		] :: [
+		<li id="DatiFatturazione" class="ui-state-default ui-corner-top data-do-not-exist"><a
+			title="compila la scheda Listino, ancora non presente"
+			href="?q=object/detail_edit&amp;p=DatiFatturazione&amp;a=_a_inverse_of_dati_fatturazione/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Listino</a></li>
+		] ])  
+		<li id="Cruscotto" class="ui-state-default ui-corner-top data-exist"><a
+			title="vai al monitor del cliente"
+			href="?q=object/detail&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=Monitor">Cruscotto</a>
+		</li>
+		
+</ul>
+
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+		
+		([ [[@tag_pratiche@] != [] ] ?? [
+		<li id="Pratica" class="ui-state-default ui-corner-top data-exist"><a
+			title="vai alle pratiche anno corrente"
+			href="?q=object/list&amp;p=Pratica/_a_ID_Cliente_pratiche/_v_@tag_ID#FLAT@/_a_anno_contabile/_v_@FUN_SUBSTRING(string=@FUN_TODAY()@,begin=6,end=10)@&amp;t=Pratica_tab">Pratiche anno corrente</a></li>
+		] :: [
+		<li id="Pratica" class="ui-state-default ui-corner-top data-do-not-exist"><a
+			title="registra nuova pratica"
+			href="?q=object/detail_edit&amp;p=Pratica&amp;a=_a_cliente_pratica/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Pratiche</a></li>
+		] ])
+		
+		
+		([ [[@tag_proforma@] != [] ] ?? [
+		<li id="ProForma" class="ui-state-default ui-corner-top data-exist"><a
+			title="vai alle proforma"
+			href="?q=object/list&amp;p=ProForma/_a_inverse_of_proforma/_v_@tag_ID#FLAT@&amp;t=ProForma_tab">Proforma</a></li>
+		] :: [
+		<li id="ProForma" class="ui-state-default ui-corner-top data-do-not-exist"><a
+			title="registra nuova proforma"
+			href="?q=object/detail_edit&amp;p=ProForma&amp;a=_a_inverse_of_proforma/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Proforma</a></li>
+		] ])
+		
+		([ [[@tag_fatture@] != [] ] ?? [
+		<li id="Fattura" class="ui-state-default ui-corner-top data-exist"><a
+			title="vai alle fatture"
+			href="?q=object/list&amp;p=Fattura/_a_inverse_of_fatture/_v_@tag_ID#FLAT@&amp;t=Fattura_tab">Fatture</a></li>
+		] :: [
+		<li id="Fattura" class="ui-state-default ui-corner-top data-do-not-exist"><a
+			title="registra nuova fattura"
+			href="?q=object/detail_edit&amp;p=Fattura&amp;a=_a_inverse_of_fatture/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">Fatture</a></li>
+		] ])        
+		
+		([ [[@tag_documenti_per_lo_studio@] != [] ] ?? [
+		<li id="DocumentoCliente" class="ui-state-default ui-corner-top data-exist"><a
+			title="lista documenti dal cliente per lo Studio"
+			href="?q=object/list&amp;p=DocumentoCliente/_a_da_cliente/_v_@tag_ID#FLAT@">Doc dal cliente</a></li>
+		]])
+		
+		([ [[@tag_contatti_studio@] != [] ] ?? [
+		<li id="HDTicket" class="ui-state-default ui-corner-top data-exist"><a
+			title="lista contatti del cliente con lo Studio"
+			href="?q=object/list&amp;p=HDTicket/_a_daCliente/_v_@tag_ID#FLAT@">Contatti Studio</a></li>
+		]])
+		
+	</ul>
+
+</div>
+
+@END_Cliente@
+@END_TEMPLATE@

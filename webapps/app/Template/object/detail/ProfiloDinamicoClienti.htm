@@ -1,0 +1,88 @@
+@BEGIN_TEMPLATE@<div id="detail">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+						@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			
+@BEGIN_ProfiloDinamicoClienti@
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica" title="modifica"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+					@BLOCK_END_EDIT@
+					<li>
+					<a  href="?q=helpgest/lanciaprofiloclienti&amp;p=SuperCliente&amp;profile=@tag_ID#FLAT@" title="esegui il profilo"><img alt="esegui il profilo" title="esegui il profilo"  src="app/Template/metaAmbiente/img/icon-workflow.png" /></a>
+					
+				</ul>
+			</div>
+
+
+
+			<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_nome@
+							</tbody>
+						</table>
+					</div>
+					
+
+				
+		 
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_nome@@tag_note@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_inverse_of_profili_clienti@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_inverse_of_profili_clienti@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_ProfiloDinamicoClienti@
+		</div>@END_TEMPLATE@

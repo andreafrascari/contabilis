@@ -1,0 +1,120 @@
+<div class="detail-component date-time @NAME@">
+	<script type="text/javascript">
+		function compose_datetime(name)
+		{
+			var data=$(document.getElementById('data_'+name)).val();
+			var ora=$(document.getElementById('ora_'+name)).val();
+			var minuti=$(document.getElementById('minuti_'+name)).val();
+			$(document.getElementById(name)).val(data+" "+ora+":"+minuti+":00");
+		}
+
+		Anastasis.SerenaUtils.activateDatePicker('data_@NAME@');
+
+	</script>
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</label>
+	<div class="div_date_time">
+		<input tabindex="10" type="text" onchange="detailEdit.check(this); compose_datetime('@NAME@');" id="data_@NAME@" value="@DATA@" />
+		<input tabindex="10" type="hidden" name="@NAME@"  id="@NAME@" value="@VALUE@"/>
+		<input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+		<input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+		<input type="hidden" id="label_@NAME@" value="@LABEL@" />
+		<select tabindex="10" id="ora_@NAME@" onchange="compose_datetime('@NAME@');" class="selettore_ora">
+			<option value="00" @SELECTED_ORA_00@">00</option>
+			<option value="01" @SELECTED_ORA_01@>01</option>
+			<option value="02" @SELECTED_ORA_02@>02</option>
+			<option value="03" @SELECTED_ORA_03@>03</option>
+			<option value="04" @SELECTED_ORA_04@>04</option>
+			<option value="05" @SELECTED_ORA_05@>05</option>
+			<option value="06" @SELECTED_ORA_06@>06</option>
+			<option value="07" @SELECTED_ORA_07@>07</option>
+			<option value="08" @SELECTED_ORA_08@>08</option>
+			<option value="09" @SELECTED_ORA_09@>09</option>
+			<option value="10" @SELECTED_ORA_10@>10</option>
+			<option value="11" @SELECTED_ORA_11@>11</option>
+			<option value="12" @SELECTED_ORA_12@>12</option>
+			<option value="13" @SELECTED_ORA_13@>13</option>
+			<option value="14" @SELECTED_ORA_14@>14</option>
+			<option value="15" @SELECTED_ORA_15@>15</option>
+			<option value="16" @SELECTED_ORA_16@>16</option>
+			<option value="17" @SELECTED_ORA_17@>17</option>
+			<option value="18" @SELECTED_ORA_18@>18</option>
+			<option value="19" @SELECTED_ORA_19@>19</option>
+			<option value="20" @SELECTED_ORA_20@>20</option>
+			<option value="21" @SELECTED_ORA_21@>21</option>
+			<option value="22" @SELECTED_ORA_22@>22</option>
+			<option value="23" @SELECTED_ORA_23@>23</option>
+		</select>
+
+		<select tabindex="10" id="minuti_@NAME@" onchange="compose_datetime('@NAME@');"  class="selettore_minuti" >
+			<option value="00" @SELECTED_MINUTI_00@>00</option>
+			<option value="01" @SELECTED_MINUTI_01@>01</option>
+			<option value="02" @SELECTED_MINUTI_02@>02</option>
+			<option value="03" @SELECTED_MINUTI_03@>03</option>
+			<option value="04" @SELECTED_MINUTI_04@>04</option>
+			<option value="05" @SELECTED_MINUTI_05@>05</option>
+			<option value="06" @SELECTED_MINUTI_06@>06</option>
+			<option value="07" @SELECTED_MINUTI_07@>07</option>
+			<option value="08" @SELECTED_MINUTI_08@>08</option>
+			<option value="09" @SELECTED_MINUTI_09@>09</option>
+			<option value="10" @SELECTED_MINUTI_10@>10</option>
+			
+			<option value="11" @SELECTED_MINUTI_11@>11</option>
+			<option value="12" @SELECTED_MINUTI_12@>12</option>
+			<option value="13" @SELECTED_MINUTI_13@>13</option>
+			<option value="14" @SELECTED_MINUTI_14@>14</option>
+			<option value="15" @SELECTED_MINUTI_15@>15</option>
+			<option value="16" @SELECTED_MINUTI_16@>16</option>
+			<option value="17" @SELECTED_MINUTI_17@>17</option>
+			<option value="18" @SELECTED_MINUTI_18@>18</option>
+			<option value="19" @SELECTED_MINUTI_19@>19</option>
+			<option value="20" @SELECTED_MINUTI_20@>20</option>
+
+			<option value="21" @SELECTED_MINUTI_21@>21</option>
+			<option value="22" @SELECTED_MINUTI_22@>22</option>
+			<option value="23" @SELECTED_MINUTI_23@>23</option>
+			<option value="24" @SELECTED_MINUTI_24@>24</option>
+			<option value="25" @SELECTED_MINUTI_25@>25</option>
+			<option value="26" @SELECTED_MINUTI_26@>26</option>
+			<option value="27" @SELECTED_MINUTI_27@>27</option>
+			<option value="28" @SELECTED_MINUTI_28@>28</option>
+			<option value="29" @SELECTED_MINUTI_29@>29</option>
+			<option value="30" @SELECTED_MINUTI_30@>30</option>
+			
+			<option value="31" @SELECTED_MINUTI_31@>31</option>
+			<option value="32" @SELECTED_MINUTI_32@>32</option>
+			<option value="33" @SELECTED_MINUTI_33@>33</option>
+			<option value="34" @SELECTED_MINUTI_34@>34</option>
+			<option value="35" @SELECTED_MINUTI_35@>35</option>
+			<option value="36" @SELECTED_MINUTI_36@>36</option>
+			<option value="37" @SELECTED_MINUTI_37@>37</option>
+			<option value="38" @SELECTED_MINUTI_38@>38</option>
+			<option value="39" @SELECTED_MINUTI_39@>39</option>
+			<option value="40" @SELECTED_MINUTI_40@>40</option>
+			
+			<option value="41" @SELECTED_MINUTI_41@>41</option>
+			<option value="42" @SELECTED_MINUTI_42@>42</option>
+			<option value="43" @SELECTED_MINUTI_43@>43</option>
+			<option value="44" @SELECTED_MINUTI_44@>44</option>
+			<option value="45" @SELECTED_MINUTI_45@>45</option>
+			<option value="46" @SELECTED_MINUTI_46@>46</option>
+			<option value="47" @SELECTED_MINUTI_47@>47</option>
+			<option value="48" @SELECTED_MINUTI_48@>48</option>
+			<option value="49" @SELECTED_MINUTI_49@>49</option>
+			<option value="50" @SELECTED_MINUTI_50@>50</option>
+			
+			<option value="51" @SELECTED_MINUTI_51@>51</option>
+			<option value="52" @SELECTED_MINUTI_52@>52</option>
+			<option value="53" @SELECTED_MINUTI_53@>53</option>
+			<option value="54" @SELECTED_MINUTI_54@>54</option>
+			<option value="55" @SELECTED_MINUTI_55@>55</option>
+			<option value="56" @SELECTED_MINUTI_56@>56</option>
+			<option value="57" @SELECTED_MINUTI_57@>57</option>
+			<option value="58" @SELECTED_MINUTI_58@>58</option>
+			<option value="59" @SELECTED_MINUTI_59@>59</option>
+						
+		</select>
+	</div>
+	<div class="object-help">@HELP@</div>
+</div>

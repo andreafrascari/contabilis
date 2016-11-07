@@ -1,0 +1,156 @@
+@BEGIN_TEMPLATE@		
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var azione = $('[name=INP_azione_conseguente_caricamento]').val();
+	var tipologia = $('[name=INP_tipologia]').val();	
+	$('#splash').append("<h4>Tipologia: "+tipologia+"</h4>");
+	$('#splash').append("<h4>"+azione+"</h4>");	
+	
+	if (azione.indexOf("AZIONE A")>-1)	{
+		$("#notificaclienti").show();
+		$("#datiinvio").show();
+	} if (azione.indexOf("AZIONE B")>-1)	{
+		$("#notificaclienti").show();
+		$("#datiinvio").show();
+	} if (azione.indexOf("AZIONE C")>-1)	{
+		$("#notificaclienti").show();
+		$("#datiinvio").show();
+	} if (azione.indexOf("AZIONE D")>-1)	{
+		$("#datiinvio").show();
+	} if (azione.indexOf("AZIONE E")>-1)	{
+		$("#datiinvio").show();
+	} else if (azione.indexOf("AZIONE F")>-1)	{
+		$("#datiinvio").show();
+		$("#notificaaltri").show();
+	} if (azione.indexOf("AZIONE G")>-1)	{
+		$("#notificaclienti").show();
+	} else if (azione==null || azione=="")	{
+		$("#noworkflow").show();
+		$("#gosend").hide();
+	}
+	
+	
+	$("#show_INP_cliente_doc").change(function() {
+		  var categoria= $("#INP_profili_clienti").val();
+		  var cliente = $("#show_INP_cliente_doc").val();
+		  if (categoria && categoria!="" && cliente)	{
+				alert("Attenzione: sono sono specificati sia profili che singolo cliente: continuando, il sistema effettuera anche un invio a tutti i clienti della/e categoria/e selezionate!");
+	  		}
+	  });
+	
+	  
+	  $("#detail-edit").submit(function() {
+		  var azione = $('[name=INP_azione_conseguente_caricamento]').val();
+		  var categoria=$("#INP_profili_clienti").val();
+		  var cliente = $("#INP_cliente_doc").val();
+		  if (categoria && categoria!="")	{
+				return confirm("Si sta effettuando un invio cumulativo a tutti clienti individuati di profili selezionati: confermare l'operazione!");
+	  		}
+	  	if ( (azione.indexOf("AZIONE A")>-1) || (azione.indexOf("AZIONE B")>-1) || (azione.indexOf("AZIONE C")>-1) || (azione.indexOf("AZIONE G")>-1))	{
+			  if ((!categoria || categoria=="")	&& (!cliente || cliente=="")) {
+					alert("Selezionare profilo oppure il singolo cliente!");
+					return false;
+	  			}
+	  		}
+	  });
+	
+	([[[@FUN_GET_URL_PARAM(param=cliente)@] != []]?? [
+		$("#INP_cliente_doc").val(@FUN_GET_URL_PARAM(param=cliente)@);
+		$("#notificaclienti").hide();
+	]])
+	
+	}); 
+</script>
+
+@BEGIN_DescrizioneDocumento@
+
+		<div class="detail-edit">
+			<div id="splash">
+				<h2>Esecuzione Workflow associato al Documento</h2>				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>																				
+				</ul>
+				
+			</div>
+
+			<div class="form-container">
+						<form id="detail-edit" method="post" action="?q=helpgest/uploadandsendprofiled">
+
+								@FUN_MODULE(q=object/detail_edit,p=Documento/_a_ID/_v_@FUN_GET_URL_PARAM(param=p, pre=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_)@,t=DocumentoHidden)@
+
+																
+								<div class="detail-body">
+
+								<div id="notificaclienti" style="display:none">
+								<fieldset>
+																
+								([[[@tag_tipologia_documento#FLAT@]==[CIRCOLARI]] ?? [								
+									<legend>
+										Specificare i profili cliente destinatari
+									</legend>
+									@FUN_MODULE(q=object/detail_edit,p=Scadenza,a=,t=ProfilazioneClienti)@
+									
+								]::[
+									
+									<legend>
+										Specificare il cliente destinatario
+									</legend>
+									@FUN_MODULE(q=object/detail_edit,p=StoriaDocumento,a=,t=StoriaDocumentoSoloCliente)@
+								]])
+								</fieldset>
+								</div>
+								
+								<div id="notificaaltri" style="display:none">
+									<fieldset>
+										<legend>
+											Confermare indirizzo/i mail di spedizione:
+										</legend>
+										@tag_contenuto_azione@
+									</fieldset>
+								</div>
+								
+								<div id="noworkflow" style="display:none">
+									<h2>Nessun workflow definito per @tag_tipologia_documento#FLAT@: impossibile proseguire!</h2>
+										
+								</div>
+								
+								<div id="datiinvio" style="display:none">
+								
+									<fieldset>
+									<legend>Confermare o modificare i dati proposti dal metadocumento relativo</legend>
+										@tag_sollecito@									
+										@tag_template_oggetto_invio@
+										@tag_template_testo_invio@
+										@tag_template_sms@									
+									</fieldset>
+								</div>
+														
+							<input type="hidden" value="@tag_visibilita#FLAT@" name="INP_visibilita" />
+							<input type="hidden" value="@tag_tipologia_documento#FLAT@" name="INP_tipologia" />
+							<input type="hidden" value="@tag_azione_conseguente_caricamento#FLAT@" name="INP_azione_conseguente_caricamento" />
+							
+							<input type="submit" value="Procedi!" name="gosend" id="gosend" />
+						</form>
+					</div>@END_DescrizioneDocumento@
+		</div>@END_TEMPLATE@

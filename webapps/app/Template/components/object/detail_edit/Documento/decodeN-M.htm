@@ -1,0 +1,15 @@
+<div id="DIV_@NAME@" class="detail-component decodeN-M @NAME@">
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ]) </label>
+	<select class="multiple-choice" tabindex="10" multiple="multiple" onchange="detailEdit.check(this);" name="@NAME@" id="@NAME@">@OPTIONS@</select>
+	@BLOCK_BEGIN_NEW@
+		&nbsp;<a tabindex="100" title="inserimento nuovo elemento pre-impostato" onclick="javascript:detailEdit.forceSave('@DECODE_HREF@&amp;t=_system_decode_shortcut');"  href="#"><img alt="inserimento nuovo elemento pre-impostato" title="inserimento nuovo elemento pre-impostato" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-add.gif" /></a>
+	@BLOCK_END_NEW@
+	<div class="object-help">suggerimento: tieni premuto il tasto <em>ctrl sinistro</em> per selezioni non contigue</div>
+	
+	<input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+	<input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+	<input type="hidden" id="label_@NAME@" value="@LABEL@" />
+	
+	<div class="object-help">@HELP@</div>
+</div>

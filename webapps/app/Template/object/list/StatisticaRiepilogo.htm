@@ -1,0 +1,94 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+				<div id="splash">
+					<h2>@TITLE@</h2>
+				</div>
+
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+						<li>
+							<form id="report-repository-3" action="ModuleIndex">
+									<input type="hidden" id="q3" name="q" value="export/give/CLS=@CLASS@/DOC=export_stat_riepilogo/TYPE=csv/data_source=@FUN_GET_URL_PARAM(param=data_source)@" />
+									<input type="hidden" id="xml-query-3" name="XQUERY" value="@XML-QUERY@" />
+									<input type="image" title="esportazione csv" src="app/Template/metaAmbiente/img/icon-excel.gif" onclick="javascript:alert('Avvio esportazione csv proforma in base al filtro di ricerca specificato: attendere qualche secondo dopo la conferma...');" />
+							</form>
+						</li>
+					 
+					</ul>
+				</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Statistica.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+										<th scope="col">anno</th>
+										<th scope="col">cliente</th>
+										<th scope="col">competenza</th>
+										<th scope="col">tempo medio pagamento</th>
+										<th scope="col">totale cliente</th>
+										<th scope="col">% su totale annuo</th>
+								</tr>
+	
+								@BEGIN_Statistica@([
+										[[@XPATH_FUN((count(preceding-sibling::Statistica)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_p1@@tag_p2@@tag_p3@@tag_p4@@tag_p5@@tag_p6@
+											 
+									</tr>@END_Statistica@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

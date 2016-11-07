@@ -1,0 +1,35 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			 
+
+			<div class="form-container">
+
+				<form id="filter" method="post" action="@ACTION@&amp;t=Attivita_Spese_Anticipate">
+					<fieldset>
+						<legend>ricerca cliente</legend>
+						<div class="alert alert-info" role="alert">Digitare le prime tre lettere del cognome (o del nome) a attendere autocompletamento. <br />
+						</div>
+						@BEGIN_Attivita@@tag_cliente@@END_Attivita@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<input type="hidden" name="KEY_titolo" value="Spese anticipate" />
+						<input type="hidden" name="order-by" value="ID DESC" />
+						
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

@@ -1,0 +1,153 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+				 $("#INP_immobili").change(function() {
+					 if ($('#INP_immobili').val()=='no')
+					    	$("#ICI").hide();
+					 else
+					    	$("#ICI").show();
+				 });
+			});
+			
+			$(document).ready(function() {
+				 $("#INP_conservazione_sostitutiva").change(function() {
+					 if ($('#INP_conservazione_sostitutiva').val()=='no')
+					    	$("#CS").hide();
+					 else
+					    	$("#CS").show();
+				 });
+			});
+			
+			$(document).ready(function() {
+				 $("#INP_conservazione_libro_giornale").change(function() {
+					 if ($('#INP_conservazione_libro_giornale').val()=='no')
+					    	$("#LG").hide();
+					 else
+					    	$("#LG").show();
+				 });
+			});
+			
+			$(document).ready(function() {
+				 $("#INP_f24_cumulativo").change(function() {
+					 if ($('#INP_f24_cumulativo').val()=='si')	{
+						alert("Modifica nell'F24 cumulativo: ricorda di adeguare il listino, le impostazioni BP e gli elenchi versamenti cumulativi");	 
+					 }
+				});
+			});
+			
+			
+		</script>
+
+		<div class="detail-edit">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			
+			@BEGIN_DatiCRM@
+			
+			([[[@FUN_MODULE(q=object/list,p=StoricoModifiche/_a_classe/_v_DatiCRM/_a_istanza/_v_@tag_ID#FLAT@,t=StoricoModificheTest)@]==[]]??[
+			<div id="need-rec-storico">
+				Storico modifiche non inzializzato: <a href="?q=object/detail_edit&amp;p=StoricoModifiche&amp;istanza=@tag_ID#FLAT@&amp;classe=DatiCRM&amp;data=@tag_last_modification_date#FLAT@" title="inizializza storico modifiche">inizializzare ora?</a>
+			</div>
+			]])
+
+			<div class="form-container">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+										</li>
+										
+
+										([
+											[ [@tag_ID#FLAT@] != [] ]
+											?? [
+												<li>
+													<a tabindex="51" href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+												</li>
+											]
+										])
+										
+										
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+									@tag_sostituto_imposta@@tag_immobili@
+									<div id="ICI" class="conditional">@tag_ici@@tag_note_ici@</div>
+									@tag_cassetto_fiscale@@tag_f24_cumulativo@@tag_antireciclaggio@@tag_privacy@@tag_privacy_acquisita@
+									@tag_conservazione_sostitutiva@
+									<div id="CS" class="conditional">@tag_conservazione_sostitutiva_delega_studio@@tag_conservazione_sostitutiva_note@</div>
+									@tag_verifica_validita_firma_digitale@@tag_conservazione_libro_giornale@
+									<!-- <div id="LG" class="conditional">@tag_conservazione_libro_giornale_data_versamento_diritti@</div> -->
+									@tag_data_invio_impronta_digitale@
+									@tag_note@
+								</div>
+								
+
+								
+ 
+								
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							@tag_allegato_contratto@@tag_allegato_delega_cassetto_fiscale@@tag_allegato_delega_f24_cumulativo@@tag_allegato_delega_f24_compensazioni@
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								
+
+								([
+									[ [@tag_ID#FLAT@] != []  ]
+									?? [
+										<li>
+											<a href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+										</li>
+									]
+								])
+							</ul>
+
+							
+						</div>
+					</div>@END_DatiCRM@
+		</div>@END_TEMPLATE@

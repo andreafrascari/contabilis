@@ -1,0 +1,457 @@
+<serena>
+	<service name="get">
+		<Rule>	
+			<condizione_profilo>clienti: tutti i clienti</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<activation_flag>1</activation_flag>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: P</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>P</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: P</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>P</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: SP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>SP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: PF</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>PF</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: AP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>AP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: I</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>I</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: NP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>NP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: SC</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>SC</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: CP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>CP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: INTERNI</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>INTERNI</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: AC</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>AC</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: CO</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>CO</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: FT</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>FT</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: SCP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>SCP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>	
+			<condizione_profilo>tipo cliente: SPP</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<tipo_cliente><_system_decode><sd_description>SPP</sd_description></_system_decode></tipo_cliente>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>contabilita noi: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<teniamo_noi>si</teniamo_noi>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>contabilita noi: no</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<teniamo_noi>no</teniamo_noi>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>partita iva: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<partita_iva operator="not">null</partita_iva>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>partita iva: no</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<partita_iva>null</partita_iva>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>regime iva: L.398/91</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>L.398/91</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime iva: Ordinario mensile</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>Ordinario mensile</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>	
+		<Rule>		
+			<condizione_profilo>regime iva: No IVA (superminimi, np privi p.iva)</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>No IVA (superminimi, np privi p.iva)</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>	
+		<Rule>		
+			<condizione_profilo>regime iva: Residuali</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>Residuali</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>	
+		<Rule>		
+			<condizione_profilo>regime iva: Ordinario trimestrale</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>Ordinario trimestrale</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>	
+		<Rule>		
+			<condizione_profilo>regime iva: Trimestrale IV trim. (autotrasporto, carburanti, etc.)</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>Trimestrale IV trim. (autotrasporto, carburanti, etc.)</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime iva: Nuove inziative (L.388/2000)</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_iva>Nuove inziative (L.388/2000)</regime_iva>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>regime contabile: Semplificato</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>Semplificato</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>																														
+		<Rule>		
+			<condizione_profilo>regime contabile: Ordinario</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>Ordinario</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime contabile: Residuale</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>Residuale</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime contabile: NP privi p.iva</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>NP privi p.iva</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime contabile: L.398/91</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>L.398/91</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime contabile: Superminimi</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>Superminimi</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>regime contabile: Nuove inziative (L.388/2000)</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_contabili>
+						<DatiContabili>
+							<regime_contabilita>Nuove inziative (L.388/2000)</regime_contabilita>
+						</DatiContabili>
+					</dati_contabili>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>sostituto d'imposta: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<sostituto_imposta>si</sostituto_imposta>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>sostituto d'imposta: no</condizione_profilo>
+			<condition>
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<sostituto_imposta>no</sostituto_imposta>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>immobili: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<immobili>si</immobili>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>immobili: leasing</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<immobili>leasing</immobili>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>immobili: no</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<immobili>no</immobili>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>conservazione sostitutiva a norma: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<conservazione_sostitutiva>si</conservazione_sostitutiva>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>conservazione sostitutiva a norma: no</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<conservazione_sostitutiva>no</conservazione_sostitutiva>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		
+		<Rule>		
+			<condizione_profilo>f24 cumulativo: si</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<f24_cumulativo>si</f24_cumulativo>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		<Rule>		
+			<condizione_profilo>f24 cumulativo: no</condizione_profilo>
+			<condition>				
+				<Cliente>	
+					<dati_crm>
+						<DatiCRM>
+							<f24_cumulativo>no</f24_cumulativo>
+						</DatiCRM>
+					</dati_crm>
+				</Cliente>
+			</condition>
+		</Rule>
+		 
+	</service>
+</serena>

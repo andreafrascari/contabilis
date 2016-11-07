@@ -1,0 +1,13 @@
+@BEGIN_TEMPLATE@
+	@BLOCK_BEGIN_RUNNING@
+		<div class="alert alert-success" role="alert">@MESSAGE@</div>
+	@BLOCK_END_RUNNING@
+	
+	@BLOCK_BEGIN_NOW_STARTING@
+		<div class="alert alert-danger" role="alert">Nessun thread "mail2ticket" attivo: il sistema <strong>non sta interrogando</strong> alcuna casella di posta! </div>
+	@BLOCK_END_NOW_STARTING@
+	
+	@BLOCK_BEGIN_POLLING_OFF@
+		<div class="alert alert-danger" role="alert">Nessun thread "mail2ticket" attivo: polling disattivato. </div>
+	@BLOCK_END_POLLING_OFF@
+@END_TEMPLATE@

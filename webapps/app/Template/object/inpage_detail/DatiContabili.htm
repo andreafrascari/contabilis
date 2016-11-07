@@ -1,0 +1,62 @@
+@BEGIN_TEMPLATE@<div class="inpage_detail">
+			@BEGIN_DatiContabili@
+			<div class="inserto">
+				<ul class="clearfix toolbar">
+					@BLOCK_BEGIN_EDIT@
+						([
+								[[] != [1]]
+								?? [
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+								]
+							])
+					@BLOCK_END_EDIT@
+					<li>
+						<a href="?q=object/list&amp;p=_system_log/_a_onclass/_v_DatiContabili/_a_oninstance/_v_@tag_ID#FLAT@" title="storia delle modifiche"><img alt="storia delle modifiche" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-history.png" /></a>
+					</li>
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+
+			
+			<div style="display:none" id="dati_contabili_per_@tag_tipo_cliente#FLAT@">1</div>
+			
+			<div class="object-inpage-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_tipo_cliente@@tag_sez_contabilita@@tag_codice_ateco@@tag_codice_ateco2@@tag_codice_ateco3@@tag_teniamo_noi@@tag_regime_contabilita@@tag_esercizio_solare@@tag_esercizio_da@@tag_esercizio_a@@tag_regime_iva@@tag_sez_registro_imprese@@tag_provincia_registro_imprese@@tag_sezione_ordinaria@@tag_sezioni_speciali@@tag_unita_locali@@tag_iscritto_rea@@tag_note@@tag_sez_previdenza@@tag_regimi_previdenziali@@tag_sez_inail@@tag_obbligo_iscrizione_inail@@tag_pat_numero@@tag_incarico_a@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [] != []]
+					?? [
+						<div class="object-inpage-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+					]
+				])@END_DatiContabili@
+		</div>@END_TEMPLATE@

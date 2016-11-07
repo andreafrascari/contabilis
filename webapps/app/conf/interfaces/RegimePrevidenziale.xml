@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>RegimePrevidenziale</title>  
+  <title_view>RegimePrevidenziale</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_regimi_previdenziali</name>  
+      <label>dati contabili</label>  
+      <detail>dati contabili</detail>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>regime</name>  
+      <label>regime</label>  
+      <detail>regime</detail>  
+      <detail_edit>regime</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>iscrizione</name>  
+      <label>iscrizione</label>  
+      <detail>iscrizione</detail>  
+      <detail_edit>iscrizione</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

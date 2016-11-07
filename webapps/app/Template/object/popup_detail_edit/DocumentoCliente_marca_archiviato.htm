@@ -1,0 +1,44 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_DocumentoCliente@<div class="detail-edit">
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container form-container-DocumentoCliente">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										<div id="DIV_INP_archiviato" class="detail-component boolean INP_archiviato">
+ 											<label for="INP_archiviato">Il documento &egrave; stato archiviato in DMS (*)  </label> 
+ 												<input type="checkbox" id="INP_archiviato" name="INP_archiviato" onchange="detailEdit.check(this);" tabindex="10"> 
+ 												<input type="hidden" value="4" id="type_INP_archiviato"> 
+ 												<input type="hidden" value="true" id="required_INP_archiviato"> 
+ 												<input type="hidden" value="" id="label_INP_archiviato"> 
+ 												<input type="hidden" name="HID_archiviato">
+												<div class="object-help">spuntare la check e salvare per indicare che questo documento &egrave; stato archiviato in DMS</div>
+										</div>
+									</div>
+									
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+						</div>
+					</div>@END_DocumentoCliente@
+		</div>@END_TEMPLATE@

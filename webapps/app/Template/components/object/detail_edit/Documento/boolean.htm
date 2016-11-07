@@ -1,0 +1,14 @@
+<div class="detail-component boolean @NAME@">
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</label>
+	
+		<input tabindex="10" type="checkbox" onchange="detailEdit.check(this);" name="@NAME@" id="@NAME@" ([ [[@VALUE@] != []] ?? [checked="@VALUE@"] ]) />
+		<input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+		<input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+		<input type="hidden" id="label_@NAME@" value="@LABEL@" />
+	
+	<input type="hidden" name="@NAME_HIDDEN@" ([ [[@VALUE@] != []] ?? [@VALUE@="@VALUE@"] ]) />
+	<div class="object-help">@HELP@</div>
+</div>
+

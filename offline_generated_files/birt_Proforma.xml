@@ -1,0 +1,45 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<ProForma_Totali>
+			<ID>1</ID>
+			<anno_contabile>2011</anno_contabile>
+			<inverse_of_proforma>
+				<Cliente>
+					<cliente>bucchi</cliente>
+					<codice_fiscale>CF</codice_fiscale>
+					<partita_iva>IVA</partita_iva>
+					<indirizzo>via</indirizzo>
+					<comune>bologna</comune>
+					<cap>50000</cap>
+				</Cliente>
+			</inverse_of_proforma>
+			<voci_proforma>
+				<VoceFattura>
+					<importo>333</importo>
+					<oggetto>voce 1</oggetto>
+					<iva>22%</iva>
+				</VoceFattura>
+			</voci_proforma>
+			<numero>233</numero>
+			<data>22/1/2012</data>
+			<competenza>tullini</competenza>
+			<spese_anticipate_desc>report spese</spese_anticipate_desc>
+			<Rivalsa_Previdenziale>33</Rivalsa_Previdenziale>
+			<Totale_Imponibile_0>99</Totale_Imponibile_0>
+			<Totale_Imponibile_1>99</Totale_Imponibile_1>
+			<Totale_Imponibile_2>99</Totale_Imponibile_2>
+			<Totale_Imponibile_3>99</Totale_Imponibile_3>
+			<Totale_Imponibile_4>99</Totale_Imponibile_4> 
+			<Iva_0>99</Iva_0>
+			<Iva_1>99</Iva_1>
+			<Iva_2>99</Iva_2>
+			<Iva_3>99</Iva_3>
+			<Iva_4>99</Iva_4>
+			<Spese_Escluse_Da_Imponibile>99</Spese_Escluse_Da_Imponibile>
+			<Totale_Fattura>99</Totale_Fattura>
+			<Ritenuta_Acconto>99</Ritenuta_Acconto>
+			<Totale_Da_Pagare>99</Totale_Da_Pagare>
+		</ProForma_Totali>
+	</service>
+</serena>

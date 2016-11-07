@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Fattura_Totali</title>  
+  <title_view>Fattura</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>anno_contabile</name>  
+      <label>anno contabile</label>  
+      <detail>anno contabile</detail>  
+      <filter>anno contabile</filter>  
+      <list>anno contabile</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>numero</name>  
+      <label>numero</label>  
+      <detail>numero</detail>  
+      <filter>numero</filter>  
+      <list>numero</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>13</order> 
+    </item>  
+    <item> 
+      <name>data</name>  
+      <label>data</label>  
+      <detail>data</detail>  
+      <filter>data</filter>  
+      <list>data</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>@TODAY@</default>  
+      <order>15</order> 
+    </item> 
+     <item> 
+      <name>inverse_of_fatture</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>   
+    <item> 
+      <name>competenza</name>  
+      <label>competenza</label>  
+      <detail>competenza</detail>  
+      <filter>competenza</filter>  
+      <list>competenza</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>17</order> 
+    </item>  
+    <item> 
+      <name>voci_fattura</name>  
+      <label>voci</label>  
+      <detail inpage="1">voci</detail>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>data_pagamento</name>  
+      <label>data pagamento</label>  
+      <detail>data pagamento</detail>  
+      <filter>data pagamento</filter>  
+      <list>data pagamento</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item> 
+    <item> 
+      <name>spese_anticipate_desc</name>  
+      <label>report spese anticipate</label>  
+      <detail>report spese anticipate</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>42</order> 
+    </item>
+    <item> 
+      <name>Rivalsa_Previdenziale</name>  
+      <label>Rivalsa_Previdenziale</label>  
+      <detail>Rivalsa previdenziale</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>69</order> 
+    </item> 
+ 	<item> 
+      <name>Totale_Imponibile_0</name>  
+      <label>Imponibile Fuori Campo</label>  
+      <detail>Imponibile Fuori Campo</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>70</order> 
+    </item>   
+    <item> 
+      <name>Totale_Imponibile_1</name>  
+      <label>Imponibile Esente Art.10</label>  
+      <detail>Imponibile Esente Art.10</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order> 
+    </item>   
+    <item> 
+      <name>Totale_Imponibile_2</name>  
+      <label>Imponibile 4%</label>  
+      <detail>Imponibile 4%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>72</order> 
+    </item>   
+    <item> 
+      <name>Totale_Imponibile_3</name>  
+      <label>Imponibile 10%</label>  
+      <detail>Imponibile 10%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>73</order> 
+    </item>   
+    <item> 
+      <name>Totale_Imponibile_4</name>  
+      <label>Imponibile 2*%</label>  
+      <detail>Imponibile 2*%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>74</order> 
+    </item>   
+    <item> 
+      <name>Iva_0</name>  
+      <label>Iva Fuori Campo</label>  
+      <detail>Iva Fuori Campo</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>80</order> 
+    </item>   
+    <item> 
+      <name>Iva_1</name>  
+      <label>Iva Esente Art.10</label>  
+      <detail>Iva Esente Art.10</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order> 
+    </item>   
+    <item> 
+      <name>Iva_2</name>  
+      <label>Iva 4%</label>  
+      <detail>Iva 4%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>82</order> 
+    </item>   
+    <item> 
+      <name>Iva_3</name>  
+      <label>Iva 10%</label>  
+      <detail>Iva 10%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>83</order> 
+    </item>   
+    <item> 
+      <name>Iva_4</name>  
+      <label>Iva 2*%</label>  
+      <detail>Iva 2*%</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>84</order> 
+    </item>
+    <item> 
+      <name>Spese_Escluse_Da_Imponibile</name>  
+      <label>Spese escluse da imponibile</label>  
+      <detail>Spese escluse da imponibile</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>90</order> 
+    </item>
+    <item> 
+      <name>Totale_Fattura</name>  
+      <label>Totale fattura</label>  
+      <detail>Totale fattura</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>92</order> 
+    </item>
+    <item> 
+      <name>Ritenuta_Acconto</name>  
+      <label>Ritenuta acconto</label>  
+      <detail>Ritenuta acconto</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>94</order> 
+    </item>
+    <item> 
+      <name>Totale_Da_Pagare</name>  
+      <label>Totale da pagare</label>  
+      <detail>Totale da pagare</detail>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>96</order> 
+    </item>    
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

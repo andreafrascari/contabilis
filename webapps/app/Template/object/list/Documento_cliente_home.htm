@@ -1,0 +1,73 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+					
+
+<div class="alert alert-info" role="alert">I documenti con <em>icona download</em> gialla non risultano ancora scaricati</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Documento.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+	
+								@BEGIN_Documento@
+											<tr>
+	
+	
+									<td class="attachment">
+											<a class="btn btn-default btn-([[[@tag_storia_documento.StoriaDocumento.scaricato_il#FLAT@]==[]]??[warning]::[success]]) btn-xs" title="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" target="_blank" href="DandL?q=get&amp;d=@tag_ID#FLAT@&amp;a=@tag_allegato._system_attachment.ID#FLAT@&amp;u=@FUN_GET_USER_INFO(param=id)@">
+											<span aria-hidden="true" class="glyphicon glyphicon-paperclip"></span>
+											</a>
+										</td>
+										
+										<td>@tag_titolo#FLAT@<br />(@tag_tipologia.DescrizioneDocumento.tipologia_documento#FLAT@)</td>
+										
+										<td class="scaricatoil">
+										([[[@tag_storia_documento.StoriaDocumento.scaricato_il#FLAT@]!=[]]??[
+										scaricato il<br/>
+										@tag_storia_documento.StoriaDocumento.scaricato_il#FLAT@]])</td>
+											
+									</tr>@END_Documento@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+		([[[@PAGINA_CORRENTE@] contains [/1]] ?? [] :: [
+	 		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+				]])
+			</div>
+		</div>@END_TEMPLATE@

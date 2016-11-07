@@ -1,0 +1,39 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_NotificaScadenza@<div class="detail-edit">
+ 
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+		
+						<div class="form-container">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Confermare il nuovo stato</legend>
+										@tag_oggetto#FLAT@ passa in stato <strong>fatto</strong>.	
+									
+									
+									<input type="hidden" name="INP_fatto" value="si" />
+									
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" id="allow_instance_deletion" value="false" /> 
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+ 
+						</div>
+					</div>@END_NotificaScadenza@
+		</div>@END_TEMPLATE@

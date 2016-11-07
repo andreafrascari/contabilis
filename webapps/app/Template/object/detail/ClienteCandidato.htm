@@ -1,0 +1,113 @@
+@BEGIN_TEMPLATE@<div id="detail">
+				<h2>@TITLE@</h2>
+
+			
+						@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			
+			@BEGIN_ClienteCandidato@
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+						
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+									
+						([[
+						[@tag_preventivo_listino.DatiFatturazione.ID#FLAT@]!=[]
+					]??[
+						<li>
+							<a href="?q=helpgest/listino2preventivo&amp;id=@tag_ID#FLAT@" onclick="return confirm('Confermare creazione voci preventivo da listino: potrai poi modificare il testo dal campo omonimo di questa scheda tramite editor. Attenzione! Eventuali dati presenti vengono sovrascritti.');" title="genera preventivo nel campo editor">
+								<img alt="genera preventivo" src="app/Template/metaAmbiente/img/icon-new-revision.png" />
+							</a>
+						</li>	
+					]])
+					
+					
+					([[
+						[@tag_preventivo#FLAT@]!=[] 
+					]??[
+						<li>
+							<a href="ModuleIndex?q=report/give/CLS=ClienteCandidato/DOC=ClienteCandidato/TYPE=pdf/ID=@tag_ID#FLAT@" title="genera pdf preventivo">
+								<img alt="genera pdf preventivo" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+							</a>
+						</li>
+						
+						([[
+						[@tag_diventa_cliente.Cliente.ID#FLAT@]==[] 
+								]??[
+							<li>
+								<a href="?q=object/detail_edit&p=Cliente&amp;F=@tag_preventivo_listino.DatiFatturazione.ID#FLAT@&amp;t=ClienteCandidato2Cliente&amp;ID=@tag_ID#FLAT@" title="trasforma in cliente"><img alt="trasforma in cliente" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-workflow.png" /></a>
+							</li>
+							]])
+					]])
+					
+					
+					@BLOCK_END_EDIT@
+					
+				</ul>
+			</div>
+
+
+
+<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_cliente@
+							</tbody>
+						</table>
+					</div>
+					
+
+				
+
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_cliente@@tag_cliente_dal@@tag_codice_fiscale@@tag_partita_iva@@tag_indirizzo@@tag_comune@@tag_cap@@tag_cellulare@@tag_email@@tag_fax@@tag_note@
+								@tag_preventivo@
+							</tbody>
+						</table>
+					</div>
+
+				
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_preventivo_listino@@tag_diventa_cliente@
+								</tbody>
+							</table>
+						</div>
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_ClienteCandidato@
+		</div>@END_TEMPLATE@

@@ -1,0 +1,87 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+				<div id="splash">
+					<h2>@TITLE@</h2>
+					<h3>Risultati della ricerca : @NUMERO_ELEMENTI@</h3>
+				</div>
+
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+ 
+						<li>
+							<form id="report-repository-3" action="ModuleIndex">
+									<input type="hidden" id="q3" name="q" value="export/give/CLS=@CLASS@/DOC=export_@CLASS@/TYPE=csv" />
+									<input type="hidden" id="xml-query-3" name="XQUERY" value="@XML-QUERY@" />
+									<input type="image" title="esportazione csv clienti" src="app/Template/metaAmbiente/img/icon-excel.gif" onclick="javascript:alert('Avvio esportazione csv clienti in base al filtro di ricerca specificato: attendere qualche secondo dopo la conferma...');" />
+							</form>
+						</li>	
+						 
+					</ul>
+				</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_SuperCliente.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									 
+								</tr>
+	
+								@BEGIN_SuperCliente@([
+										[[@XPATH_FUN((count(preceding-sibling::SuperCliente)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										
+										<td><a href="?q=object/detail&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@" title="vai al fascicolo del cliente">@tag_cliente#FLAT@</a></td>
+										@tag_tipo_cliente@@tag_codice_cliente@@tag_tipo_sollecito@
+										<td>@tag_operatore_responsabile.Operatore.nome_e_cognome#FLAT@</td>
+										@tag_stato_cliente@@tag_codice_ateco@@tag_teniamo_noi@@tag_regime_contabilita@@tag_regime_iva@
+										
+											 
+									</tr>@END_SuperCliente@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		 
+			</div>
+		</div>@END_TEMPLATE@

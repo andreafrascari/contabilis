@@ -1,0 +1,67 @@
+@BEGIN_TEMPLATE@<div id="detail">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="javascript:history.back();" title="indietro">
+							<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+						</a>
+					</li>
+				
+
+					 
+					
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_StoricoModifiche@<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_classe@@tag_data_modifica@
+							</tbody>
+						</table>
+					</div>
+					
+
+				
+				 
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_data_modifica@@tag_creation_user@@tag_creation_date@@tag_note@
+								<tr class="vai_a"><th scope="row">vai a ...</th><td><a href="?q=object/detail&amp;p=@tag_classe#FLAT@/_a_ID/_v_@tag_istanza#FLAT@" title="vai alla versione corrente">versione corrente</td></tr>
+								@tag_html_versione@	
+							</tbody>
+						</table>
+					</div>
+
+				
+ 
+
+				
+		 @END_StoricoModifiche@
+		</div>@END_TEMPLATE@

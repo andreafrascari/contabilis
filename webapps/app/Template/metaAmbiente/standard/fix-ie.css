@@ -1,0 +1,12 @@
+/* CSS del metaambiente standard per sistemare i problemi di Internet Explorer */
+
+
+#wrap
+{
+  width: expression(document.body.clientWidth < 800 ? "770px" : document.body.clientWidth > 1100 ? "1090px" : "auto");
+}
+
+#head
+{
+  width: expression(document.body.clientWidth < 800 ? "770px" : document.body.clientWidth > 1100 ? "1090px" : "auto");
+}

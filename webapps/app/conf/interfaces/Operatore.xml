@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Operatore</title>  
+  <title_view>Operatore Studio</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>nome_e_cognome</name>  
+      <label>nome e cognome</label>  
+      <detail>nome e cognome</detail>  
+      <detail_edit>nome e cognome</detail_edit>  
+      <filter>nome e cognome</filter>  
+      <list>nome e cognome</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>email</name>  
+      <label>email di servizio HG</label>  
+      <detail>email di servizio HG</detail>  
+      <detail_edit>email di servizio HG</detail_edit>  
+      <filter>email di servizio HG</filter>  
+      <list>email di servizio HG</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>cellulare</name>  
+      <label>telefono per HelpDesk</label>  
+      <detail>telefono per HelpDesk</detail>  
+      <detail_edit>telefono per HelpDesk</detail_edit>
+      <detail_help>senxza spazi!</detail_help>  
+      <filter>telefono per HelpDesk</filter>  
+      <list>telefono per HelpDesk</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>costo_orario</name>  
+      <label>costo orario</label>  
+      <detail>costo orario</detail>  
+      <detail_edit>costo orario</detail_edit>  
+      <filter>costo orario</filter>  
+      <list>costo orario</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>25</order> 
+    </item>  
+    <item> 
+      <name>rivendita_oraria</name>  
+      <label>rivendita oraria</label>  
+      <detail>rivendita oraria</detail>  
+      <detail_edit>rivendita oraria</detail_edit>  
+      <filter>rivendita oraria</filter>  
+      <list>rivendita oraria</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>responsabile_di</name>  
+      <label>responsabile di clienti</label>  
+      <detail>responsabile di clienti</detail>  
+      <filter>responsabile di clienti</filter>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>responsabile_di_pratiche</name>  
+      <label>responsabile di pratiche</label>  
+      <detail>responsabile di pratiche</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order>  
+    </item>  
+    <item> 
+      <name>attivita_assegnate</name>  
+      <label>attivita assegnate</label>  
+      <detail>attivita assegnate</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>51</order>  
+    </item>  
+    <item> 
+      <name>op_scadenze</name>  
+      <label>metascadenze</label>  
+      <detail>metascadenze</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>pwd_autorizzativa</name>  
+      <label>pwd autorizzativa</label>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>notifiche_scadenze</name>  
+      <label>notifiche scadenze</label>  
+      <detail>notifiche scadenze</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order>  
+    </item>  
+     <item> 
+      <name>ticketAssegnati</name>  
+      <label>ticketAssegnati</label>  
+      <detail>ticketAssegnati</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>55</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>account_operatore</name>  
+      <label>account</label>  
+      <detail inpage="1">account</detail>  
+      <detail_edit template="_system_user_studio">account</detail_edit>  
+      <list>account</list>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>231</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item> 
+  </attributes> 
+</bean>

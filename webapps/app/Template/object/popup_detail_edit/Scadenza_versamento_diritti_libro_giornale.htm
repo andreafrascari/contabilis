@@ -1,0 +1,43 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_Scadenza@<div class="detail-edit">
+ 
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+		
+						<div class="form-container">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_inverse_of_scadenze@@tag_data@
+									</div>
+									
+									<input type="hidden" name="INP_inverse_of_op_scadenze" value="100" /> <!-- segreteria -->
+									<input type="hidden" name="INP_preavviso_gg" value="30" />
+									<input type="hidden" name="INP_oggetto_scadenza" value="E' necessario provvedere al pagamento dei diritti per conservazione sostitutiva libro giornale di @FUN_GET_URL_PARAM(param=nome)@" />
+									
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+ 
+						</div>
+					</div>@END_Scadenza@
+		</div>@END_TEMPLATE@

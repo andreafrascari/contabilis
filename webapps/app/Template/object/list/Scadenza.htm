@@ -1,0 +1,135 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+				<div id="splash">
+					<h2>@TITLE@</h2>
+					<h3>Risultati della ricerca : @NUMERO_ELEMENTI@ - pagina @PAGINA_CORRENTE@</h3>
+				</div>
+
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+
+ 
+					</ul>
+				</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Scadenza.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									<th scope="col">Azioni</th>
+								</tr>
+	
+								@BEGIN_Scadenza@([
+										[[@XPATH_FUN((count(preceding-sibling::Scadenza)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_inverse_of_scadenze@@tag_inverse_of_op_scadenze@@tag_inverse_of_pratica_scadenza@@tag_inverse_of_attivita_scadenza@
+										<td>
+										@BEGIN_profili_clienti@
+											@BEGIN_ProfiloDinamicoClienti@
+												@tag_nome#FLAT@<br />
+											@END_ProfiloDinamicoClienti@
+										@END_profili_clienti@
+										</td>
+										@tag_data@@tag_preavviso_gg@@tag_oggetto_scadenza@@tag_ricorrenza@
+											<td>
+												<a class="link_map" href="?q=@MODULE@/detail&amp;p=Scadenza/_a_ID/_v_@tag_ID#FLAT@" title="Vai alla scheda dell'oggetto"><img alt="Vai alla scheda dell'oggetto" title="Vai alla scheda dell'oggetto"  src="app/Template/metaAmbiente/img/icon-forth.gif" /></a>
+												([
+												[[@FUN_CHECK_INSTANCE_AUTH(CLS=@CLASS@,ID=@tag_ID#FLAT@,LEVEL=2,CREATION_USER=@tag_creation_user#FLAT@)@] == [true]]
+												?? [
+													<span class="NoVisibility">|</span>
+													([
+														[[] != [1]]
+														?? [
+															([ 
+																[[] == [complex_detail_edit]] 
+																?? [
+																	<a class="link_map" href="?q=@MODULE@/complex_detail_edit/CLS=Scadenza/ID=@tag_ID#FLAT@" title="Modifica i dati dell'oggetto">
+																		<img alt="Modifica i dati dell'oggetto" title="Modifica i dati dell'oggetto"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+																	</a>
+																] :: [
+																	<a class="link_map" href="?q=@MODULE@/detail_edit&amp;p=Scadenza/_a_ID/_v_@tag_ID#FLAT@" title="Modifica i dati dell'oggetto">
+																		<img alt="Modifica i dati dell'oggetto" title="Modifica i dati dell'oggetto"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+																	</a>
+																]
+															])
+														]
+													])
+												]
+												])
+												
+											</td>
+									</tr>@END_Scadenza@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

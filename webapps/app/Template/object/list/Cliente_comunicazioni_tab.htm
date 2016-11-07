@@ -1,0 +1,35 @@
+@BEGIN_TEMPLATE@
+
+<div>
+			<div id="list" class="tabbed">
+				<h2>@FUN_CURRENT_DATA(class=Cliente,param=cliente)@</h2>
+			
+	@BEGIN_Cliente@	
+		
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+				
+		@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('HDTicket');
+		});
+		</script>
+					
+			@FUN_MODULE(q=object/list,p=HDTicket/_a_daCliente/_v_@tag_ID#FLAT@,t=HDTicket_tab)@
+			
+			@FUN_MODULE(q=object/list,p=Sms/_a_a_cliente/_v_@tag_ID#FLAT@,t=Sms_tab)@
+
+			@FUN_MODULE(q=object/list,p=NotificaScadenza/_a_inverse_of_avvisi_scadenze_cliente/_v_@tag_ID#FLAT@,t=NotificaScadenza_cliente_tab)@
+			
+		@END_Cliente@
+		
+	</div>
+</div>
+@END_TEMPLATE@

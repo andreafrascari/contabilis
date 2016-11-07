@@ -1,0 +1,113 @@
+@BEGIN_TEMPLATE@<div id="detail">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+			
+						@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			@BEGIN_Fattura@ 
+
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					<li>
+						<a href="ModuleIndex?q=report/give/CLS=Fattura_Totali/DOC=Fattura_@tag_competenza#FLAT@/TYPE=pdf/ID=@tag_ID#FLAT@" title="Pdf Fattura">
+							<img alt="Pdf Fattura" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+						</a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+									<li>
+										<a href="?q=helpgest/birt2documento&amp;titolo=Fattura@tag_competenza#FLAT@_@tag_numero#FLAT@_@tag_anno_contabile#FLAT@&amp;cliente=@tag_inverse_of_fatture.Cliente.ID#FLAT@&amp;tipologia=FATTURE @tag_competenza#FLAT@&amp;report=Fattura_@tag_competenza#FLAT@&amp;class=Fattura_Totali&id=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera pdf fattura e registra documento DMS, pronto per invio" onclick="return confirm('Confermare registrazione documento DMS da fattura:');">
+											<img alt="Genera pdf fattura e registra documento DMS, pronto per invio" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+										</a>
+									</li>
+					@BLOCK_END_EDIT@
+					
+				</ul>
+			</div>
+
+
+
+					
+
+				
+				([
+					[ [@tag_inverse_of_fatture@] != []]
+					?? [
+						<div id="object-body-nav">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella navigazione">
+								<tbody>
+									<tr class="inverse_of_proforma">
+										<th scope="row"></th>
+										<td>
+											<div class="object-link">
+												<em>vai alla scheda di </em>
+													<a href="?q=object/detail&p=Cliente/_a_ID/_v_@tag_inverse_of_fatture.Cliente.ID#FLAT@" title="vai alla scheda di @tag_inverse_of_fatture.Cliente.cliente#FLAT@">@tag_inverse_of_fatture.Cliente.cliente#FLAT@</a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_anno_contabile@@tag_numero@@tag_data@@tag_competenza@@tag_spese_anticipate_fattura@@tag_spese_anticipate_desc@@tag_riv_prev@@tag_ra@@tag_data_pagamento@@tag_note@
+							</tbody>
+						</table>
+					</div>
+
+				
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_da_proforma@
+									@tag_voci_fattura@	
+								</tbody>
+							</table>
+						</div>
+
+						<div id="object-importi" @toggable="label=apri/chiudi importi,init_state=closed">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="importi">
+								<tbody>
+									@FUN_MODULE(q=object/detail,p=Fattura_Totali/_a_ID/_v_@tag_ID#FLAT@,t=Fattura_Totali)@
+								</tbody>
+							</table>
+						</div>
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_Fattura@
+		</div>@END_TEMPLATE@

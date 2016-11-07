@@ -1,0 +1,14 @@
+@BEGIN_TEMPLATE@<div class="sollecito">
+				([
+						[[@tag_SollecitoPagamento.ID#FLAT@] != []]
+						?? [
+						<ul>	
+								@BEGIN_SollecitoPagamento@
+									<li>										
+										<a href="?q=@MODULE@/detail&amp;p=SollecitoPagamento/_a_ID/_v_@tag_ID#FLAT@" title="Vai alla scheda dell'oggetto">@tag_numero_sollecito#FLAT@</a> - @tag_oggetto#FLAT@ - data spedizione: @tag_data_spedizione#FLAT@											
+									</li>
+								@END_SollecitoPagamento@
+						</ul>
+						]
+					])
+</div>@END_TEMPLATE@

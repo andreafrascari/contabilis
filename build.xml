@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<project name="TulliniHelpGest" default="1_localDeploy">
+	<property environment="env" />
+	
+	<property file="build.properties" />
+	<property name="serverHome" value="${env.TOMCAT_HOME}" />
+	<property name="webserviceClassNames" value="HelpGestWebService" />
+
+	<property name="commonLibrariesProject" value="commonLibraries" />
+	<property name="serenaBaseLibraryProject" value="Serena_BaseLibrary" />
+	<property name="applicationProject" value="Serena_Application" />	
+	<property name="tulliniDMSProject" value="TulliniDMS" />
+	
+	<import file="../${applicationProject}/build.xml" />	
+	<import file="../${tulliniDMSProject}/build.xml" />
+	
+	
+	<target name="0_createApplicationSkeleton"
+			description="Crea lo scheletro dell'applicazione">
+		<createSerenaApplicationSkeleton projectname="${ant.project.name}" webserviceClassNames="${webserviceClassNames}" />	
+	</target>
+	
+	<target name="1_localDeploy"
+			description="Effettua il deploy in locale dell'applicazione">
+		<echo message="Binding..." />
+		<bind verbose="false" load="true">
+			<bindingfileset dir="webapps/app/conf/bean_bindings">
+				<include name="*.xml" />
+			</bindingfileset>
+			<classpath>
+				<pathelement path="bin" />
+				<pathelement path="../${applicationProject}/bin" />
+				<pathelement path="../${serenaBaseLibraryProject}/bin" />
+				<fileset dir="../${commonLibrariesProject}" includes="*.jar" />
+			</classpath>
+		</bind>
+		<localDeploySubSerenaApplication projectName="${ant.project.name}"  parentProjectName="${tulliniDMSProject}" serverHome="${serverHome}" />
+		<localDeploySerenaBirtReportModule
+			projectName="${ant.project.name}" serverHome="${serverHome}" />
+		<localDeploySerenaWebservice projectName="${ant.project.name}" serverHome="${serverHome}" webserviceClassNames="${webserviceClassNames}" />
+		<!-- Per evitare duplicati -->
+			<delete file="${serverHome}/webapps/${ant.project.name}/WEB-INF/lib/mail-1.4.jar" />
+	</target>
+	
+	<target name="2_localClean"
+				description="Cancella dal server la cartella dell'applicazione">
+		<localCleanSerenaApplication projectName="${ant.project.name}" serverHome="${serverHome}" />
+	</target>
+	
+	<target name="3_localRedeploy" depends="2_localClean, 1_localDeploy"
+				description="Effettua il deploy in locale da zero dell'applicazione" />
+				
+	<target name="4_localDeployAppDir"
+				description="Cancella dal server la cartella dell'applicazione">
+		<localDeploySerenaCoreAppDir projectName="${ant.project.name}" serverHome="${serverHome}" />
+		<localDeploySpecificAppDir projectName="${ant.project.name}" parentProjectName="${tulliniDMSProject}" serverHome="${serverHome}" />
+	</target>	
+</project>

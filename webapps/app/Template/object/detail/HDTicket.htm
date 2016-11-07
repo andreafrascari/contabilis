@@ -1,0 +1,140 @@
+@BEGIN_TEMPLATE@<div id="detail">
+					<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>					
+					
+				</ul>
+			</div>
+		
+				<h2>@TITLE@</h2>
+		
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="object-title">
+			
+							
+			
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_identificativo@
+							</tbody>
+						</table>
+					</div>
+					
+
+				
+				<div id="object-body">
+				<div class="alert alert-info" role="alert">
+		<div role="toolbar" style="float:right">
+			<a class="btn btn-default btn-xs btn-info" href="?q=object/detail_edit&amp;p=HDThreadStep&amp;a=_a_inverse_of_thread/_c_HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDThreadStep_add" title="aggiungi messaggio"><span aria-hidden="true" class="glyphicon glyphicon-envelope"></span></a>
+			<a class="btn btn-default btn-xs btn-info" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket" title="modifica il ticket"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span></a>
+			([[[@tag_assegnatoApratica@]==[]] ?? [
+			 		<a class="btn btn-default btn-xs btn-info" @popup="title=Assegna a pratica,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_pratica" title="assegna a pratica"><span aria-hidden="true" class="glyphicon glyphicon-pushpin"></span></a>
+											]])			
+<!-- 			<a class="btn btn-default btn-xs btn-info" href="?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@" title="controlla e contabilizza il ticket"><span aria-hidden="true" class="glyphicon glyphicon-euro"></span></a> -->
+			<a class="btn btn-default btn-xs btn-success" @popup="title=Confermare chiusura ticket,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_closeOk" title="chiudi il ticket come risolto"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span></a>
+			<a class="btn btn-default btn-xs btn-danger" @popup="title=Confermare chiusura ticket COME NON RISOLVIBILE,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_closeNo" title="chiudi il ticket come insolubile"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></a>
+			<a class="btn btn-default btn-xs btn-warning" @popup="title=Riassegna il ticket ad un collega,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_assegna" title="riassegna il ticket"><span aria-hidden="true" class="glyphicon glyphicon-user"></span></a>
+		</div>
+			Usare le icone a fianco per: 1) rispondere al cliente (aggiungendo un messaggio); 2) modificare il ticket; 3) assegnarlo ad una pratica; 4) chiuderlo come risolto; 5) chiuderlo come non risolubile; 6) assegnarlo ad altro operatore;
+			<br /><br />
+				La <strong>contabilizzazione</strong> del ticket in sessioni di lavoro avviene sui singoli messaggi.<br /> 
+				Se il ticket &egrave; assegnato ad una pratica, "aprendo" le messaggi trovi
+				un icona "ingranaggio" da cui effettuare l'operazione (che proporr&agrave; gli eventuali minuti di telefonata registrati dal centralino)
+				</div>
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+							
+								@tag_identificativo@
+								<tr class="codice">
+								<th scope="row">codice</th><td>[CONTABILIS_T_@tag_ID#FLAT@_T]<td></tr>
+								
+								@tag_dataArrivo@@tag_daCliente@@tag_contattoNonRiconosciuto@@tag_assegnato_a@
+								@tag_emailAssistenza@@tag_assegnatoApratica@
+								@tag_statoTicket@@tag_priorita_ticket@@tag_data_scadenza@@tag_diagnosi_libero@@tag_azioneRichiesta@@tag_rispondere_a@
+								<tr class="contabilizzazione">
+								<th scope="row">minuti totali contabilizzati</th><td class="contab contab-@FUN_TICKET_TOTAL_MINUTES(ID=@tag_ID#FLAT@)@">@FUN_TICKET_TOTAL_MINUTES(ID=@tag_ID#FLAT@)@</td>
+								</tr>
+								
+								<tr class="thread">
+								<th scope="row">messaggi</th>
+								<td>
+								<ul class="list-group">
+  								@BEGIN_thread@
+									@BEGIN_HDThreadStep@
+										([[[@tag_th_direzione#FLAT@]==[studio cliente]]  ?? [
+								<li class="list-group-item list-group-item-warning">
+										<div class="messaggio-studio">	
+													<div class="risposta">Risposta Studio (non spedita):</div>
+														@FUN_MODULE(q=object/inpage_detail,p=HDThreadStep/_a_ID/_v_@tag_ID#FLAT@,t=HDThreadStepCompact)@
+										</div>				
+											]])
+											([[[@tag_th_direzione#FLAT@]==[spedito studio cliente]]  ?? [
+								<li class="list-group-item list-group-item-success">
+										<div class="messaggio-studio">	
+													<div class="risposta">Risposta Studio (spedita):</div>
+														@FUN_MODULE(q=object/inpage_detail,p=HDThreadStep/_a_ID/_v_@tag_ID#FLAT@,t=HDThreadStepCompact)@
+										</div>				
+											]])
+											
+											([[[@tag_th_direzione#FLAT@]==[cliente studio]]  ?? [											
+											<li class="list-group-item list-group-item-danger">											
+													<div class="messaggio-cliente">	
+										<div class="richiesta">Richiesta cliente:</div> 
+														@FUN_MODULE(q=object/inpage_detail,p=HDThreadStep/_a_ID/_v_@tag_ID#FLAT@,t=HDThreadStepCompact)@
+										<!-- del @tag_th_data#FLAT@ da canale @tag_canale#FLAT@: @tag_th_messaggio#FLAT@				 -->
+										</div>							
+										]])
+									</li>							
+									@END_HDThreadStep@		
+									@END_thread@
+									</ul>
+								</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+				
+				([
+					[ [@tag_emailAssistenza@@tag_assegnatoApratica@@tag_allegato@@tag_allegato_1@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_allegato@@tag_allegato_1@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_owner_user@@tag_owner_group@@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

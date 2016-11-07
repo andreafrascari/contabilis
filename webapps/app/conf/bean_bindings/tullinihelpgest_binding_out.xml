@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Convertitore da Java a XML-->
+<binding direction="output">
+  <format type="java.util.Date" serializer="eu.anastasis.serena.beans.Serializers.serializeDateTime" label="datetimeFormat"/>
+  <format type="java.util.Date" serializer="eu.anastasis.serena.beans.Serializers.serializeDate" label="dateFormat"/>
+  <mapping name="Attivita" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Attivita" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="assegnata_a" usage="optional" field="assegnata_a" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_assegnata_a"/>
+    <structure name="attivita_scadenza" usage="optional" field="attivita_scadenza" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_attivita_scadenza"/>
+    <structure name="inverse_of_attivita" usage="optional" field="inverse_of_attivita" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_attivita"/>
+    <value name="minuti_ultima_fattura" get-method="getMinuti_ultima_fattura" set-method="setMinuti_ultima_fattura" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <collection name="sessioni_di_lavoro" field="sessioni_di_lavoro" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.LavoroSuAttivita" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_sessioni_di_lavoro"/>
+    <collection name="spese_anticipate" field="spese_anticipate" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.SpesaAnticipata" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_spese_anticipate"/>
+    <value name="stato_attivita" get-method="getStato_attivita" set-method="setStato_attivita" usage="optional"/>
+    <value name="titolo" get-method="getTitolo" set-method="setTitolo" usage="optional"/>
+  </mapping>
+  <mapping name="CalendarioFatturazione" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.CalendarioFatturazione" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <structure name="per_cliente" usage="optional" field="per_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_per_cliente"/>
+    <structure name="proforma_emessa" usage="optional" field="proforma_emessa" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_proforma_emessa"/>
+    <value name="rata" get-method="getRata" set-method="setRata" usage="optional"/>
+    <value name="su_rate" get-method="getSu_rate" set-method="setSu_rate" usage="optional"/>
+  </mapping>
+  <mapping name="Cliente" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Cliente" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="allegato" get-method="getAllegato" set-method="setAllegato" usage="optional"/>
+    <value name="allegato_1" get-method="getAllegato_1" set-method="setAllegato_1" usage="optional"/>
+    <collection name="avvisi_scadenze" field="avvisi_scadenze" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.NotificaScadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_avvisi_scadenze"/>
+    <collection name="calendario_fatturazione" field="calendario_fatturazione" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.CalendarioFatturazione" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_calendario_fatturazione"/>
+    <value name="cap" get-method="getCap" set-method="setCap" usage="optional"/>
+    <value name="cellulare" get-method="getCellulare" set-method="setCellulare" usage="optional"/>
+    <value name="cessata_assistenza_il" get-method="getCessata_assistenza_il" set-method="setCessata_assistenza_il" usage="optional" format="dateFormat"/>
+    <value name="cliente" get-method="getCliente" set-method="setCliente" usage="optional"/>
+    <value name="cliente_dal" get-method="getCliente_dal" set-method="setCliente_dal" usage="optional" format="dateFormat"/>
+    <value name="codice_cliente" get-method="getCodice_cliente" set-method="setCodice_cliente" usage="optional"/>
+    <value name="codice_fiscale" get-method="getCodice_fiscale" set-method="setCodice_fiscale" usage="optional"/>
+    <value name="comune" get-method="getComune" set-method="setComune" usage="optional"/>
+    <collection name="contatti_studio" field="contatti_studio" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDTicket" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_contatti_studio"/>
+    <collection name="dati_contabili" field="dati_contabili" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DatiContabili" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_dati_contabili"/>
+    <structure name="dati_crm" usage="optional" field="dati_crm" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_dati_crm"/>
+    <structure name="dati_fatturazione" usage="optional" field="dati_fatturazione" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_dati_fatturazione"/>
+    <collection name="documenti_per_lo_studio" field="documenti_per_lo_studio" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DocumentoCliente" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_documenti_per_lo_studio"/>
+    <value name="email" get-method="getEmail" set-method="setEmail" usage="optional"/>
+    <value name="email2" get-method="getEmail2" set-method="setEmail2" usage="optional"/>
+    <value name="email3" get-method="getEmail3" set-method="setEmail3" usage="optional"/>
+    <collection name="fatture" field="fatture" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Fattura" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_fatture"/>
+    <value name="fax" get-method="getFax" set-method="setFax" usage="optional"/>
+    <value name="indirizzo" get-method="getIndirizzo" set-method="setIndirizzo" usage="optional"/>
+    <collection name="inverse_of_cliente_doc" field="inverse_of_cliente_doc" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.StoriaDocumento" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_cliente_doc"/>
+    <structure name="inverse_of_diventa_cliente" usage="optional" field="inverse_of_diventa_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_diventa_cliente"/>
+    <value name="legale_rappresentante_cf" get-method="getLegale_rappresentante_cf" set-method="setLegale_rappresentante_cf" usage="optional"/>
+    <value name="legale_rappresentante_cognome" get-method="getLegale_rappresentante_cognome" set-method="setLegale_rappresentante_cognome" usage="optional"/>
+    <value name="legale_rappresentante_nome" get-method="getLegale_rappresentante_nome" set-method="setLegale_rappresentante_nome" usage="optional"/>
+    <value name="legale_rappresentante_residenza" get-method="getLegale_rappresentante_residenza" set-method="setLegale_rappresentante_residenza" usage="optional"/>
+    <value name="nickname" get-method="getNickname" set-method="setNickname" usage="optional"/>
+    <value name="non_profit" get-method="getNon_profit" set-method="setNon_profit" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <structure name="operatore_responsabile" usage="optional" field="operatore_responsabile" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_operatore_responsabile"/>
+    <value name="partita_iva" get-method="getPartita_iva" set-method="setPartita_iva" usage="optional"/>
+    <collection name="pratiche" field="pratiche" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Pratica" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_pratiche"/>
+    <collection name="proforma" field="proforma" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ProForma" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_proforma"/>
+    <value name="recapito_cap" get-method="getRecapito_cap" set-method="setRecapito_cap" usage="optional"/>
+    <value name="recapito_comune" get-method="getRecapito_comune" set-method="setRecapito_comune" usage="optional"/>
+    <value name="recapito_indirizzo" get-method="getRecapito_indirizzo" set-method="setRecapito_indirizzo" usage="optional"/>
+    <collection name="scadenze" field="scadenze" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Scadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_scadenze"/>
+    <value name="sez_contatti" get-method="getSez_contatti" set-method="setSez_contatti" usage="optional"/>
+    <value name="sez_legale_rappresentante" get-method="getSez_legale_rappresentante" set-method="setSez_legale_rappresentante" usage="optional"/>
+    <value name="sez_recapito" get-method="getSez_recapito" set-method="setSez_recapito" usage="optional"/>
+    <value name="sez_sede_legale" get-method="getSez_sede_legale" set-method="setSez_sede_legale" usage="optional"/>
+    <collection name="sms_inviati" field="sms_inviati" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Sms" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_sms_inviati"/>
+    <value name="stato_cliente" get-method="getStato_cliente" set-method="setStato_cliente" usage="optional"/>
+    <value name="telefono" get-method="getTelefono" set-method="setTelefono" usage="optional"/>
+    <value name="tipo_cliente" get-method="getTipo_cliente" set-method="setTipo_cliente" usage="optional"/>
+    <value name="tipo_sollecito" get-method="getTipo_sollecito" set-method="setTipo_sollecito" usage="optional"/>
+  </mapping>
+  <mapping name="ClienteCandidato" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ClienteCandidato" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="cap" get-method="getCap" set-method="setCap" usage="optional"/>
+    <value name="cellulare" get-method="getCellulare" set-method="setCellulare" usage="optional"/>
+    <value name="cliente" get-method="getCliente" set-method="setCliente" usage="optional"/>
+    <value name="cliente_dal" get-method="getCliente_dal" set-method="setCliente_dal" usage="optional" format="dateFormat"/>
+    <value name="codice_fiscale" get-method="getCodice_fiscale" set-method="setCodice_fiscale" usage="optional"/>
+    <value name="comune" get-method="getComune" set-method="setComune" usage="optional"/>
+    <structure name="diventa_cliente" usage="optional" field="diventa_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_diventa_cliente"/>
+    <value name="email" get-method="getEmail" set-method="setEmail" usage="optional"/>
+    <value name="fax" get-method="getFax" set-method="setFax" usage="optional"/>
+    <value name="indirizzo" get-method="getIndirizzo" set-method="setIndirizzo" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="partita_iva" get-method="getPartita_iva" set-method="setPartita_iva" usage="optional"/>
+    <value name="preventivo" get-method="getPreventivo" set-method="setPreventivo" usage="optional"/>
+    <structure name="preventivo_listino" usage="optional" field="preventivo_listino" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_preventivo_listino"/>
+  </mapping>
+  <mapping name="DatiCRM" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DatiCRM" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="allegato_contratto" get-method="getAllegato_contratto" set-method="setAllegato_contratto" usage="optional"/>
+    <value name="allegato_delega_cassetto_fiscale" get-method="getAllegato_delega_cassetto_fiscale" set-method="setAllegato_delega_cassetto_fiscale" usage="optional"/>
+    <value name="allegato_delega_f24_compensazioni" get-method="getAllegato_delega_f24_compensazioni" set-method="setAllegato_delega_f24_compensazioni" usage="optional"/>
+    <value name="allegato_delega_f24_cumulativo" get-method="getAllegato_delega_f24_cumulativo" set-method="setAllegato_delega_f24_cumulativo" usage="optional"/>
+    <value name="antireciclaggio" get-method="getAntireciclaggio" set-method="setAntireciclaggio" usage="optional"/>
+    <value name="cassetto_fiscale" get-method="getCassetto_fiscale" set-method="setCassetto_fiscale" usage="optional"/>
+    <value name="conservazione_libro_giornale" get-method="getConservazione_libro_giornale" set-method="setConservazione_libro_giornale" usage="optional"/>
+    <value name="conservazione_libro_giornale_data_versamento_diritti" get-method="getConservazione_libro_giornale_data_versamento_diritti" set-method="setConservazione_libro_giornale_data_versamento_diritti" usage="optional" format="dateFormat"/>
+    <value name="conservazione_sostitutiva" get-method="getConservazione_sostitutiva" set-method="setConservazione_sostitutiva" usage="optional"/>
+    <value name="conservazione_sostitutiva_delega_studio" get-method="getConservazione_sostitutiva_delega_studio" set-method="setConservazione_sostitutiva_delega_studio" usage="optional"/>
+    <value name="conservazione_sostitutiva_note" get-method="getConservazione_sostitutiva_note" set-method="setConservazione_sostitutiva_note" usage="optional"/>
+    <value name="data_invio_impronta_digitale" get-method="getData_invio_impronta_digitale" set-method="setData_invio_impronta_digitale" usage="optional" format="dateFormat"/>
+    <structure name="df_cliente" usage="optional" field="df_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_df_cliente"/>
+    <value name="f24_cumulativo" get-method="getF24_cumulativo" set-method="setF24_cumulativo" usage="optional"/>
+    <value name="ici" get-method="getIci" set-method="setIci" usage="optional"/>
+    <value name="immobili" get-method="getImmobili" set-method="setImmobili" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="note_ici" get-method="getNote_ici" set-method="setNote_ici" usage="optional"/>
+    <value name="privacy" get-method="getPrivacy" set-method="setPrivacy" usage="optional"/>
+    <value name="privacy_acquisita" get-method="getPrivacy_acquisita" set-method="setPrivacy_acquisita" usage="optional"/>
+    <value name="sostituto_imposta" get-method="getSostituto_imposta" set-method="setSostituto_imposta" usage="optional"/>
+    <value name="verifica_validita_firma_digitale" get-method="getVerifica_validita_firma_digitale" set-method="setVerifica_validita_firma_digitale" usage="optional"/>
+  </mapping>
+  <mapping name="DatiContabili" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DatiContabili" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="codice_ateco" get-method="getCodice_ateco" set-method="setCodice_ateco" usage="optional"/>
+    <value name="codice_ateco2" get-method="getCodice_ateco2" set-method="setCodice_ateco2" usage="optional"/>
+    <value name="codice_ateco3" get-method="getCodice_ateco3" set-method="setCodice_ateco3" usage="optional"/>
+    <value name="esercizio_a" get-method="getEsercizio_a" set-method="setEsercizio_a" usage="optional"/>
+    <value name="esercizio_da" get-method="getEsercizio_da" set-method="setEsercizio_da" usage="optional"/>
+    <value name="incarico_a" get-method="getIncarico_a" set-method="setIncarico_a" usage="optional"/>
+    <structure name="inverse_of_dati_contabili" usage="optional" field="inverse_of_dati_contabili" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_dati_contabili"/>
+    <value name="iscrizione_registro_imprese" get-method="getIscrizione_registro_imprese" set-method="setIscrizione_registro_imprese" usage="optional"/>
+    <value name="liquidazione_iva" get-method="getLiquidazione_iva" set-method="setLiquidazione_iva" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="obbligo_iscrizione_inail" get-method="getObbligo_iscrizione_inail" set-method="setObbligo_iscrizione_inail" usage="optional"/>
+    <value name="pat_numero" get-method="getPat_numero" set-method="setPat_numero" usage="optional"/>
+    <value name="provincia_registro_imprese" get-method="getProvincia_registro_imprese" set-method="setProvincia_registro_imprese" usage="optional"/>
+    <value name="regime_contabilita" get-method="getRegime_contabilita" set-method="setRegime_contabilita" usage="optional"/>
+    <value name="regime_iva" get-method="getRegime_iva" set-method="setRegime_iva" usage="optional"/>
+    <collection name="regimi_previdenziali" field="regimi_previdenziali" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.RegimePrevidenziale" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_regimi_previdenziali"/>
+    <value name="sez_contabilita" get-method="getSez_contabilita" set-method="setSez_contabilita" usage="optional"/>
+    <value name="sez_inail" get-method="getSez_inail" set-method="setSez_inail" usage="optional"/>
+    <value name="sez_previdenza" get-method="getSez_previdenza" set-method="setSez_previdenza" usage="optional"/>
+    <value name="sez_registro_imprese" get-method="getSez_registro_imprese" set-method="setSez_registro_imprese" usage="optional"/>
+    <value name="sezioni_speciali" get-method="getSezioni_speciali" set-method="setSezioni_speciali" usage="optional"/>
+    <value name="teniamo_noi" get-method="getTeniamo_noi" set-method="setTeniamo_noi" usage="optional"/>
+    <value name="tipo_cliente" get-method="getTipo_cliente" set-method="setTipo_cliente" usage="optional"/>
+    <value name="unita_locali" get-method="getUnita_locali" set-method="setUnita_locali" usage="optional"/>
+  </mapping>
+  <mapping name="DatiFatturazione" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DatiFatturazione" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data_prima_rata" get-method="getData_prima_rata" set-method="setData_prima_rata" usage="optional" format="dateFormat"/>
+    <structure name="inverse_of_dati_fatturazione" usage="optional" field="inverse_of_dati_fatturazione" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_dati_fatturazione"/>
+    <structure name="inverse_of_preventivo_listino" usage="optional" field="inverse_of_preventivo_listino" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_preventivo_listino"/>
+    <collection name="listino" field="listino" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ItemListino" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_listino"/>
+    <value name="n_rate" get-method="getN_rate" set-method="setN_rate" usage="optional"/>
+  </mapping>
+  <mapping name="DescrizioneDocumento" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DescrizioneDocumento" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="azione_conseguente_caricamento" get-method="getAzione_conseguente_caricamento" set-method="setAzione_conseguente_caricamento" usage="optional"/>
+    <value name="contenuto_azione" get-method="getContenuto_azione" set-method="setContenuto_azione" usage="optional"/>
+    <collection name="inverse_of_tipologia" field="inverse_of_tipologia" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Documento" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_tipologia"/>
+    <value name="sollecito" get-method="getSollecito" set-method="setSollecito" usage="optional"/>
+    <value name="template_oggetto_invio" get-method="getTemplate_oggetto_invio" set-method="setTemplate_oggetto_invio" usage="optional"/>
+    <value name="template_sms" get-method="getTemplate_sms" set-method="setTemplate_sms" usage="optional"/>
+    <value name="template_testo_invio" get-method="getTemplate_testo_invio" set-method="setTemplate_testo_invio" usage="optional"/>
+    <value name="tipologia_documento" get-method="getTipologia_documento" set-method="setTipologia_documento" usage="optional"/>
+    <value name="visibilita" get-method="getVisibilita" set-method="setVisibilita" usage="optional"/>
+  </mapping>
+  <mapping name="Documento" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Documento" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="allegato" get-method="getAllegato" set-method="setAllegato" usage="optional"/>
+    <value name="anno_contabile" get-method="getAnno_contabile" set-method="setAnno_contabile" usage="optional"/>
+    <value name="data_riferimento" get-method="getData_riferimento" set-method="setData_riferimento" usage="optional" format="dateFormat"/>
+    <value name="free_tag" get-method="getFree_tag" set-method="setFree_tag" usage="optional"/>
+    <collection name="revisioni" field="revisioni" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.RevisioneDocumento" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_revisioni"/>
+    <collection name="storia_documento" field="storia_documento" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.StoriaDocumento" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_storia_documento"/>
+    <structure name="tipologia" usage="optional" field="tipologia" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_tipologia"/>
+    <value name="titolo" get-method="getTitolo" set-method="setTitolo" usage="optional"/>
+  </mapping>
+  <mapping name="DocumentoCliente" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.DocumentoCliente" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="archiviato" get-method="getArchiviato" set-method="setArchiviato" usage="optional"/>
+    <structure name="da_cliente" usage="optional" field="da_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_da_cliente"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="oggetto" get-method="getOggetto" set-method="setOggetto" usage="optional"/>
+  </mapping>
+  <mapping name="Fattura" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Fattura" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="anno_contabile" get-method="getAnno_contabile" set-method="setAnno_contabile" usage="optional"/>
+    <value name="competenza" get-method="getCompetenza" set-method="setCompetenza" usage="optional"/>
+    <structure name="da_proforma" usage="optional" field="da_proforma" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_da_proforma"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="data_pagamento" get-method="getData_pagamento" set-method="setData_pagamento" usage="optional" format="dateFormat"/>
+    <structure name="inverse_of_fatture" usage="optional" field="inverse_of_fatture" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_fatture"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero" get-method="getNumero" set-method="setNumero" usage="optional"/>
+    <value name="ra" get-method="getRa" set-method="setRa" usage="optional"/>
+    <value name="riv_prev" get-method="getRiv_prev" set-method="setRiv_prev" usage="optional"/>
+    <value name="spese_anticipate_desc" get-method="getSpese_anticipate_desc" set-method="setSpese_anticipate_desc" usage="optional"/>
+    <value name="spese_anticipate_fattura" get-method="getSpese_anticipate_fattura" set-method="setSpese_anticipate_fattura" usage="optional"/>
+    <collection name="voci_fattura" field="voci_fattura" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.VoceFattura" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_voci_fattura"/>
+  </mapping>
+  <mapping name="HDChiamataTelefonica" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDChiamataTelefonica" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="datetimeFormat"/>
+    <value name="durata" get-method="getDurata" set-method="setDurata" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero_locale" get-method="getNumero_locale" set-method="setNumero_locale" usage="optional"/>
+    <value name="numero_remoto" get-method="getNumero_remoto" set-method="setNumero_remoto" usage="optional"/>
+    <value name="stato_chiamata" get-method="getStato_chiamata" set-method="setStato_chiamata" usage="optional"/>
+    <structure name="ticket" usage="optional" field="ticket" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_ticket"/>
+  </mapping>
+  <mapping name="HDGruppoAssistenza" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDGruppoAssistenza" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="alias" get-method="getAlias" set-method="setAlias" usage="optional"/>
+    <value name="email" get-method="getEmail" set-method="setEmail" usage="optional"/>
+    <value name="email_pwd" get-method="getEmail_pwd" set-method="setEmail_pwd" usage="optional"/>
+    <value name="nome" get-method="getNome" set-method="setNome" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="port" get-method="getPort" set-method="setPort" usage="optional"/>
+    <value name="server" get-method="getServer" set-method="setServer" usage="optional"/>
+    <collection name="tickets" field="tickets" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDTicket" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_tickets"/>
+  </mapping>
+  <mapping name="HDRispostaStandard" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDRispostaStandard" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="allegato" get-method="getAllegato" set-method="setAllegato" usage="optional"/>
+    <value name="allegato_1" get-method="getAllegato_1" set-method="setAllegato_1" usage="optional"/>
+    <value name="diagnosi_std" get-method="getDiagnosi_std" set-method="setDiagnosi_std" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="risposta_std" get-method="getRisposta_std" set-method="setRisposta_std" usage="optional"/>
+  </mapping>
+  <mapping name="HDThreadStep" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDThreadStep" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="canale" get-method="getCanale" set-method="setCanale" usage="optional"/>
+    <structure name="chiamata_telefonica" usage="optional" field="chiamata_telefonica" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_chiamata_telefonica"/>
+    <structure name="contabilizzazione" usage="optional" field="contabilizzazione" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_contabilizzazione"/>
+    <structure name="inverse_of_thread" usage="optional" field="inverse_of_thread" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_thread"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="th_data" get-method="getTh_data" set-method="setTh_data" usage="optional" format="datetimeFormat"/>
+    <value name="th_direzione" get-method="getTh_direzione" set-method="setTh_direzione" usage="optional"/>
+    <value name="th_messaggio" get-method="getTh_messaggio" set-method="setTh_messaggio" usage="optional"/>
+  </mapping>
+  <mapping name="HDTicket" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDTicket" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="assegnatoApratica" usage="optional" field="assegnatoApratica" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_assegnatoApratica"/>
+    <structure name="assegnato_a" usage="optional" field="assegnato_a" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_assegnato_a"/>
+    <value name="azioneRichiesta" get-method="getAzioneRichiesta" set-method="setAzioneRichiesta" usage="optional"/>
+    <value name="contattoNonRiconosciuto" get-method="getContattoNonRiconosciuto" set-method="setContattoNonRiconosciuto" usage="optional"/>
+    <structure name="daCliente" usage="optional" field="daCliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_daCliente"/>
+    <value name="dataArrivo" get-method="getDataArrivo" set-method="setDataArrivo" usage="optional" format="datetimeFormat"/>
+    <value name="data_scadenza" get-method="getData_scadenza" set-method="setData_scadenza" usage="optional" format="dateFormat"/>
+    <value name="diagnosi_libero" get-method="getDiagnosi_libero" set-method="setDiagnosi_libero" usage="optional"/>
+    <value name="diagnosi_std" get-method="getDiagnosi_std" set-method="setDiagnosi_std" usage="optional"/>
+    <structure name="emailAssistenza" usage="optional" field="emailAssistenza" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_emailAssistenza"/>
+    <value name="identificativo" get-method="getIdentificativo" set-method="setIdentificativo" usage="optional"/>
+    <value name="priorita_ticket" get-method="getPriorita_ticket" set-method="setPriorita_ticket" usage="optional"/>
+    <value name="rispondere_a" get-method="getRispondere_a" set-method="setRispondere_a" usage="optional"/>
+    <value name="statoTicket" get-method="getStatoTicket" set-method="setStatoTicket" usage="optional"/>
+    <collection name="thread" field="thread" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDThreadStep" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_thread"/>
+  </mapping>
+  <mapping name="IndicizzazioneListino" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.IndicizzazioneListino" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="anno_contabile" get-method="getAnno_contabile" set-method="setAnno_contabile" usage="optional"/>
+    <value name="indice" get-method="getIndice" set-method="setIndice" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+  </mapping>
+  <mapping name="ItemListino" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ItemListino" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="da_metapratica" usage="optional" field="da_metapratica" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_da_metapratica"/>
+    <value name="descrizione" get-method="getDescrizione" set-method="setDescrizione" usage="optional"/>
+    <structure name="inverse_of_prestazioni_extra_forfait" usage="optional" field="inverse_of_prestazioni_extra_forfait" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_prestazioni_extra_forfait"/>
+    <value name="prezzo" get-method="getPrezzo" set-method="setPrezzo" usage="optional"/>
+    <value name="tipo" get-method="getTipo" set-method="setTipo" usage="optional"/>
+    <value name="titolo" get-method="getTitolo" set-method="setTitolo" usage="optional"/>
+    <value name="titolo_per_fattura" get-method="getTitolo_per_fattura" set-method="setTitolo_per_fattura" usage="optional"/>
+  </mapping>
+  <mapping name="LavoroSuAttivita" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.LavoroSuAttivita" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="daTicket" usage="optional" field="daTicket" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_daTicket"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="datetimeFormat"/>
+    <value name="diario" get-method="getDiario" set-method="setDiario" usage="optional"/>
+    <value name="durata_minuti" get-method="getDurata_minuti" set-method="setDurata_minuti" usage="optional"/>
+    <structure name="inverse_of_sessioni_di_lavoro" usage="optional" field="inverse_of_sessioni_di_lavoro" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_sessioni_di_lavoro"/>
+  </mapping>
+  <mapping name="Metaattivita" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Metaattivita" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="inverse_of_lista_attivita" usage="optional" field="inverse_of_lista_attivita" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_lista_attivita"/>
+    <value name="nome" get-method="getNome" set-method="setNome" usage="optional"/>
+  </mapping>
+  <mapping name="Metapratica" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Metapratica" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="descrizione" get-method="getDescrizione" set-method="setDescrizione" usage="optional"/>
+    <collection name="in_listini" field="in_listini" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ItemListino" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_in_listini"/>
+    <collection name="lista_attivita" field="lista_attivita" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Metaattivita" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_lista_attivita"/>
+    <collection name="pratiche_generate" field="pratiche_generate" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Pratica" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_pratiche_generate"/>
+    <value name="prezzo" get-method="getPrezzo" set-method="setPrezzo" usage="optional"/>
+    <value name="tipo" get-method="getTipo" set-method="setTipo" usage="optional"/>
+    <value name="titolo" get-method="getTitolo" set-method="setTitolo" usage="optional"/>
+    <value name="titolo_per_fattura" get-method="getTitolo_per_fattura" set-method="setTitolo_per_fattura" usage="optional"/>
+  </mapping>
+  <mapping name="Metasollecito" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Metasollecito" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero_sollecito" get-method="getNumero_sollecito" set-method="setNumero_sollecito" usage="optional"/>
+    <value name="oggetto" get-method="getOggetto" set-method="setOggetto" usage="optional"/>
+    <value name="testo" get-method="getTesto" set-method="setTesto" usage="optional"/>
+  </mapping>
+  <mapping name="NotificaScadenza" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.NotificaScadenza" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="descrizione_scadenza" get-method="getDescrizione_scadenza" set-method="setDescrizione_scadenza" usage="optional"/>
+    <value name="fatto" get-method="getFatto" set-method="setFatto" usage="optional"/>
+    <structure name="inverse_of_avvisi_scadenze_cliente" usage="optional" field="inverse_of_avvisi_scadenze_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_avvisi_scadenze_cliente"/>
+    <structure name="inverse_of_notifiche_generate" usage="optional" field="inverse_of_notifiche_generate" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_notifiche_generate"/>
+    <structure name="inverse_of_notifiche_scadenze_operatore" usage="optional" field="inverse_of_notifiche_scadenze_operatore" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_notifiche_scadenze_operatore"/>
+    <value name="oggetto_scadenza" get-method="getOggetto_scadenza" set-method="setOggetto_scadenza" usage="optional"/>
+  </mapping>
+  <mapping name="Operatore" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Operatore" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <collection name="attivita_assegnate" field="attivita_assegnate" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Attivita" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_attivita_assegnate"/>
+    <value name="cellulare" get-method="getCellulare" set-method="setCellulare" usage="optional"/>
+    <value name="costo_orario" get-method="getCosto_orario" set-method="setCosto_orario" usage="optional"/>
+    <value name="email" get-method="getEmail" set-method="setEmail" usage="optional"/>
+    <value name="nome_e_cognome" get-method="getNome_e_cognome" set-method="setNome_e_cognome" usage="optional"/>
+    <collection name="notifiche_scadenze" field="notifiche_scadenze" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.NotificaScadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_notifiche_scadenze"/>
+    <collection name="op_scadenze" field="op_scadenze" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Scadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_op_scadenze"/>
+    <value name="pwd_autorizzativa" get-method="getPwd_autorizzativa" set-method="setPwd_autorizzativa" usage="optional"/>
+    <collection name="responsabile_di" field="responsabile_di" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Cliente" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_responsabile_di"/>
+    <collection name="responsabile_di_pratiche" field="responsabile_di_pratiche" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Pratica" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_responsabile_di_pratiche"/>
+    <value name="rivendita_oraria" get-method="getRivendita_oraria" set-method="setRivendita_oraria" usage="optional"/>
+    <collection name="ticketAssegnati" field="ticketAssegnati" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDTicket" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_ticketAssegnati"/>
+  </mapping>
+  <mapping name="Pratica" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Pratica" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="anno_contabile" get-method="getAnno_contabile" set-method="setAnno_contabile" usage="optional"/>
+    <collection name="attivita" field="attivita" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Attivita" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_attivita"/>
+    <structure name="cliente_pratica" usage="optional" field="cliente_pratica" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_cliente_pratica"/>
+    <value name="codice" get-method="getCodice" set-method="setCodice" usage="optional"/>
+    <value name="data_chiusura" get-method="getData_chiusura" set-method="setData_chiusura" usage="optional" format="dateFormat"/>
+    <structure name="metapratica" usage="optional" field="metapratica" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_metapratica"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <structure name="pratica_scadenza" usage="optional" field="pratica_scadenza" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_pratica_scadenza"/>
+    <value name="prezzo" get-method="getPrezzo" set-method="setPrezzo" usage="optional"/>
+    <structure name="responsabile" usage="optional" field="responsabile" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_responsabile"/>
+    <value name="stato" get-method="getStato" set-method="setStato" usage="optional"/>
+    <collection name="ticketAssociati" field="ticketAssociati" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.HDTicket" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_ticketAssociati"/>
+    <value name="tipo" get-method="getTipo" set-method="setTipo" usage="optional"/>
+    <value name="titolo" get-method="getTitolo" set-method="setTitolo" usage="optional"/>
+    <value name="titolo_per_fattura" get-method="getTitolo_per_fattura" set-method="setTitolo_per_fattura" usage="optional"/>
+  </mapping>
+  <mapping name="ProForma" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ProForma" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="anno_contabile" get-method="getAnno_contabile" set-method="setAnno_contabile" usage="optional"/>
+    <value name="competenza" get-method="getCompetenza" set-method="setCompetenza" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="data_pagamento" get-method="getData_pagamento" set-method="setData_pagamento" usage="optional" format="dateFormat"/>
+    <structure name="entry_calendario" usage="optional" field="entry_calendario" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_entry_calendario"/>
+    <structure name="fattura" usage="optional" field="fattura" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_fattura"/>
+    <structure name="inverse_of_proforma" usage="optional" field="inverse_of_proforma" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_proforma"/>
+    <value name="non_incassabile" get-method="getNon_incassabile" set-method="setNon_incassabile" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero" get-method="getNumero" set-method="setNumero" usage="optional"/>
+    <value name="ra" get-method="getRa" set-method="setRa" usage="optional"/>
+    <value name="riv_prev" get-method="getRiv_prev" set-method="setRiv_prev" usage="optional"/>
+    <collection name="solleciti_pagamento" field="solleciti_pagamento" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.SollecitoPagamento" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_solleciti_pagamento"/>
+    <value name="spese_anticipate_desc" get-method="getSpese_anticipate_desc" set-method="setSpese_anticipate_desc" usage="optional"/>
+    <value name="spese_anticipate_fattura" get-method="getSpese_anticipate_fattura" set-method="setSpese_anticipate_fattura" usage="optional"/>
+    <value name="stato_proforma" get-method="getStato_proforma" set-method="setStato_proforma" usage="optional"/>
+    <collection name="voci_proforma" field="voci_proforma" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.VoceFattura" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_voci_proforma"/>
+  </mapping>
+  <mapping name="ProfiloDinamicoClienti" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ProfiloDinamicoClienti" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <collection name="inverse_of_profili_clienti" field="inverse_of_profili_clienti" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Scadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_profili_clienti"/>
+    <value name="nome" get-method="getNome" set-method="setNome" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="query" get-method="getQuery" set-method="setQuery" usage="optional"/>
+  </mapping>
+  <mapping name="RegimePrevidenziale" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.RegimePrevidenziale" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="inverse_of_regimi_previdenziali" usage="optional" field="inverse_of_regimi_previdenziali" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_regimi_previdenziali"/>
+    <value name="iscrizione" get-method="getIscrizione" set-method="setIscrizione" usage="optional"/>
+    <value name="regime" get-method="getRegime" set-method="setRegime" usage="optional"/>
+  </mapping>
+  <mapping name="RevisioneDocumento" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.RevisioneDocumento" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="allegato" get-method="getAllegato" set-method="setAllegato" usage="optional"/>
+    <structure name="inverse_of_revisioni" usage="optional" field="inverse_of_revisioni" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_revisioni"/>
+  </mapping>
+  <mapping name="Scadenza" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Scadenza" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="descrizione_scadenza" get-method="getDescrizione_scadenza" set-method="setDescrizione_scadenza" usage="optional"/>
+    <value name="destinarario_personalizzato" get-method="getDestinarario_personalizzato" set-method="setDestinarario_personalizzato" usage="optional"/>
+    <value name="fine_ricorrenza" get-method="getFine_ricorrenza" set-method="setFine_ricorrenza" usage="optional" format="dateFormat"/>
+    <value name="forza_sms" get-method="getForza_sms" set-method="setForza_sms" usage="optional"/>
+    <structure name="inverse_of_attivita_scadenza" usage="optional" field="inverse_of_attivita_scadenza" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_attivita_scadenza"/>
+    <structure name="inverse_of_op_scadenze" usage="optional" field="inverse_of_op_scadenze" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_op_scadenze"/>
+    <structure name="inverse_of_pratica_scadenza" usage="optional" field="inverse_of_pratica_scadenza" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_pratica_scadenza"/>
+    <structure name="inverse_of_scadenze" usage="optional" field="inverse_of_scadenze" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_scadenze"/>
+    <collection name="notifiche_generate" field="notifiche_generate" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.NotificaScadenza" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_notifiche_generate"/>
+    <value name="oggetto_scadenza" get-method="getOggetto_scadenza" set-method="setOggetto_scadenza" usage="optional"/>
+    <value name="preavviso_gg" get-method="getPreavviso_gg" set-method="setPreavviso_gg" usage="optional"/>
+    <collection name="profili_clienti" field="profili_clienti" item-type="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.ProfiloDinamicoClienti" usage="optional" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_profili_clienti"/>
+    <value name="ricorrenza" get-method="getRicorrenza" set-method="setRicorrenza" usage="optional"/>
+  </mapping>
+  <mapping name="Sms" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.Sms" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="a_cliente" usage="optional" field="a_cliente" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_a_cliente"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero_destinatario" get-method="getNumero_destinatario" set-method="setNumero_destinatario" usage="optional"/>
+    <value name="ora_ricezione" get-method="getOra_ricezione" set-method="setOra_ricezione" usage="optional" format="datetimeFormat"/>
+    <value name="ora_spedizione" get-method="getOra_spedizione" set-method="setOra_spedizione" usage="optional" format="datetimeFormat"/>
+    <value name="qualita" get-method="getQualita" set-method="setQualita" usage="optional"/>
+    <value name="testo" get-method="getTesto" set-method="setTesto" usage="optional"/>
+  </mapping>
+  <mapping name="SollecitoPagamento" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.SollecitoPagamento" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data_spedizione" get-method="getData_spedizione" set-method="setData_spedizione" usage="optional" format="dateFormat"/>
+    <value name="descrizione" get-method="getDescrizione" set-method="setDescrizione" usage="optional"/>
+    <structure name="inverse_of_solleciti_pagamento" usage="optional" field="inverse_of_solleciti_pagamento" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_solleciti_pagamento"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="numero_sollecito" get-method="getNumero_sollecito" set-method="setNumero_sollecito" usage="optional"/>
+    <value name="oggetto" get-method="getOggetto" set-method="setOggetto" usage="optional"/>
+  </mapping>
+  <mapping name="SpesaAnticipata" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.SpesaAnticipata" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="dateFormat"/>
+    <value name="fatturata" get-method="getFatturata" set-method="setFatturata" usage="optional"/>
+    <value name="importo" get-method="getImporto" set-method="setImporto" usage="optional"/>
+    <structure name="inverse_of_spese_anticipate" usage="optional" field="inverse_of_spese_anticipate" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_spese_anticipate"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+    <value name="oggetto" get-method="getOggetto" set-method="setOggetto" usage="optional"/>
+  </mapping>
+  <mapping name="StoriaDocumento" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.StoriaDocumento" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <structure name="cliente_doc" usage="optional" field="cliente_doc" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_cliente_doc"/>
+    <value name="errore" get-method="getErrore" set-method="setErrore" usage="optional"/>
+    <structure name="inverse_of_storia_documento" usage="optional" field="inverse_of_storia_documento" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_storia_documento"/>
+    <value name="inviato_il" get-method="getInviato_il" set-method="setInviato_il" usage="optional" format="dateFormat"/>
+    <value name="oggetto_mail" get-method="getOggetto_mail" set-method="setOggetto_mail" usage="optional"/>
+    <value name="scaricato_il" get-method="getScaricato_il" set-method="setScaricato_il" usage="optional" format="dateFormat"/>
+    <value name="sollecito" get-method="getSollecito" set-method="setSollecito" usage="optional"/>
+    <value name="sollecito_il" get-method="getSollecito_il" set-method="setSollecito_il" usage="optional" format="dateFormat"/>
+    <value name="testo_mail" get-method="getTesto_mail" set-method="setTesto_mail" usage="optional"/>
+    <value name="testo_sms" get-method="getTesto_sms" set-method="setTesto_sms" usage="optional"/>
+    <value name="workflow_completato_il" get-method="getWorkflow_completato_il" set-method="setWorkflow_completato_il" usage="optional" format="dateFormat"/>
+  </mapping>
+  <mapping name="StoricoInvii" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.StoricoInvii" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="data" get-method="getData" set-method="setData" usage="optional" format="datetimeFormat"/>
+    <value name="destinatario" get-method="getDestinatario" set-method="setDestinatario" usage="optional"/>
+    <value name="esito" get-method="getEsito" set-method="setEsito" usage="optional"/>
+    <value name="messaggio" get-method="getMessaggio" set-method="setMessaggio" usage="optional"/>
+    <value name="tipo_sollecito" get-method="getTipo_sollecito" set-method="setTipo_sollecito" usage="optional"/>
+  </mapping>
+  <mapping name="StoricoModifiche" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.StoricoModifiche" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="classe" get-method="getClasse" set-method="setClasse" usage="optional"/>
+    <value name="data_modifica" get-method="getData_modifica" set-method="setData_modifica" usage="optional" format="dateFormat"/>
+    <value name="html_versione" get-method="getHtml_versione" set-method="setHtml_versione" usage="optional"/>
+    <value name="istanza" get-method="getIstanza" set-method="setIstanza" usage="optional"/>
+    <value name="note" get-method="getNote" set-method="setNote" usage="optional"/>
+  </mapping>
+  <mapping name="VoceFattura" class="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.VoceFattura" ordered="false" flexible="true">
+    <value name="ID" get-method="getId" set-method="setId" usage="optional"/>
+    <value name="importo" get-method="getImporto" set-method="setImporto" usage="optional"/>
+    <structure name="inverse_of_voci_fattura" usage="optional" field="inverse_of_voci_fattura" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_voci_fattura"/>
+    <structure name="inverse_of_voci_proforma" usage="optional" field="inverse_of_voci_proforma" marshaller="eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.marshallers.Marshaller_inverse_of_voci_proforma"/>
+    <value name="iva" get-method="getIva" set-method="setIva" usage="optional"/>
+    <value name="oggetto" get-method="getOggetto" set-method="setOggetto" usage="optional"/>
+    <value name="rif_pratica" get-method="getRif_pratica" set-method="setRif_pratica" usage="optional"/>
+  </mapping>
+</binding>

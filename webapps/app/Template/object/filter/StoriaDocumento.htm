@@ -1,0 +1,47 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+		 
+
+			<div class="form-container">
+				<form id="search-engine" method="post" action="@ACTION@([[[@FUN_IS_USER_IN(group=UserStudio)@]==[true]]??[&amp;data_source=workflow-user-studio]::[&amp;data_source=workflow]])">
+					<fieldset>
+						<legend>ricerca a testo libero</legend>
+						<div class="alert alert-info" role="alert">Puoi effettuare una ricerca modello &quot;motore di ricerca&quot;: specifica le parole che ti interessano, che verranno cercate fra tutti gli attributi.<br />
+							Per cercare un frase esatta, usare le virgolette (es: &quot;frase fra virgolette&quot;)
+						</div>
+						<label for="testo-libero">cerca</label>
+						<input id="testo-libero" name="KEY_search_all" type="text" value="@SEARCH_ALL_VALUE@" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+				<form id="filter" method="post" action="@ACTION@([[[@FUN_IS_USER_IN(group=UserStudio)@]==[true]]??[&amp;data_source=workflow-user-studio]::[&amp;data_source=workflow]])">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_StoriaDocumento@@tag_cliente_doc@@tag_inverse_of_storia_documento@@tag_tipodocumento@@tag_inviato_il@@tag_scaricato_il@@tag_sollecito_il@@tag_workflow_completato_il@@tag_testo_sms@@tag_oggetto_mail@@tag_testo_mail@@tag_sollecito@@tag_errore@@END_StoriaDocumento@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

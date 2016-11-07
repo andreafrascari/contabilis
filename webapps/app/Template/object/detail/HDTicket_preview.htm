@@ -1,0 +1,91 @@
+@BEGIN_TEMPLATE@<div id="detail">
+					<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+						([[[] != []]
+							?? [	
+							<li><a href="ModuleIndex?q=birtReport/give/CLS=@CLASS@/ID=@ID@/DOC=@CLASS@/FILE=@FILE@/TYPE=pdf" title="Genera versione pdf"><img alt="Genera versione pdf"  src="app/Template/metaAmbiente/img/icon-acrobat.gif" /></a></li>
+							]
+						])
+						
+				 
+					
+				</ul>
+			</div>
+		
+				<h2>@TITLE@</h2>
+		
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_identificativo@
+							</tbody>
+						</table>
+					</div>
+					
+
+			
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_identificativo@
+								@tag_dataArrivo@
+								@tag_daCliente@
+								@tag_contattoNonRiconosciuto@
+								@tag_assegnato_a@
+								@tag_azioneRichiesta@
+								@tag_statoTicket@
+								@tag_thread@
+								@tag_priorita_ticket@
+								@tag_data_scadenza@
+								@tag_diagnosi_libero@
+								@tag_rispondere_a@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_emailAssistenza@@tag_assegnatoApratica@@tag_allegato@@tag_allegato_1@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_emailAssistenza@@tag_assegnatoApratica@@tag_allegato@@tag_allegato_1@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_owner_user@@tag_owner_group@@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

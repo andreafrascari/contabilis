@@ -1,0 +1,57 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>Creazione profilo dinamico clienti</h2>
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			<div class="form-container">
+				 
+				<form id="filter" method="post" action="@ACTION@">
+					<fieldset>
+						<legend>ricerca clienti per creazione profilo dinamico</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							In fondo alla pagina, puoi specificare che i parametri siano combinati in OR logico, invece che in AND come di default.<br /> 
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_SuperCliente@
+							@tag_cliente@
+<div class="item decode_multi KEY_tipo_cliente_machine" id="DIV_tipo_cliente_machine">
+	 <label for="KEY_tipo_cliente_machine">tipo cliente</label>
+ 	<div class="multiple-filter-select">
+ 		@FUN_MODULE(q=object/list,p=_system_decode/_a_sd_class/_v_200,list_page_dimension=50,t=TipoClienteInpage)@
+  		<span class="object-help">Tenere premuto il tasto ctrl per selezione multipla</span>
+ 	</div>
+ 	<div class="multiple-filter-radio">
+  <label for="tipo_cliente_machineor">La ricerca deve soddisfare <strong>almeno
+    uno</strong> dei valori specificati
+  </label> <input type="radio" checked="checked" value="or" name="tipo_cliente_machinetype" id="tipo_cliente_machineor"> <br> <label for="tipo_cliente_machineand">La
+   ricerca deve soddisfare <strong>tutti i valori</strong> specificati
+  </label> <input type="radio" value="and" name="tipo_cliente_machinetype" id="tipo_cliente_machineand">
+ </div>
+							
+							@tag_non_profit@@tag_operatore_responsabile@@tag_cliente_dal@@tag_comune@@tag_codice_ateco@@tag_teniamo_noi@@tag_regime_contabilita@@tag_regime_iva@@tag_note@@tag_esercizio_solare@@tag_sostituto_imposta@@tag_immobili@@tag_ici@@tag_cassetto_fiscale@@tag_sezione_ordinaria@@tag_unita_locali@@tag_f24_cumulativo@@tag_antireciclaggio@@tag_conservazione_sostitutiva@@tag_conservazione_libro_giornale@@tag_obbligo_iscrizione_inail@@tag_incarico_a@
+							@tag_regime@@tag_iscrizione@
+						@END_SuperCliente@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+
+						<div id="andorrow">
+						<label for="radio">Condizioni in:</label>
+							<span class="and">and: <input type="radio" name="type" value="and" checked="checked" /></span>
+							<span class="or">or: <input type="radio" name="type" value="or" /></span>
+						</div>
+
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+							
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

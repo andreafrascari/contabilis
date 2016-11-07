@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Cliente</title>  
+  <title_view>Cliente</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>cliente</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <detail_edit autocomplete="">cliente</detail_edit>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading/>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>5</order> 
+    </item>  
+    <item> 
+      <name>codice_cliente</name>  
+      <label>codice cliente</label>  
+      <detail>codice cliente</detail>  
+      <detail_edit>codice cliente</detail_edit>  
+      <filter autocomplete="">codice cliente</filter>  
+      <list>codice cliente</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>9</order> 
+    </item>  
+    <item> 
+      <name>codice_fiscale</name>  
+      <label>codice fiscale</label>  
+      <detail>codice fiscale</detail>  
+      <detail_edit>codice fiscale</detail_edit>  
+      <filter autocomplete="">codice fiscale</filter>  
+      <list>codice fiscale</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order>  
+      <detail_help>premere la clessidra per stato attesa attribuzione</detail_help> 
+    </item>  
+    <item> 
+      <name>partita_iva</name>  
+      <label>partita iva</label>  
+      <detail>partita iva</detail>  
+      <detail_edit>partita iva</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>12</order>  
+      <detail_help>premere la clessidra per stato attesa attribuzione</detail_help> 
+    </item>  
+    <item> 
+      <name>nickname</name>  
+      <label>nickname</label>  
+      <detail>nickname</detail>  
+      <detail_edit>nickname</detail_edit>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>13</order> 
+    </item>  
+    <item> 
+      <name>tipo_cliente</name>  
+      <label>tipo cliente</label>  
+      <detail>tipo cliente</detail>  
+      <detail_edit>tipo cliente</detail_edit>  
+      <filter>tipo cliente</filter>  
+      <list>tipo cliente</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>15</order> 
+    </item>  
+    <item> 
+      <name>non_profit</name>  
+      <label>non profit</label>  
+      <detail>non profit</detail>  
+      <detail_edit>non profit</detail_edit>  
+      <filter>non profit</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>17</order> 
+    </item>  
+    <item> 
+      <name>sez_contatti</name>  
+      <label>contatti</label>  
+      <detail>contatti</detail>  
+      <detail_edit>contatti</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>18</order> 
+    </item>  
+    <item> 
+      <name>email</name>  
+      <label>email</label>  
+      <detail>email</detail>  
+      <detail_edit>email</detail_edit>  
+      <filter>email</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>21</order>  
+    </item>  
+    <item> 
+      <name>email2</name>  
+      <label>email2</label>  
+      <detail>email2</detail>  
+      <detail_edit>email2</detail_edit>  
+      <filter>email2</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>23</order>  
+    </item>  
+    <item> 
+      <name>email3</name>  
+      <label>email3</label>  
+      <detail>email3</detail>  
+      <detail_edit>email3</detail_edit>  
+      <filter>email3</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>25</order>  
+    </item>  
+    <item> 
+      <name>cellulare</name>  
+      <label>cellulare</label>  
+      <detail>cellulare</detail>  
+      <detail_edit>cellulare</detail_edit>  
+      <filter>cellulare</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>27</order>  
+    </item>  
+    <item> 
+      <name>telefono</name>  
+      <label>telefono</label>  
+      <detail>telefono</detail>  
+      <detail_edit>telefono</detail_edit>  
+      <filter>telefono</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>28</order> 
+    </item>  
+    <item> 
+      <name>fax</name>  
+      <label>fax</label>  
+      <detail>fax</detail>  
+      <detail_edit>fax</detail_edit>  
+      <filter>fax</filter>  
+      <heading>1</heading>   
+      <max_length/>  
+      <default/>  
+      <order>29</order>  
+    </item>  
+    <item> 
+      <name>tipo_sollecito</name>  
+      <label>canale notifica e sollecito</label>  
+      <detail>canale notifica e sollecito</detail>  
+      <detail_edit>canale notifica e sollecito</detail_edit>  
+      <filter>canale notifica e sollecito</filter>  
+      <list>canale</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default>mail</default>  
+      <order>30</order>  
+      <detail_help>non compilato viene inteso come mail</detail_help> 
+    </item>  
+    <item> 
+      <name>operatore_responsabile</name>  
+      <label>operatore responsabile</label>  
+      <detail>operatore responsabile</detail>  
+      <detail_edit no-link-new="1">operatore responsabile</detail_edit>  
+      <filter>operatore responsabile</filter>  
+      <list>operatore responsabile</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>stato_cliente</name>  
+      <label>stato</label>  
+      <detail>stato</detail>  
+      <detail_edit>stato</detail_edit>  
+      <filter>stato</filter>  
+      <list>stato</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>32</order> 
+    </item>  
+    <item> 
+      <name>cliente_dal</name>  
+      <label>cliente dal</label>  
+      <detail>cliente dal</detail>  
+      <detail_edit>cliente dal</detail_edit>  
+      <filter>cliente dal</filter>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>@TODAY@</default>  
+      <order>38</order> 
+    </item>  
+    <item> 
+      <name>cessata_assistenza_il</name>  
+      <label>cessata assistenza il</label>  
+      <detail>cessata assistenza il</detail>  
+      <detail_edit>cessata assistenza il (*)</detail_edit>  
+      <filter>cessata assistenza il</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>39</order> 
+    </item>  
+    <item> 
+      <name>sez_sede_legale</name>  
+      <label>sede legale</label>  
+      <detail>sede legale</detail>  
+      <detail_edit>sede legale</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>40</order> 
+    </item>  
+    <item> 
+      <name>indirizzo</name>  
+      <label>indirizzo</label>  
+      <detail>indirizzo</detail>  
+      <detail_edit>indirizzo</detail_edit>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>cap</name>  
+      <label>cap</label>  
+      <detail>cap</detail>  
+      <detail_edit>cap</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>45</order> 
+    </item>  
+    <item> 
+      <name>comune</name>  
+      <label>comune</label>  
+      <detail>comune</detail>  
+      <detail_edit no-preload="1" no-link-new="1" autocomplete="cls=_system_city,slot=city_name,display1=city_province_code,display2=city_region">comune</detail_edit>  
+      <filter autocomplete="cls=_system_city,slot=city_name,display1=city_province_code,display2=city_region">comune</filter>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>49</order> 
+    </item>  
+    <item> 
+      <name>sez_recapito</name>  
+      <label>recapito</label>  
+      <detail>recapito</detail>  
+      <detail_edit>recapito</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>recapito_indirizzo</name>  
+      <label>indirizzo</label>  
+      <detail>indirizzo</detail>  
+      <detail_edit>indirizzo</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>105</order> 
+    </item>  
+    <item> 
+      <name>recapito_cap</name>  
+      <label>cap</label>  
+      <detail>cap</detail>  
+      <detail_edit>cap</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>107</order> 
+    </item>  
+    <item> 
+      <name>recapito_comune</name>  
+      <label>comune</label>  
+      <detail>comune</detail>  
+      <detail_edit no-preload="1" no-link-new="1" autocomplete="cls=_system_city,slot=city_name,display1=city_province_code,display2=city_region">comune</detail_edit>  
+      <filter autocomplete="cls=_system_city,slot=city_name,display1=city_province_code,display2=city_region">comune</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>109</order> 
+    </item>  
+    <item> 
+      <name>sez_legale_rappresentante</name>  
+      <label>legale rappresentante</label>  
+      <detail>legale rappresentante</detail>  
+      <detail_edit>legale rappresentante</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>181</order> 
+    </item>  
+    <item> 
+      <name>legale_rappresentante_cognome</name>  
+      <label>cognome</label>  
+      <detail>cognome</detail>  
+      <detail_edit>cognome</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>182</order> 
+    </item>  
+    <item> 
+      <name>legale_rappresentante_nome</name>  
+      <label>nome</label>  
+      <detail>nome</detail>  
+      <detail_edit>nome</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>183</order> 
+    </item>  
+    <item> 
+      <name>legale_rappresentante_cf</name>  
+      <label>codice fiscale</label>  
+      <detail>codice fiscale</detail>  
+      <detail_edit>codice fiscale</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>184</order> 
+    </item>  
+    <item> 
+      <name>legale_rappresentante_residenza</name>  
+      <label>residenza</label>  
+      <detail>residenza</detail>  
+      <detail_edit>residenza</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>185</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>191</order> 
+    </item>  
+    <item> 
+      <name>dati_contabili</name>  
+      <label>dati fiscali e contabili</label>  
+      <detail inpage="1">dati fiscali e contabili</detail>  
+      <detail_edit>dati fiscali e contabili</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>211</order> 
+    </item>  
+    <item> 
+      <name>dati_crm</name>  
+      <label>dati crm</label>  
+      <detail inpage="1">dati crm</detail>  
+      <detail_edit>dati crm</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>215</order> 
+    </item>  
+    <item> 
+      <name>dati_fatturazione</name>  
+      <label>listino</label>  
+      <detail inpage="1">listino</detail>  
+      <detail_edit>listino</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>217</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_cliente_doc</name>  
+      <label>documenti</label>  
+      <detail>documenti</detail>  
+      <detail_edit>documenti</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>219</order> 
+    </item>  
+    <item> 
+      <name>calendario_fatturazione</name>  
+      <label>calendario fatturazione</label>  
+      <detail>calendario fatturazione</detail>  
+      <detail_edit>calendario fatturazione</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>220</order> 
+    </item>  
+    <item> 
+      <name>pratiche</name>  
+      <label>pratiche</label>  
+      <detail>pratiche</detail>  
+      <detail_edit>pratiche</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>221</order> 
+    </item>  
+    <item> 
+      <name>scadenze</name>  
+      <label>metascadenze</label>  
+      <detail>metascadenze</detail>  
+      <detail_edit>metascadenze</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>221</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item>  
+    <item> 
+      <name>avvisi_scadenze</name>  
+      <label>avvisi scadenze</label>  
+      <detail>avvisi scadenze</detail>  
+      <detail_edit>avvisi scadenze</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>231</order> 
+    </item>  
+    <item> 
+      <name>proforma</name>  
+      <label>proforma</label>  
+      <detail>proforma</detail>  
+      <detail_edit>proforma</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>260</order> 
+    </item>  
+    <item> 
+      <name>fatture</name>  
+      <label>fatture</label>  
+      <detail>fatture</detail>  
+      <detail_edit>fatture</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>261</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_diventa_cliente</name>  
+      <label>da candidato</label>  
+      <detail>da candidato</detail>  
+      <detail_edit>da candidato</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>271</order> 
+    </item>  
+    <item> 
+      <name>sms_inviati</name>  
+      <label>sms inviati</label>  
+      <detail>sms inviati</detail>  
+      <detail_edit>sms inviati</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>277</order> 
+    </item>  
+    <item> 
+      <name>documenti_per_lo_studio</name>  
+      <label>documenti per lo studio</label>  
+      <detail>documenti per lo studio</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>291</order>  
+      <detail_edit>documenti per lo studio</detail_edit>
+    </item>  
+     <item> 
+      <name>contatti_studio</name>  
+      <label>contatti studio</label>  
+      <detail>contatti studio</detail>  
+      <detail_edit>contatti studio</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>341</order> 
+    </item>  
+    <item> 
+      <name>allegato</name>  
+      <label>allegato</label>  
+      <detail>allegato</detail>  
+      <detail_edit>allegato</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>301</order> 
+    </item>  
+    <item> 
+      <name>allegato_1</name>  
+      <label>allegato 1</label>  
+      <detail>allegato 1</detail>  
+      <detail_edit>allegato 1</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>311</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>account</name>  
+      <label>account</label>  
+      <detail inpage="1">account</detail>  
+      <detail_edit>account</detail_edit>  
+      <list>account</list>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>231</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item> 
+  </attributes> 
+</bean>

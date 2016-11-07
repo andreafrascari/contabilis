@@ -1,0 +1,56 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_HDTicket@<div class="detail-edit">
+						
+
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato.
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container form-container-HDTicket">
+<div class="alert alert-info" role="alert">
+						Scegliere la pratica a cui assegnare il ticket <em>@tag_identificativo#FLAT@</em>.
+						Il ticket verr&agrave; associato all'attivit&agrave; <em>assistenza clienti</em>. Se tale attivit&agrave; non esiste, verr&agrave; creata.
+			</div>
+
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									
+	
+									
+								<div class="detail-body">
+									<div class="detail-component linkN-1 INP_assegnatoApratica">
+ 										<label for="INP_assegnatoApratica">assegna a pratica:</label> 
+ 											@FUN_MODULE(q=object/list,p=Pratica/_a_cliente_pratica/_v_@tag_daCliente.Cliente.ID#FLAT@/_a_stato/_v_Aperta,t=Pratica_per_ticket)@ 										
+ 										<input id="type_INP_assegnatoApratica" type="hidden" value="6" />
+										<input id="required_INP_assegnatoApratica" type="hidden" value="false" />
+										<input id="label_INP_assegnatoApratica" type="hidden" value="" />
+										<input id="info_INP_assegnatoApratica" type="hidden" value="class=HDTicket|controller=false">
+										<div class="object-help">scegliere nella liste delle pratiche aperte del cliente</div>
+									</div>									
+									
+								</div>
+								
+
+																
+								<input type="hidden" id="allow_instance_deletion" value="false" /> 
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+						
+						</div>
+					</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

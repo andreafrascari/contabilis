@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Metapratica</title>  
+  <title_view>Metapratica</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>titolo</name>  
+      <label>titolo</label>  
+      <detail>titolo</detail>  
+      <detail_edit>titolo</detail_edit>  
+      <filter>titolo</filter>  
+      <list>titolo</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>tipo</name>  
+      <label>tipo</label>  
+      <detail>tipo</detail>  
+      <detail_edit>tipo</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>15</order> 
+    </item>  
+    <item> 
+      <name>titolo_per_fattura</name>  
+      <label>titolo per fattura</label>  
+      <detail>titolo per fattura</detail>  
+      <detail_edit>titolo per fattura</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>prezzo</name>  
+      <label>prezzo</label>  
+      <detail>prezzo</detail>  
+      <detail_edit>prezzo</detail_edit>  
+      <filter>prezzo</filter>  
+      <list>prezzo</list>  
+      <detail_help>si ricorda che per pratiche generate il prezzo sara obbligatorio in casoi di forfait e prestazione</detail_help>
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>lista_attivita</name>  
+      <label>attivita</label>  
+      <detail inpage="1">lista attivita</detail>  
+      <detail_edit>attivita da generare</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>51</order>  
+      <detail_help>inserire uno ad uno i titoli delle attivita da generare</detail_help>  
+      <popup_detail_edit>small</popup_detail_edit> 
+    </item>  
+    <item> 
+      <name>descrizione</name>  
+      <label>descrizione</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order>  
+      <detail_help>nel caso la metapratica diventi un item di listino, la descrizione viene copiata nel campo omonimo, e da qui confluisce nel preventivo come specifica della voce</detail_help> 
+    </item>  
+    <item> 
+      <name>in_listini</name>  
+      <label>in listini</label>  
+      <detail>in listini</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order>
+    </item>  
+    <item> 
+      <name>pratiche_generate</name>  
+      <label>pratiche generate</label>  
+      <detail>pratiche generate</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>121</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

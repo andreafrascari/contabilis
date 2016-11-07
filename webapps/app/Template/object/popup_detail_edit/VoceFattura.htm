@@ -1,0 +1,60 @@
+@BEGIN_TEMPLATE@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#INP_iva option[value='20%']").remove();
+		$("#INP_iva option[value='21%']").remove();
+	});
+</script>
+
+
+<div id="popup-detail-edit-window">
+			@BEGIN_VoceFattura@<div class="detail-edit">
+						<div id="splash">
+							<h2>@TITLE@</h2>
+						</div>
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container form-container-VoceFattura">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_importo@@tag_oggetto@@tag_iva@
+									</div>
+									
+		
+									
+									<div class="detail-edit-system">
+										
+										
+									</div>
+									
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								
+							</div>
+		
+						</div>
+					</div>@END_VoceFattura@
+		</div>@END_TEMPLATE@

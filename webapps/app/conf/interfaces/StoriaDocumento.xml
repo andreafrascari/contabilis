@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>StoriaDocumento</title>  
+  <title_view>Workflow Documento Cliente</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>cliente_doc</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <detail_edit autocomplete="">cliente</detail_edit>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_storia_documento</name>  
+      <label>documento</label>  
+      <detail>documento</detail>  
+      <filter autocomplete="">documento</filter>  
+      <list>documento</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>inviato_il</name>  
+      <label>inviato il</label>  
+      <detail>inviato il</detail>  
+      <detail_edit>inviato il</detail_edit>  
+      <filter>inviato il</filter>  
+      <list>inviato il</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>scaricato_il</name>  
+      <label>scaricato il</label>  
+      <detail>scaricato il</detail>  
+      <detail_edit>scaricato il</detail_edit>  
+      <filter>scaricato il</filter>  
+      <list>scaricato il</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>sollecito_il</name>  
+      <label>sollecito il</label>  
+      <detail>sollecito il</detail>  
+      <detail_edit>sollecito il</detail_edit>  
+      <filter>sollecito il</filter>  
+      <list>sollecito il</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>workflow_completato_il</name>  
+      <label>workflow completato il</label>  
+      <detail>workflow completato il</detail>  
+      <detail_edit>workflow completato il</detail_edit>  
+      <filter>workflow completato il</filter>  
+      <list>workflow completato il</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>testo_sms</name>  
+      <label>testo sms</label>  
+      <detail>testo sms</detail>  
+      <detail_edit>testo sms</detail_edit>  
+      <filter>testo sms</filter>  
+      <heading>1</heading>  
+      <max_length>134</max_length>  
+      <default/>  
+      <order>81</order> 
+    </item>  
+    <item> 
+      <name>oggetto_mail</name>  
+      <label>oggetto mail</label>  
+      <detail>oggetto mail</detail>  
+      <detail_edit>oggetto mail</detail_edit>  
+      <filter>oggetto mail</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>91</order> 
+    </item>  
+    <item> 
+      <name>testo_mail</name>  
+      <label>testo mail</label>  
+      <detail>testo mail</detail>  
+      <detail_edit>testo mail</detail_edit>  
+      <filter>testo mail</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>93</order> 
+    </item>  
+    <item> 
+      <name>sollecito</name>  
+      <label>sollecito</label>  
+      <detail>sollecito</detail>  
+      <detail_edit>sollecito</detail_edit>  
+      <filter>sollecito</filter>  
+      <list>sollecito</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>errore</name>  
+      <label>errore</label>  
+      <detail>errore</detail>  
+      <detail_edit>errore</detail_edit>  
+      <filter>errore</filter>  
+      <list>errore</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>111</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>tipodocumento</name>  
+      <label>tipo</label>  
+      <detail>tipo</detail>  
+      <filter autocomplete="cls=DescrizioneDocumento,slot=tipologia_documento">tipo</filter>  
+      <list>tipo</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>111</order> 
+    </item> 
+  </attributes> 
+</bean>

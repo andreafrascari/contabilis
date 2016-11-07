@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean>
+	<title>SuperCliente</title>
+	<title_view>Cliente Contabile</title_view>
+	<attributes>
+		<item>
+			<name>ID</name>
+			<type>1</type>
+			<label>ID</label>
+		</item>
+		<item>
+			<name>cliente</name>
+			<label>cliente</label>
+			<detail>cliente</detail>
+			<list>cliente</list>
+			<filter autocomplete="">cliente</filter>
+			<heading />
+			<index>1</index>
+			<needed>1</needed>
+			<description_field>1</description_field>
+			<list_active_field>1</list_active_field>
+			<max_length />
+			<default />
+			<order>1</order>
+		</item>
+		<item>
+			<name>tipo_cliente</name>
+			<label>tipo cliente</label>
+			<detail>tipo cliente</detail>
+			<list>tipo cliente</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>3</order>
+		</item>
+		<item>
+			<name>tipo_cliente_machine</name>
+			<label>tipo cliente</label>
+			<filter type="multiple">tipo cliente</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>3</order>
+		</item>
+		<item>
+			<name>codice_cliente</name>
+			<label>codice cliente</label>
+			<detail>codice cliente</detail>
+			<list>codice cliente</list>
+			<heading>1</heading>
+			<index>1</index>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>9</order>
+		</item>
+		<item>
+			<name>codice_fiscale</name>
+			<label>codice fiscale</label>
+			<detail>codice fiscale</detail>
+			<heading>1</heading>
+			<index>1</index>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>11</order>
+			<detail_help>premere la clessidra per stato attesa attribuzione
+			</detail_help>
+		</item>
+		<item>
+			<name>partita_iva</name>
+			<label>partita iva</label>
+			<detail>partita iva</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>12</order>
+			<detail_help>premere la clessidra per stato attesa attribuzione
+			</detail_help>
+		</item>
+		<item>
+			<name>nickname</name>
+			<label>nickname</label>
+			<detail>nickname</detail>
+			<heading>1</heading>
+			<index>1</index>
+			<max_length />
+			<default />
+			<order>13</order>
+		</item>
+		<item>
+			<name>non_profit</name>
+			<label>non profit</label>
+			<detail>non profit</detail>
+			<filter  type="multiple">non profit</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>17</order>
+		</item>
+		<item>
+			<name>sez_contatti</name>
+			<label>contatti</label>
+			<detail>contatti</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>18</order>
+		</item>
+		<item>
+			<name>email</name>
+			<label>email</label>
+			<detail>email</detail>
+			<heading>1</heading>
+			<read_only>1</read_only>
+			<index>1</index>
+			<max_length />
+			<default />
+			<order>21</order>
+			<read_only>1</read_only>
+			<detail_help>aggiornato automaticamente da kerio</detail_help>
+		</item>
+		<item>
+			<name>email2</name>
+			<label>email2</label>
+			<detail>email2</detail>
+			<heading>1</heading>
+			<read_only>1</read_only>
+			<max_length />
+			<default />
+			<order>23</order>
+			<read_only>1</read_only>
+			<detail_help>aggiornato automaticamente da kerio</detail_help>
+		</item>
+		<item>
+			<name>email3</name>
+			<label>email3</label>
+			<detail>email3</detail>
+			<heading>1</heading>
+			<read_only>1</read_only>
+			<max_length />
+			<default />
+			<order>25</order>
+			<read_only>1</read_only>
+			<detail_help>aggiornato automaticamente da kerio</detail_help>
+		</item>
+		<item>
+			<name>cellulare</name>
+			<label>cellulare</label>
+			<detail>cellulare</detail>
+			<heading>1</heading>
+			<read_only>1</read_only>
+			<index>1</index>
+			<max_length />
+			<default />
+			<order>27</order>
+			<read_only>1</read_only>
+			<detail_help>aggiornato automaticamente da kerio</detail_help>
+		</item>
+		<item>
+			<name>telefono</name>
+			<label>telefono</label>
+			<detail>telefono</detail>
+			<heading>1</heading>
+			<index>1</index>
+			<max_length />
+			<default />
+			<order>28</order>
+		</item>
+		<item>
+			<name>fax</name>
+			<label>fax</label>
+			<detail>fax</detail>
+			<heading>1</heading>
+			<read_only>1</read_only>
+			<max_length />
+			<default />
+			<order>29</order>
+			<read_only>1</read_only>
+			<detail_help>aggiornato automaticamente da kerio</detail_help>
+		</item>
+		<item>
+			<name>tipo_sollecito</name>
+			<label>canale notifica e sollecito</label>
+			<detail>canale notifica e sollecito</detail>
+			<list>canale</list>
+			<heading>1</heading>
+			<max_length />
+			<default>mail</default>
+			<order>30</order>
+			<detail_help>non compilato viene inteso come mail</detail_help>
+		</item>
+		<item>
+			<name>operatore_responsabile</name>
+			<label>operatore responsabile</label>
+			<detail>operatore responsabile</detail>
+			<filter>operatore responsabile</filter>
+			<list>operatore responsabile</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>31</order>
+		</item>
+		<item>
+			<name>stato_cliente</name>
+			<label>stato</label>
+			<detail>stato</detail>
+			<list>stato</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>32</order>
+		</item>
+		<item>
+			<name>cliente_dal</name>
+			<label>cliente dal</label>
+			<detail>cliente dal</detail>
+			<filter>cliente dal</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default>@TODAY@</default>
+			<order>38</order>
+		</item>
+		<item>
+			<name>cessata_assistenza_il</name>
+			<label>cessata assistenza il</label>
+			<detail>cessata assistenza il</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>39</order>
+		</item>
+		<item>
+			<name>sez_sede_legale</name>
+			<label>sede legale</label>
+			<detail>sede legale</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>40</order>
+		</item>
+		<item>
+			<name>indirizzo</name>
+			<label>indirizzo</label>
+			<detail>indirizzo</detail>
+			<heading>1</heading>
+			<index>1</index>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>41</order>
+		</item>
+		<item>
+			<name>cap</name>
+			<label>cap</label>
+			<detail>cap</detail>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>45</order>
+		</item>
+		<item>
+			<name>comune</name>
+			<label>comune</label>
+			<detail>comune</detail>
+			<filter
+				autocomplete="cls=_system_city,slot=city_name,display1=city_province_code,display2=city_region">comune</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>49</order>
+		</item>
+		<item>
+			<name>sez_recapito</name>
+			<label>recapito</label>
+			<detail>recapito</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>101</order>
+		</item>
+		<item>
+			<name>recapito_indirizzo</name>
+			<label>indirizzo</label>
+			<detail>indirizzo</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>105</order>
+		</item>
+		<item>
+			<name>recapito_cap</name>
+			<label>cap</label>
+			<detail>cap</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>107</order>
+		</item>
+		<item>
+			<name>recapito_comune</name>
+			<label>comune</label>
+			<detail>comune recapito</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>109</order>
+		</item>
+		<item>
+			<name>sez_legale_rappresentante</name>
+			<label>legale rappresentante</label>
+			<detail>legale rappresentante</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>181</order>
+		</item>
+		<item>
+			<name>legale_rappresentante_cognome</name>
+			<label>cognome</label>
+			<detail>cognome</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>182</order>
+		</item>
+		<item>
+			<name>legale_rappresentante_nome</name>
+			<label>nome</label>
+			<detail>nome</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>183</order>
+		</item>
+		<item>
+			<name>legale_rappresentante_cf</name>
+			<label>codice fiscale</label>
+			<detail>codice fiscale</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>184</order>
+		</item>
+		<item>
+			<name>legale_rappresentante_residenza</name>
+			<label>residenza</label>
+			<detail>residenza</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>185</order>
+		</item>
+		<item>
+			<name>note</name>
+			<label>note</label>
+			<detail>note</detail>
+			<filter>note</filter>
+			<heading>1</heading>
+			<index>1</index>
+			<max_length />
+			<default />
+			<order>191</order>
+		</item>
+		<!-- contabili -->
+		<item>
+			<name>sez_contabilita</name>
+			<label>contabilita</label>
+			<detail>contabilita</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>5</order>
+		</item>
+		<item>
+			<name>codice_ateco</name>
+			<label>codice ateco</label>
+			<detail>codice ateco</detail>
+			<filter>codice ateco</filter>
+			<list>codice ateco</list>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>11</order>
+		</item>
+		<item>
+			<name>codice_ateco2</name>
+			<label>codice ateco</label>
+			<detail>secondo codice ateco</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>12</order>
+		</item>
+		<item>
+			<name>codice_ateco3</name>
+			<label>codice ateco</label>
+			<detail>terzo codice ateco</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>13</order>
+		</item>
+		<item>
+			<name>teniamo_noi</name>
+			<label>teniamo noi</label>
+			<detail>contabilita tenuta dallo Studio</detail>
+			<filter>contabilita in Studio</filter>
+			<list>contabilita tenuta dallo Studio</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>21</order>
+		</item>
+		<item>
+			<name>regime_contabilita</name>
+			<label>regime contabile</label>
+			<detail>regime contabile</detail>
+			<filter type="multiple">regime contabile</filter>
+			<list>regime contabile</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>31</order>
+		</item>
+		<item>
+			<name>esercizio_da</name>
+			<label>esercizio dal</label>
+			<detail>esercizio dal</detail>
+			<detail_help>ignorare l'anno, che nella scheda di visualizzazione non
+				sara mostrato
+			</detail_help>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>36</order>
+		</item>
+		<item>
+			<name>esercizio_a</name>
+			<label>al</label>
+			<detail>al</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>37</order>
+		</item>
+		<item>
+			<name>regime_iva</name>
+			<label>regime iva</label>
+			<detail>regime iva</detail>
+			<filter type="multiple">regime iva</filter>
+			<list>regime iva</list>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>41</order>
+		</item>
+		<item>
+			<name>liquidazione_iva</name>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>51</order>
+		</item>
+		<item>
+			<name>sez_registro_imprese</name>
+			<label>registro imprese</label>
+			<detail>registro imprese</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>61</order>
+		</item>
+		<item>
+			<name>provincia_registro_imprese</name>
+			<label>iscrizione</label>
+			<detail>iscrizione</detail>
+			<detail_help>numero/provincia</detail_help>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>62</order>
+		</item>
+		<item>
+			<name>iscrizione_registro_imprese</name>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>63</order>
+		</item>
+		<item>
+			<name>sezioni_speciali</name>
+			<label>sezioni speciali</label>
+			<detail>sezioni speciali</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>65</order>
+		</item>
+		<item>
+			<name>note</name>
+			<label>note</label>
+			<detail>note</detail>
+
+			<filter>note</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>68</order>
+		</item>
+		<item>
+			<name>sez_previdenza</name>
+			<label>previdenza</label>
+			<detail>previdenza</detail>
+
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>71</order>
+		</item>
+		<item>
+			<name>sez_inail</name>
+			<label>inail</label>
+			<detail>inail</detail>
+
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>81</order>
+		</item>
+		<item>
+			<name>obbligo_iscrizione_inail</name>
+			<label>obbligo iscrizione</label>
+			<detail>inail: obbligo iscrizione</detail>
+			<filter>inail: obbligo iscrizione</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>85</order>
+		</item>
+		<item>
+			<name>pat_numero</name>
+			<label>pat numero</label>
+			<detail>pat numero</detail>
+
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>87</order>
+		</item>
+		<item>
+			<name>incarico_a</name>
+			<label>inail: incarico a</label>
+			<detail>inail: incarico a</detail>
+			<filter>inail: incarico a</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>89</order>
+		</item>
+		<item>
+			<name>esercizio_solare</name>
+			<label>esercizio solare</label>
+			<detail>esercizio solare</detail>
+			<filter>esercizio solare</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>35</order>
+		</item>
+		<item>
+			<name>sezione_ordinaria</name>
+			<label>sezione ordinaria</label>
+			<filter>registro imprese: sezione ordinaria</filter>
+			<detail>registro imprese: sezione ordinaria</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>64</order>
+		</item>
+		<item>
+			<name>unita_locali</name>
+			<label>unita_locali</label>
+			<detail>registro imprese: unita locali</detail>
+			<filter>registro imprese: unita locali</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>66</order>
+		</item>
+		<item>
+			<name>iscritto_rea</name>
+			<label>iscritto_rea</label>
+			<detail>iscritto REA</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>67</order>
+		</item>
+		<!-- CRM -->
+		<item>
+			<name>sostituto_imposta</name>
+			<label>sostituto imposta</label>
+			<detail>sostituto imposta</detail>
+			<heading>1</heading>
+			<needed>1</needed>
+			<filter>sostituto imposta</filter>
+			<max_length />
+			<default />
+			<order>15</order>
+		</item>
+		<item>
+			<name>immobili</name>
+			<label>immobili</label>
+			<detail>immobili</detail>
+			<filter>immobili</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>21</order>
+		</item>
+		<item>
+			<name>ici</name>
+			<label>ici</label>
+			<detail>ICI/IMU gestita dallo Studio</detail>
+			<filter>ICI/IMU gestita dallo Studio</filter>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>31</order>
+		</item>
+		<item>
+			<name>note_ici</name>
+			<label>note ici</label>
+			<detail>note ici</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>35</order>
+		</item>
+		<item>
+			<name>cassetto_fiscale</name>
+			<label>cassetto fiscale attivo</label>
+			<detail>cassetto fiscale attivo</detail>
+			<filter>cassetto fiscale attivo</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>41</order>
+		</item>
+		<item>
+			<name>f24_cumulativo</name>
+			<label>f24 cumulativo</label>
+			<detail>f24 cumulativo</detail>
+			<filter>f24 cumulativo</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>51</order>
+		</item>
+		<item>
+			<name>antireciclaggio</name>
+			<label>antireciclaggio</label>
+			<detail>registro antireciclaggio</detail>
+			<filter>registro antireciclaggio</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>61</order>
+		</item>
+		<item>
+			<name>privacy</name>
+			<label>privacy</label>
+			<detail>consegnata informativa privacy</detail>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>81</order>
+		</item>
+		<item>
+			<name>privacy_acquisita</name>
+			<label>privacy acquisita</label>
+			<detail>acquisita liberatoria privacy</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>85</order>
+		</item>
+		<item>
+			<name>conservazione_sostitutiva</name>
+			<label>conservazione sostitutiva</label>
+			<filter>conservazione sostitutiva a norma</filter>
+			<detail>conservazione sostitutiva a norma</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>91</order>
+		</item>
+		<item>
+			<name>conservazione_sostitutiva_delega_studio</name>
+			<label>delega studio</label>
+			<detail>delega allo Studio per il servizio</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>95</order>
+		</item>
+		<item>
+			<name>verifica_validita_firma_digitale</name>
+			<label>verifica validita firma digitale</label>
+			<detail>verifica validita firma digitale cliente</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>101</order>
+		</item>
+		<item>
+			<name>conservazione_libro_giornale</name>
+			<label>conservazione libro giornale</label>
+			<filter>conservazione libro giornale</filter>
+			<detail>conservazione libro giornale</detail>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>111</order>
+		</item>
+		<item>
+			<name>conservazione_sostitutiva_note</name>
+			<label>note</label>
+			<detail>note</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>111</order>
+		</item>
+		<item>
+			<name>conservazione_libro_giornale_data_versamento_diritti</name>
+			<label>data versamento diritti</label>
+			<detail>data versamento diritti</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>115</order>
+		</item>
+		<item>
+			<name>data_invio_impronta_digitale</name>
+			<label>data invio impronta digitale</label>
+			<detail>data invio Ag. Entrate impronta digitale</detail>
+			<heading>1</heading>
+			<max_length />
+			<default />
+			<order>119</order>
+		</item>
+		<item>
+			<name>regime</name>
+			<label>regime</label>
+			<detail>regime previdenziale</detail>
+			<filter>regime previdenziale</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>121</order>
+		</item>
+		<item>
+			<name>iscrizione</name>
+			<label>iscrizione</label>
+			<detail>iscrizione regime previdenziale</detail>
+			<filter>iscrizione regime previdenziale</filter>
+			<heading>1</heading>
+			<needed>1</needed>
+			<max_length />
+			<default />
+			<order>131</order>
+		</item>
+		<item>
+			<name>creation_user</name>
+			<label>creation_user</label>
+			<detail>utente creazione</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>creation_date</name>
+			<label>data creazione</label>
+			<detail>data creazione</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>deletion_user</name>
+			<label>deletion_user</label>
+			<detail>utente cancellazione</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>deletion_date</name>
+			<label>deletion_date</label>
+			<detail>data cancellazione</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>last_modification_user</name>
+			<label>last_modification_user</label>
+			<detail>utente ultima modifica</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>last_modification_date</name>
+			<label>last_modification_date</label>
+			<detail>data ultima modifica</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>activation_flag</name>
+			<label>activation_flag</label>
+			<detail>attivo</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+		<item>
+			<name>deletion_flag</name>
+			<label>deletion_flag</label>
+			<detail>cancellato</detail>
+			<admin_only>1</admin_only>
+			<read_only>1</read_only>
+			<heading>3</heading>
+		</item>
+
+	</attributes>
+</bean>

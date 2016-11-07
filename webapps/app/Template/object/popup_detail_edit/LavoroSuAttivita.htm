@@ -1,0 +1,45 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_LavoroSuAttivita@<div class="detail-edit">
+						
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato.
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container form-container-LavoroSuAttivita">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_data@@tag_durata_minuti@@tag_diario@
+									</div>
+									
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+																			
+								</fieldset>
+							</form>
+							
+							<div class="detail-attachments">
+								
+							</div>
+		
+							
+		
+						</div>
+					</div>@END_LavoroSuAttivita@
+		</div>@END_TEMPLATE@

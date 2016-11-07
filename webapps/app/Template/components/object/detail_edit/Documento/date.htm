@@ -1,0 +1,17 @@
+<script type="text/javascript">
+	Anastasis.SerenaUtils.activateDatePicker('@NAME@');
+</script>
+<div class="detail-component date @NAME@">
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</label>
+	<div class="object-data">
+
+	  <input tabindex="10" type="text" onchange="detailEdit.check(this);" name="@NAME@"  id="@NAME@" value="@VALUE@" class="input_date" />
+	  <input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+	  <input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+	  <input type="hidden" id="label_@NAME@" value="@LABEL@" />
+
+	</div>
+	<div class="object-help">@HELP@</div>
+</div>

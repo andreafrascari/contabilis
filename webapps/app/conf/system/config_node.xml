@@ -1,0 +1,12 @@
+<!--  Configurazione del nodo: viene usata solo se l'applicazione
+      e' anche un nodo Sere-na all'interno di una RVS -->
+<serena>
+	<Node_configuration>
+		<uri>@INSERIRE L'URL A CUI E' RAGGIUNGIBILE IL NODO@</uri>
+		<description>@INSERIRE UNA DESCRIZIONE DEL NODO@</description>
+		<owner>@INSERIRE IL PROPRIETARIO DEL NODO@</owner>
+		<!--  TODO <gateway_url>http://localhost:8080/Gateway/Publish</gateway_url> -->
+		<rvs_name>@INSERIRE IL NOME DELLA RVS DI APPARTENENZA@</rvs_name>
+		<date_format>dd/MM/yyyy</date_format>
+	</Node_configuration>
+</serena>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean>
+  <title>_system_news</title>
+  <title_view>Bacheca</title_view>
+  <attributes>
+    <item>
+      <name>ID</name>
+      <type>1</type>
+      <label>ID</label>
+    </item>
+    <item>
+      <name>title</name>
+      <label>titolo</label>
+      <detail>titolo</detail>
+      <detail_edit>titolo</detail_edit>
+      <filter>titolo</filter>
+      <list>titolo</list>
+      <heading>1</heading>
+      <index>1</index>
+      <needed>1</needed>
+      <description_field>1</description_field>
+      <list_active_field>1</list_active_field>
+      <max_length/>
+      <default/>
+      <order>11</order>
+    </item>
+    <item>
+      <name>teaser</name>
+      <label>sottotitolo</label>
+      <detail>sottotitolo</detail>
+      <detail_edit>sottotitolo</detail_edit>
+      <filter>sottotitolo</filter>
+      <list>sottotitolo</list>
+      <heading>1</heading>
+      <index>1</index>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+      <order>21</order>
+    </item>
+    <item>
+      <name>thumbnail</name>
+      <label>thumbnail</label>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>31</order>
+    </item>
+    <item>
+      <name>category</name>
+      <label>categoria</label>
+      <heading>1</heading>
+      <index>1</index>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+      <order>51</order>
+    </item>
+    <item>
+      <name>source</name>
+      <label>fonte</label>
+      <heading>1</heading>
+      <index>1</index>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+      <order>61</order>
+    </item>
+    <item>
+      <name>event_date</name>
+      <label>data evento</label>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+      <order>71</order>
+    </item>
+    <item>
+      <name>body</name>
+      <label>corpo</label>
+      <detail>corpo</detail>
+      <detail_edit>corpo</detail_edit>
+      <filter>corpo</filter>
+      <heading>1</heading>
+      <index>1</index>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+      <order>81</order>
+    </item>
+    <item>
+      <name>image</name>
+      <label>immagine</label>
+      <detail>immagine</detail>
+      <detail_edit>immagine</detail_edit>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>91</order>
+      <detail_help>caricare eventuale immagine</detail_help>
+    </item>
+    <item>
+      <name>publication_from</name>
+      <!-- ancora non gestita 
+      <label>pubblicata dal</label>
+      <detail>pubblicata dal</detail>
+      <detail_edit>pubblicata dal</detail_edit>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+      <order>101</order>
+       -->
+    </item>
+    <item>
+      <name>publication_to</name>
+      <!-- ancora non gestita 
+      <label>al</label>
+      <detail>al</detail>
+      <detail_edit>al</detail_edit>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+      <order>101</order>
+       -->
+    </item>
+    <item>
+      <name>attach</name>
+      <label>allegato</label>
+      <detail>allegato</detail>
+      <detail_edit>allegato</detail_edit>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>110</order>
+    </item>
+    <item>
+      <name>attach_1</name>
+      <label>allegato 1</label>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>111</order>
+    </item>
+    <item>
+      <name>attach_2</name>
+      <label>allegato 2</label>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>121</order>
+    </item>
+    <item>
+      <name>link_1</name>
+      <label>link 1</label>
+      <detail>link 1</detail>
+      <detail_edit>link 1</detail_edit>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>131</order>
+    </item>
+    <item>
+      <name>link_2</name>
+      <label>link 2</label>
+      <heading>2</heading>
+      <max_length/>
+      <default/>
+      <order>141</order>
+    </item>
+    <item> 
+      <name>creation_user</name>  
+      <label>autore</label>  
+      <detail>autore</detail>  
+      <filter>autore</filter>
+      <list>autore</list>
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>1</heading> 
+    </item>
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>
+      <filter>data creazione</filter>
+      <list>data creazione</list>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>1</heading> 
+    </item>
+    <item> 
+      <name>deletion_user</name>  
+      <label>utente cancellazione</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+    <item> 
+      <name>deletion_date</name>  
+      <label>data cancellazione</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+    <item> 
+      <name>last_modification_user</name>  
+      <label>utente ultima modifica</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+    <item> 
+      <name>last_modification_date</name>  
+      <label>data ultima modifica</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+    <item> 
+      <name>activation_flag</name>  
+      <label>attivo</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+    <item> 
+      <name>deletion_flag</name>  
+      <label>cancellato</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>
+  </attributes>
+</bean>

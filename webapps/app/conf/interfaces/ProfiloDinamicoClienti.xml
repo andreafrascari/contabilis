@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>ProfiloDinamicoClienti</title>  
+  <title_view>Profili Dinamici Clienti</title_view>  
+  <description>Profili costruiti combinando in AND oppure OR diversi criteri di ricerca sui clienti. Sono richiamabili direttamente per consultazioni ed esportazioni, oppure associabili ad invio circolari o generazione di scadenze.</description>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>nome</name>  
+      <label>nome</label>  
+      <detail>nome</detail>   
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <detail_edit>nome</detail_edit>  
+      <filter>nome</filter>  
+      <list>nome</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <list>note</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>query</name>  
+      <label>query</label>  
+      <detail_edit>query</detail_edit>
+      <detail_help>IMPOSSIBILE MODIFICARE LA QUERY A MANO: cancellarle e ricreare il profilo</detail_help>   
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_profili_clienti</name>  
+      <label>in metascadenze</label>  
+      <detail>in metascadenze</detail>  
+      <heading>4</heading>  @tag_query@
+      <max_length/>  
+      <default/>  
+      <order>41</order>
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

@@ -1,0 +1,111 @@
+@BEGIN_TEMPLATE@<div id="detail">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+
+@BEGIN_Documento@
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+						([
+								[[] != [1]]
+								?? [
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+								]
+							])
+							
+							<li>
+										<a href="?q=object/detail_edit&amp;p=Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=DocumentoNewRevision" title="Nuova revisione documento allegato">
+														<img alt="Nuova revisione documento allegato" src="app/Template/metaAmbiente/img/icon-new-revision.png" />
+										</a>
+							</li>						
+							<li>
+										<a href="?q=object/detail_edit&amp;p=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=WizardUploadAndSendDocument" title="Avvia il workflow associato alla tipologia di documento">
+														<img alt="Avvia il workflow associato alla tipologia di documento" src="app/Template/metaAmbiente/img/icon-workflow.png" />
+										</a>
+							</li>
+							<li>
+										<a href="?q=object/detail_edit&amp;p=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=WizardAUI" title="Inserisci nel AUI di un cliente">
+														<img alt="Inserisci nel AUI di un cliente" src="app/Template/metaAmbiente/img/icon-aui.png" />
+										</a>
+							</li>
+							
+					@BLOCK_END_EDIT@
+					
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_titolo@
+							</tbody>
+						</table>
+					</div>
+					
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_titolo@
+								<tr class="tipologia"><th scope="row">tipologia</th><td>
+											@tag_tipologia.DescrizioneDocumento.tipologia_documento#FLAT@
+										</td>
+								</tr>
+								@tag_abstract@@tag_anno_contabile@@tag_data_riferimento@@tag_free_tag@@tag_revisioni@
+							</tbody>
+						</table>
+					</div>
+
+ 
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+								<tr class="attachment"><th scope="row">allegato</th><td>
+    								<a title="scarica il documento" target="_blank" href="DandL?q=get&amp;d=@tag_ID#FLAT@&amp;a=@tag_allegato._system_attachment.ID#FLAT@&amp;u=@FUN_GET_USER_INFO(param=id)@">@tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@)</a>
+								  </td></tr>
+
+									@tag_storia_documento@									
+									
+								</tbody>
+							</table>
+						</div>
+ 
+
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_Documento@
+		</div>@END_TEMPLATE@

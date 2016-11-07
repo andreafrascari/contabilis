@@ -1,0 +1,6 @@
+
+/*  ridefinisco tutti i tipi di inserto rintracciabili */
+#content .inserto {display:none; }
+#content UL#toolbar {display:none; }
+.inserto {display:none; }
+#toolbar {display:none; }

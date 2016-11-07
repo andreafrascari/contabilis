@@ -1,0 +1,142 @@
+<div class="row">
+<br />
+
+
+<div class="panel-group" id="accordion">
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-1">Studio</a>
+   </h4>
+  </div>
+  <div id="pannello-1" class="panel-collapse collapse in">
+  <div class="panel-body">
+  <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Bacheca</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=_system_news,t=Bacheca,order-by=creation_date desc)@
+      </div>
+</div>
+
+<div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Le miei ultime sessioni di lavoro</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=LavoroSuAttivita/_a_creation_user/_v_@FUN_GET_USER_INFO(param=username)@,data_source=ultime-sessioni,order-by=data desc,t=LavoroSuAttivitaEmbedded)@
+      </div>
+</div>
+  </div>
+  </div>
+
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-2">HelpDesk</a>
+   </h4>
+  </div>
+  <div id="pannello-2" class="panel-collapse collapse in">
+  <div class="panel-body">
+
+<div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">I miei ultimi ticket</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=HDTicket/_a_assegnato_a/__c_Operatore/_a_account_operatore_/_c__system_user/_a_ID/v_@FUN_GET_USER_INFO(param=ID)@,order-by=dataArrivo desc,t=HDTicket_ultimi_miei)@
+      </div>
+</div>
+
+
+<div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Ultimi ticket Studio</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=HDTicket,order-by=dataArrivo desc,t=HDTicket_ultimi_miei)@
+	</div>
+</div>
+</div>
+</div>
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-3">Calendari</a>
+   </h4>
+  </div>
+  <div id="pannello-3" class="panel-collapse collapse in">
+  <div class="panel-body">
+
+
+
+
+<div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Il mio calendario</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=operatorCalendar/month)@
+	</div>
+</div>
+
+
+<div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Il calendario dello Studio</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=previewMetascadenzeCalendar/month)@
+	</div>
+</div>
+
+</div>
+</div>
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-4">Documenti</a>
+   </h4>
+  </div>
+  <div id="pannello-4" class="panel-collapse collapse in">
+  <div class="panel-body">
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Ricerca cliente</h3>
+      </div>
+      <div class="panel-body">
+	 @FUN_MODULE(q=object/filter,p=Cliente,t=ClienteEmbedded)@
+      </div>
+</div>
+
+
+
+
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Ricerca documenti</h3>
+      </div>
+      <div class="panel-body">
+	 @FUN_MODULE(q=object/filter,p=Documento,t=DocumentoEmbedded)@
+      </div>
+</div>
+</div>
+		</div>
+	
+ 
+</div>
+
+</div>
+	
+

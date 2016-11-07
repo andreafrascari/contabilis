@@ -1,0 +1,14 @@
+@BEGIN_TEMPLATE@
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@tag_sm_show@<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+              
+               @BEGIN__system_menu_item@
+               <a @tag_smi_href@ title="@tag_smi_alternative_text@">@tag_smi_title@</a>
+        		@BEGIN_smi_children@
+        			@tag__system_menu_item@
+        		@END_smi_children@
+        		@END__system_menu_item@
+        		</ul>
+              </li>
+@END_TEMPLATE@

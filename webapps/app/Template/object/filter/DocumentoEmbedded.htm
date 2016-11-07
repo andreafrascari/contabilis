@@ -1,0 +1,18 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div class="form-container">
+ 
+				<form id="filter" method="post" action="@ACTION@">
+					
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_Documento@@tag_titolo@@tag_tipologia@@tag_abstract@@tag_anno_contabile@@tag_data_riferimento@@tag_free_tag@@END_Documento@
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						
+							<input class="home-button" type="submit" name="post_search"  title="avvia la ricerca" value="cerca" />
+						
+					
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

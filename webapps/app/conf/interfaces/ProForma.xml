@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>ProForma</title>  
+  <title_view>Proforma</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_proforma</name>  
+      <label>cliente</label>  
+      <detail_edit autocomplete="">cliente</detail_edit>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order>  
+      <detail_help>inserire prime 3 lettere di nome o cognome e attendere autocompletamento</detail_help> 
+    </item>  
+    <item> 
+      <name>anno_contabile</name>  
+      <label>anno contabile</label>  
+      <detail>anno contabile</detail>  
+      <detail_edit>anno contabile</detail_edit>  
+      <filter>anno contabile</filter>  
+      <list>anno</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>numero</name>  
+      <label>numero</label>  
+      <detail>numero</detail>  
+      <detail_edit>numero</detail_edit>  
+      <filter>numero</filter>  
+      <list>numero</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default>@FUN_NEXT_PROFORMA(competenza=CONTABILIS)@</default>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>stato_proforma</name>  
+      <label>stato</label>  
+      <detail>stato</detail>  
+      <detail_edit>stato</detail_edit>  
+      <filter>stato</filter>  
+      <list>stato</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>25</order> 
+    </item>  
+    <item> 
+      <name>data</name>  
+      <label>data</label>  
+      <detail>data</detail>  
+      <detail_edit>data</detail_edit>  
+      <filter>data</filter>  
+      <list>data</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>data_pagamento</name>  
+      <label>data pagamento</label>  
+      <detail>data pagamento</detail>
+      <list>pagamento</list>  
+      <detail_edit>data pagamento</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>35</order> 
+    </item>  
+    <item> 
+      <name>voci_proforma</name>  
+      <label>voci proforma</label>  
+      <detail inpage="1">voci proforma</detail>  
+      <detail_edit>voci proforma</detail_edit>
+      <popup_detail_edit>medium</popup_detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>competenza</name>  
+      <label>competenza</label>  
+      <detail>competenza</detail>  
+      <detail_edit>competenza</detail_edit>  
+      <filter>competenza</filter>  
+      <list>competenza</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>CONTABILIS</default>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>non_incassabile</name>  
+      <label>non incassabile</label>  
+      <detail>non incassabile</detail>  
+      <detail_edit>non incassabile</detail_edit>  
+      <filter>non incassabile</filter>  
+      <list>N.I.</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>spese_anticipate_fattura</name>  
+      <label>spese anticipate</label>  
+      <detail>spese anticipate</detail>  
+      <detail_edit>spese anticipate</detail_edit>
+      <detail_help>0 per annullare il report della stampa pdf</detail_help>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order> 
+    </item>  
+    <item> 
+      <name>spese_anticipate_desc</name>  
+      <label>report spese anticipate</label>  
+      <detail>report spese anticipate</detail>  
+      <detail_edit>report spese anticipate</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>73</order> 
+    </item>  
+    <item> 
+      <name>riv_prev</name>  
+      <label>riv prev</label>  
+      <detail>riv prev</detail>  
+      <detail_edit>riv prev</detail_edit>  
+      <filter>riv prev</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order> 
+    </item>  
+    <item> 
+      <name>ra</name>  
+      <label>ra</label>  
+      <detail>ra</detail>  
+      <detail_edit>ra</detail_edit>  
+      <filter>ra</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>83</order> 
+    </item>  
+    <item> 
+      <name>fattura</name>  
+      <label>fattura</label>  
+      <detail>fattura</detail>
+      <list>fattura</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>85</order> 
+    </item>  
+    <item> 
+      <name>solleciti_pagamento</name>  
+      <label>solleciti pagamento</label>  
+      <detail inpage="1">solleciti pagamento</detail>  
+      <detail_edit>solleciti pagamento</detail_edit>
+      <list>solleciti</list>
+      <popup_detail_edit>medium</popup_detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>91</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>entry_calendario</name>  
+      <label>entry calendario</label>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>131</order>  
+      <detail_edit>entry calendario</detail_edit>
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

@@ -1,0 +1,74 @@
+@BEGIN_TEMPLATE@<div id="detail">
+					
+		
+				<h2>@TITLE@</h2>
+		
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@tag_identificativo@
+							</tbody>
+						</table>
+					</div>
+					
+
+			
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								<tr class="thread">
+								<th scope="row">messaggi</th>
+								<td>@BEGIN_thread@@BEGIN_HDThreadStep@@tag_th_messaggio#FLAT@@END_HDThreadStep@<br />@END_thread@</td>
+								</tr>
+								@tag_dataArrivo@
+								@tag_daCliente@
+								@tag_contattoNonRiconosciuto@
+								@tag_assegnato_a@
+								@tag_azioneRichiesta@
+								@tag_statoTicket@
+								
+								@tag_priorita_ticket@
+								@tag_data_scadenza@
+								@tag_diagnosi_libero@
+								@tag_rispondere_a@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_emailAssistenza@@tag_assegnatoApratica@@tag_allegato@@tag_allegato_1@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_emailAssistenza@@tag_assegnatoApratica@@tag_allegato@@tag_allegato_1@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				
+				@END_HDTicket@
+		</div>@END_TEMPLATE@

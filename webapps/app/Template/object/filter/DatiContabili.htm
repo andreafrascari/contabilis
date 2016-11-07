@@ -1,0 +1,31 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			<div class="form-container">
+				
+				<form id="filter" method="post" action="@ACTION@&amp;t=DatiContabili_export">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_DatiContabili@@tag_inverse_of_dati_contabili@@tag_tipo_cliente@@tag_codice_ateco@@tag_teniamo_noi@@tag_regime_contabilita@@tag_regime_iva@@tag_provincia_registro_imprese@@tag_note@@tag_esercizio_solare@@END_DatiContabili@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

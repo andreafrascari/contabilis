@@ -1,0 +1,57 @@
+<tasks>
+	<!-- Per dettagli sulla configurazione fare
+	     riferimento alle istruzioni di cron4j
+	     http://www.sauronsoftware.it/projects/cron4j/quickstart.php
+	     DA TENERE PRESENTE CHE: 
+	     Le regole di avvio dei task sono espresse mediante una stringa 
+	     detta scheduling pattern, la cui sintassi ricalca quella usata
+	     nel crontab di UNIX!!!
+	     
+   	     2 possibili classi: 
+	     	PasswordController -> setta activation_flag a zero se pwd scaduta
+	     	PasswordControllerAndReminder -> setta activation_flag a zero e invia notifica se pwd scaduta
+	   -->
+	 <!-- 
+	<task>
+		<class>eu.anastasis.tulliniHelpGest.tasks.MemoReminder</class>
+		<minute>00</minute>
+		<hour>09</hour>
+		<day_of_month>*</day_of_month>
+		<month>*</month>
+		<day_of_week>*</day_of_week>
+	</task>
+	<task>
+		<class>eu.anastasis.it.tullinidms.tasks.NotificationHandler</class>
+		<minute>00</minute>
+		<hour>05</hour>
+		<day_of_month>*</day_of_month>
+		<month>*</month>
+		<day_of_week>*</day_of_week>
+	</task>
+
+	   <task>
+		<class>eu.anastasis.it.tullinidms.tasks.ClientSynch</class>
+		<minute>*/3</minute>
+		<hour>*</hour>
+		<day_of_month>*</day_of_month>
+		<month>*</month>
+		<day_of_week>*</day_of_week>
+	</task>
+		-->
+	<task>  
+		<class>eu.anastasis.tulliniHelpGest.helpDesk.PollStarter</class>
+		<minute>*/4</minute>
+		<hour>*</hour>
+		<day_of_month>*</day_of_month>
+		<month>*</month>
+		<day_of_week>*</day_of_week>
+	</task>
+	<task>
+		<class>eu.anastasis.tulliniHelpGest.tasks.FillInvoicingCalendar</class>
+		<minute>00</minute>
+		<hour>05</hour>
+		<day_of_month>01</day_of_month>
+		<month>01</month>
+		<day_of_week>*</day_of_week>
+	</task>
+</tasks>

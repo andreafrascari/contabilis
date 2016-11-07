@@ -1,0 +1,56 @@
+@BEGIN_TEMPLATE@		
+
+
+@BEGIN_DescrizioneDocumento@
+
+		<div class="detail-edit">
+			<div id="splash">
+				<h2>Inserimento del Documento nell'AUI di un Cliente</h2>				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+			
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>																				
+				</ul>
+				
+			</div>
+
+			<div class="form-container">
+						<form id="detail-edit" method="post" action="?q=document/associate2clientAsAUI">
+
+								@FUN_MODULE(q=object/detail_edit,p=Documento/_a_ID/_v_@FUN_GET_URL_PARAM(param=p, pre=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_)@,t=DocumentoHidden)@
+
+																
+								<div class="detail-body">
+
+								<div id="notificaclienti">
+								<fieldset>
+									<legend>
+										Specificare il cliente
+									</legend>
+				 								
+									@FUN_MODULE(q=object/detail_edit,p=StoriaDocumento,a=,t=StoriaDocumentoSoloCliente)@
+								</fieldset>
+								</div>
+								
+							
+							<input type="submit" value="Procedi!" name="gosend" id="gosend" />
+						</form>
+					</div>@END_DescrizioneDocumento@
+		</div>@END_TEMPLATE@

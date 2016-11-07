@@ -1,0 +1,17 @@
+/*CSS comune a tutta lapplicazione per sistemare i problemi di Internet Explorer */
+
+#object-body {
+	background: url(img/object-body.gif) 1% 3% no-repeat;	
+}
+
+#object-system {
+    background: url(img/object-system.gif) 1% 3% no-repeat #F3F3EB;
+}
+
+#object-body-links {
+  background: url(img/object-body-links.gif) 1% 3% no-repeat #f6fdf5;
+}
+
+#object-body-nav {
+  background: url(img/object-body-nav.gif) 2% 50% no-repeat #f8f0f0;
+}

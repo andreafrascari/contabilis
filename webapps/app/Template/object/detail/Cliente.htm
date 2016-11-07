@@ -1,0 +1,157 @@
+@BEGIN_TEMPLATE@<div id="detail" class="tabbed">
+<script type="text/javascript">
+function confirmAccountCreation(){
+		return confirm("Procedere con la creazione e la notifica della nuova account per questo cliente?");
+}
+</script>
+
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun cliente trovato! Cessata assistenza?
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+
+@BEGIN_Cliente@
+
+<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+						
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+					([[[@tag_account._system_user.ID#FLAT@]==[] && [@tag_email#FLAT@]!=[]]??[
+													<li>
+														<a id="newaccount" onclick="return confirmAccountCreation();" class="link_map" href="?q=document/createuseraccount&amp;ID=@tag_ID#FLAT@" title="Creazione automatica account con notifica">
+																		<img alt="Creazione automatica account con notifica" src="app/Template/metaAmbiente/img/icon-workflow.png" />
+														</a>
+													</li>
+													]])	
+					@BLOCK_END_EDIT@
+					<li>
+<!-- 						<a href="?q=object/list&amp;p=StoricoModifiche/_a_classe/_v_Cliente/_a_istanza/_v_@tag_ID#FLAT@" title="storia delle modifiche"><img alt="storia delle modifiche" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-history.png" /></a>    -->
+						<a href="?q=object/detail&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=ClienteStoricoModifiche" title="storia delle modifiche"><img alt="storia delle modifiche" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-history.png" /></a>
+					</li>
+					
+					
+				</ul>
+			</div>			
+				<h2>@tag_cliente#FLAT@</h2>
+			
+
+
+@FUN_MODULE(q=current_data/set/CLS=Cliente/id=@tag_ID#FLAT@/cliente=@tag_cliente#FLAT@)@
+
+			
+
+
+
+			
+		@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('Cliente');
+		});
+		</script>
+
+								
+					
+	
+
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								<tr class="stato_cliente"><th scope="row">stato</th><td>@tag_stato_cliente#FLAT@
+								([[
+									[@FUN_DECODE_DESCRIPTION(class=227,value=@tag_stato_cliente#FLAT@,reverse=1)@]==[1]] ??
+									[<img alt="cliente verificato"  title="cliente verificato"  src="app/Template/metaAmbiente/img/icon-check.png" />]
+									:: [
+									<img alt="cliente non verificato"  title="cliente non verificato"  src="app/Template/metaAmbiente/img/icon-alert.png" />									
+									 ([[[@tag_operatore_responsabile.Operatore.account_operatore._system_user.ID#FLAT@]==[@FUN_GET_USER_INFO(param=id)@]]??									
+										[<a @popup="dimensions=small,title=Tagga cliente come verificato" href="?q=object/detail_edit&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=Cliente_verificato" title="Tagga il cliente come verificato"><img alt="tagga il cliente come verificato"  src="app/Template/metaAmbiente/img/icon-edit.gif" /></a>]
+									])
+									]
+								])
+								</td></tr>
+								@tag_codice_cliente@@tag_nickname@@tag_codice_fiscale@@tag_partita_iva@
+								<tr class="operatore_responsabile"><th scope="row">operatore responsabile</th><td>@tag_operatore_responsabile.Operatore.nome_e_cognome#FLAT@</td></tr>
+								@tag_cliente_dal@@tag_cessata_assistenza_il@@tag_note@
+								
+								@tag_tipo_cliente@
+								
+								<tr class="schede-relative">
+									<th scope="row">
+										<div class="alert alert-info" role="alert">
+											Controllare consistenza fra <em>tipo cliente</em> e relative <em>schede contabili</em>.
+										</div>
+									</th>
+									<td>
+									<ul>
+									@BEGIN_dati_contabili@
+											@BEGIN_DatiContabili@
+											<li>
+												<strong>@tag_tipo_cliente#FLAT@</strong>: <em>contab in studio: </em>@tag_teniamo_noi#FLAT@; <em>regime contab: </em>@tag_regime_contabilita#FLAT@; <em>regime iva: </em>@tag_regime_iva#FLAT@;
+											</li>
+											@END_DatiContabili@
+									@END_dati_contabili@
+											<li>Seguire eventualmente questo link per registrare una 
+												<a title="registra nuova scheda dati contabili"
+													href="?q=object/detail_edit&amp;p=DatiContabili&amp;a=_a_inverse_of_dati_contabili/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@">nuova scheda contabile
+												</a>
+											</li>
+									</ul>
+									<br />
+									</td>
+								</tr>
+								@tag_non_profit@@tag_sez_contatti@@tag_email@@tag_email2@@tag_email3@@tag_cellulare@@tag_telefono@@tag_fax@@tag_tipo_sollecito@@tag_sez_sede_legale@@tag_indirizzo@@tag_cap@@tag_comune@@tag_sez_recapito@@tag_recapito_indirizzo@@tag_recapito_cap@@tag_recapito_comune@@tag_sez_legale_rappresentante@@tag_legale_rappresentante_cognome@@tag_legale_rappresentante_nome@@tag_legale_rappresentante_cf@@tag_legale_rappresentante_residenza@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_allegato@@tag_allegato_1@@tag_account@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_allegato@@tag_allegato_1@@tag_account@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+ 
+				
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_Cliente@
+		</div>@END_TEMPLATE@

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Sms</title>  
+  <title_view>Sms</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>a_cliente</name>  
+      <label>a cliente</label>  
+      <detail>a cliente</detail>
+      <detail_edit autocomplete="">a cliente</detail_edit>
+      <detail_help>scegliere il cliente (con autocompletamento) oppure specificare un numero nel campo sottostante</detail_help>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <filter autocomplete="">a cliente</filter>  
+      <list>a cliente</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>numero_destinatario</name>  
+      <label>a numero</label>  
+      <detail>a numero</detail>  
+      <detail_edit>a numero</detail_edit>  
+      <detail_help>obbligatorio.... a meno che non venga specificato il cliente sopra</detail_help>
+      <filter>a numero</filter>  
+      <list>a numero</list>  
+      <heading>1</heading>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>testo</name>  
+      <label>testo</label>  
+      <detail>testo</detail>  
+      <detail_edit>testo</detail_edit>
+      <detail_help>max 160 caratteri</detail_help>    
+      <filter>testo</filter>  
+      <list>testo</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length>160</max_length>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>qualita</name>  
+      <label>qualita</label>  
+      <detail>qualita</detail>  
+      <detail_edit>qualita</detail_edit>  
+      <filter>qualita</filter>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>alta con notifica</default>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>ora_spedizione</name>  
+      <label>spedizione</label>  
+      <detail>spedizione</detail>    
+      <filter>spedizione</filter>  
+      <list>spedizione</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>ora_ricezione</name>  
+      <label>notifica ricezione</label>  
+      <detail>notifica ricezione</detail>    
+      <filter>notifica ricezione</filter>  
+      <list>notifica ricezione</list>
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>
+      <list>note</list>  
+      <detail_edit>note</detail_edit>
+      <detail_help>solo per catalogazione</detail_help>    
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>mittente</label>  
+      <detail>mittente</detail>
+      <filter>mittente</filter>
+      <list>mittente</list>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

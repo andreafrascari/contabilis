@@ -1,0 +1,16 @@
+<div class="detail-component linkN-1 @NAME@">
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</label>
+	<div @AUTOCOMPLETE@> 
+		<input tabindex="10" type="text" id="show_@NAME@" value="@SHOW_VALUE@" />
+		<input type="hidden" name="@NAME@" id="@NAME@" value="@VALUE@" />
+	</div>
+
+  	<input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+	<input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+	<input type="hidden" id="label_@NAME@" value="@LABEL@" />
+	<input type="hidden" id="info_@NAME@" value="class=@CLASS@|controller=@CONTROLLER@" />
+
+	<div class="object-help">@HELP@</div>
+</div>

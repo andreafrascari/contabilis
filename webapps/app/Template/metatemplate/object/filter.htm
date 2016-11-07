@@ -1,0 +1,86 @@
+@METABEGIN_TEMPLATE@
+	@BEGIN_TEMPLATE@		
+		<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			@BLOCK_BEGIN_EDIT@
+				@METABEGIN_bean@
+					([
+						[[@METAtag_read_only@] != [1] && [@METAtag_update_only@] != [1] && [@METAtag_no_insert_in_filter@] != [1]]
+						?? [
+							<div class="form-container">
+								<form id="fake" action="">
+									<fieldset>
+										<legend>nuova scheda:</legend>
+										<div class="object-new">
+											Segui questo link per inserire una <a href="@HREF_DETAIL_EDIT@" title="nuova scheda">nuova scheda</a>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+		   			    ]
+					])
+				@METAEND_bean@
+			@BLOCK_END_EDIT@
+
+			<div class="form-container">
+				<form id="search-engine" method="post" action="@ACTION@">
+					<fieldset>
+						<legend>ricerca a testo libero</legend>
+						<div class="alert alert-info" role="alert">Puoi effettuare una ricerca modello &quot;motore di ricerca&quot;: specifica le parole che ti interessano, che verranno cercate fra tutti gli attributi.<br />
+							Per cercare un frase esatta, usare le virgolette (es: &quot;frase fra virgolette&quot;)
+						</div>
+						<label for="testo-libero">cerca</label>
+						<input id="testo-libero" name="KEY_search_all" type="text" value="@SEARCH_ALL_VALUE@" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+				<form id="filter" method="post" action="@ACTION@">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@METABEGIN_bean@
+							@BEGIN_@METAtag_title@@
+								@METABEGIN_attributes@
+									@METABEGIN_item[filter]@
+										@tag_@METAtag_name@@
+									@METAEND_item@
+								@METAEND_attributes@
+							@END_@METAtag_title@@
+						@METAEND_bean@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						
+						<!--
+						<div id="andorrow">
+						<label for="radio">Condizioni in:</label>
+							<span class="and">and: <input type="radio" name="type" value="and" checked="checked" /></span>
+							<span class="or">or: <input type="radio" name="type" value="or" /></span>
+						</div>
+						-->
+						
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	@END_TEMPLATE@
+@METAEND_TEMPLATE@

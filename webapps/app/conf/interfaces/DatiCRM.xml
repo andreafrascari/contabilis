@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>DatiCRM</title>  
+  <title_view>Dati CRM</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>df_cliente</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>sostituto_imposta</name>  
+      <label>sostituto imposta</label>  
+      <detail>sostituto imposta</detail>
+      <list>sostituto imposta</list>  
+      <detail_edit>sostituto imposta</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <filter>sostituto imposta</filter>  
+      <max_length/>  
+      <default/>  
+      <order>15</order> 
+    </item>  
+    <item> 
+      <name>immobili</name>  
+      <label>immobili</label>  
+      <detail>immobili</detail>  
+      <detail_edit>immobili</detail_edit>
+      <filter>immobili</filter>
+      <list>immobili</list>    
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>ici</name>  
+      <label>ici</label>  
+      <detail>ICI/IMU gestita dallo Studio</detail>  
+      <detail_edit>ICI/IMU gestita dallo Studio</detail_edit>  
+      <filter>ICI/IMU gestita dallo Studio</filter>
+      <list>ICI/IMU gestita dallo Studio</list> 
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>note_ici</name>  
+      <label>note ici</label>  
+      <detail>note ici</detail>  
+      <detail_edit>note ici</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>35</order> 
+    </item>  
+    <item> 
+      <name>cassetto_fiscale</name>  
+      <label>cassetto fiscale attivo</label>  
+      <detail>cassetto fiscale attivo</detail>
+      <list>cassetto fiscale attivo</list>    
+      <detail_edit>cassetto fiscale attivo</detail_edit> 
+      <filter>cassetto fiscale attivo</filter>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>f24_cumulativo</name>  
+      <label>f24 cumulativo</label>  
+      <detail>f24 cumulativo</detail>  
+      <detail_edit>f24 cumulativo</detail_edit>  
+      <filter>f24 cumulativo</filter> 
+      <list>f24 cumulativo</list>
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>antireciclaggio</name>  
+      <label>antireciclaggio</label>  
+      <detail>registro antireciclaggio</detail>  
+      <filter>registro antireciclaggio</filter> 
+      <detail_edit>registro antireciclaggio</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>privacy</name>  
+      <label>privacy</label>
+      <list>consegnata informativa privacy</list>    
+      <detail>consegnata informativa privacy</detail>  
+      <filter>consegnata informativa privacy</filter> 
+      <detail_edit>consegnata informativa privacy</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>81</order> 
+    </item>  
+    <item> 
+      <name>privacy_acquisita</name>  
+      <label>privacy acquisita</label>  
+      <detail>acquisita liberatoria privacy</detail>  
+      <filter>acquisita liberatoria privacy</filter> 
+      <detail_edit>acquisita liberatoria privacy</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>85</order> 
+    </item>  
+    <item> 
+      <name>conservazione_sostitutiva</name>  
+      <label>conservazione sostitutiva</label>  
+      <filter>conservazione sostitutiva a norma</filter>
+      <list>conservazione sostitutiva a norma</list>  
+      <detail>conservazione sostitutiva a norma</detail>  
+      <detail_edit>conservazione sostitutiva a norma</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>91</order> 
+    </item>  
+    <item> 
+      <name>conservazione_sostitutiva_delega_studio</name>  
+      <label>delega studio</label>  
+      <detail>delega allo Studio per il servizio</detail>
+      <filter>delega allo Studio per conservazione sostitutiva</filter>    
+      <detail_edit>delega allo Studio per il servizio</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>95</order> 
+    </item>  
+    <item> 
+      <name>verifica_validita_firma_digitale</name>  
+      <label>verifica validita firma digitale</label>  
+      <detail>verifica validita firma digitale cliente</detail>  
+      <detail_edit>verifica validita firma digitale cliente</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>conservazione_libro_giornale</name>  
+      <label>conservazione libro giornale</label>  
+      <filter>conservazione libro giornale</filter>
+      <detail>conservazione libro giornale</detail>  
+      <detail_edit>conservazione libro giornale</detail_edit>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>111</order> 
+    </item>  
+    <item> 
+      <name>conservazione_sostitutiva_note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note sulla conservazione sostitutiva</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>111</order> 
+    </item>  
+    <item> 
+      <name>conservazione_libro_giornale_data_versamento_diritti</name>  
+      <label>data versamento diritti</label>  
+      <detail>data versamento diritti</detail>  
+      <detail_edit>data versamento diritti</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>115</order> 
+    </item>  
+    <item> 
+      <name>data_invio_impronta_digitale</name>  
+      <label>data invio impronta digitale</label>  
+      <detail>data invio Ag. Entrate impronta digitale</detail>  
+      <detail_edit>data invio Ag. Entrate impronta digitale</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>119</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>201</order> 
+    </item>  
+    <item> 
+      <name>allegato_contratto</name>  
+      <label>contratto</label>  
+      <detail>contratto</detail>  
+      <detail_edit>contratto</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>301</order> 
+    </item>  
+    <item> 
+      <name>allegato_delega_f24_cumulativo</name>  
+      <label>delega f24 cumulativo</label>  
+      <detail>delega f24 cumulativo</detail>  
+      <detail_edit>delega f24 cumulativo</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>311</order> 
+    </item>  
+    <item> 
+      <name>allegato_delega_f24_compensazioni</name>  
+      <label>delega f24 compensazioni</label>  
+      <detail>delega f24 compensazioni</detail>  
+      <detail_edit>delega f24 compensazioni</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>315</order> 
+    </item>  
+    <item> 
+      <name>allegato_delega_cassetto_fiscale</name>  
+      <label>delega cassetto fiscale</label>  
+      <detail>delega cassetto fiscale</detail>  
+      <detail_edit>delega cassetto fiscale</detail_edit>  
+      <heading>2</heading>  
+      <max_length/>  
+      <default/>  
+      <order>321</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

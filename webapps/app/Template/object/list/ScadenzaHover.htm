@@ -1,0 +1,78 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+ 
+ 
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Scadenza.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								@BEGIN_Scadenza@([
+										[[@XPATH_FUN((count(preceding-sibling::Scadenza)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+									
+									<td>
+										@tag_inverse_of_scadenze.Cliente.cliente#FLAT@
+										@tag_inverse_of_op_scadenze.Operatore.nome_e_cognome#FLAT@
+										@BEGIN_profili_clienti@
+											@BEGIN_ProfiloDinamicoClienti@
+												@tag_nome#FLAT@<br />
+											@END_ProfiloDinamicoClienti@
+										@END_profili_clienti@
+									</td>
+										@tag_data@
+										<td>
+											@tag_inverse_of_pratica_scadenza.Pratica.titolo#FLAT@
+											@tag_inverse_of_attivita_scadenza.Attivita.titolo#FLAT@
+										</td>
+										@tag_oggetto_scadenza@
+										@tag_ricorrenza@
+											 
+									</tr>@END_Scadenza@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			 
+		</div>@END_TEMPLATE@

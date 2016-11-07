@@ -1,0 +1,96 @@
+@METABEGIN_TEMPLATE@
+	@BEGIN_TEMPLATE@
+		<div class="inpage_detail">
+
+			<div class="inserto">
+				<ul class="clearfix toolbar">
+					@METABEGIN_bean@
+							([[[@METAtag_pdf@] != []]
+							?? [	
+							<li><a href="ModuleIndex?q=birtReport/give/CLS=@CLASS@/ID=@ID@/DOC=@CLASS@/FILE=@FILE@/TYPE=pdf" title="Genera versione pdf"><img alt="Genera versione pdf"  src="app/Template/metaAmbiente/img/icon-acrobat.gif" /></a></li>
+							]])
+							@BLOCK_BEGIN_EDIT@
+							([
+								[[@METAtag_read_only@] != [1]]
+								?? [
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+								]
+							])
+						@BLOCK_END_EDIT@
+					@METAEND_bean@
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@METABEGIN_bean@
+				@BEGIN_@METAtag_title@@
+					<!--TITLE
+					<div class="object-inpage-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+						<tbody>
+							@METABEGIN_attributes@
+								@METABEGIN_item[description_field = 1]@
+									@tag_@METAtag_name@@
+								@METAEND_item@
+							@METAEND_attributes@
+						</tbody>
+					</table>
+				</div>
+				-->
+				<!--FINE TITLE-->
+
+
+				<!--MAIN -->
+				@METABEGIN_attributes[item/detail and item/heading=1]@
+					<div class="object-inpage-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@METABEGIN_item[detail and heading=1 and not(admin_only)]@
+									@tag_@METAtag_name@@
+								@METAEND_item@
+							</tbody>
+						</table>
+					</div>
+				@METAEND_attributes@
+
+				<!--FINE MAIN-->
+				([
+					[ [@METABEGIN_attributes@@METABEGIN_item[detail and (heading=2 or heading=4)]@@tag_@METAtag_name@@@METAEND_item@@METAEND_attributes@] != []]
+					?? [
+						<div class="object-inpage-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@METABEGIN_attributes@
+										@METABEGIN_item[detail and (heading=2 or heading=4)]@
+											@tag_@METAtag_name@@
+										@METAEND_item@
+									@METAEND_attributes@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+
+				@END_@METAtag_title@@
+			@METAEND_bean@
+		</div>
+	@END_TEMPLATE@
+@METAEND_TEMPLATE@

@@ -1,0 +1,158 @@
+@METABEGIN_TEMPLATE@
+	@BEGIN_TEMPLATE@
+		<div id="detail">
+					<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="?q=object/list&amp;p=@CLASS@&amp;page=XML-QUERY" title="Tornare all'ultima lista visualizzata"><img alt="Tornare all'ultima lista visualizzata"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+						@METABEGIN_bean@
+						([[[@METAtag_pdf@] != []]
+							?? [	
+							<li><a href="ModuleIndex?q=birtReport/give/CLS=@CLASS@/ID=@ID@/DOC=@CLASS@/FILE=@FILE@/TYPE=pdf" title="Genera versione pdf"><img alt="Genera versione pdf"  src="app/Template/metaAmbiente/img/icon-acrobat.gif" /></a></li>
+							]
+						])
+						
+					@BLOCK_BEGIN_EDIT@
+						([
+								[[@METAtag_read_only@] != [1]]
+								?? [
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[@METAtag_popup_detail_edit@] != []] ?? [popup="dimensions=@METAtag_popup_detail_edit@"]])>
+											<img alt="modifica" title="modifica"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+								]
+							])
+							([
+								[[@METAtag_edit_method@] == [complex_detail_edit]]
+								?? [
+									<li>
+										<a href="@HREF_COMPLEX_COPY@" title="Copia i dati dell'oggetto per crearne uno nuovo">
+											<img alt="Copia la scheda" title="Copia la scheda"  src="app/Template/metaAmbiente/img/icon-copy.gif" />
+										</a>
+									</li>
+								]
+							])
+						@BLOCK_END_EDIT@
+					@METAEND_bean@
+					<!--
+						<li>
+							<a href="@HREF_MAP@" title="Naviga l'ontologia dell'oggetto"><img alt="Naviga l'ontologia dell'oggetto" title="Naviga l'ontologia dell'oggetto"  src="@CONTEXT@/app/Template/metaAmbiente/img/icon-map.jpg" HEIGHT="16" WIDTH="16"/></a>
+						</li>
+					-->
+				</ul>
+			</div>
+		
+				<h2>@TITLE@</h2>
+		
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@METABEGIN_bean@
+				@BEGIN_@METAtag_title@@
+					<!--TITLE-->
+					<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+								@METABEGIN_attributes@
+									@METABEGIN_item[description_field = 1]@
+										@tag_@METAtag_name@@
+									@METAEND_item@
+								@METAEND_attributes@
+							</tbody>
+						</table>
+					</div>
+					<!--FINE TITLE-->
+
+				<!--TORNA A -->
+				([
+					[ [@METABEGIN_attributes@@METABEGIN_item[detail and heading=5]@@tag_@METAtag_name@@@METAEND_item@@METAEND_attributes@] != []]
+					?? [
+						<div id="object-body-nav">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella navigazione">
+								<tbody>
+									@METABEGIN_attributes@
+										@METABEGIN_item[detail and heading=5]@
+											@tag_@METAtag_name@@
+										@METAEND_item@
+									@METAEND_attributes@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				<!--MAIN -->
+				@METABEGIN_attributes[item/detail and item/heading=1]@
+					<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@METABEGIN_item[detail and heading=1 and not(admin_only)]@
+									@tag_@METAtag_name@@
+								@METAEND_item@
+							</tbody>
+						</table>
+					</div>
+				@METAEND_attributes@
+
+				<!--FINE MAIN-->
+				([
+					[ [@METABEGIN_attributes@@METABEGIN_item[detail and (heading=2 or heading=4)]@@tag_@METAtag_name@@@METAEND_item@@METAEND_attributes@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@METABEGIN_attributes@
+										@METABEGIN_item[detail and (heading=2 or heading=4)]@
+											@tag_@METAtag_name@@
+										@METAEND_item@
+									@METAEND_attributes@
+								</tbody>
+							</table>
+						</div>
+					]
+				])
+
+				<!--ADMIN-->
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@METABEGIN_attributes@
+								@METABEGIN_item[admin_only = 1]@
+									@tag_@METAtag_name@@
+								@METAEND_item@
+							@METAEND_attributes@
+						</tbody>
+					</table>
+				</div>
+				<!--FINE ADMIN -->
+
+				<!-- MAPPA DI NAVIGAZIONE, opzionale -->
+				<!--
+					<div id="breadcrumb-map">
+						<h4>Navigazione:</h4>
+						@FUN_MODULE(q=map/map-inverse/CLS=@METAtag_title@/ID=@tag_ID#FLAT@)@
+					</div>
+				-->
+				@END_@METAtag_title@@
+			@METAEND_bean@
+		</div>
+	@END_TEMPLATE@
+@METAEND_TEMPLATE@

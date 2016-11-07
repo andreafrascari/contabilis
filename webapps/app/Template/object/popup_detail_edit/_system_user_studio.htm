@@ -1,0 +1,65 @@
+@BEGIN_TEMPLATE@
+<script type="text/javascript">
+$(document).ready(function() {
+	  $("#INP_user_sercret_pharse").click(function() {
+	       $("#INP_user_sercret_pharse").val("il mio studio commercialista?");
+	       $("#INP_user_secret_answer").val("Contabilis");
+	     });
+	}); 
+</script>
+
+<div id="popup-detail-edit-window">
+			@BEGIN__system_user@<div class="detail-edit">
+						<div id="splash">
+							<h2>@TITLE@</h2>
+						</div>
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_user_user_id@@tag_user_name@@tag_user_password@@tag_user_sercret_pharse@@tag_user_secret_answer@
+									</div>
+									
+		
+									
+									<div class="detail-edit-system">
+										
+										
+									</div>
+									
+									<!--  appartenenza gruppo userStudio! -->
+									<input type="hidden" id="INP_user_groups" name="INP_user_groups" value="5" />
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />
+									
+									<input type="hidden" id="allow_instance_deletion" value="true" />
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								
+							</div>
+		
+						</div>
+					</div>@END__system_user@
+		</div>@END_TEMPLATE@

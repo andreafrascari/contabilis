@@ -1,0 +1,33 @@
+VoceFattura.java -> public static final java.lang.String IVA__STD = "22%"; // in realta non usato
+
+interfaces: Fattura_Totali + Proforma_Totali
+
+export/give/*
+
+report/give/*Totali (FND&RPL da xml)
+
+
+INSERT INTO `tullini-helpgest`.`_system_decode` (
+`sd_description` ,
+`sd_value` ,
+`sd_locale` ,
+`sd_notes` ,
+`ID__system_decode_sd_parent` ,
+`sd_image` ,
+`creation_date` ,
+`creation_user` ,
+`last_modification_date` ,
+`last_modification_user` ,
+`deletion_date` ,
+`deletion_user` ,
+`deletion_flag` ,
+`activation_flag` ,
+`sd_class`
+)
+VALUES ('22%', '5', 'it', '22', NULL , NULL , '2011-07-15', 'admin', NULL , NULL , NULL , NULL , '0', '1', '232');
+
+
+
+ 
+
+UPDATE `_system_module_parameter` SET `smp_value` = '22%' WHERE `_system_module_parameter`.`ID` =8;

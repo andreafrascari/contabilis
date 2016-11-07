@@ -1,0 +1,168 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+					<h2>@TITLE@</h2>
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+						</li>
+
+													
+						@BLOCK_BEGIN_EDIT@
+							
+										<li>
+											<a href="@HREF_DETAIL_EDIT@" title="inserisci una nuova scheda"><img alt="inserisci una nuova scheda" title="inserisci una nuova scheda" src="app/Template/metaAmbiente/img/icon-new.gif" /></a>
+										</li>
+						@BLOCK_END_EDIT@
+					</ul>
+				</div>
+				<h3>Risultati della ricerca : @NUMERO_ELEMENTI@ - pagina @PAGINA_CORRENTE@</h3>
+
+<!--
+				<div class="bs-glyphicons">
+    <ul class="bs-glyphicons-list">
+						<li><a href="javascript:history.back();" title="indietro"><span class="glyphicon glyphicon-step-backward"></span></a></li>
+						@BLOCK_BEGIN_EDIT@
+							<li><a href="@HREF_DETAIL_EDIT@" title="inserisci una nuova scheda"><span class="glyphicon glyphicon-plus"></span></a></li>
+						@BLOCK_END_EDIT@
+					</ul>
+				</div>
+-->
+
+
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Documento.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									<th scope="col">WF</th>
+									<th scope="col">Azioni</th>
+								</tr>
+	
+								@BEGIN_Documento@([
+										[[@XPATH_FUN((count(preceding-sibling::Documento)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+	
+									
+										<td>@tag_titolo#FLAT@</td>
+										<td>
+											@tag_tipologia.DescrizioneDocumento.tipologia_documento#FLAT@
+										</td>
+										@tag_data_riferimento@
+										<td class="attachment">
+											<a title="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" target="_blank" href="DandL?q=get&amp;d=@tag_ID#FLAT@&amp;a=@tag_allegato._system_attachment.ID#FLAT@&amp;u=@FUN_GET_USER_INFO(param=id)@"><img src="app/Template/metaAmbiente/img/icon-attachment.png" alt="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" /></a>
+										</td>
+										@tag_last_modification_date@
+										<td class="wf">
+											([[[@tag_storia_documento.StoriaDocumento.ID#FLAT@]!=[]]??[
+												([[[@tag_storia_documento.StoriaDocumento.errore#FLAT@]==[]]??
+													[<a @popup="dimensions=big,title=WF" href="?q=object/detail&amp;p=StoriaDocumento/_a_ID/_v_@tag_storia_documento.StoriaDocumento.ID#FLAT@" title="vai all'UTLIMO WF">OK</a>] :: 
+													[<a @popup="dimensions=big,title=WF" href="?q=object/detail&amp;p=StoriaDocumento/_a_ID/_v_@tag_storia_documento.StoriaDocumento.ID#FLAT@" title="vai all'UTLIMO WF">@tag_storia_documento.StoriaDocumento.errore#FLAT@</a>]
+												])
+											]::[no]])
+										</td>
+										
+											<td class="azioni-doc">
+											([
+												[[@FUN_IS_USER_IN(group=Clienti)@]==[false]]
+												?? [																															
+													<a class="link_map" href="?q=@MODULE@/detail&amp;p=Documento/_a_ID/_v_@tag_ID#FLAT@" title="Vai alla scheda dell'oggetto"><img alt="Vai alla scheda dell'oggetto" title="Vai alla scheda dell'oggetto"  src="app/Template/metaAmbiente/img/icon-forth.gif" /></a>
+												] :: [&nbsp;]
+												])
+												
+												([
+												[[@FUN_CHECK_INSTANCE_AUTH(CLS=@CLASS@,ID=@tag_ID#FLAT@,LEVEL=2,CREATION_USER=@tag_creation_user#FLAT@)@] == [true]]
+												?? [
+													<span class="NoVisibility">|</span>
+														<a class="link_map" href="?q=@MODULE@/detail_edit&amp;p=Documento/_a_ID/_v_@tag_ID#FLAT@" title="Modifica i dati dell'oggetto">
+																		<img alt="Modifica i dati dell'oggetto" title="Modifica i dati dell'oggetto"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+														</a>
+														
+													<span class="NoVisibility">|</span>
+														<a class="link_map" href="?q=object/detail_edit&amp;p=Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=DocumentoNewRevision" title="Nuova revisione documento allegato">
+																		<img alt="Nuova revisione documento allegato" src="app/Template/metaAmbiente/img/icon-new-revision.png" />
+														</a>
+													
+													<span class="NoVisibility">|</span>
+														<a class="link_map" href="?q=object/detail_edit&amp;p=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=WizardUploadAndSendDocument" title="Avvia il workflow associato alla tipologia di documento">
+																		<img alt="Avvia il workflow associato alla tipologia di documento" src="app/Template/metaAmbiente/img/icon-workflow.png" />
+														</a>
+														
+													<span class="NoVisibility">|</span>
+														<a class="link_map" href="?q=object/detail_edit&amp;p=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_@tag_ID#FLAT@&amp;t=WizardAUI" title="Inserisci nel AUI di un cliente">
+																		<img alt="Inserisci nel AUI di un cliente" src="app/Template/metaAmbiente/img/icon-aui.png" />
+														</a>
+													]
+												])
+												
+											</td>
+									</tr>@END_Documento@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

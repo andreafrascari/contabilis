@@ -1,0 +1,22 @@
+<div class="detail-component link1-N @NAME@">
+	<div class="label">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</div>
+	<ul>
+		<li><span class="linked-elements">elementi collegati:</span>
+		@BLOCK_BEGIN_LINK_ITEM@
+	      <div class="object-link">
+	        <a tabindex="100" title="vai alla scheda @TITLE_LABEL@, per consultazione, modifica o cancellazione" href="@OBJECT_DETAIL_LINK@">@LINK_LABEL@</a>
+	        <br />@INFO_DATA@
+	      </div>
+	    @BLOCK_END_LINK_ITEM@
+	    </li>
+		@BLOCK_BEGIN_NEW@
+		<li>inserisci nuovo/a <a tabindex="10" onclick="return detailEdit.forceSave(this.href);" title="inserisci nuovo/a @LABEL@" href="@OBJECT_DETAIL_EDIT_LINK@">@LABEL@</a></li>
+		@BLOCK_END_NEW@
+		@BLOCK_BEGIN_NEW_POPUP@
+		<li>inserisci nuovo/a <a tabindex="10" id="popup_new_@NAME@" onclick="return detailEdit.popupDetailEdit(this,'@DIMENSIONS@')" title="inserisci nuovo/a @LABEL@" href="@OBJECT_DETAIL_EDIT_LINK@">@LABEL@</a></li>
+		@BLOCK_END_NEW_POPUP@
+	</ul>
+	<div class="object-help">@HELP@</div>
+</div>

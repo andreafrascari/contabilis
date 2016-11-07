@@ -1,0 +1,63 @@
+@BEGIN_TEMPLATE@
+<script src="app/Javascript/helpGest/helpGest.js" type="text/javascript"></script>					
+			
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_HDTicket.ID#FLAT@] != []]
+						?? [
+							<table class="table sortable" id="risultati">
+							<thead>
+								<tr>
+										<th>ID</th>
+										<th>data</th>
+										<th>cliente</th>
+										<th>note</th>
+										
+								</tr>
+								</thead>
+								<tbody>	
+								@BEGIN_HDTicket@([
+										[[@XPATH_FUN((count(preceding-sibling::HDTicket)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+										<td>
+										<strong>@tag_identificativo#FLAT@</strong>
+										<div role="toolbar">
+											<a @tooltip="title=Ticket,class=tooltip help,position=local,ajax=true,url=ModuleIndex?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_hover" class="btn btn-default btn-xs btn-info" href="?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@" title="consulta il ticket"><span aria-hidden="true" class="glyphicon glyphicon-play"></span></a>
+											<a class="btn btn-default btn-xs btn-info" href="javascript:openTicket(@tag_ID#FLAT@);" title="apri il ticket"><span aria-hidden="true" class="glyphicon glyphicon-wrench"></span></a>
+											<a class="btn btn-default btn-xs btn-warning" @popup="title=Riassegna il ticket ad un collega,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_assegna" title="riassegna il ticket"><span aria-hidden="true" class="glyphicon glyphicon-user"></span></a>
+											<a id="delTicket" class="btn btn-default btn-xs btn-danger"  href="javascript:deleteTicket(@tag_ID#FLAT@);" title="Elimina il ticket .... che era solo una mail!"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></a>
+										</div>
+										</td>
+										
+										@tag_dataArrivo@
+										<td>
+										@tag_daCliente.Cliente.cliente#FLAT@
+										@tag_contattoNonRiconosciuto#FLAT@
+										</td>
+										<td>
+											<em>azione: </em>@tag_azioneRichiesta#FLAT@<br />
+											<em>canale: </em>@tag_thread.HDThreadStep.canale#FLAT@
+											
+										</td>	
+									</tr>
+									
+									@END_HDTicket@
+									</tbody>
+					  		</table>
+						]
+					])
+
+
+@END_TEMPLATE@

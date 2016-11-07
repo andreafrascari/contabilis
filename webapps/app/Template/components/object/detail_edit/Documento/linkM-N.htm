@@ -1,0 +1,13 @@
+<div class="detail-component linkM-N @NAME@">
+	<div class="label">@LABEL@</div>
+	<ul>
+		<li>assegna una <a tabindex="10" onclick="javascript:detailEdit.forceSave('@OBJECT_RELATION_EDIT_LINK@');" title="assegna nuova scheda @TITLE_LABEL@" href="#">scheda esistente</a></li>
+		@BLOCK_BEGIN_NEW@
+		<li>inserisci nuovo/a  <a tabindex="10" onclick="return detailEdit.forceSave(this.href);" title="inserisci nuovo/a @LABEL@" href="@OBJECT_DETAIL_EDIT_LINK@">@LABEL@</a></li>
+		@BLOCK_END_NEW@
+		@BLOCK_BEGIN_NEW_POPUP@
+		<li>inserisci nuovo/a  <a tabindex="10" id="popup_new_@NAME@" onclick="return detailEdit.popupDetailEdit(this,'@DIMENSIONS@')" title="inserisci nuovo/a @LABEL@" href="@OBJECT_DETAIL_EDIT_LINK@">@LABEL@</a></li>
+		@BLOCK_END_NEW_POPUP@
+	</ul>
+	<div class="object-help">@HELP@</div>
+</div>

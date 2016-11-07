@@ -1,0 +1,31 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<Pratica>
+			<ID>1</ID>  
+			<titolo>PRATICA xxxx</titolo>
+			<tipo>a prestazione</tipo>
+      		<prezzo>300</prezzo> 
+      		<titolo_per_fattura>xxxx su acconto</titolo_per_fattura>
+			<anno_contabile>2012</anno_contabile>
+			<responsabile>
+			<Operatore>
+				<nome_e_cognome>Fabio Tullini</nome_e_cognome>
+				<email>f@it</email>
+				<costo_orario>120</costo_orario>
+				<rivendita_oraria>222</rivendita_oraria>
+			</Operatore>
+			</responsabile>
+			<cliente_pratica>
+				<Cliente>
+					<cliente>bucchi</cliente>
+					<codice_fiscale>CF</codice_fiscale>
+					<partita_iva>IVA</partita_iva>
+					<indirizzo>via</indirizzo>
+					<comune>bologna</comune>
+					<cap>50000</cap>
+				</Cliente>
+			</cliente_pratica>
+		</Pratica>
+	</service>
+</serena>

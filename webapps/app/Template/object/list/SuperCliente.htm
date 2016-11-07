@@ -1,0 +1,119 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+				<div id="splash">
+					<h2>@TITLE@</h2>
+					<h3>Risultati della ricerca : @NUMERO_ELEMENTI@ - pagina @PAGINA_CORRENTE@</h3>
+				</div>
+				
+				<div class="alert alert-info" role="alert">E' ora possibile:<ul>
+					<li>esportare la lista ottenuta (tutte le pagine) in csv per excel/openoffice</li>
+					<li>creare un <strong>profilo dinamico clienti</strong> per memorizzare la query prodotta in un elenco, in modo da poterla richiamare a piacere per esportazioni, scadenze, invii circolari etc.</li>
+					<li>aprire il fascicolo del cliente (link sul nome)</li>
+					</ul>
+				</div>
+
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+ 
+						<li>
+							<form id="report-repository-3" action="ModuleIndex">
+									<input type="hidden" id="q3" name="q" value="export/give/CLS=@CLASS@/DOC=export_@CLASS@/TYPE=csv" />
+									<input type="hidden" id="xml-query-3" name="XQUERY" value="@XML-QUERY@" />
+									<input type="image" title="esportazione csv clienti" src="app/Template/metaAmbiente/img/icon-excel.gif" onclick="javascript:alert('Avvio esportazione csv clienti in base al filtro di ricerca specificato: attendere qualche secondo dopo la conferma...');" />
+							</form>
+						</li>	
+						<li>
+							<a href="?q=object/detail_edit&amp;p=ProfiloDinamicoClienti&amp;a=_a_query/_v_@XML-QUERY@" title="crea profilo clienti dalla lista ottenuta">
+									<img alt="crea profilo clienti dalla lista ottenuta" src="app/Template/metaAmbiente/img/icon-new-revision.png" />
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_SuperCliente.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									 
+								</tr>
+	
+								@BEGIN_SuperCliente@([
+										[[@XPATH_FUN((count(preceding-sibling::SuperCliente)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_cliente@
+										@tag_tipo_cliente@@tag_codice_cliente@@tag_tipo_sollecito@
+										<td>@tag_operatore_responsabile.Operatore.nome_e_cognome#FLAT@</td>
+										@tag_stato_cliente@@tag_codice_ateco@@tag_teniamo_noi@@tag_regime_contabilita@@tag_regime_iva@
+											 
+									</tr>@END_SuperCliente@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@"   title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@"   title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"    title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@"   title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+					<strong>Attenzione:</strong>il numero di elementi trovati NON coincide necessariamente con il numero di clienti che soddisfano le condizioni specificate: per esempio, un cliente con 2 schede di <em>dati contabili</em> appare e viene conteggiato 2 volte.
+				</div>
+			</div>
+		</div>@END_TEMPLATE@

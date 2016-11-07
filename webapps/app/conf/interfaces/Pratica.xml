@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Pratica</title>  
+  <title_view>Pratica</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>metapratica</name>  
+      <label>metapratica</label>  
+      <detail>da metapratica</detail>
+      <detail_edit no-link-new="1">da metapratica</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>cliente_pratica</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <detail_edit autocomplete="">cliente</detail_edit>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>2</order> 
+    </item>  
+    <item> 
+      <name>titolo</name>  
+      <label>titolo</label>  
+      <detail>titolo</detail>  
+      <detail_edit>titolo</detail_edit>  
+      <filter>titolo</filter>  
+      <list>titolo</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>3</order> 
+    </item>  
+    <item> 
+      <name>data_chiusura</name>  
+      <label>data chiusura</label>  
+      <detail>data chiusura</detail>  
+      <detail_edit>data chiusura</detail_edit>  
+      <filter>data chiusura</filter>  
+      <list>data chiusura</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>4</order> 
+    </item>  
+    <item> 
+      <name>anno_contabile</name>  
+      <label>anno contabile</label>  
+      <detail>anno di fatturazione</detail>  
+      <detail_edit>anno di fatturazione</detail_edit>  
+      <filter>anno di fatturazione</filter>  
+      <list>anno di fatturazione</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>7</order> 
+    </item>  
+    <item> 
+      <name>stato</name>  
+      <label>stato</label>  
+      <detail>stato</detail>  
+      <detail_edit>stato</detail_edit>  
+      <filter>stato</filter>  
+      <list>stato</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>Aperta</default>  
+      <order>11</order>  
+      <detail_help>Le pratiche che concorrono alla fatturazione sono: A PRESTAZIONE -> solo CHIUSA (con data chiusura valorizzata); A FORFAIT: APERTA o CHIUSA (con data chiusura valorizzata); A ORE: APERTA o CHIUSA (con data chiusura valorizzata);</detail_help> 
+    </item>  
+    <item> 
+      <name>codice</name>  
+      <label>codice</label>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>12</order> 
+    </item>  
+    <item> 
+      <name>prezzo</name>  
+      <label>prezzo</label>  
+      <detail>prezzo</detail>  
+      <detail_edit>prezzo</detail_edit>  
+      <filter>prezzo</filter>  
+      <list>prezzo</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>15</order>  
+      <detail_help>obbligatorio per pratiche a forfait e a prestazione</detail_help> 
+    </item>  
+    <item> 
+      <name>tipo</name>  
+      <label>tipo</label>  
+      <detail>tipo</detail>  
+      <detail_edit>tipo</detail_edit>  
+      <filter>tipo</filter>  
+      <list>tipo</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>19</order> 
+    </item>  
+    <item> 
+      <name>responsabile</name>  
+      <label>responsabile</label>  
+      <detail>responsabile</detail>  
+      <detail_edit autocomplete="">responsabile</detail_edit>  
+      <filter autocomplete="">responsabile</filter>  
+      <list>responsabile</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>titolo_per_fattura</name>  
+      <label>titolo per fattura</label>  
+      <detail>titolo per fattura</detail>  
+      <detail_edit>titolo per fattura</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>25</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>attivita</name>  
+      <label>attivita</label>  
+      <detail inpage="1">attivita</detail>  
+      <detail_edit>attivita</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order>  
+      <!-- <popup_detail_edit>big</popup_detail_edit> --> 
+    </item>  
+    <item> 
+      <name>pratica_scadenza</name>  
+      <label>metascadenze operatore</label>  
+      <detail inpage="1">metascadenze operatore</detail>  
+      <detail_edit template="Scadenza_pratica">metascadenze operatore</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>91</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item>  
+     <item> 
+      <name>ticketAssociati</name>  
+      <label>ticketAssociati</label>  
+      <detail>ticketAssociati</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>131</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

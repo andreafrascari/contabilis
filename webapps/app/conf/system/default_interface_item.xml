@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <item>
+      <name>nome</name>
+      <multipleValue>false</multipleValue>
+      <slotType>String</slotType>
+      <allowedValues/>
+      <label>nome</label>
+      <detail>true</detail>
+      <filter>false</filter>
+      <admin_filter>false</admin_filter>
+      <list>false</list>
+      <admin_list>false</admin_list>
+      <heading>false</heading>
+      <no_label>false</no_label>
+      <read_only>false</read_only>
+      <admin_only>false</admin_only>
+      <needed>false</needed>
+      <key>false</key>
+      <description_field>false</description_field>
+      <list_active_field>false</list_active_field>
+      <max_length/>
+      <decode/>
+      <default/>
+    </item>

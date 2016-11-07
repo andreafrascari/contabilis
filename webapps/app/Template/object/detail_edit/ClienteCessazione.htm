@@ -1,0 +1,100 @@
+@BEGIN_TEMPLATE@
+<script src="app/Javascript/anastasis/FormSender.js" type="text/javascript"></script>
+<script src="app/Javascript/anastasis/serena/DetailEdit.js" type="text/javascript"></script>		
+<script type="text/javascript">
+	detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+			
+			
+ 	function exec(id)
+			{
+				if (!$("#INP_cessata_assistenza_il").val())	{
+					alert("Inserire data cessazione assistenza.");
+					return;
+				}
+					
+				// delete account
+				var path="ModuleIndex?q=helpgest/deletecliente/cliente="+id+"/disableaccount="+$("#disabilita").attr('checked');
+				var rep = $.ajax({
+		        	url: path,
+		        	async: false,
+		        	type: "GET",
+		        	cache: false
+		        	}).responseText;		
+			try
+			{
+				var xmlrep = Anastasis.Utils.parseXML(rep);
+				anastasis.logger.info("res = " + rep);
+				var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+				if(msg.isErrorMessage())
+				{
+					alert("il sistema non riesce a disabilitare account cliente cessato!");
+					return;
+				}
+				var instance=msg.selectSingleNode("result/message");
+				var res = Anastasis.Ajax.getText(instance);
+				alert(res);
+			}
+			catch(e){alert("errore: "+e);}
+		// save	
+		detailEdit.saveObject();
+					
+	}	
+</script>
+
+@BEGIN_Cliente@
+ 
+		<div class="detail-edit">
+			<div id="splash">
+				<h2>Cesszazione assistenza cliente @tag_cliente#FLAT@</h2>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+<div class="form-container">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire data cessazione (obbligatoria) e confermare o meno cancellazione account in DMS</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:exec(@tag_ID#FLAT@);" title="conferama cessazione assistenza"><img alt="conferama cessazione assistenza" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+										</li>
+										 							
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+										@tag_cessata_assistenza_il@
+										<div id="DIV_disabilita" class="detail-component disabilita">
+											 <label for="disabilita">disabilita account</label>
+											 <input type="checkbox" checked="checked" id="disabilita" name="disabilita" />
+										</div>
+									</div>
+								
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+
+						 
+					</div>@END_Cliente@
+		</div>@END_TEMPLATE@

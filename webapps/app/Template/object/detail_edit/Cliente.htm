@@ -1,0 +1,166 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+		<script type="text/javascript">
+			function cftmp(){
+				$("#INP_codice_fiscale").val("in attesa di attribuzione");
+			}
+			
+			function ivatmp(){
+				$("#INP_partita_iva").val("in attesa di attribuzione");
+			}
+
+			//sd_value di NP
+			function isNP(val){
+				return val=="5";
+			}
+			
+			//sd_value di all but P,PF,FT,I
+			function hasLR(val){
+				var lrs=['1','4','5','6','7','9','10','12','13'];
+				for(var i=0; i<lrs.length; i++) {
+					if(lrs[i] == val) 
+						return true;
+				}
+				return false;
+			}
+			
+			$(document).ready(function() {
+				 $("#INP_tipo_cliente").change(function() {
+					 var np=false;
+					 var lr=false;
+					 $('#INP_tipo_cliente :selected').each(function(i, selected) {
+						    if (isNP($(selected).val()))	
+						    	np=true;
+						    if (hasLR($(selected).val()))
+						    	lr=true;
+					 });
+					 if (np)
+					    	$("#NP").show();
+					 else
+					    	$("#NP").hide();
+					 if (lr)
+					    	$("#LR").show();
+					 else
+					    	$("#LR").hide();
+				 });
+			});
+		</script>
+		<div class="detail-edit">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_Cliente@
+			
+			([[[@FUN_MODULE(q=object/list,p=StoricoModifiche/_a_classe/_v_Cliente/_a_istanza/_v_@tag_ID#FLAT@,t=StoricoModificheTest)@]==[]]??[
+			<div id="need-rec-storico">
+				Storico modifiche non inzializzato: <a href="?q=object/detail_edit&amp;p=StoricoModifiche&amp;istanza=@tag_ID#FLAT@&amp;classe=Cliente&amp;data=@tag_last_modification_date#FLAT@" title="inizializza storico modifiche">inizializzare ora?</a>
+			</div>
+			]])
+			
+			
+			<div class="form-container">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+										</li>
+										([
+											[ [@tag_ID#FLAT@] != [] ]
+											?? [
+												<li>
+													<a tabindex="51" href="?q=object/detail_edit&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=ClienteCessazione" title="cessa assistenza cliente"><img alt="cessa assistenza cliente" src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+												</li>
+											]
+										])									
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+									@tag_cliente@@tag_nickname@@tag_codice_cliente@
+									@tag_codice_fiscale@
+									<div class="hourglass"><a href="javascript:cftmp();" title="in attesa di attribuzione"><img src="app/Template/metaAmbiente/img/icon-hourglass.png" alt="in attesa di attribuzione" /></a></div>
+									@tag_partita_iva@
+									<div class="hourglass"><a href="javascript:ivatmp();" title="in attesa di attribuzione"><img src="app/Template/metaAmbiente/img/icon-hourglass.png" alt="in attesa di attribuzione" /></a></div>
+									@tag_operatore_responsabile@@tag_cliente_dal@
+									@tag_note@									
+									@tag_tipo_cliente@
+									<div id="NP" class="conditional">@tag_non_profit@</div>
+									<div id="LR" class="conditional">
+										@tag_sez_legale_rappresentante@@tag_legale_rappresentante_cognome@@tag_legale_rappresentante_nome@@tag_legale_rappresentante_cf@@tag_legale_rappresentante_residenza@
+									</div>
+									@tag_sez_contatti@@tag_email@@tag_email2@@tag_email3@@tag_cellulare@@tag_telefono@@tag_fax@@tag_tipo_sollecito@
+									@tag_sez_sede_legale@@tag_indirizzo@@tag_cap@@tag_comune@
+									@tag_sez_recapito@@tag_recapito_indirizzo@@tag_recapito_cap@@tag_recapito_comune@
+									<!-- @tag_dati_contabili@@tag_dati_crm@@tag_dati_fatturazione@   -->
+								</div>
+								
+
+								
+								<div class="detail-edit-system">
+									
+									
+								</div>
+								
+
+								<input type="hidden" name="INP_stato_cliente" value="in attesa di verifica" />
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							@tag_allegato@@tag_allegato_1@
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								
+
+										([
+											[ [@tag_ID#FLAT@] != [] ]
+											?? [
+												<li>
+													<a tabindex="51" href="?q=object/detail_edit&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=ClienteCessazione" title="cessa assistenza cliente"><img alt="cessa assistenza cliente" src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+												</li>
+											]
+										])									
+							</ul>
+
+							
+						</div>
+					</div>@END_Cliente@
+		</div>@END_TEMPLATE@

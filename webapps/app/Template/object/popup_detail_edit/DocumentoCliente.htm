@@ -1,0 +1,55 @@
+@BEGIN_TEMPLATE@<div id="popup-detail-edit-window">
+			@BEGIN_DocumentoCliente@<div class="detail-edit">
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+						
+						<div class="alert alert-info" role="alert">
+						Per prima cosa, colloca tutti i documenti che desideri inviare in una cartella sul tuo compurter e comprimila in un solo file ZIP.<br />
+						Poi compila questa form e carica il file ZIP dal tuo computer premendo il tasto <em>sfoglia</em>.<br />
+						Al termina premi <em>Salva</em> per inviarlo allo Studio: il sistema provveder&agrave; ad inviare contestualmente una mail di notifica alla Segreteria.<br />
+						Grazie della collaborazione!
+						</div>
+		
+						<div class="form-container form-container-DocumentoCliente">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Compilare i dati</legend>
+	
+									
+									<div class="detail-body">
+										@tag_da_cliente@@tag_data@@tag_oggetto@@tag_note@
+									</div>
+									
+		
+									
+									<div class="detail-edit-system">
+										
+										
+									</div>
+									
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								@tag_allegato@
+							</div>
+		
+						</div>
+					</div>@END_DocumentoCliente@
+		</div>@END_TEMPLATE@

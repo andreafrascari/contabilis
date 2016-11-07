@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>DatiContabili</title>  
+  <title_view>Dati Contabili e Fiscali</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_dati_contabili</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>tipo_cliente</name>  
+      <label>tipo cliente</label>  
+      <detail>tipo cliente</detail>  
+      <detail_edit>tipo cliente</detail_edit>  
+      <filter>tipo cliente</filter>  
+      <list>tipo cliente</list>  
+      <heading>1</heading>    
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>3</order>   
+    </item>  
+    <item> 
+      <name>sez_contabilita</name>  
+      <label>contabilita</label>  
+      <detail>contabilita</detail>  
+      <detail_edit>contabilita</detail_edit>
+      <list>contabilita</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>5</order> 
+    </item>  
+    <item> 
+      <name>codice_ateco</name>  
+      <label>codice ateco</label>  
+      <detail>codice ateco</detail>  
+      <detail_edit>codice ateco</detail_edit>  
+      <filter>codice ateco</filter>  
+      <list>codice ateco</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>codice_ateco2</name>  
+      <label>codice ateco</label>  
+      <detail>secondo codice ateco</detail>  
+      <detail_edit>secondo codice ateco</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>12</order> 
+    </item>  
+    <item> 
+      <name>codice_ateco3</name>  
+      <label>codice ateco</label>  
+      <detail>terzo codice ateco</detail>  
+      <detail_edit>terzo codice ateco</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>13</order> 
+    </item>  
+    <item> 
+      <name>teniamo_noi</name>  
+      <label>teniamo noi</label>  
+      <detail>contabilita tenuta dallo Studio</detail>  
+      <detail_edit>contabilita tenuta dallo Studio</detail_edit>
+      <detail_edit>non obbligatorio in caso di PF</detail_edit>  
+      <filter>contabilita in Studio</filter>  
+      <list>contabilita tenuta dallo Studio</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>regime_contabilita</name>  
+      <label>regime contabile</label>  
+      <detail>regime contabile</detail>  
+      <detail_edit>regime contabile</detail_edit>
+      <detail_edit>non obbligatorio in caso di PF</detail_edit>  
+      <filter>regime contabile</filter>  
+      <list>regime contabile</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>esercizio_da</name>  
+      <label>esercizio dal</label>  
+      <detail>esercizio dal</detail>  
+      <detail_edit>esercizio dal</detail_edit>
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>36</order> 
+    </item>  
+    <item> 
+      <name>esercizio_a</name>  
+      <label>al</label>  
+      <detail>al</detail>  
+      <detail_edit>al</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>37</order> 
+    </item>  
+    <item> 
+      <name>regime_iva</name>  
+      <label>regime iva</label>  
+      <detail>regime iva</detail>  
+      <detail_edit>regime iva</detail_edit>
+      <detail_edit>non obbligatorio in caso di PF</detail_edit>  
+      <filter>regime iva</filter>  
+      <list>regime iva</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>liquidazione_iva</name>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>sez_registro_imprese</name>  
+      <label>registro imprese</label>  
+      <detail>registro imprese</detail>  
+      <detail_edit>registro imprese</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>provincia_registro_imprese</name>  
+      <label>iscrizione</label>  
+      <detail>iscrizione</detail>  
+      <detail_edit>iscrizione registro imprese</detail_edit>  
+      <filter>iscrizione registro imprese</filter>  
+      <list>iscrizione registro imprese</list>  
+      <detail_help>numero/provincia</detail_help>
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>62</order> 
+    </item>  
+    <item> 
+      <name>iscrizione_registro_imprese</name>    
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>63</order> 
+    </item>  
+    <item> 
+      <name>sezioni_speciali</name>  
+      <label>sezioni speciali</label>  
+      <detail>sezioni speciali</detail>  
+      <detail_edit>sezioni speciali</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>65</order> 
+    </item>  
+    <item> 
+      <name>unita_locali</name>  
+      <label>unita locali</label>  
+      <detail>unita locali</detail>  
+      <detail_edit>unita locali</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>66</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>68</order> 
+    </item>  
+    <item> 
+      <name>sez_previdenza</name>  
+      <label>previdenza</label>  
+      <detail>previdenza</detail>  
+      <detail_edit>previdenza</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order> 
+    </item>  
+    <item> 
+      <name>regimi_previdenziali</name>  
+      <label>regimi previdenziali</label>  
+      <detail inpage="1">regimi previdenziali</detail>  
+      <detail_edit>regimi previdenziali</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>75</order>  
+      <popup_detail_edit>medium</popup_detail_edit> 
+    </item>  
+    <item> 
+      <name>sez_inail</name>  
+      <label>inail</label>  
+      <detail>inail</detail>  
+      <detail_edit>inail</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order> 
+    </item>  
+    <item> 
+      <name>obbligo_iscrizione_inail</name>  
+      <label>obbligo iscrizione</label>  
+      <detail>obbligo iscrizione</detail>  
+      <detail_edit>obbligo iscrizione</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>85</order> 
+    </item>  
+    <item> 
+      <name>pat_numero</name>  
+      <label>pat numero</label>  
+      <detail>pat numero</detail>  
+      <detail_edit>pat numero</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>87</order> 
+    </item>  
+    <item> 
+      <name>incarico_a</name>  
+      <label>incarico a</label>  
+      <detail>incarico a</detail>  
+      <detail_edit>incarico a</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>89</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>esercizio_solare</name>  
+      <label>esercizio solare</label>  
+      <detail>esercizio solare</detail>  
+      <detail_edit>esercizio solare</detail_edit>
+      <detail_edit>non obbligatorio in caso di PF</detail_edit>  
+      <filter>esercizio solare</filter>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>35</order> 
+    </item>  
+    <item> 
+      <name>sezione_ordinaria</name>  
+      <label>sezione ordinaria</label>  
+      <detail>sezione ordinaria</detail>  
+      <detail_edit>sezione ordinaria</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>64</order> 
+    </item>  
+    <item> 
+      <name>iscritto_rea</name>  
+      <label>iscritto_rea</label>  
+      <detail>iscritto REA</detail>  
+      <detail_edit>iscritto REA</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>67</order> 
+    </item> 
+  </attributes> 
+</bean>

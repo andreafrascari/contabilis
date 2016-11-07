@@ -1,0 +1,81 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+
+		<div class="detail-edit detail-edit-HDTicket">
+				<h2>Assegmaneto ticket ad una pratica</h2>
+		
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="form-container form-container-HDTicket">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="Indietro">
+												<img alt="Indietro" title="Indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+											</a>
+										</li>
+										
+									</ul>
+									
+								</div>
+																		
+
+								
+								<div class="detail-body">
+									
+			<div class="alert alert-info" role="alert">
+						Scegliere la pratica a cui assegnare il ticket <em>@tag_identificativo#FLAT@</em>.
+						Il ticket verr&agrave; associato all'attivit&agrave; <em>assistenza clienti</em>. Se tale attivit&agrave; non esiste, verr&agrave; creata.
+			</div>
+
+									
+								<div class="detail-body">
+									<div class="detail-component linkN-1 INP_assegnatoApratica">
+ 										<label for="INP_assegnatoApratica">assegna a pratica:</label> 
+ 											@FUN_MODULE(q=object/list,p=Pratica/_a_cliente_pratica/_v_@tag_daCliente.Cliente.ID#FLAT@/_a_stato/_v_Aperta,t=Pratica_per_ticket)@ 										
+ 										<input id="type_INP_assegnatoApratica" type="hidden" value="6" />
+										<input id="required_INP_assegnatoApratica" type="hidden" value="false" />
+										<input id="label_INP_assegnatoApratica" type="hidden" value="" />
+										<input id="info_INP_assegnatoApratica" type="hidden" value="class=HDTicket|controller=false">
+										<div class="object-help">scegliere nella liste delle pratiche aperte del cliente</div>
+									</div>									
+									
+								</div>
+
+									
+								</div>			
+								
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+								
+								<div role="toolbar" class="btn-toolbar">
+      							<button  onclick="javascript:detailEdit.saveObject();"  class="btn btn-default btn-lg" type="button"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span>Salva</button>
+      							</div>
+							</fieldset>
+							
+							
+						</form>
+						
+					
+					</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

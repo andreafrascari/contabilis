@@ -1,0 +1,58 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			@BLOCK_BEGIN_EDIT@
+							<div class="form-container">
+								<form id="fake" action="">
+									<fieldset>
+										<legend>nuova scheda:</legend>
+										<div class="object-new">
+											Segui questo link per inserire una <a href="@HREF_DETAIL_EDIT@" title="nuova scheda">nuova scheda</a>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+			@BLOCK_END_EDIT@
+
+			<div class="form-container">
+				<form id="search-engine" method="post" action="@ACTION@([[[@FUN_IS_USER_IN(group=UserStudio)@]==[true]]??[&amp;data_source=user-studio]])">
+					<fieldset>
+						<legend>ricerca a testo libero</legend>
+						<div class="alert alert-info" role="alert">Puoi effettuare una ricerca modello &quot;motore di ricerca&quot;: specifica le parole che ti interessano, che verranno cercate fra tutti gli attributi.<br />
+							Per cercare un frase esatta, usare le virgolette (es: &quot;frase fra virgolette&quot;)
+						</div>
+						<label for="testo-libero">cerca</label>
+						<input id="testo-libero" name="KEY_search_all" type="text" value="@SEARCH_ALL_VALUE@" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+				<form id="filter" method="post" action="@ACTION@([[[@FUN_IS_USER_IN(group=UserStudio)@]==[true]]??[&amp;data_source=user-studio]])">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_Documento@@tag_titolo@@tag_tipologia@@tag_abstract@@tag_anno_contabile@@tag_data_riferimento@@tag_free_tag@@tag_creation_user@@tag_last_modification_date@@END_Documento@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

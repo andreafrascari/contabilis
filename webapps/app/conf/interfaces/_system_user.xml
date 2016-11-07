@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ridefinita per aggiungere l'inversa con CLiente -->
+<bean>
+  <title>_system_user</title>
+ <title_view>Account</title_view>
+  <attributes>
+    <item>
+      <name>ID</name>
+      <type>1</type>
+      <label>ID</label>
+    </item>
+     <item>
+      <name>inverse_of_account</name>
+      <label>cliente</label>
+      <detail>cliente</detail>
+      <filter>cliente</filter>
+      <list>cliente</list>
+      <heading>5</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>inverse_of_account_operatore</name>
+      <label>operatore</label>
+      <detail>operatore</detail>
+      <filter>operatore</filter>
+      <list>operatore</list>
+      <heading>5</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_user_id</name>
+      <label>username</label>
+      <detail>username</detail>
+      <detail_edit>username</detail_edit>
+      <filter>username</filter>
+      <list>username</list>
+      <heading>1</heading>
+      <needed>1</needed>
+      <key>1</key>
+      <description_field>1</description_field>
+      <list_active_field>1</list_active_field>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_name</name>
+      <label>nome e cognome</label>
+      <detail>nome e cognome</detail>
+      <detail_edit>nome e cognome</detail_edit>
+      <filter>nome e cognome</filter>
+      <list>nome e cognome</list>
+      <heading>1</heading>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_password</name>
+      <label>password</label>
+      <detail_edit>password</detail_edit>
+      <detail_help>minimo 8 caratteri, deve comprendere almeno 1 numero</detail_help>
+      <heading>1</heading>
+      <needed>1</needed>
+      <default/>
+    </item>
+    <item>
+      <name>user_old_password</name>
+      <label>password corrente</label>
+      <detail_edit>password corrente</detail_edit>
+      <detail_help>minimo 8 caratteri, deve comprendere almeno 1 numero</detail_help>
+      <heading>1</heading>
+      <needed>1</needed>
+      <min_length>1</min_length>
+      <default/>
+    </item>
+    <item>
+      <name>user_new_password</name>
+      <label>nuova password</label>
+      <heading>1</heading>
+      <needed>1</needed>
+      <min_length>8</min_length>
+      <default/>
+    </item>
+    <item>
+      <name>user_confirm_password</name>
+      <label>conferma password</label>
+      <heading>1</heading>
+      <needed>1</needed>
+      <min_length>8</min_length>
+      <default/>
+    </item>
+    <item>
+      <name>user_email</name>
+      <label>email</label>
+      <detail>email</detail>
+      <detail_edit>email</detail_edit>
+      <list>email</list>
+      <admin_list>email</admin_list>
+      <heading>1</heading>
+      <needed>1</needed>
+      <max_length/>
+      <default/>
+    </item>
+     <item>
+      <name>user_confirm_email</name>
+      <label>conferma email</label>
+      <heading>1</heading>
+      <needed>1</needed>
+      <default/>
+    </item>
+    <item>
+      <name>user_groups</name>
+	  <filter>gruppi associati</filter>
+      <label>gruppi associati</label>
+      <detail>gruppi associati</detail>
+      <!--<detail_edit>gruppi associati</detail_edit> è pericoso perchè si puo' diventare admin!-->
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_sercret_pharse</name>
+      <label>domanda segreta</label>
+      <detail_edit>domanda segreta</detail_edit>
+      <detail_help>clicca per avere il default</detail_help>
+      <needed>1</needed>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_secret_answer</name>
+      <label>risposta segreta</label>
+      <detail_edit>risposta segreta</detail_edit>
+      <detail_help><![CDATA[La domanda segreta viene chiesta durante la procedura di recupero password: &egrave; importante ricordare la risposta per poter effettuare il recupero.]]></detail_help>
+      <needed>1</needed>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_phone_number</name>
+      <label>telefono</label>
+      <detail>telefono</detail>
+      <detail_edit>telefono</detail_edit>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_uniqueId</name>
+      <label>user_uniqueId</label>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>user_password_modification_date</name>
+      <label>data modifica password</label>
+      <detail_edit>data modifica password</detail_edit>
+      <heading>1</heading>
+      <max_length/>
+      <default/>
+    </item>
+    <item>
+      <name>activation_flag</name>
+      <label>attivo</label>
+      <detail>attivo</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>deletion_flag</name>
+      <label>cancellato</label>
+      <detail>cancellato</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>deletion_date</name>
+      <label>data cancellazione</label>
+      <detail>data cancellazione</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>deletion_user</name>
+      <label>utente cancellazione</label>
+      <detail>utente cancellazione</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>creation_date</name>
+      <label>data creazione</label>
+      <detail>data creazione</detail>
+      <list>il</list>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>creation_user</name>
+      <label>utente creazione</label>
+      <detail>utente creazione</detail>
+      <list>inserito da</list>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>last_modification_date</name>
+      <label>data ultima modifica</label>
+      <detail>data ultima modifica</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+    <item>
+      <name>last_modification_user</name>
+      <label>utente ultima modifica</label>
+      <detail>utente ultima modifica</detail>
+      <admin_only>1</admin_only>
+      <read_only>1</read_only>
+      <heading>3</heading>
+    </item>
+  </attributes>
+</bean>

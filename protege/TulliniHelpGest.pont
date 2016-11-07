@@ -1,0 +1,3109 @@
+; Fri May 22 16:43:04 CEST 2015
+; 
+;+ (version "3.5")
+;+ (build "Build 660")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot cellulare
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_pagamento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot minuti_ultima_fattura
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot esito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot workflow_completato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_recapito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot immobili
+		(type SYMBOL)
+		(allowed-values si no leasing)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot recapito_comune
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot responsabile
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+;+		(inverse-slot responsabile_di_pratiche)
+		(create-accessor read-write))
+	(single-slot inverse_of_account
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot importo_forfait_annuo
+		(type FLOAT)
+		(create-accessor read-write))
+	(single-slot competenza
+		(type SYMBOL)
+		(allowed-values CONTABILIS STUDIO)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot rata
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot thread
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+		(cardinality 1 ?VARIABLE)
+;+		(inverse-slot inverse_of_thread)
+		(create-accessor read-write))
+	(single-slot forfait
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot regimi_previdenziali
+		(type INSTANCE)
+;+		(allowed-classes RegimePrevidenziale)
+;+		(inverse-slot inverse_of_regimi_previdenziali)
+		(create-accessor read-write))
+	(single-slot th_risposta
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iscrizione
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot visibilita
+		(type SYMBOL)
+		(allowed-values documento_interno_visibile_user_e_admin documento_interno_admin documento_cliente_visibile_cliente_user_e_admin documento_cliente_visibile_solo_user_e_admin)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot scadenze)
+		(create-accessor read-write))
+	(single-slot df_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot dati_crm)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_nome
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot notifiche_generate
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+;+		(inverse-slot inverse_of_notifiche_generate)
+		(create-accessor read-write))
+	(single-slot n_rate
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_residenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_fatture
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot fatture)
+		(create-accessor read-write))
+	(single-slot sezioni_speciali
+		(type SYMBOL)
+		(allowed-values piccolo_imprenditore)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_attivita_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 0 1)
+;+		(inverse-slot attivita_scadenza)
+		(create-accessor read-write))
+	(single-slot esercizio_da
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot descrizione_scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot th_data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot inverse_of_cliente_doc
+		(type INSTANCE)
+;+		(allowed-classes StoriaDocumento)
+;+		(inverse-slot cliente_doc)
+		(create-accessor read-write))
+	(single-slot oggetto_scadenza
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diagnosi_std
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_revisioni
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+;+		(cardinality 0 1)
+;+		(inverse-slot revisioni)
+		(create-accessor read-write))
+	(single-slot verifica_validita_firma_digitale
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot html_versione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot f24_cumulativo
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_emissione_proforma
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot destinarario_personalizzato
+		(type SYMBOL)
+		(allowed-values tipo_clinte_PF contabilita_noi)
+		(create-accessor read-write))
+	(single-slot iva
+		(type SYMBOL)
+		(allowed-values Fuori_Campo Esente_Articolo_10 4%25 10%25 STD)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot esito_preventivo
+		(type SYMBOL)
+		(allowed-values cliente rifiutato attesa)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot riv_prev
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_remoto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_solleciti_pagamento
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 1 1)
+;+		(inverse-slot solleciti_pagamento)
+		(create-accessor read-write))
+	(single-slot comune
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot non_profit
+		(type SYMBOL)
+		(allowed-values ACR)
+		(create-accessor read-write))
+	(multislot voci_fattura
+		(type INSTANCE)
+;+		(allowed-classes VoceFattura)
+;+		(inverse-slot inverse_of_voci_fattura)
+		(create-accessor read-write))
+	(single-slot preventivo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_sessioni_di_lavoro
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 1 1)
+;+		(inverse-slot sessioni_di_lavoro)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_desc
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_inail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot attivita
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(inverse-slot inverse_of_attivita)
+		(create-accessor read-write))
+	(single-slot pwd_autorizzativa
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot descrizione
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_diventa_cliente
+		(type INSTANCE)
+;+		(allowed-classes ClienteCandidato)
+;+		(cardinality 0 1)
+;+		(inverse-slot diventa_cliente)
+		(create-accessor read-write))
+	(single-slot sez_legale_rappresentante
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ricorrenza
+		(type SYMBOL)
+		(allowed-values giorno settimana mese anno)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot emailAssistenza
+		(type INSTANCE)
+;+		(allowed-classes HDGruppoAssistenza)
+;+		(cardinality 0 1)
+;+		(inverse-slot tickets)
+		(create-accessor read-write))
+	(single-slot note_ici
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot messaggio
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot storia_documento
+		(type INSTANCE)
+;+		(allowed-classes StoriaDocumento)
+;+		(inverse-slot inverse_of_storia_documento)
+		(create-accessor read-write))
+	(multislot ticketAssociati
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(inverse-slot assegnatoApratica)
+		(create-accessor read-write))
+	(single-slot TulliniDMS_Class9
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot pratiche
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(inverse-slot cliente_pratica)
+		(create-accessor read-write))
+	(multislot sessioni_di_lavoro
+		(type INSTANCE)
+;+		(allowed-classes LavoroSuAttivita)
+;+		(inverse-slot inverse_of_sessioni_di_lavoro)
+		(create-accessor read-write))
+	(single-slot download_previo_logon
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot esercizio_a
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot op_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(inverse-slot inverse_of_op_scadenze)
+		(create-accessor read-write))
+	(single-slot preventivo_listino
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_preventivo_listino)
+		(create-accessor read-write))
+	(single-slot proforma_emessa
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+;+		(inverse-slot entry_calendario)
+		(create-accessor read-write))
+	(single-slot ora_ricezione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_previdenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot template_testo_invio
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_voci_proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+;+		(inverse-slot voci_proforma)
+		(create-accessor read-write))
+	(single-slot iscrizione_registro_imprese
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_sollecito
+		(type SYMBOL)
+		(allowed-values primo secondo terzo non_sollecitare)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot da_metapratica
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot in_listini)
+		(create-accessor read-write))
+	(multislot proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(inverse-slot inverse_of_proforma)
+		(create-accessor read-write))
+	(single-slot importo
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot telefono
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_delega_cassetto_fiscale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_cliente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ra
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot unita_locali
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nome_e_cognome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot in_listini
+		(type INSTANCE)
+;+		(allowed-classes ItemListino)
+;+		(inverse-slot da_metapratica)
+		(create-accessor read-write))
+	(single-slot assegnata_a
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+;+		(inverse-slot attivita_assegnate)
+		(create-accessor read-write))
+	(single-slot diventa_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_diventa_cliente)
+		(create-accessor read-write))
+	(single-slot persistente_area_cliente
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_cf
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot regime_iva
+		(type SYMBOL)
+		(allowed-values 398%2F91)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot durata
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot sollecito_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot avvisi_scadenze
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+;+		(inverse-slot inverse_of_avvisi_scadenze_cliente)
+		(create-accessor read-write))
+	(single-slot rispondere_a
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dataArrivo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva_note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_modifica
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot azione_conseguente_caricamento
+		(type SYMBOL)
+		(allowed-values B_email_cliente E_comunicazione_interna_segreteria_studio A_nessuna C_email_cliente_link D_email_cliente_link_richiesto_logon F_comunicazione_interna_solo_nuovi_documenti_no_revisioni G_email_mailing_list)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo_sollecito
+		(type SYMBOL)
+		(allowed-values sms mail)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot forza_sms
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_cognome
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rivendita_oraria
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot cliente_pratica
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot pratiche)
+		(create-accessor read-write))
+	(single-slot template_oggetto_invio
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot listino
+		(type INSTANCE)
+;+		(allowed-classes ItemListino)
+;+		(inverse-slot inverse_of_prestazioni_extra_forfait)
+		(create-accessor read-write))
+	(single-slot inverse_of_dati_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot dati_fatturazione)
+		(create-accessor read-write))
+	(single-slot inviato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot responsabile_di_pratiche
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(inverse-slot responsabile)
+		(create-accessor read-write))
+	(single-slot stato_attivita
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_invio_associato
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diario
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot server
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva_delega_studio
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_dati_contabili
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot dati_contabili)
+		(create-accessor read-write))
+	(single-slot preavviso_gg
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot th_direzione
+		(type SYMBOL)
+		(allowed-values cliente_studio studio_cliente spedito_da_studio)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nickname
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot provincia_registro_imprese
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot indirizzo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot su_rate
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot contattoNonRiconosciuto
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot lista_attivita
+		(type INSTANCE)
+;+		(allowed-classes Metaattivita)
+;+		(inverse-slot inverse_of_lista_attivita)
+		(create-accessor read-write))
+	(multislot sms_inviati
+		(type INSTANCE)
+;+		(allowed-classes Sms)
+;+		(inverse-slot a_cliente)
+		(create-accessor read-write))
+	(single-slot stato_chiamata
+		(type SYMBOL)
+		(allowed-values ricevuta inviata persa)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot ici
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot rif_pratica
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fatturata
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_invio_impronta_digitale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot tipologia
+		(type INSTANCE)
+;+		(allowed-classes DescrizioneDocumento)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_tipologia)
+		(create-accessor read-write))
+	(multislot revisioni
+		(type INSTANCE)
+;+		(allowed-classes RevisioneDocumento)
+;+		(inverse-slot inverse_of_revisioni)
+		(create-accessor read-write))
+	(single-slot sostituto_imposta
+		(type SYMBOL)
+		(allowed-values si no)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot lapse_sollecito
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_revisione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot risposta_std
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot email_pwd
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allarme_workflow_non_completato
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot identificativo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot liquidazione_iva
+		(type SYMBOL)
+		(allowed-values annuale)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fax
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_avvisi_scadenze_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot avvisi_scadenze)
+		(create-accessor read-write))
+	(multislot scadenze
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(inverse-slot inverse_of_scadenze)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_fattura
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_contatti
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot da_proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+;+		(inverse-slot fattura)
+		(create-accessor read-write))
+	(single-slot numero_locale
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_spedizione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fine_ricorrenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_voci_fattura
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+;+		(cardinality 0 1)
+;+		(inverse-slot voci_fattura)
+		(create-accessor read-write))
+	(single-slot assegnato_a
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+;+		(inverse-slot ticketAssegnati)
+		(create-accessor read-write))
+	(single-slot sez_registro_imprese
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_pratica_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot pratica_scadenza)
+		(create-accessor read-write))
+	(single-slot antireciclaggio
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot stato_cliente
+		(type SYMBOL)
+		(allowed-values in_attesa_di_verifica verificato_dal_responsabile)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot privacy
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_riferimento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_delega_f24_compensazioni
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot TulliniHelpGest_Class22
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_ateco
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto_mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot destinatario
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_invio_risposta
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sollecito
+		(type SYMBOL)
+		(allowed-values si_se_cliente_non_scarica si_se_non_ricevuto_materiale no)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot classe
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot azioneRichiesta
+		(type SYMBOL)
+		(allowed-values richiama_lui inviare_sms richiamare_al inviare_mail)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot TulliniHelpGest_Class10039
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot da_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot documenti_per_lo_studio)
+		(create-accessor read-write))
+	(single-slot ticket
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+;+		(cardinality 0 1)
+;+		(inverse-slot chiamata_telefonica)
+		(create-accessor read-write))
+	(single-slot template_sollecito_sms
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot durata_minuti
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot fatture
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+;+		(inverse-slot inverse_of_fatture)
+		(create-accessor read-write))
+	(single-slot testo_sms
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot testo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot a_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot sms_inviati)
+		(create-accessor read-write))
+	(single-slot diagnosi_libero
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fattura
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+;+		(cardinality 0 1)
+;+		(inverse-slot da_proforma)
+		(create-accessor read-write))
+	(single-slot prezzo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_notifiche_generate
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+;+		(inverse-slot notifiche_generate)
+		(create-accessor read-write))
+	(single-slot codice
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot obbligo_iscrizione_inail
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dati_crm
+		(type INSTANCE)
+;+		(allowed-classes DatiCRM)
+;+		(cardinality 0 1)
+;+		(inverse-slot df_cliente)
+		(create-accessor read-write))
+	(single-slot istanza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_op_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+;+		(inverse-slot op_scadenze)
+		(create-accessor read-write))
+	(single-slot inverse_of_thread
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(cardinality 1 1)
+;+		(inverse-slot thread)
+		(create-accessor read-write))
+	(multislot calendario_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes CalendarioFatturazione)
+;+		(inverse-slot per_cliente)
+		(create-accessor read-write))
+	(single-slot stato_proforma
+		(type SYMBOL)
+		(allowed-values da_validare validata spedita)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pratica_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_pratica_scadenza)
+		(create-accessor read-write))
+	(single-slot partita_iva
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_sms
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attivita_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_attivita_scadenza)
+		(create-accessor read-write))
+	(single-slot free_tag
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot th_messaggio
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot non_incassabile
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_contabilita
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot archiviato
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot notifiche_scadenze
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+;+		(inverse-slot inverse_of_notifiche_scadenze_operatore)
+		(create-accessor read-write))
+	(single-slot tipo_doc_cliente
+		(type SYMBOL)
+		(allowed-values 730)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot teniamo_noi
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot regime
+		(type SYMBOL)
+		(allowed-values ENPAB)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot testo_mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot contenuto_azione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_proforma
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot proforma)
+		(create-accessor read-write))
+	(single-slot port
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot tipologia_documento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_preventivo_listino
+		(type INSTANCE)
+;+		(allowed-classes ClienteCandidato)
+;+		(cardinality 0 1)
+;+		(inverse-slot preventivo_listino)
+		(create-accessor read-write))
+	(single-slot allegato_contratto
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot tickets
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(inverse-slot emailAssistenza)
+		(create-accessor read-write))
+	(multislot solleciti_pagamento
+		(type INSTANCE)
+;+		(allowed-classes SollecitoPagamento)
+;+		(inverse-slot inverse_of_solleciti_pagamento)
+		(create-accessor read-write))
+	(single-slot cassetto_fiscale
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_libro_giornale_data_versamento_diritti
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot inverse_of_tipologia
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+;+		(inverse-slot tipologia)
+		(create-accessor read-write))
+	(single-slot query
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot attivita_assegnate
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(inverse-slot assegnata_a)
+		(create-accessor read-write))
+	(single-slot data_prima_rata
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot abstract
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot dati_contabili
+		(type INSTANCE)
+;+		(allowed-classes DatiContabili)
+;+		(inverse-slot inverse_of_dati_contabili)
+		(create-accessor read-write))
+	(single-slot inverse_of_lista_attivita
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot lista_attivita)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot mittente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot indice
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_libro_giornale
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_chiusura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot canale
+		(type SYMBOL)
+		(allowed-values email telefono fax sms)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot th_messaggio4mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot daCliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot contatti_studio)
+		(create-accessor read-write))
+	(single-slot azione_conseguente
+		(type SYMBOL)
+		(allowed-values mail_accompagnamento)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stato
+		(type SYMBOL)
+		(allowed-values Aperta Chiusa Sospesa Fatturata)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot totale
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values a_forfait a_ora a_prestazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot tipo_cliente
+		(type SYMBOL)
+		(allowed-values PF SP P I AP NP SC CP)
+		(create-accessor read-write))
+	(single-slot costo_orario
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot recapito_cap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_sede_legale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot contabilizzazione
+		(type INSTANCE)
+;+		(allowed-classes LavoroSuAttivita)
+;+		(cardinality 0 1)
+;+		(inverse-slot daTicket)
+		(create-accessor read-write))
+	(single-slot codice_ateco2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot titolo_per_fattura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_notifiche_scadenze_operatore
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+;+		(inverse-slot notifiche_scadenze)
+		(create-accessor read-write))
+	(single-slot inverse_of_regimi_previdenziali
+		(type INSTANCE)
+;+		(allowed-classes DatiContabili)
+;+		(cardinality 1 1)
+;+		(inverse-slot regimi_previdenziali)
+		(create-accessor read-write))
+	(single-slot codice_ateco3
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pat_numero
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statoTicket
+		(type SYMBOL)
+		(allowed-values in_attesa assegnato aperto chiuso insolubile)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot profili_clienti
+		(type INSTANCE)
+;+		(allowed-classes ProfiloDinamicoClienti)
+;+		(inverse-slot inverse_of_profili_clienti)
+		(create-accessor read-write))
+	(single-slot ora_spedizione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot documenti_per_lo_studio
+		(type INSTANCE)
+;+		(allowed-classes DocumentoCliente)
+;+		(inverse-slot da_cliente)
+		(create-accessor read-write))
+	(single-slot operatore_responsabile
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+;+		(inverse-slot responsabile_di)
+		(create-accessor read-write))
+	(single-slot metapratica
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot pratiche_generate)
+		(create-accessor read-write))
+	(single-slot custom_testo_invio
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email3
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dati_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_dati_fatturazione)
+		(create-accessor read-write))
+	(single-slot inverse_of_attivita
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot attivita)
+		(create-accessor read-write))
+	(multislot pratiche_generate
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(inverse-slot metapratica)
+		(create-accessor read-write))
+	(single-slot inverse_of_prestazioni_extra_forfait
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 1 1)
+;+		(inverse-slot listino)
+		(create-accessor read-write))
+	(single-slot qualita
+		(type SYMBOL)
+		(allowed-values alta_con_notifica alta media bassa)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot privacy_acquisita
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot alias
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cessata_assistenza_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assegnatoApratica
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+;+		(inverse-slot ticketAssociati)
+		(create-accessor read-write))
+	(single-slot template_testo_invio_interno
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot incarico_a
+		(type SYMBOL)
+		(allowed-values Studio CDL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot responsabile_di
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(inverse-slot operatore_responsabile)
+		(create-accessor read-write))
+	(single-slot inverse_of_storia_documento
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+;+		(cardinality 0 1)
+;+		(inverse-slot storia_documento)
+		(create-accessor read-write))
+	(single-slot regime_contabilita
+		(type SYMBOL)
+		(allowed-values ESONERO_AGR)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot inverse_of_profili_clienti
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(inverse-slot profili_clienti)
+		(create-accessor read-write))
+	(single-slot recapito_indirizzo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot entry_calendario
+		(type INSTANCE)
+;+		(allowed-classes CalendarioFatturazione)
+;+		(cardinality 1 1)
+;+		(inverse-slot proforma_emessa)
+		(create-accessor read-write))
+	(single-slot versione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot priorita_ticket
+		(type SYMBOL)
+		(allowed-values urgente normale)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot voci_proforma
+		(type INSTANCE)
+;+		(allowed-classes VoceFattura)
+;+		(inverse-slot inverse_of_voci_proforma)
+		(create-accessor read-write))
+	(single-slot scaricato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ticketAssegnati
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(inverse-slot assegnato_a)
+		(create-accessor read-write))
+	(single-slot nome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot prestazioni_forfait
+		(type SYMBOL)
+		(create-accessor read-write))
+	(single-slot daTicket
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+;+		(cardinality 0 1)
+;+		(inverse-slot contabilizzazione)
+		(create-accessor read-write))
+	(multislot contatti_studio
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(inverse-slot daCliente)
+		(create-accessor read-write))
+	(single-slot cliente_dal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_spese_anticipate
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 1 1)
+;+		(inverse-slot spese_anticipate)
+		(create-accessor read-write))
+	(single-slot numero_destinatario
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot testo_standard
+		(type SYMBOL)
+		(allowed-values esempio_testo)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_fiscale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente_doc
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+;+		(inverse-slot inverse_of_cliente_doc)
+		(create-accessor read-write))
+	(single-slot errore
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot per_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+;+		(inverse-slot calendario_fatturazione)
+		(create-accessor read-write))
+	(multislot spese_anticipate
+		(type INSTANCE)
+;+		(allowed-classes SpesaAnticipata)
+;+		(inverse-slot inverse_of_spese_anticipate)
+		(create-accessor read-write))
+	(single-slot allegato_delega_f24_cumulativo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot TulliniHelpGest_Class10022
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot chiamata_telefonica
+		(type INSTANCE)
+;+		(allowed-classes HDChiamataTelefonica)
+;+		(cardinality 0 1)
+;+		(inverse-slot ticket)
+		(create-accessor read-write))
+	(single-slot fatto
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Cliente
+	(is-a USER)
+	(role concrete)
+	(single-slot cellulare
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_contatti
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot dati_contabili
+		(type INSTANCE)
+;+		(allowed-classes DatiContabili)
+		(create-accessor read-write))
+	(single-slot sez_recapito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stato_cliente
+		(type SYMBOL)
+		(allowed-values in_attesa_di_verifica verificato_dal_responsabile)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot recapito_comune
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+		(create-accessor read-write))
+	(multislot tipo_cliente
+		(type SYMBOL)
+		(allowed-values PF SP P I AP NP SC CP)
+		(create-accessor read-write))
+	(single-slot telefono
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_cliente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recapito_cap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_sede_legale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_cf
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot avvisi_scadenze
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+		(create-accessor read-write))
+	(multislot fatture
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_nome
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot documenti_per_lo_studio
+		(type INSTANCE)
+;+		(allowed-classes DocumentoCliente)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_residenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot operatore_responsabile
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot email3
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dati_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo_sollecito
+		(type SYMBOL)
+		(allowed-values sms mail)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot dati_crm
+		(type INSTANCE)
+;+		(allowed-classes DatiCRM)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot calendario_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes CalendarioFatturazione)
+		(create-accessor read-write))
+	(multislot inverse_of_cliente_doc
+		(type INSTANCE)
+;+		(allowed-classes StoriaDocumento)
+		(create-accessor read-write))
+	(single-slot legale_rappresentante_cognome
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot partita_iva
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cessata_assistenza_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recapito_indirizzo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nickname
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot indirizzo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot comune
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot non_profit
+		(type SYMBOL)
+		(allowed-values ACR)
+		(create-accessor read-write))
+	(multislot sms_inviati
+		(type INSTANCE)
+;+		(allowed-classes Sms)
+		(create-accessor read-write))
+	(multislot contatti_studio
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+		(create-accessor read-write))
+	(single-slot cap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_diventa_cliente
+		(type INSTANCE)
+;+		(allowed-classes ClienteCandidato)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente_dal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_legale_rappresentante
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_fiscale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fax
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot scadenze
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+		(create-accessor read-write))
+	(multislot pratiche
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+		(create-accessor read-write)))
+
+(defclass Documento
+	(is-a USER)
+	(role concrete)
+	(single-slot data_riferimento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot storia_documento
+		(type INSTANCE)
+;+		(allowed-classes StoriaDocumento)
+		(create-accessor read-write))
+	(single-slot abstract
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot free_tag
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipologia
+		(type INSTANCE)
+;+		(allowed-classes DescrizioneDocumento)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot revisioni
+		(type INSTANCE)
+;+		(allowed-classes RevisioneDocumento)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass StoriaDocumento
+	(is-a USER)
+	(role concrete)
+	(single-slot errore
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inviato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto_mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot testo_sms
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot scaricato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot testo_mail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sollecito
+		(type SYMBOL)
+		(allowed-values si_se_cliente_non_scarica si_se_non_ricevuto_materiale no)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_storia_documento
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot workflow_completato_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sollecito_il
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente_doc
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass DescrizioneDocumento
+	(is-a USER)
+	(role concrete)
+	(single-slot visibilita
+		(type SYMBOL)
+		(allowed-values documento_interno_visibile_user_e_admin documento_interno_admin documento_cliente_visibile_cliente_user_e_admin documento_cliente_visibile_solo_user_e_admin)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_testo_invio
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sollecito
+		(type SYMBOL)
+		(allowed-values si_se_cliente_non_scarica si_se_non_ricevuto_materiale no)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_oggetto_invio
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot contenuto_azione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot template_sms
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipologia_documento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot inverse_of_tipologia
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+		(create-accessor read-write))
+	(single-slot azione_conseguente_caricamento
+		(type SYMBOL)
+		(allowed-values B_email_cliente E_comunicazione_interna_segreteria_studio A_nessuna C_email_cliente_link D_email_cliente_link_richiesto_logon F_comunicazione_interna_solo_nuovi_documenti_no_revisioni G_email_mailing_list)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass RevisioneDocumento
+	(is-a USER)
+	(role concrete)
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_revisioni
+		(type INSTANCE)
+;+		(allowed-classes Documento)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Pratica
+	(is-a USER)
+	(role concrete)
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot pratica_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente_pratica
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot attivita
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+		(create-accessor read-write))
+	(single-slot titolo_per_fattura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_chiusura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot responsabile
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot stato
+		(type SYMBOL)
+		(allowed-values Aperta Chiusa Sospesa Fatturata)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot prezzo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values a_forfait a_ora a_prestazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot metapratica
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ticketAssociati
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+		(create-accessor read-write))
+	(single-slot codice
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Attivita
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stato_attivita
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot attivita_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot spese_anticipate
+		(type INSTANCE)
+;+		(allowed-classes SpesaAnticipata)
+		(create-accessor read-write))
+	(single-slot assegnata_a
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot minuti_ultima_fattura
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot sessioni_di_lavoro
+		(type INSTANCE)
+;+		(allowed-classes LavoroSuAttivita)
+		(create-accessor read-write))
+	(single-slot inverse_of_attivita
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass DatiCRM
+	(is-a USER)
+	(role concrete)
+	(single-slot ici
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_invio_impronta_digitale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot privacy_acquisita
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sostituto_imposta
+		(type SYMBOL)
+		(allowed-values si no)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot verifica_validita_firma_digitale
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot conservazione_libro_giornale
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot antireciclaggio
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allegato_contratto
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot privacy
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot immobili
+		(type SYMBOL)
+		(allowed-values si no leasing)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allegato_delega_f24_compensazioni
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note_ici
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot f24_cumulativo
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot df_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva_note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cassetto_fiscale
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot conservazione_sostitutiva_delega_studio
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_delega_f24_cumulativo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot conservazione_libro_giornale_data_versamento_diritti
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_delega_cassetto_fiscale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass SollecitoPagamento
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_sollecito
+		(type SYMBOL)
+		(allowed-values primo secondo terzo non_sollecitare)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot descrizione
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_spedizione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_solleciti_pagamento
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass LavoroSuAttivita
+	(is-a USER)
+	(role concrete)
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_sessioni_di_lavoro
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot durata_minuti
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diario
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot daTicket
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass StoricoInvii
+	(is-a USER)
+	(role concrete)
+	(single-slot tipo_sollecito
+		(type SYMBOL)
+		(allowed-values sms mail)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot destinatario
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot messaggio
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot esito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass SpesaAnticipata
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot fatturata
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot importo
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_spese_anticipate
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Scadenza
+	(is-a USER)
+	(role concrete)
+	(single-slot forza_sms
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_op_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto_scadenza
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot profili_clienti
+		(type INSTANCE)
+;+		(allowed-classes ProfiloDinamicoClienti)
+		(create-accessor read-write))
+	(single-slot fine_ricorrenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_pratica_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ricorrenza
+		(type SYMBOL)
+		(allowed-values giorno settimana mese anno)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot notifiche_generate
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+		(create-accessor read-write))
+	(multislot destinarario_personalizzato
+		(type SYMBOL)
+		(allowed-values tipo_clinte_PF contabilita_noi)
+		(create-accessor read-write))
+	(single-slot preavviso_gg
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_attivita_scadenza
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot descrizione_scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Operatore
+	(is-a USER)
+	(role concrete)
+	(multislot op_scadenze
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+		(create-accessor read-write))
+	(single-slot costo_orario
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot attivita_assegnate
+		(type INSTANCE)
+;+		(allowed-classes Attivita)
+		(create-accessor read-write))
+	(single-slot cellulare
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ticketAssegnati
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+		(create-accessor read-write))
+	(single-slot nome_e_cognome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot rivendita_oraria
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot pwd_autorizzativa
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot responsabile_di_pratiche
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+		(create-accessor read-write))
+	(multislot responsabile_di
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+		(create-accessor read-write))
+	(multislot notifiche_scadenze
+		(type INSTANCE)
+;+		(allowed-classes NotificaScadenza)
+		(create-accessor read-write)))
+
+(defclass DatiContabili
+	(is-a USER)
+	(role concrete)
+	(single-slot obbligo_iscrizione_inail
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot esercizio_a
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_previdenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_registro_imprese
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_contabilita
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_ateco
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iscrizione_registro_imprese
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot incarico_a
+		(type SYMBOL)
+		(allowed-values Studio CDL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot regime_contabilita
+		(type SYMBOL)
+		(allowed-values ESONERO_AGR)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_dati_contabili
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot teniamo_noi
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot tipo_cliente
+		(type SYMBOL)
+		(allowed-values PF SP P I AP NP SC CP)
+		(create-accessor read-write))
+	(single-slot provincia_registro_imprese
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sez_inail
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot unita_locali
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_ateco2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_ateco3
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pat_numero
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot regime_iva
+		(type SYMBOL)
+		(allowed-values 398%2F91)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot regimi_previdenziali
+		(type INSTANCE)
+;+		(allowed-classes RegimePrevidenziale)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot liquidazione_iva
+		(type SYMBOL)
+		(allowed-values annuale)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sezioni_speciali
+		(type SYMBOL)
+		(allowed-values piccolo_imprenditore)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot esercizio_da
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass RegimePrevidenziale
+	(is-a USER)
+	(role concrete)
+	(single-slot regime
+		(type SYMBOL)
+		(allowed-values ENPAB)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_regimi_previdenziali
+		(type INSTANCE)
+;+		(allowed-classes DatiContabili)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot iscrizione
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass VoceFattura
+	(is-a USER)
+	(role concrete)
+	(single-slot inverse_of_voci_proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rif_pratica
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iva
+		(type SYMBOL)
+		(allowed-values Fuori_Campo Esente_Articolo_10 4%25 10%25 STD)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot importo
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_voci_fattura
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass NotificaScadenza
+	(is-a USER)
+	(role concrete)
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot oggetto_scadenza
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_notifiche_scadenze_operatore
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_avvisi_scadenze_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_notifiche_generate
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fatto
+		(type SYMBOL)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot descrizione_scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass DatiFatturazione
+	(is-a USER)
+	(role concrete)
+	(multislot listino
+		(type INSTANCE)
+;+		(allowed-classes ItemListino)
+		(create-accessor read-write))
+	(single-slot data_prima_rata
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot n_rate
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_preventivo_listino
+		(type INSTANCE)
+;+		(allowed-classes ClienteCandidato)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_dati_fatturazione
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Metapratica
+	(is-a USER)
+	(role concrete)
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot lista_attivita
+		(type INSTANCE)
+;+		(allowed-classes Metaattivita)
+		(create-accessor read-write))
+	(multislot in_listini
+		(type INSTANCE)
+;+		(allowed-classes ItemListino)
+		(create-accessor read-write))
+	(single-slot titolo_per_fattura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot descrizione
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot prezzo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot pratiche_generate
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values a_forfait a_ora a_prestazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass ItemListino
+	(is-a USER)
+	(role concrete)
+	(single-slot titolo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot titolo_per_fattura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot descrizione
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot da_metapratica
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot prezzo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_prestazioni_extra_forfait
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values a_forfait a_ora a_prestazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass IndicizzazioneListino
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot indice
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass ClienteCandidato
+	(is-a USER)
+	(role concrete)
+	(single-slot comune
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preventivo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cellulare
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preventivo_listino
+		(type INSTANCE)
+;+		(allowed-classes DatiFatturazione)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot partita_iva
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diventa_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot cap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente_dal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codice_fiscale
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cliente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fax
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot indirizzo
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Metaattivita
+	(is-a USER)
+	(role concrete)
+	(single-slot nome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_lista_attivita
+		(type INSTANCE)
+;+		(allowed-classes Metapratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Fattura
+	(is-a USER)
+	(role concrete)
+	(single-slot ra
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot voci_fattura
+		(type INSTANCE)
+;+		(allowed-classes VoceFattura)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_fattura
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_pagamento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot competenza
+		(type SYMBOL)
+		(allowed-values CONTABILIS STUDIO)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_desc
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot da_proforma
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_fatture
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot riv_prev
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass ProForma
+	(is-a USER)
+	(role concrete)
+	(single-slot ra
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_fattura
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot spese_anticipate_desc
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stato_proforma
+		(type SYMBOL)
+		(allowed-values da_validare validata spedita)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot voci_proforma
+		(type INSTANCE)
+;+		(allowed-classes VoceFattura)
+		(create-accessor read-write))
+	(single-slot competenza
+		(type SYMBOL)
+		(allowed-values CONTABILIS STUDIO)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data_pagamento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_proforma
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot non_incassabile
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anno_contabile
+		(type SYMBOL)
+		(allowed-values 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot solleciti_pagamento
+		(type INSTANCE)
+;+		(allowed-classes SollecitoPagamento)
+		(create-accessor read-write))
+	(single-slot fattura
+		(type INSTANCE)
+;+		(allowed-classes Fattura)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot riv_prev
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot entry_calendario
+		(type INSTANCE)
+;+		(allowed-classes CalendarioFatturazione)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass CalendarioFatturazione
+	(is-a USER)
+	(role concrete)
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot su_rate
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot per_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot rata
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot proforma_emessa
+		(type INSTANCE)
+;+		(allowed-classes ProForma)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Metasollecito
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot testo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot numero_sollecito
+		(type SYMBOL)
+		(allowed-values primo secondo terzo non_sollecitare)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Sms
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot testo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot a_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ora_spedizione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ora_ricezione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot qualita
+		(type SYMBOL)
+		(allowed-values alta_con_notifica alta media bassa)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot numero_destinatario
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass StoricoModifiche
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot html_versione
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot istanza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot classe
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_modifica
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass ProfiloDinamicoClienti
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot inverse_of_profili_clienti
+		(type INSTANCE)
+;+		(allowed-classes Scadenza)
+		(create-accessor read-write))
+	(single-slot query
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass DocumentoCliente
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot archiviato
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot da_cliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot oggetto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass HDTicket
+	(is-a USER)
+	(role concrete)
+	(single-slot priorita_ticket
+		(type SYMBOL)
+		(allowed-values urgente normale)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot contattoNonRiconosciuto
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statoTicket
+		(type SYMBOL)
+		(allowed-values in_attesa assegnato aperto chiuso insolubile)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot azioneRichiesta
+		(type SYMBOL)
+		(allowed-values richiama_lui inviare_sms richiamare_al inviare_mail)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot thread
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot diagnosi_std
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assegnato_a
+		(type INSTANCE)
+;+		(allowed-classes Operatore)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data_scadenza
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rispondere_a
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assegnatoApratica
+		(type INSTANCE)
+;+		(allowed-classes Pratica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot emailAssistenza
+		(type INSTANCE)
+;+		(allowed-classes HDGruppoAssistenza)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dataArrivo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot daCliente
+		(type INSTANCE)
+;+		(allowed-classes Cliente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diagnosi_libero
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot identificativo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allegato_1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass HDThreadStep
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot th_data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot inverse_of_thread
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot contabilizzazione
+		(type INSTANCE)
+;+		(allowed-classes LavoroSuAttivita)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot th_direzione
+		(type SYMBOL)
+		(allowed-values cliente_studio studio_cliente spedito_da_studio)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot th_messaggio
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot chiamata_telefonica
+		(type INSTANCE)
+;+		(allowed-classes HDChiamataTelefonica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot canale
+		(type SYMBOL)
+		(allowed-values email telefono fax sms)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass HDRispostaStandard
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allegato_1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot diagnosi_std
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot risposta_std
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass HDGruppoAssistenza
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email_pwd
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot tickets
+		(type INSTANCE)
+;+		(allowed-classes HDTicket)
+		(create-accessor read-write))
+	(single-slot nome
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot server
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot port
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot alias
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass HDChiamataTelefonica
+	(is-a USER)
+	(role concrete)
+	(single-slot note
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot data
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot numero_locale
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot stato_chiamata
+		(type SYMBOL)
+		(allowed-values ricevuta inviata persa)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot ticket
+		(type INSTANCE)
+;+		(allowed-classes HDThreadStep)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_remoto
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot durata
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))

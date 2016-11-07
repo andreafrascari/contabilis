@@ -1,0 +1,33 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			 
+
+			<div class="form-container">
+				 
+				<form id="filter" method="post" action="@ACTION@">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_DatiCRM@@tag_df_cliente@@tag_sostituto_imposta@@tag_immobili@@tag_ici@@tag_cassetto_fiscale@@tag_f24_cumulativo@@tag_antireciclaggio@@tag_privacy@@tag_privacy_acquisita@@tag_conservazione_sostitutiva@@tag_conservazione_sostitutiva_delega_studio@@tag_conservazione_libro_giornale@@END_DatiCRM@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

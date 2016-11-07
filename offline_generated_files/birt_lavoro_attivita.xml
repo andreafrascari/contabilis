@@ -1,0 +1,35 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<LavoroSuAttivita>
+			<ID>1</ID>
+			<data>22/9/2012</data>
+			<durata_minuti>222</durata_minuti>
+			<diario>dsddd</diario>
+			<creation_user>ciccio</creation_user>
+			<inverse_of_sessioni_di_lavoro>
+				<Attivita>
+					<inverse_of_attivita>
+						<Pratica>
+							<cliente_pratica>
+								<Cliente>
+									<cliente>frasca</cliente>
+								</Cliente>
+							</cliente_pratica>
+							<titolo>zimmerflex</titolo>
+							<stato>stato prat</stato>
+						</Pratica>
+					</inverse_of_attivita>
+					
+					<titolo>titolo att</titolo>
+					<assegnata_a>
+						<Operatore>
+							<nome_e_cognome>Fabio</nome_e_cognome>
+						</Operatore>
+					</assegnata_a>
+					<stato_attivita>stato att</stato_attivita>
+				</Attivita>
+			</inverse_of_sessioni_di_lavoro>
+		</LavoroSuAttivita>
+	</service>
+</serena>

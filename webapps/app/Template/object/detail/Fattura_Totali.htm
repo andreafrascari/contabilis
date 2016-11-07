@@ -1,0 +1,19 @@
+@BEGIN_TEMPLATE@
+	@BEGIN_Fattura_Totali@
+		
+	([[
+	[@tag_Totale_Imponibile_0#FLAT@]!=[0.00] || [@tag_Totale_Imponibile_1#FLAT@]!=[0.00] || [@tag_Totale_Imponibile_2#FLAT@]!=[0.00] || [@tag_Totale_Imponibile_3#FLAT@]!=[0.00]] ?? [
+		@tag_Rivalsa_Previdenziale@@tag_Totale_Imponibile_0@@tag_Totale_Imponibile_1@@tag_Totale_Imponibile_2@@tag_Totale_Imponibile_3@@tag_Totale_Imponibile_4@@tag_Iva_0@@tag_Iva_1@@tag_Iva_2@@tag_Iva_3@@tag_Iva_4@@tag_Spese_Escluse_Da_Imponibile@@tag_Totale_Fattura@@tag_Ritenuta_Acconto@@tag_Totale_Da_Pagare@
+	] :: [			
+			@tag_Rivalsa_Previdenziale@
+			
+			<tr class="Totale_Imponibile_0"><th scope="row">Imponibile</th><td>@tag_Totale_Imponibile_4#FLAT@ &euro;</td></tr>
+			<tr class="Totale_Iva_0"><th scope="row">Iva</th><td>@tag_Iva_4#FLAT@  &euro;</td></tr>
+			@tag_Spese_Escluse_Da_Imponibile@
+			@tag_Totale_Fattura@
+			@tag_Ritenuta_Acconto@
+			@tag_Totale_Da_Pagare@
+		]
+	])
+	@END_Fattura_Totali@
+@END_TEMPLATE@

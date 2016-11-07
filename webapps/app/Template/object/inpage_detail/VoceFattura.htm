@@ -1,0 +1,69 @@
+@BEGIN_TEMPLATE@<div class="inpage_detail">
+@BEGIN_VoceFattura@
+            <div class="inserto">
+                <ul class="clearfix toolbar">
+                    @BLOCK_BEGIN_EDIT@
+                    <li>
+                                        <a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+                                            <img alt="modifica la scheda" title="modifica la scheda" src="app/Template/metaAmbiente/img/icon-edit.gif" />
+                                        </a>
+                                    </li>
+
+ ([[[@tag_inverse_of_voci_fattura.Fattura.ID#FLAT@] == []] ??
+                        [            <li>
+                                        <a href="?q=helpgest/deletevoceproforma&amp;PRATICA=@tag_rif_pratica#FLAT@&amp;VOCE=@tag_ID#FLAT@&amp;PROFORMA=@tag_inverse_of_voci_proforma.ProForma.ID#FLAT@" onclick="javascript:confirm('Conferma cancellazione voce e ripristino stato precedente pratica relativa:');" title="Elimina voce proforma, con rollback su pratica relativa">
+                                            <img alt="Elimina voce proforma, con rollback su pratica relativa" src="app/Template/metaAmbiente/img/icon-delete.gif" />
+                                        </a>
+                                    </li>
+                        ]
+                    ])
+                    @BLOCK_END_EDIT@
+                </ul>
+            </div>
+
+            @BLOCK_BEGIN_RESULT_ERROR@
+                <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    Si &egrave; verificato un errore: @ERROR_MESSAGE@
+                </div>
+            @BLOCK_END_RESULT_ERROR@
+
+            @BLOCK_BEGIN_RESULT_EMPTY@
+                <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    Nessun elemento trovato!
+                </div>
+            @BLOCK_END_RESULT_EMPTY@
+
+            <div class="object-inpage-body">
+                        <table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+                            <tbody>
+                                @tag_importo@@tag_oggetto@
+                                ([[
+                                    [@tag_iva@] == []] ?? [
+                                        <!-- iva non piu attiva --> ] :: [
+                                    @tag_iva@
+                                    ]
+                                ])
+                                ([[
+                                [@tag_rif_pratica#FLAT@]!=[]] ?? [
+                                    <tr class="rif_pratica"><th scope="row">deriva da pratica</th><td><a @popup="dimensions=big,title=Pratica da cui la voce fattura deriva" href="?q=object/detail&amp;p=Pratica/_a_ID/_v_@tag_rif_pratica#FLAT@" title="vai alla pratica">pratica</a></td></tr>
+                                ]])
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                ([
+                    [ [] != []]
+                    ?? [
+                        <div class="object-inpage-links">
+                            <table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    ]
+                ])@END_VoceFattura@
+        </div>@END_TEMPLATE@

@@ -1,0 +1,103 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+
+		<div class="detail-edit detail-edit-HDTicket">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="form-container form-container-HDTicket">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="Indietro">
+												<img alt="Indietro" title="Indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+											</a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="Salva">
+												<img alt="Salva" title="Salva" src="app/Template/metaAmbiente/img/icon-save.gif" />
+											</a>
+										</li>
+										
+
+										([
+											[ [@tag_ID#FLAT@] != [] && [] != [1]]
+											?? [
+												<li>
+													<a tabindex="51" href="javascript:detailEdit.delObject('forced_post_save');" title="Cancella">
+														<img alt="Cancella" title="Cancella" src="app/Template/metaAmbiente/img/icon-delete.gif" />
+													</a>
+												</li>
+											]
+										])
+										
+										
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+									@tag_identificativo@@tag_dataArrivo@@tag_daCliente@@tag_contattoNonRiconosciuto@@tag_statoTicket@@tag_priorita_ticket@@tag_data_scadenza@@tag_diagnosi_libero@@tag_azioneRichiesta@@tag_rispondere_a@@tag_thread@
+								</div>
+								
+
+							
+								<input type="hidden" name="INP_statoTicket" id="INP_statoTicket"  value="aperto" />
+								
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							@tag_allegato@@tag_allegato_1@
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								
+
+								([
+											[ [@tag_ID#FLAT@] != [] && [] != [1]]
+											?? [
+										<li>
+											<a href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+										</li>
+									]
+								])
+							</ul>
+
+							
+						</div>
+					</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

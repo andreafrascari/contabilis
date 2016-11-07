@@ -1,0 +1,50 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>Storico clienti alla data specificata</h2>
+			</div>
+			
+			<script type="text/javascript">
+				$(document).ready(function()	{
+					$("#filter").submit(function()	{
+						if (!$("#KEY_cessata_assistenza_il__FROM").val())	{
+							alert("La prima data e' obbligatoria!");
+							} else {
+							var action = $("#filter").attr('action');
+							var val = $("#KEY_cessata_assistenza_il__FROM").val().replace('/','-');
+							var val = val.replace('/','-');
+				 			action = action.replace('@VAL@',val);
+				 			action = action.replace('@VAL@',val);
+				 			// alert("get: "+action);
+				 			location = action;
+				 		 }
+						return false;
+					});
+				});
+			
+			</script>
+
+			<div class="form-container">
+				<form id="filter" method="get" action="?q=object/list&amp;t=Cliente_Al&amp;p=Cliente/_a_cessata_assistenza_il/_v_@VAL@/_o_>=/_a_cliente_dal/_v_@VAL@/_o_<=&amp;data_source=cliente-al">
+					<fieldset>
+						<legend>specificare la data per la fotografia dello storico</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_Cliente@
+							<div class="item date-hour KEY_cessata_assistenza_il">
+									 <label for="KEY_cessata_assistenza_il__FROM">Clienti al:</label>
+									 		<input type="text" class="input_date enhanced"  size="10" id="KEY_cessata_assistenza_il__FROM" name="KEY_cessata_assistenza_il__FROM" />
+						</div>
+						@END_Cliente@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+												
+						
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

@@ -1,0 +1,189 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+			
+				var currentYear =(new Date).getFullYear();
+				if (!$("#INP_anno_contabile").val())	{
+					$("#INP_anno_contabile").val(currentYear);
+				}
+							
+				 $("#INP_competenza").change(function() {
+				 	if ($("#INP_competenza").attr("selectedIndex")=='1')	{
+				 		// 1 => primo valore della select == contabilis
+				 		$("#INP_riv_prev").attr('checked', false);
+				 		$("#INP_ra").attr('checked', false);
+				 		adjustFollowingInvoices('studio');
+				 	} else {
+				 		$("#INP_riv_prev").attr('checked', true);
+				 		$("#INP_ra").attr('checked', true);
+				 		adjustFollowingInvoices('contabilis');
+				 	}
+				 	getNextNumber();
+				 });
+			});
+			
+	function adjustFollowingInvoices(competenza) {
+		var numero =$("#INP_numero").val();
+		var anno =$("#INP_anno_contabile").val(); 
+		if (numero==null)
+			return;
+		if (!confirm("Confermare il riallineamento numeri delle proforma NON SPEDITE di competenza " + competenza + " con numero superiore a "+numero +" per anno contabile "+anno + " in seguito a cambio competenza proforma corrente:"))
+			return;
+		var path="ModuleIndex?q=helpgest/adjustinvoicenumeration/cosa=ProForma/competenza=@COMPETENZA@/numero=@NUMERO@/anno=@ANNO@";
+		path=path.replace("@COMPETENZA@",competenza);
+		path=path.replace("@NUMERO@",numero);
+		path=path.replace("@ANNO@",anno);
+		var rep = $.ajax({
+	        url: path,
+	        async: false,
+	        type: "GET",
+	        cache: false
+	        }).responseText;		
+		try
+		{
+			var xmlrep = Anastasis.Utils.parseXML(rep);
+			anastasis.logger.info("res = " + rep);
+			var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+			if(msg.isErrorMessage())
+			{
+				alert("il sistema non riesce a riallineare le fatture successive!");
+				return;
+			}
+			var messaggio=msg.selectSingleNode("ProForma/esito");
+			var messaggioTxt = Anastasis.Ajax.getText(messaggio);
+			alert(messaggioTxt);
+		}
+		catch(e){alert("errore: "+e);}
+ 	}
+	
+	function getNextNumber()	{
+		var anno = 	$("#INP_anno_contabile").val();
+		var competenza = 	$("#INP_competenza").val();
+		
+		var path="ModuleIndex?q=helpgest/nextnumber/cosa=ProForma/competenza="+competenza+"/anno="+anno;
+		var rep = $.ajax({
+	        url: path,
+	        async: false,
+	        type: "GET",
+	        cache: false
+	        }).responseText;		
+		try
+		{
+			var xmlrep = Anastasis.Utils.parseXML(rep);
+			anastasis.logger.info("res = " + rep);
+			var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+			if(msg.isErrorMessage())
+			{
+				alert("il sistema non riesce a caricare i dati della metapratica!");
+				return;
+			}
+			var instance=msg.selectSingleNode("ProForma/nextnumber");
+			var nextnumber = Anastasis.Ajax.getText(instance);
+			$("#INP_numero").val(nextnumber);
+		}
+		catch(e){alert("errore: "+e);}
+ 	}
+				
+		</script>				 
+
+		<div class="form-container form-container-">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_ProForma@<div class="form-container">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+										</li>
+										
+
+										([
+											[ [@tag_ID#FLAT@] != [] ]
+											?? [
+												<li>
+													<a tabindex="51" href="javascript:detailEdit.delObject('forced_post_save','Attenzione: si sconsiglia di effettuare la cancellazione della proforma e delle relative voci in quanto il sistema non potrebbe ripristinare lo stato precedente delle PRATICHE e ATTIVITA relative: procedere piuttosto effettuando modifiche manuali alle VOCI della proforma stessa.\nNel caso si voglia procedere, ricordarsi poi 1) di rigenerare il calendario fatturazione; 2) di controllare manualmente lo stato di pratcihe e attivita relative.');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+												</li>
+											]
+										])
+										
+										
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+									@tag_inverse_of_proforma@@tag_competenza@@tag_anno_contabile@@tag_numero@@tag_stato_proforma@@tag_data@@tag_data_pagamento@@tag_voci_proforma@@tag_non_incassabile@@tag_spese_anticipate_fattura@@tag_spese_anticipate_desc@@tag_riv_prev@@tag_ra@@tag_note@
+									<!--@tag_solleciti_pagamento@-->
+								</div>
+								
+
+								
+								<div class="detail-edit-system">
+									
+									
+								</div>
+								
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								
+
+								([
+									[ [@tag_ID#FLAT@] != []  ]
+									?? [
+										<li>
+											<a href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+										</li>
+									]
+								])
+							</ul>
+
+							
+						</div>
+					</div>@END_ProForma@
+		</div>@END_TEMPLATE@

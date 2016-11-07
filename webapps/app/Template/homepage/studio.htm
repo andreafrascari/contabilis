@@ -1,0 +1,123 @@
+
+<div class="row">
+<br />
+
+
+<div class="panel-group" id="accordion">
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-1">Help Desk</a>
+   </h4>
+  </div>
+  <div id="pannello-1" class="panel-collapse collapse in">
+  <div class="panel-body">
+
+
+ ([[[@FUN_ACCESS_COLLECTIVE_EMAILS()@]==[1]]??[
+
+<div class="col-lg-4 col-md-4 home-box">
+<div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Ultimi ticket dello Studio in attesa</h3>
+      </div>
+      <div class="panel-body">
+			@FUN_MODULE(q=object/list,p=HDTicket/_a_statoTicket/_v_in attesa_a_emailAssistenza/_c_HDGruppoAssistenza/_a_email/_v_@FUN_GET_USER_INFO(param=email)@/,order-by=dataArrivo desc,t=HDTicket_ultimi)@
+	</div>
+</div>
+</div>
+])
+
+
+<div class="col-lg-4 col-md-4 home-box">
+<div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">I miei ultimi ticket in attesa</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=HDTicket/_a_statoTicket/_v_assegnato/_a_assegnato_a/_v_@FUN_OPERATORE_CORRENTE()@,order-by=dataArrivo desc,t=HDTicket_ultimi_miei)@
+      </div>
+</div>
+</div>
+
+
+<div class="col-lg-4 col-md-4 home-box">
+<div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">I miei ultimi ticket aperti</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=HDTicket/_a_statoTicket/_v_aperto/_a_assegnato_a/_v_@FUN_OPERATORE_CORRENTE()@,order-by=dataArrivo desc,t=HDTicket_ultimi_miei_aperti)@
+      </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+  
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-2">Memo e scadenze</a>
+   </h4>
+  </div>
+  <div id="pannello-2" class="panel-collapse collapse in">
+  <div class="panel-body">
+  
+  
+    <div class="col-lg-4  col-md-4 col-sm-6 home-box">
+<div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Bacheca</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=_system_news,t=Bacheca,order-by=creation_date desc)@
+      </div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-3 col-sm-6 home-box">
+	<div class="panel panel-danger">
+	      <div class="panel-heading">
+	        <h3 id="panel-title" class="panel-title">Il mio calendario</h3>
+	      </div>
+	      <div class="panel-body">
+			@FUN_MODULE(q=operatorCalendar/month)@
+		</div>
+	</div>
+	<div class="panel panel-danger">
+	      <div class="panel-heading">	
+	      	<h3 id="panel-title" class="panel-title">Il calendario dello Studio</h3>
+	      </div>
+	      <div class="panel-body">
+			@FUN_MODULE(q=previewMetascadenzeCalendar/month)@
+		</div>
+	</div>
+</div>   
+
+
+
+  <div class="col-lg-4 col-md-5 col-sm-6  home-box">
+<div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 id="panel-title" class="panel-title">Le miei ultime sessioni di lavoro</h3>
+      </div>
+      <div class="panel-body">
+		@FUN_MODULE(q=object/list,p=LavoroSuAttivita/_a_creation_user/_v_@FUN_GET_USER_INFO(param=username)@,data_source=ultime-sessioni,order-by=data desc,t=LavoroSuAttivitaEmbedded)@
+      </div>
+</div>
+</div>                                                            
+
+</div>
+</div>
+</div>
+ 
+</div>
+</div>
+	
+

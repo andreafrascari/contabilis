@@ -1,0 +1,70 @@
+@BEGIN_TEMPLATE@<div class="inpage_detail">
+@BEGIN_HDThreadStep@
+			<div class="inserto">
+				<ul class="clearfix toolbar">
+							@BLOCK_BEGIN_EDIT@
+								
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+						([[[@tag_inverse_of_thread.HDTicket.assegnatoApratica@] != []]
+							?? [	
+							<li>
+							([[[@tag_contabilizzazione@] == []] ?? [
+								<a @popup="title=Contabilizza messaggio in sessione di lavoro,dimension=medium" href="?q=object/detail_edit&amp;p=HDThreadStep/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDThreadStep_contabilizza" title="contabilizza in sessione di lavoro"><img alt="contabilizza in sessione di lavoro" src="app/Template/metaAmbiente/img/icon-workflow.png" /></a>
+							]])
+							</li>
+								]
+							])
+						@BLOCK_END_EDIT@
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			<div class="object-inpage-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_th_data@@tag_th_direzione@@tag_canale@@tag_th_messaggio@
+								<tr class="contabilizzazione">
+									<th scope="row">contabilizzata in attivit&agrave;</th>
+									([[[@tag_contabilizzazione@]!=[]]??[
+								   <td class="SI">SI</td>
+								]::[
+								   <td class="NO">NO</td>
+								]])
+								
+								@tag_chiamata_telefonica@
+								@tag_note@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_allegato@@tag_allegato_1@] != []]
+					?? [
+						<div class="object-inpage-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_allegato@@tag_allegato_1@
+								</tbody>
+							</table>
+						</div>
+					]
+				])@END_HDThreadStep@
+		</div>@END_TEMPLATE@

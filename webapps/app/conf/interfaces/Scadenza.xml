@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Scadenza</title>  
+  <title_view>Metascadenza</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_scadenze</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <detail_edit autocomplete="">cliente</detail_edit>  
+      <filter autocomplete="">cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>  
+      <max_length/>  
+      <default/>  
+      <order>11</order>  
+      <detail_help>inserire prime 3 lettere di nome o cognome e attendere autocompletamento</detail_help> 
+    </item>  
+    <item> 
+      <name>inverse_of_op_scadenze</name>  
+      <label>operatore studio</label>  
+      <detail>operatore studio</detail>  
+      <detail_edit autocomplete="">operatore studio</detail_edit>  
+      <filter autocomplete="">operatore studio</filter>  
+      <list>operatore studio</list>  
+      <heading>5</heading>  
+      <max_length/>  
+      <default/>  
+      <order>13</order>  
+      <detail_help>inserire prime 3 lettere di nome o cognome e attendere autocompletamento</detail_help> 
+    </item>  
+    <item> 
+      <name>inverse_of_pratica_scadenza</name>  
+      <label>pratica</label>  
+      <detail>pratica</detail>  
+      <filter autocomplete="">pratica</filter>  
+       <detail_edit autocomplete="" no-link-new="1">pratica</detail_edit>
+       <detail_help>destinatario implicito: operatiore responsabile della pratica</detail_help>  
+      <list>pratica</list>  
+      <heading>5</heading>  
+      <max_length/>  
+      <default/>  
+      <order>15</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_attivita_scadenza</name>  
+      <label>attivita</label>  
+      <detail>attivita</detail>  
+      <filter autocomplete="">attivita</filter>
+      <detail_edit autocomplete="" no-link-new="1">attivita</detail_edit>  
+       <detail_help>destinatario implicito: operatiore responsabile del attivita</detail_help>  
+      <list>attivita</list>  
+      <heading>5</heading>  
+      <max_length/>  
+      <default/>  
+      <order>19</order> 
+    </item>  
+    <!-- 
+    <item> 
+      <name>destinarario_personalizzato</name>  
+      <label>destinatari</label>  
+      <detail>destinatari</detail>  
+      <detail_edit>destinatari</detail_edit>  
+      <filter>destinatari</filter>  
+      <list>destinatari</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default>operatore</default>  
+      <order>21</order> 
+    </item>
+     -->  
+    <item> 
+      <name>profili_clienti</name>  
+      <label>profili clienti</label>  
+      <detail inpage="1">clienti destinatari</detail>
+      <list>clienti destinatari</list>
+      <filter>profili clienti destinatari</filter>
+      <detail_edit no-link-new="1">profili clienti destinatari</detail_edit>
+      <detail_help>il sistema trattera le condizioni specificate come OR logico ... quindi i clienti identificati sono quelli che appartengono ad ALMENO UNO fra i profili scelti</detail_help>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>data</name>  
+      <label>data</label>  
+      <detail>data</detail>  
+      <detail_edit>data</detail_edit>  
+      <filter>data</filter>  
+      <list>data</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>preavviso_gg</name>  
+      <label>preavviso notifica</label>  
+      <detail>preavviso notifica</detail>  
+      <detail_edit>preavviso notifica</detail_edit>  
+      <list>preavviso gg</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>0</default>  
+      <order>51</order>  
+      <detail_help>numero giorni di anticipo per INVIO notifica scadenza. L'inserimento nella bacheca del cliente/operatore avviene invece con 3 mesi di anticipo.</detail_help> 
+    </item>  
+    <item> 
+      <name>oggetto_scadenza</name>  
+      <label>oggetto</label>  
+      <detail>oggetto</detail>  
+      <detail_edit>oggetto</detail_edit>  
+      <filter>oggetto</filter>  
+      <list>oggetto</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <max_length>134</max_length>  
+      <default>Contabilis - Memo Scadenze</default>  
+      <order>66</order>  
+      <detail_help>oggetto mail o testo SMS: in ogni caso max 134 caratteri. Usare il tag @DATA@ per riportare la data scadenza.</detail_help> 
+    </item>  
+    <item> 
+      <name>descrizione_scadenza</name>  
+      <label>testo notifica</label>  
+      <detail>testo notifica</detail>  
+      <detail_edit>testo notifica</detail_edit>  
+      <filter>testo notifica</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>71</order>  
+      <detail_help>corpo mail (no SMS)</detail_help> 
+    </item>  
+    <item> 
+      <name>forza_sms</name>  
+      <label>forza sms</label>  
+      <detail>forza sms</detail>  
+      <detail_edit>forza sms</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order>  
+      <detail_help>vale solo per i clienti</detail_help> 
+    </item>  
+    <item> 
+      <name>ricorrenza</name>  
+      <label>ricorrenza</label>  
+      <detail>ricorrenza</detail>  
+      <detail_edit>ricorrenza</detail_edit>  
+      <filter>ricorrenza</filter>  
+      <list>ricorrenza</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>fine_ricorrenza</name>  
+      <label>fine ricorrenza</label>  
+      <detail>fine ricorrenza</detail>  
+      <detail_edit>fine ricorrenza</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>111</order> 
+    </item>  
+    <item> 
+      <name>notifiche_generate</name>  
+      <label>notifiche generate</label>  
+      <detail>notifiche generate</detail>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>201</order>  
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

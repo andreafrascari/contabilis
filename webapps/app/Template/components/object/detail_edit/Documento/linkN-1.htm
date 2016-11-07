@@ -1,0 +1,21 @@
+<div class="detail-component linkN-1 @NAME@">
+	<label for="@NAME@">@LABEL@
+		([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+	</label>
+	<ul>
+	  <li>
+	  	scegli una scheda esistente: <select tabindex="10" title="inserisci nuova scheda @LABEL@" onchange="detailEdit.check(this); ([ [[@CONTROLLER@] == [true]] ?? [anastasis.controllers.controllerChanged(this,this.value);] ])" name="@NAME@" id="@NAME@">@OPTIONS@</select>
+	  	<input type="hidden" id="type_@NAME@" value="@CHK_TYPE@" />
+		<input type="hidden" id="required_@NAME@" value="@CHK_NOT_NULL@" />
+		<input type="hidden" id="label_@NAME@" value="@LABEL@" />
+		<input type="hidden" id="info_@NAME@" value="class=@CLASS@|controller=@CONTROLLER@" />
+	  </li>
+	  @BLOCK_BEGIN_NEW@
+		  <li>inserisci nuovo/a <a tabindex="100" onclick="javascript:detailEdit.forceSave('@OBJECT_DETAIL_EDIT_LINK@');" title="inserisci nuovo/a @LABEL@" href="#">@LABEL@</a></li>
+	  @BLOCK_END_NEW@
+	  @BLOCK_BEGIN_NEW_POPUP@
+	  	   <li>inserisci nuovo/a <a tabindex="100" id="popup_new_@NAME@" onclick="return detailEdit.popupDetailEdit(this,'@DIMENSIONS@')" title="inserisci nuovo/a @LABEL@" href="@OBJECT_DETAIL_EDIT_LINK@">@LABEL@</a></li>
+	  @BLOCK_END_NEW_POPUP@
+	</ul>
+	<div class="object-help">@HELP@</div>
+</div>

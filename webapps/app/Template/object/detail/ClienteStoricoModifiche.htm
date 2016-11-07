@@ -1,0 +1,70 @@
+@BEGIN_TEMPLATE@<div id="detail" class="tabbed">
+
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun cliente trovato! Cessata assistenza?
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+
+@BEGIN_Cliente@
+
+			<div id="splash">
+				<h2>@tag_cliente#FLAT@</h2>
+			</div>
+			
+ 
+
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					 
+					
+					
+				</ul>
+			</div>
+ 
+
+								
+					
+		
+	<div id="object-body">
+	
+		@FUN_MODULE(q=object/list,t=StoricoModificheInpage,p=StoricoModifiche/_a_classe/_v_Cliente/_a_istanza/_v_@tag_ID#FLAT@,title=Storico modifiche scheda anagrafica)@
+				
+		
+		([[[@tag_dati_contabili.DatiContabili.ID#FLAT@]!=[]] ?? [
+		@BEGIN_dati_contabili@
+			@BEGIN_DatiContabili@
+				@FUN_MODULE(q=object/list,t=StoricoModificheInpage,p=StoricoModifiche/_a_classe/_v_DatiContabili/_a_istanza/_v_@tag_ID#FLAT@,title=Storico modifiche schede dati contabili)@
+			@END_DatiContabili@
+		@END_dati_contabili@] :: [
+		<div role="alert" class="alert alert-warning">Nessuno storico dati contabili</div>
+		])
+			
+		([[[@tag_dati_crm.DatiCRM.ID#FLAT@]!=[]] ?? [
+			@FUN_MODULE(q=object/list,t=StoricoModificheInpage,p=StoricoModifiche/_a_classe/_v_DatiCRM/_a_istanza/_v_@tag_dati_crm.DatiCRM.ID#FLAT@,title=Storico modifiche scheda dati CRM)@
+		] :: [
+		<div role="alert" class="alert alert-warning">Nessuno storico dati crm</div>
+		])	
+		
+				
+	</div>
+@END_Cliente@
+		</div>@END_TEMPLATE@

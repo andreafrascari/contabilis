@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	
+	<appender name="CONSOLE_APPENDER" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p][%d{ABSOLUTE}][%c{1}]%m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="ROLLING_FILE_APPENDER" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/var/serena/TulliniHelpGest/log/log.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="50MB"/>
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p ;; %d{ISO8601} ;; %c ;; %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="ERROR_APPENDER" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/var/serena/TulliniHelpGest/log/error.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="10MB"/>
+		<param name="MaxBackupIndex" value="5"/>
+		<param name="Threshold" value="ERROR"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p ;; %d{ISO8601} ;; %c ;; %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="MAIL_APPENDER" class="org.apache.log4j.net.SMTPAppender">
+		<param name="SMTPHost" value="mail-server" />
+		<param name="From" value="no-reply@serena.it" />
+		<param name="To" value="serviziweb@anastasis.it" />
+		<param name="Subject" value="SERENA FATAL ERROR - TulliniHelpGest" />
+		<param name="BufferSize" value="1" />
+		<param name="threshold" value="fatal" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p ;; %d{ISO8601} ;; %c ;; %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- SVILUPPO -->
+	<!-- per attivare i messaggi di trace modificare il livello in questo logger
+	    <level value="TRACE"/> 
+	-->
+	<logger name="eu.anastasis">
+		<level value="DEBUG"/>
+		<appender-ref ref="CONSOLE_APPENDER" />
+	</logger>
+	 
+	
+	<!-- PRODUZIONE -->
+	<!-- 
+	<logger name="eu.anastasis">
+		<level value="INFO"/>
+		<appender-ref ref="ROLLING_FILE_APPENDER" />
+		<appender-ref ref="MAIL_APPENDER" />
+	</logger>
+ 	-->
+
+	<root>
+		<level value="ERROR"/>		
+		<appender-ref ref="ERROR_APPENDER" />
+		<!-- <appender-ref ref="CONSOLE_APPENDER" />--> <!-- da decommentare in sviluppo per applicazioni che utilizzano il vecchio LogService --> 
+	</root>
+
+</log4j:configuration>

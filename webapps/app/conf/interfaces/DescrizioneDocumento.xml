@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>DescrizioneDocumento</title>  
+  <title_view>Metadocumenti</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_tipologia</name>  
+      <label>documenti</label>  
+      <detail>documenti</detail>  
+      <detail_edit>documenti</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>tipologia_documento</name>  
+      <label>tipologia documento</label>  
+      <detail>tipologia documento</detail>  
+      <detail_edit>tipologia documento</detail_edit>  
+      <filter autocomplete="">tipologia documento</filter>  
+      <list>tipologia documento</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>visibilita</name>  
+      <label>visibilita</label>  
+      <detail>visibilita</detail>  
+      <detail_edit>visibilita</detail_edit>  
+      <filter>visibilita</filter>  
+      <list>visibilita</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>azione_conseguente_caricamento</name>  
+      <label>azione conseguente caricamento</label>  
+      <detail>azione conseguente caricamento</detail>  
+      <detail_edit>azione conseguente caricamento</detail_edit>  
+      <filter>azione conseguente caricamento</filter>  
+      <list>azione conseguente caricamento</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order>  
+      <detail_help>Attenzione! In caso di caricamento con Agent, il workflow parte solo nel caso di AZIONI A,B,C,G ... sempre che dal nome del file caricato sia possibile dedurre il cliente relativo tramite codice cliente o codice fiscale</detail_help>  
+    </item>  
+    <item> 
+      <name>sollecito</name>  
+      <label>sollecito</label>  
+      <detail>sollecito</detail>  
+      <detail_edit>sollecito</detail_edit>  
+      <filter>sollecito</filter>  
+      <list>sollecito</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default>no</default>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>template_oggetto_invio</name>  
+      <label>template oggetto mail</label>  
+      <detail>template oggetto mail</detail>  
+      <detail_edit>template oggetto mail</detail_edit>  
+      <filter>template oggetto mail</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>51</order>  
+      <detail_help>Puoi utilizzare i seguenti tag, che verranno poi sostituiti: @TIPO@=la tipologia del documento; @TITOLO@=il titolo del documento</detail_help> 
+    </item>  
+    <item> 
+      <name>template_testo_invio</name>  
+      <label>template testo mail</label>  
+      <detail>template testo mail</detail>  
+      <detail_edit>template testo mail</detail_edit>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>61</order>  
+      <detail_help>Puoi utilizzare i seguenti tag, che verranno poi sostituiti: @LINK@=il link per il download; @NOME@ il nome, o nickname, del cliente; @TIPO@=la tipologia del documento; @TITOLO@=il titolo del documento; @ABSTRACT@=abstract del documento, se presente</detail_help> 
+    </item>  
+    <item> 
+      <name>template_sms</name>  
+      <label>template sms</label>  
+      <detail>template sms</detail>  
+      <detail_edit>template sms</detail_edit>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length>134</max_length>  
+      <default/>  
+      <order>71</order>  
+      <detail_help>Compatibilmente con la lunghezza massima di 134 caratteri, puoi utilizzare i seguenti tag, che verranno poi sostituiti: @TIPO@=la tipologia del documento; @TITOLO@=il titolo del documento; @NOME@ il nome, o nickname, del cliente</detail_help> 
+    </item>  
+    <item> 
+      <name>contenuto_azione</name>  
+      <label>email notifica</label>  
+      <detail>email notifica</detail>  
+      <detail_edit>email notifica</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order>  
+      <detail_help>per inserire diversi indirizzi utilizzare la vorgola come separatore</detail_help> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

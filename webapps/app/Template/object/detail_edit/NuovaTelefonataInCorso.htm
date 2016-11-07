@@ -1,0 +1,169 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>
+<script src="app/Javascript/anastasis/serena/DetailEdit.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>	
+<script src="app/Javascript/helpGest/helpGest.js" type="text/javascript"></script>	
+<script type="text/javascript">
+detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+
+$(document).ready(function(){
+	$("#cliente-riconosciuto").hide();
+	
+	workoutChiamata();
+	
+	$("#INP_numero_remoto").change(function()	{
+		workoutCliente();
+	});	
+	
+	$("#button-subito").click(function()	{
+		$("#subito").show();
+		$("#inlista").hide();
+		$("#assegna").hide();
+	});	
+
+	$("#button-inlista").click(function()	{
+		$("#subito").hide();
+		$("#inlista").show();	
+		$("#assegna").hide();
+	});	
+	
+	$("#button-assegna").click(function()	{
+		$("#subito").hide();
+		$("#inlista").show();	
+		$("#assegna").show();
+	});	
+
+	$("#button-salva").click(function()	{
+		detailEdit.saveObject();
+	});
+});
+</script>
+
+
+
+		<div class="detail-edit detail-edit-HDTicket">
+				<h2>Nuovo ticket da telefonata</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDTicket@<div class="form-container form-container-HDTicket">
+						<form id="detail-edit" method="post" action="?q=ticket/nuovo">
+							<fieldset>
+								<legend>Compilare i dati del ticket</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="Indietro">
+												<img alt="Indietro" title="Indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+											</a>
+										</li>
+										</ul>
+								
+								</div>
+
+								
+								<div class="detail-body">
+										
+ 									<input type="hidden" value="" id="INP_numero_locale" name="INP_numero_locale" />
+									
+									<div id="DIV_INP_numero_remoto" class="detail-component base-row INP_numero_remoto">
+ 										<label for="INP_numero_remoto">numero di telefono * </label> 
+ 										<input type="text" id="INP_numero_remoto" name="INP_numero_remoto" onchange="detailEdit.check(this);" tabindex="10" /> 
+ 										<input type="hidden" value="1" id="type_INP_numero_remoto" /> 
+ 										<input type="hidden" value="true" id="required_INP_numero_remoto" /> 
+ 										<input type="hidden" value="telefono" id="label_INP_numero_remoto" />
+										<div class="object-help">identificato automaticamente con centralino abilitato...</div>
+									</div>
+									
+									<div id="cliente-riconosciuto" class="detail-component base-row" style="dispaly:none;">
+									
+ 										<label for="INP_numero_remoto">Cliente riconosciuto!  </label> 
+ 										<span id="nome-cliente-riconosciuto"></span>
+ 									</div> 
+ 									
+ 									<div id="nonRiconosciuto" style="display:none">
+ 										@tag_daCliente@
+ 										@tag_contattoNonRiconosciuto@
+ 									</div>
+ 								
+								
+									@tag_identificativo@
+									
+									<div id="DIV_INP_th_messaggio" class="detail-component text INP_th_messaggio">
+ 										<label for="INP_th_messaggio">messaggio del cliente * </label>
+ 										<textarea id="INP_th_messaggio" name="INP_th_messaggio" onchange="detailEdit.check(this);" cols="40" rows="5" tabindex="10"></textarea>
+ 										<input type="hidden" value="10" id="type_INP_th_messaggio" /> 
+ 										<input type="hidden" value="true" id="required_INP_th_messaggio" /> 
+ 										<input type="hidden" value="messaggio" id="label_INP_th_messaggio" />
+ 										<div class="object-help">inserisci brevemente la richiesta del cliente</div>
+									</div>
+
+									<div id="che-fare" class="detail-component">
+ 										<label for="INP_th_messaggio">Che facciamo del ticket? </label>
+ 									
+									<div role="toolbar" class="btn-toolbar">
+      									<button id=button-subito" class="btn btn-default btn-lg" type="button"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> rispondo subito!</button>
+      									<button id=button-inlista" class="btn btn-default btn-lg" type="button"><span aria-hidden="true" class="glyphicon glyphicon-sort-by-attributes"></span> lo metto in lista ...</button>
+    									<button id=button-assegna" class="btn btn-default btn-lg" type="button"><span aria-hidden="true" class="glyphicon glyphicon-user"></span> lo assegno a ...</button>
+    							
+    								</div>
+    								</div>
+
+									<div id="inlista" style="display:none">
+										<div id="assegna" style="display:none">
+											@tag_assegnato_a@
+										</div>
+										@tag_azioneRichiesta@
+										@tag_rispondere_a@
+									</div>
+									
+									<div id="subito" style="display:none">
+									<div id="DIV_INP_th_risposta" class="detail-component text INP_th_risposta">
+ 										<label for="INP_th_risposta">risposta al cliente</label>
+ 										<textarea id="INP_th_risposta" name="INP_th_risposta" onchange="detailEdit.check(this);" cols="40" rows="5" tabindex="10"></textarea>
+ 										<input type="hidden" value="10" id="type_INP_th_risposta" /> 
+ 										<input type="hidden" value="false" id="required_INP_th_risposta" /> 
+ 										<input type="hidden" value="risposta" id="label_INP_th_risposta" />
+ 										<div class="object-help"></div>
+									</div>
+									</div>
+									
+								</div>
+								
+								
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+
+							</fieldset>
+
+
+
+						</form>
+						
+						<!--
+						<div class="detail-attachments">
+							@tag_allegato@@tag_allegato_1@
+						</div>
+						-->
+						<div role="toolbar" class="btn-toolbar">
+      						<button id=button-salva" class="btn btn-default btn-lg" type="button"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Salva!</button>
+						</div>	
+
+							
+						</div>
+					</div>@END_HDTicket@
+		</div>@END_TEMPLATE@

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Attivita</title>  
+  <title_view>Attivita</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_attivita</name>  
+      <label>pratica</label>  
+      <detail>pratica</detail>  
+      <filter autocomplete="">pratica</filter>  
+      <heading>5</heading>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>titolo</name>  
+      <label>titolo</label>  
+      <detail>titolo</detail>  
+      <detail_edit>titolo</detail_edit>  
+      <filter>titolo attivita</filter>  
+      <list>titolo</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>assegnata_a</name>  
+      <label>assegnata a</label>  
+      <detail>assegnata a</detail>  
+      <detail_edit autocomplete="">assegnata a</detail_edit>  
+      <filter autocomplete="">assegnata a</filter>  
+      <list>assegnata a</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>stato_attivita</name>  
+      <label>minuti fatturati</label>  
+      <detail>minuti fatturati</detail>  
+      <detail_edit>minuti fatturati</detail_edit>  
+      <filter>minuti fatturati</filter>  
+      <list>minuti fatturati</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default>0</default>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>minuti_ultima_fattura</name>  
+      <label>minuti ultima fattura</label>  
+      <detail>minuti ultima fattura</detail>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>42</order> 
+    </item>  
+    <item> 
+      <name>note</name>  
+      <label>note</label>  
+      <detail>note</detail>  
+      <detail_edit>note</detail_edit>  
+      <filter>note</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>attivita_scadenza</name>  
+      <label>metascadenza operatore</label>  
+      <detail inpage="1">metascadenze operatore</detail>  
+      <detail_edit template="Scadenza_attivita">metascadenze operatore</detail_edit>
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>71</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item>  
+    <item> 
+      <name>spese_anticipate</name> 
+      <label>spese anticipate</label>  
+      <detail inpage="1">spese anticipate</detail>  
+      <detail_edit>spese anticipate</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>77</order>  
+      <popup_detail_edit>big</popup_detail_edit>
+    </item>  
+    <item> 
+      <name>sessioni_di_lavoro</name>  
+      <label>sessioni di lavoro</label>  
+      <detail inpage="1">sessioni di lavoro</detail>  
+      <detail_edit>sessioni di lavoro</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name autocomplete="">cliente</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <filter autocomplete="cls=Cliente,slot=cliente">cliente</filter>  
+      <list>cliente</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item> 
+  </attributes> 
+</bean>

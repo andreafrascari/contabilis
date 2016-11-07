@@ -1,0 +1,20 @@
+@BEGIN_TEMPLATE@
+  <form class="navbar-form navbar-right" method="post" action="Index">
+  <span style="color:#fff;">@ERRORS@</span>
+            <div class="form-group">
+              <input placeholder="Username" name="user" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <input placeholder="Password" name="pass" class="form-control" type="password">
+            </div>
+			<input type="hidden" name="q" value="@MODULE@/login" /> @CALLS@
+            <button type="submit" class="btn btn-success">Log in</button>
+			<p>
+				<a title="accesso procedura recupero password"
+					href="?q=userRegistration/recover/FORM=step1">Ho dimenticato la password</a>
+			</p>
+
+</form>
+@END_TEMPLATE@
+
+

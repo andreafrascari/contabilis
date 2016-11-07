@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.1.v20100902 Build &lt;2.6.1.v20100915-1750></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">84</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.enablement.oda.xml" name="Data Source" id="7">
+            <property name="FILELIST">/home/afrascari/workspace-new/TulliniHelpGest/offline_generated_files/birt_cliente.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.enablement.oda.xml.dataSet" name="Cliente" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ID</property>
+                    <text-property name="heading">ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">comune</property>
+                    <text-property name="heading">comune</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">codice_fiscale</property>
+                    <text-property name="heading">codice_fiscale</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">email2</property>
+                    <text-property name="heading">email2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">partita_iva</property>
+                    <text-property name="heading">partita_iva</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cliente</property>
+                    <text-property name="heading">cliente</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">legale_rappresentante_residenza</property>
+                    <text-property name="heading">legale_rappresentante_residenza</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fax</property>
+                    <text-property name="heading">fax</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">codice_cliente</property>
+                    <text-property name="heading">codice_cliente</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">email</property>
+                    <text-property name="heading">email</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">recapito_cap</property>
+                    <text-property name="heading">recapito_cap</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">recapito_indirizzo</property>
+                    <text-property name="heading">recapito_indirizzo</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cliente_dal</property>
+                    <text-property name="heading">cliente_dal</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">legale_rappresentante_cognome</property>
+                    <text-property name="heading">legale_rappresentante_cognome</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cellulare</property>
+                    <text-property name="heading">cellulare</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">allegato</property>
+                    <text-property name="heading">allegato</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cap</property>
+                    <text-property name="heading">cap</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nickname</property>
+                    <text-property name="heading">nickname</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cessata_assistenza_il</property>
+                    <text-property name="heading">cessata_assistenza_il</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">note</property>
+                    <text-property name="heading">note</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">legale_rappresentante_cf</property>
+                    <text-property name="heading">legale_rappresentante_cf</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">recapito_comune</property>
+                    <text-property name="heading">recapito_comune</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">indirizzo</property>
+                    <text-property name="heading">indirizzo</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">legale_rappresentante_nome</property>
+                    <text-property name="heading">legale_rappresentante_nome</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">telefono</property>
+                    <text-property name="heading">telefono</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">email3</property>
+                    <text-property name="heading">email3</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tipo_sollecito</property>
+                    <text-property name="heading">tipo_sollecito</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">comune</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">codice_fiscale</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">email2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">partita_iva</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">cliente</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">legale_rappresentante_residenza</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">fax</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">codice_cliente</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">email</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">recapito_cap</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">recapito_indirizzo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">cliente_dal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">legale_rappresentante_cognome</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">cellulare</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">allegato</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">cap</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">nickname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">cessata_assistenza_il</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">note</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">legale_rappresentante_cf</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">recapito_comune</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">indirizzo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">legale_rappresentante_nome</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">telefono</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">email3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">tipo_sollecito</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ID</property>
+                    <property name="nativeName">ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">comune</property>
+                    <property name="nativeName">comune</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">codice_fiscale</property>
+                    <property name="nativeName">codice_fiscale</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">email2</property>
+                    <property name="nativeName">email2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">partita_iva</property>
+                    <property name="nativeName">partita_iva</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">cliente</property>
+                    <property name="nativeName">cliente</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">legale_rappresentante_residenza</property>
+                    <property name="nativeName">legale_rappresentante_residenza</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">fax</property>
+                    <property name="nativeName">fax</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">codice_cliente</property>
+                    <property name="nativeName">codice_cliente</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">email</property>
+                    <property name="nativeName">email</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">recapito_cap</property>
+                    <property name="nativeName">recapito_cap</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">recapito_indirizzo</property>
+                    <property name="nativeName">recapito_indirizzo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">cliente_dal</property>
+                    <property name="nativeName">cliente_dal</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">legale_rappresentante_cognome</property>
+                    <property name="nativeName">legale_rappresentante_cognome</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">cellulare</property>
+                    <property name="nativeName">cellulare</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">allegato</property>
+                    <property name="nativeName">allegato</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">cap</property>
+                    <property name="nativeName">cap</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">nickname</property>
+                    <property name="nativeName">nickname</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">cessata_assistenza_il</property>
+                    <property name="nativeName">cessata_assistenza_il</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">note</property>
+                    <property name="nativeName">note</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">legale_rappresentante_cf</property>
+                    <property name="nativeName">legale_rappresentante_cf</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">recapito_comune</property>
+                    <property name="nativeName">recapito_comune</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">indirizzo</property>
+                    <property name="nativeName">indirizzo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">legale_rappresentante_nome</property>
+                    <property name="nativeName">legale_rappresentante_nome</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">telefono</property>
+                    <property name="nativeName">telefono</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">email3</property>
+                    <property name="nativeName">email3</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">tipo_sollecito</property>
+                    <property name="nativeName">tipo_sollecito</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[table0#-TNAME-#table0#:#[/serena/service/Cliente]#:#{ID;STRING;/ID},{comune;STRING;/comune},{codice_fiscale;STRING;/codice_fiscale},{email2;STRING;/email2},{partita_iva;STRING;/partita_iva},{cliente;STRING;/cliente},{legale_rappresentante_residenza;STRING;/legale_rappresentante_residenza},{fax;STRING;/fax},{codice_cliente;STRING;/codice_cliente},{email;STRING;/email},{recapito_cap;STRING;/recapito_cap},{recapito_indirizzo;STRING;/recapito_indirizzo},{cliente_dal;STRING;/cliente_dal},{legale_rappresentante_cognome;STRING;/legale_rappresentante_cognome},{cellulare;STRING;/cellulare},{allegato;STRING;/allegato},{cap;STRING;/cap},{nickname;STRING;/nickname},{cessata_assistenza_il;STRING;/cessata_assistenza_il},{note;STRING;/note},{legale_rappresentante_cf;STRING;/legale_rappresentante_cf},{recapito_comune;STRING;/recapito_comune},{indirizzo;STRING;/indirizzo},{legale_rappresentante_nome;STRING;/legale_rappresentante_nome},{telefono;STRING;/telefono},{email3;STRING;/email3},{tipo_sollecito;STRING;/tipo_sollecito}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>ID</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ID</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>comune</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>comune</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>codice_fiscale</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>codice_fiscale</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>email2</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>email2</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>partita_iva</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>partita_iva</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>cliente</design:name>
+            <design:position>6</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cliente</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>legale_rappresentante_residenza</design:name>
+            <design:position>7</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>legale_rappresentante_residenza</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>fax</design:name>
+            <design:position>8</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>fax</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>codice_cliente</design:name>
+            <design:position>9</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>codice_cliente</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>email</design:name>
+            <design:position>10</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>email</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>recapito_cap</design:name>
+            <design:position>11</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>recapito_cap</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>recapito_indirizzo</design:name>
+            <design:position>12</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>recapito_indirizzo</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>cliente_dal</design:name>
+            <design:position>13</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cliente_dal</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>legale_rappresentante_cognome</design:name>
+            <design:position>14</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>legale_rappresentante_cognome</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>cellulare</design:name>
+            <design:position>15</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cellulare</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>allegato</design:name>
+            <design:position>16</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>allegato</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>cap</design:name>
+            <design:position>17</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cap</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>nickname</design:name>
+            <design:position>18</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>nickname</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>cessata_assistenza_il</design:name>
+            <design:position>19</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cessata_assistenza_il</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>note</design:name>
+            <design:position>20</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>note</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>legale_rappresentante_cf</design:name>
+            <design:position>21</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>legale_rappresentante_cf</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>recapito_comune</design:name>
+            <design:position>22</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>recapito_comune</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>indirizzo</design:name>
+            <design:position>23</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>indirizzo</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>legale_rappresentante_nome</design:name>
+            <design:position>24</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>legale_rappresentante_nome</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>telefono</design:name>
+            <design:position>25</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>telefono</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>email3</design:name>
+            <design:position>26</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>email3</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>tipo_sollecito</design:name>
+            <design:position>27</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>tipo_sollecito</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>MAX_ROW</name>
+                    <value>-1</value>
+                </ex-property>
+                <ex-property>
+                    <name>XML_FILE</name>
+                    <value>/home/afrascari/workspace-new/TulliniHelpGest/offline_generated_files/birt_cliente.xml</value>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <label id="9">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">0pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Conferimento incarico pagamento e spedizione telematica modelli F24</text-property>
+        </label>
+        <label id="94">
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">0pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">(comma 49, art. 37, decreto legge n. 223/06, convertito dalla legge n. 248/06)</text-property>
+        </label>
+        <grid id="58">
+            <column id="59"/>
+            <row id="60">
+                <cell id="61">
+                    <label id="28">
+                        <property name="paddingTop">40pt</property>
+                        <text-property name="text">Spett.le Studio,</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="62">
+                <cell id="63">
+                    <label id="49">
+                        <property name="display">inline</property>
+                        <text-property name="text">io sottoscritto</text-property>
+                    </label>
+                    <data id="53">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">legale_rappresentante_cognome</property>
+                                <text-property name="displayName">legale_rappresentante_cognome</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["legale_rappresentante_cognome"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">legale_rappresentante_cognome</property>
+                    </data>
+                    <data id="54">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">2pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">legale_rappresentante_nome</property>
+                                <text-property name="displayName">legale_rappresentante_nome</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["legale_rappresentante_nome"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">legale_rappresentante_nome</property>
+                    </data>
+                    <label id="51">
+                        <property name="paddingLeft">20pt</property>
+                        <property name="display">inline</property>
+                        <text-property name="text">Codice Fiscale</text-property>
+                    </label>
+                    <data id="55">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">legale_rappresentante_cf</property>
+                                <text-property name="displayName">legale_rappresentante_cf</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["legale_rappresentante_cf"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">legale_rappresentante_cf</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="64">
+                <cell id="65">
+                    <label id="56">
+                        <property name="display">inline</property>
+                        <text-property name="text">in qualità di titolare/legale rappresentante di:</text-property>
+                    </label>
+                    <data id="50">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">cliente</property>
+                                <text-property name="displayName">cliente</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["cliente"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">cliente</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="66">
+                <cell id="67">
+                    <label id="76">
+                        <property name="display">inline</property>
+                        <text-property name="text">con sede</text-property>
+                    </label>
+                    <data id="77">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">recapito_indirizzo</property>
+                                <text-property name="displayName">indirizzo</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["indirizzo"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">recapito_indirizzo</property>
+                    </data>
+                    <data id="78">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">20pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">recapito_cap</property>
+                                <text-property name="displayName">cap</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["cap"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">recapito_cap</property>
+                    </data>
+                    <data id="79">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">2pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">recapito_comune</property>
+                                <text-property name="displayName">comune</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["comune"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">recapito_comune</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="68">
+                <cell id="69">
+                    <label id="72">
+                        <property name="display">inline</property>
+                        <text-property name="text">Codice Fiscale</text-property>
+                    </label>
+                    <data id="73">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">codice_fiscale</property>
+                                <text-property name="displayName">codice_fiscale</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["codice_fiscale"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">codice_fiscale</property>
+                    </data>
+                    <label id="74">
+                        <property name="paddingLeft">20pt</property>
+                        <property name="display">inline</property>
+                        <text-property name="text">Partita Iva</text-property>
+                    </label>
+                    <data id="75">
+                        <property name="fontSize">13pt</property>
+                        <property name="paddingLeft">5pt</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="display">inline</property>
+                        <property name="dataSet">Cliente</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">partita_iva</property>
+                                <text-property name="displayName">partita_iva</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["partita_iva"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">partita_iva</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="70">
+                <cell id="71"/>
+            </row>
+        </grid>
+        <label id="81">
+            <property name="fontWeight">bold</property>
+            <property name="textUnderline">underline</property>
+            <property name="paddingTop">20pt</property>
+            <property name="paddingBottom">5pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">CON LA PRESENTE CONFERISCO</text-property>
+        </label>
+        <text id="85">
+            <property name="backgroundAttachment">scroll</property>
+            <property name="backgroundPositionX">0%</property>
+            <property name="backgroundPositionY">0%</property>
+            <property name="backgroundRepeat">repeat</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">8pt</property>
+            <property name="fontWeight">normal</property>
+            <property name="fontStyle">normal</property>
+            <property name="fontVariant">normal</property>
+            <property name="color">black</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <property name="borderBottomColor">black</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderLeftColor">black</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightColor">black</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderTopColor">black</property>
+            <property name="borderTopStyle">none</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="marginBottom">0pt</property>
+            <property name="marginRight">0pt</property>
+            <property name="paddingTop">2pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">justify</property>
+            <property name="textIndent">0em</property>
+            <property name="letterSpacing">normal</property>
+            <property name="lineHeight">normal</property>
+            <property name="orphans">2</property>
+            <property name="textTransform">none</property>
+            <property name="whiteSpace">normal</property>
+            <property name="widows">2</property>
+            <property name="wordSpacing">normal</property>
+            <property name="display">inline</property>
+            <property name="pageBreakAfter">auto</property>
+            <property name="pageBreakBefore">auto</property>
+            <property name="pageBreakInside">auto</property>
+            <property name="showIfBlank">false</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">hidden</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<B>a CONTABILIS S.R.L.</B> - Via Santo Stefano, 30 – 40125 - Bologna C.F.: 01802150381 (di seguito
+Società) in qualità di intermediario abilitato di cui all’articolo 3, comma 3 del decreto del Presidente della
+Repubblica 22 luglio 1998, n. 322, l’incarico permanente (salvo revoca) per effettuare in mio nome e per
+mio conto, il servizio di pagamento con modalità telematiche dei versamenti unificati tramite i modelli
+F24 predisposti dalla società medesima. A tal fine, fornisco al riguardo i seguenti dati bancari che
+garantisco, assumendomene la responsabilità, essere riferiti al soggetto titolare di partita Iva sopra
+individuato:]]></text-property>
+        </text>
+        <grid id="95">
+            <column id="96"/>
+            <column id="97"/>
+            <row id="98">
+                <cell id="99">
+                    <property name="paddingTop">10pt</property>
+                    <label id="110">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Banca (o Ufficio postale):</text-property>
+                    </label>
+                    <label id="111">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                    <label id="113">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Agenzia n.:</text-property>
+                    </label>
+                    <label id="114">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                    <label id="112">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Indirizzo:</text-property>
+                    </label>
+                    <label id="115">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+                <cell id="100">
+                    <property name="paddingTop">10pt</property>
+                    <label id="116">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Intestazione esatta del Conto corrente</text-property>
+                    </label>
+                    <label id="117">
+                        <property name="fontSize">8pt</property>
+                        <property name="fontWeight">normal</property>
+                        <text-property name="text">(N.B.: l'intestatario del conto corrente e quello della
+delega Mod. F24 devono coincidere)</text-property>
+                    </label>
+                    <label id="118">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                    <label id="119">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="101">
+                <cell id="102">
+                    <label id="120">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">N° di C/C (di 12 cifre):</text-property>
+                    </label>
+                    <label id="121">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+                <cell id="103">
+                    <label id="122">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Codice ABI:</text-property>
+                    </label>
+                    <label id="123">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="104">
+                <cell id="105">
+                    <label id="124">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">CAB:</text-property>
+                    </label>
+                    <label id="125">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+                <cell id="106">
+                    <label id="126">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Codice IBAN:</text-property>
+                    </label>
+                    <label id="127">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="107">
+                <cell id="108">
+                    <property name="paddingBottom">20pt</property>
+                    <label id="128">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">CIN:</text-property>
+                    </label>
+                    <label id="129">
+                        <text-property name="text">_________________________________</text-property>
+                    </label>
+                </cell>
+                <cell id="109">
+                    <property name="paddingBottom">20pt</property>
+                    <label id="130">
+                        <text-property name="text">Eventuali altri riferimenti chiesti dalla banca
+per il pagamento telematico</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <text id="86">
+            <property name="backgroundAttachment">scroll</property>
+            <property name="backgroundPositionX">0%</property>
+            <property name="backgroundPositionY">0%</property>
+            <property name="backgroundRepeat">repeat</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">8pt</property>
+            <property name="fontWeight">normal</property>
+            <property name="fontStyle">normal</property>
+            <property name="fontVariant">normal</property>
+            <property name="color">black</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <property name="borderBottomColor">black</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderLeftColor">black</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightColor">black</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderTopColor">black</property>
+            <property name="borderTopStyle">none</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="marginBottom">0pt</property>
+            <property name="marginRight">0pt</property>
+            <property name="paddingTop">2pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">justify</property>
+            <property name="textIndent">0em</property>
+            <property name="letterSpacing">normal</property>
+            <property name="lineHeight">normal</property>
+            <property name="orphans">2</property>
+            <property name="textTransform">none</property>
+            <property name="whiteSpace">normal</property>
+            <property name="widows">2</property>
+            <property name="wordSpacing">normal</property>
+            <property name="display">inline</property>
+            <property name="pageBreakAfter">auto</property>
+            <property name="pageBreakBefore">auto</property>
+            <property name="pageBreakInside">auto</property>
+            <property name="showIfBlank">false</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">hidden</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[Con riferimento al presente incarico, prendo e do atto che:
+<ol>
+<li>l’incarico decorre dalla data di sottoscrizione del presente documento, è permanente e può essere
+revocato solo per iscritto facendo pervenire apposita comunicazione in tal senso direttamente alla
+Società; la revoca avrà effetto dal momento in cui la Società riceverà la predetta comunicazione;
+</li><li>non sarà possibile in corso d'incarico modificare il conto corrente sopra indicato: eventuali
+modifiche richiederanno un nuovo conferimento d'incarico;
+</li><li>
+l’incarico riguarda esclusivamente i modelli F24 predisposti direttamente dalla Società. E' facoltà
+della Società accettare di volta in volta, alle medesime condizioni previste dal presente
+conferimento e dietro il compenso indicato dalla Società stessa, l'incarico anche per invio
+telematico di modelli F24 predisposti dal contribuente o da terzi. Detto incarico sarà accettato
+sotto la condizione risolutiva che i modelli pervengano allo Studio almeno 2 (due) giorni lavorativi
+(intendendosi il sabato quale giorno non lavorativo) prima della scadenza dell'invio. In caso
+contrario, relativamente a detti modelli, l'incarico si intenderà, in ogni caso e senza obbligo di
+comunicazioni, come non accettato e l'invio non sarà eseguito;
+</li><li>la Società si impegna a comunicare preventivamente l'importo dovuto in base ai modelli F24
+predisposti per l'invio;
+</li><li>la comunicazione di dati bancari errati, ovvero l'assenza o la insufficienza di fondi sul conto
+corrente sopra indicato comporteranno il mancato pagamento del Modello F24, con irrogazione di
+sanzioni e interessi a carico del contribuente che, con la presente, esonera la Società da
+qualunque responsabilità al riguardo;
+</li><li>la Società è altresì sollevata da qualsiasi responsabilità, anche verso terzi, derivante
+dall’esecuzione delle disposizioni di pagamento regolarmente eseguite, impegnandosi il titolare
+del conto corrente a tenere indenne la società da ogni conseguenza dannosa o molestia che
+possano derivare in merito, anche da parte di terzi;
+</li><li>l’eventuale interruzione, per qualsivoglia ragione e causa, del mandato di assistenza contabile e
+fiscale conferito alla Società costituisce causa di automatica ed immediata revoca del presente
+incarico, senza necessità alcuna di ulteriori formalità;
+</li><li>la Società, nello svolgimento dell’incarico, si atterrà alle procedure previste dalla <I>“Convenzione
+sulle modalità di svolgimento da parte degli intermediari di cui all’art. 3, comma 3, del d.p.r. n.
+322 del 1998 del servizio di pagamento con modalità telematiche, in nome e per conto del
+contribuente, delle entrate oggetto del sistema di versamento unificato con compensazione”</I>,
+appositamente predisposta dall’Agenzia delle entrate, e da quelle che successivamente verranno
+predisposte dalla medesima Agenzia o comunque dall’Amministrazione Finanziaria.
+</li>
+</ol>]]></text-property>
+        </text>
+        <label id="89">
+            <property name="paddingTop">40pt</property>
+            <property name="display">inline</property>
+            <text-property name="text">Bologna, </text-property>
+        </label>
+        <data id="93">
+            <property name="paddingLeft">10pt</property>
+            <structure name="dateTimeFormat">
+                <property name="category">Long Date</property>
+                <property name="pattern">Long Date</property>
+            </structure>
+            <property name="display">inline</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">new Date();</expression>
+                    <property name="dataType">date</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">Column Binding</property>
+        </data>
+        <label id="48">
+            <property name="paddingTop">20pt</property>
+            <property name="paddingLeft">400pt</property>
+            <text-property name="text">Firma _______________________</text-property>
+        </label>
+    </body>
+</report>

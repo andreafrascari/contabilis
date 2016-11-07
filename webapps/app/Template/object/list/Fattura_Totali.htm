@@ -1,0 +1,129 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+				<div id="splash">
+					<h2>@TITLE@</h2>
+					<h3>Risultati della ricerca : @NUMERO_ELEMENTI@ - pagina @PAGINA_CORRENTE@</h3>
+				</div>
+
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+						</li>
+						<li>
+							<form id="report-repository-3" action="ModuleIndex">
+									<input type="hidden" id="q3" name="q" value="export/give/CLS=@CLASS@/DOC=export_@CLASS@_STD/TYPE=csv" />
+									<input type="hidden" id="xml-query-3" name="XQUERY" value="@XML-QUERY@" />
+									<input type="image" title="esportazione csv fatture (tutte le pagine della lista)" src="app/Template/metaAmbiente/img/icon-excel.gif" onclick="javascript:alert('Avvio esportazione csv fatture in base al filtro di ricerca specificato: attendere qualche secondo dopo la conferma...');" />
+							</form>
+						</li>
+						<li>
+							<form id="report-repository-2" action="ModuleIndex">
+									<input type="hidden" id="q2" name="q" value="export/give/CLS=@CLASS@/DOC=export_@CLASS@/TYPE=csv" />
+									<input type="hidden" id="xml-query-2" name="XQUERY" value="@XML-QUERY@" />
+									<input type="image" title="esportazione fatture per BP (tutte le pagine della lista)" src="app/Template/metaAmbiente/img/icon-bp.png" onclick="javascript:alert('Avvio esportazione csv fatture in base al filtro di ricerca specificato: attendere qualche secondo dopo la conferma...');" />
+							</form>
+						</li>
+
+						<li>
+							<form id="report-repository-1" action="ModuleIndex">
+									<input type="hidden" id="q1" name="q" value="helpgest/merge2pdf/CLS=Fattura_Totali/DOC=Fattura_STUDIO/TYPE=pdf" />
+									<input type="hidden" id="xml-query-1" name="XQUERY" value="@XML-QUERY@" />
+ 									<input type="image" title="merge pdf fatture in unico zip (tutte le pagine della lista)" src="app/Template/metaAmbiente/img/icon-zip.png" onclick="javascript:alert('Avvio merge pdf fatture in unico zip: in base al numero di fatture presenti, il tempo di attesa potrebbe essere lungo...');" />    
+							</form>
+						</li>
+ 
+					</ul>
+				</div>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_Fattura_Totali.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									<th scope="col" class="head_importo">Da pagare</th>
+									<th scope="col">Azioni</th>
+								</tr>
+	
+								@BEGIN_Fattura_Totali@([
+										[[@XPATH_FUN((count(preceding-sibling::Fattura_Totali)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_anno_contabile@
+										<td>@tag_numero#FLAT@</td>
+										@tag_data@
+										@tag_inverse_of_fatture@
+										@tag_competenza@
+										@tag_data_pagamento@
+										@tag_Totale_Da_Pagare@
+											<td>
+												<a class="link_map" href="?q=@MODULE@/detail&amp;p=Fattura/_a_ID/_v_@tag_ID#FLAT@" title="Vai alla scheda dell'oggetto"><img alt="Vai alla scheda dell'oggetto" title="Vai alla scheda dell'oggetto"  src="app/Template/metaAmbiente/img/icon-forth.gif" /></a>
+											</td>
+									</tr>@END_Fattura_Totali@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

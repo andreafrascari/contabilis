@@ -1,0 +1,55 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<Cliente>
+			<ID>1</ID>
+			<comune>Bologna</comune>
+			<codice_fiscale>02730111206</codice_fiscale>
+			<email2>andreafrascari@katamail.com</email2>
+			<partita_iva>PI</partita_iva>
+			<cliente>AF Snc</cliente>
+			<legale_rappresentante_residenza>BP</legale_rappresentante_residenza>
+			<fax>afrascari@gmail.com</fax>
+			<codice_cliente>AFSNCX</codice_cliente>
+			<email>afrascari@anastasis.it</email>
+			<recapito_cap  />
+			<recapito_indirizzo  />
+			<tipo_cliente>
+				<_system_decode>
+					<deletion_user>admin</deletion_user>
+					<deletion_date>13/02/2012</deletion_date>
+				</_system_decode>
+			</tipo_cliente>
+			<tipo_cliente>
+				<_system_decode>
+					<sd_value>1</sd_value>
+					<sd_class>200</sd_class>
+					<activation_flag>1</activation_flag>
+					<deletion_flag>0</deletion_flag>
+					<creation_user>admin</creation_user>
+					<creation_date>13/02/2012</creation_date>
+					<last_modification_user>admin</last_modification_user>
+					<last_modification_date>13/02/2012</last_modification_date>
+				</_system_decode>
+			</tipo_cliente>
+			<cliente_dal>01/02/2012</cliente_dal>
+			<legale_rappresentante_cognome  />
+			<cellulare>3287684316</cellulare>
+			<allegato  />
+			<cap>34000</cap>
+			<nickname  />
+			<cessata_assistenza_il  />
+			<note>SP</note>
+			<legale_rappresentante_cf  />
+			<recapito_comune  />
+			<indirizzo>via del pallone 23</indirizzo>
+			<legale_rappresentante_nome  />
+			<telefono  />
+			<email3  />
+			<tipo_sollecito>mail</tipo_sollecito>
+			<activation_flag>1</activation_flag>
+			<last_modification_user>admin</last_modification_user>
+			<last_modification_date>13/02/2012</last_modification_date>
+		</Cliente>
+	</service>
+</serena>

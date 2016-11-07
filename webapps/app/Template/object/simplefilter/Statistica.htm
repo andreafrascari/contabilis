@@ -1,0 +1,37 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div class="form-container">
+				<form id="filter" method="post" action="@ACTION@" @ajaxable="target=list,replace=true,target_result=list">
+					<fieldset>
+						<legend>affina la ricerca</legend>
+						<div class="alert alert-info" role="alert">
+							Specifica i parametri desiderati e premi invio per affinare la ricerca.
+						</div>
+						
+						@BEGIN_Statistica@
+						
+						<div class="item base-row KEY_p1">
+ 							<label for="KEY_p1">anno</label>
+ 							<div>
+  								<input name="KEY_p1" id="KEY_p1" value="" type="text">
+ 							</div>
+						</div>
+						
+						<div class="item base-row KEY_p2">
+ 							<label for="KEY_p2">cliente</label>
+ 							<div>
+  								<input name="KEY_p2" id="KEY_p2" value="" type="text">
+ 							</div>
+						</div>
+						
+						@END_Statistica@
+						
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_searc" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

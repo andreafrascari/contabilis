@@ -1,0 +1,38 @@
+@BEGIN_TEMPLATE@
+			<div id="list">
+				
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_NotificaScadenza.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								
+	
+								@BEGIN_NotificaScadenza@([
+										[[@XPATH_FUN((count(preceding-sibling::NotificaScadenza)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										<td>@tag_data#FLAT@</td>@tag_descrizione_scadenza@
+											
+									</tr>@END_NotificaScadenza@
+					  		</table>
+						]
+					])
+
+			
+ 
+		</div>
+@END_TEMPLATE@

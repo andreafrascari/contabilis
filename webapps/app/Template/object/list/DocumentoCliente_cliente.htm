@@ -1,0 +1,77 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list">
+
+		<div class="new-entry">
+			<a title="invia nuovo documento zip" href="?q=object/detail_edit&amp;p=DocumentoCliente&amp;a=_a_da_cliente/_c_Cliente/_a_ID/_v_@FUN_CLIENTE_FROM_SYS_USER()@">Invia nuovo ZIP</a>
+		</div>
+			
+				<h2>@TITLE@</h2>
+			
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+				
+				([
+						[[@tag_DocumentoCliente.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+										<th scope="col">Data</th>
+										<th scope="col">Oggetto</th>
+										<th scope="col">Zip inviato</th>
+								</tr>
+	
+								@BEGIN_DocumentoCliente@([
+										[[@XPATH_FUN((count(preceding-sibling::DocumentoCliente)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_data@@tag_oggetto@
+										<!--  @tag_allegato@-->
+										<td class="attachment">
+											<a title="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" target="_blank" href="DandL?q=get&amp;d=@tag_ID#FLAT@&amp;a=@tag_allegato._system_attachment.ID#FLAT@&amp;u=@FUN_GET_USER_INFO(param=id)@"><img src="app/Template/metaAmbiente/img/icon-attachment.png" alt="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" /></a>
+										</td>
+										
+									</tr>@END_DocumentoCliente@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+		</div>@END_TEMPLATE@

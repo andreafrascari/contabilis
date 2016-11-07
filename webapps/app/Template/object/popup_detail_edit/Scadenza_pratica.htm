@@ -1,0 +1,73 @@
+@BEGIN_TEMPLATE@
+ 
+
+<div id="popup-detail-edit-window">
+			@BEGIN_Scadenza@<div class="detail-edit">
+						<div id="splash">
+							<h2>@TITLE@ operatore</h2>
+						</div>
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato!
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+						
+		
+						<div class="form-container">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+									<div class="tip">
+										Nella mail verr&agrave; automaticamente riportato il link alla pratica. 
+									</div>
+	
+									
+									<div class="detail-body">
+										@tag_data@@tag_preavviso_gg@
+								
+										<!-- 		
+										@tag_oggetto_scadenza@
+										-->
+										
+								<div id="DIV_INP_oggetto_scadenza" class="detail-component base-row INP_oggetto_scadenza">
+									<label for="INP_oggetto_scadenza">oggetto *</label>
+									<input type="text" maxlength="134" value="Contabilis - Memo Scadenze: pratica @CODICE@ @DATA@" id="INP_oggetto_scadenza" name="INP_oggetto_scadenza" onchange="detailEdit.check(this);" tabindex="10" />
+									<input type="hidden" value="1" id="type_INP_oggetto_scadenza" />
+									<input type="hidden" value="true" id="required_INP_oggetto_scadenza" />
+									<input type="hidden" value="oggetto" id="label_INP_oggetto_scadenza" />
+									 <div class="object-help">oggetto mail o testo SMS: in ogni caso max 134 caratteri. I tag @CODICE@ e @DATA@ verranno opportunamente sostituiti in fase di invio. </div>
+								</div>
+								
+										@tag_descrizione_scadenza@@tag_forza_sms@
+									</div>
+									
+		
+									
+									<div class="detail-edit-system">
+										
+										
+									</div>
+									
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								
+							</div>
+		
+						</div>
+					</div>@END_Scadenza@
+		</div>@END_TEMPLATE@

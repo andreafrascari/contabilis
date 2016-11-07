@@ -1,0 +1,4 @@
+N. Fattura;Data Fattura;Cliente;Imponibile aliquota 1;Aliquota 1;IVA aliquota 1;Imponibile aliquota 2;Aliquota 2;IVA aliquota 2;Imponibile aliquota 3;Aliquota 3;IVA aliquota 3;Imponibile aliquota 4;Aliquota 4;IVA aliquota 4;Imponibile aliquota 5;Aliquota 5;IVA aliquota 5;Totale imponibile;Totale IVA;Totale Spese Antciipate;Totale fattura\n
+@BEGIN_Fattura_Totali@
+@tag_numero@;@tag_data@;@FUN_SUBSTRING(string=@tag_inverse_of_fatture.Cliente.codice_cliente@,start?0,end=6)@;@tag_Totale_Imponibile_0@;0;@tag_Iva_0@;@tag_Totale_Imponibile_1@;0;@tag_Iva_1@;@tag_Totale_Imponibile_2@;4;@tag_Iva_2@;@tag_Totale_Imponibile_3@;10;@tag_Iva_3@;@tag_Totale_Imponibile_4@;22;@tag_Iva_4@;@XPATH_FUN(number(Totale_Imponibile_0+Totale_Imponibile_1+Totale_Imponibile_2+Totale_Imponibile_3+Totale_Imponibile_4))@@;@XPATH_FUN(number(Iva_0+Iva_1+Iva_2+Iva_3+Iva_4))@@;@tag_Spese_Escluse_Da_Imponibile@;@tag_Totale_Fattura@\n
+@END_Fattura_Totali@

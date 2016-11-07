@@ -1,0 +1,318 @@
+@BEGIN_TEMPLATE@<div id="detail" class="tabbed">
+
+ <script type="text/javascript">
+		function needsDatiContabili(val){
+			var lrs=['AC','AP','CO','CP','I','NP','P','SC','SCP','SP','SPP'];
+			for(var i=0; i<lrs.length; i++) {
+				if(lrs[i] == val) 
+					return true;
+			}
+			return false;
+		}
+</script>
+
+@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+@BEGIN_Cliente@
+
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					
+				</ul>
+			</div>
+
+				<h2>@tag_cliente#FLAT@</h2>
+
+@FUN_MODULE(q=current_data/set/CLS=Cliente/id=@tag_ID#FLAT@/cliente=@tag_cliente#FLAT@)@
+
+
+			
+			
+		@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('Cruscotto');
+		});
+		</script>
+		
+		
+		<div class="panel-group" id="accordion">
+
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-1">Lavori in corso..</a>
+   </h4>
+  </div>
+  <div id="pannello-1" class="panel-collapse collapse in">
+  <div class="panel-body">
+		
+						<div  style="display:none">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_dati_contabili@@tag_dati_crm@@tag_dati_fatturazione@
+								</tbody>
+							</table>
+						</div>
+
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">			
+									<tr class="pratiche-anno-corrente"><th scope="row">pratiche</th><td>
+									   <div class="object-link">
+									   <ul>
+									   	<li>
+										    <a href="?q=object/list&amp;p=Pratica/_a_ID_Cliente_pratiche/_v_@tag_ID#FLAT@/_a_anno_contabile/_v_@FUN_SUBSTRING(string=@FUN_DATES_OPERATION(date=@FUN_TODAY()@,operation=+,what=year,argument=-1)@,begin=6,end=10)@" title="vai alle pratiche anno passato">anno passato</a>
+										</li>
+									   	<li>
+										    <a href="?q=object/list&amp;p=Pratica/_a_ID_Cliente_pratiche/_v_@tag_ID#FLAT@" title="vai alle pratiche del cliente">tutte le pratiche</a>
+										</li>
+									   </ul> 
+									   <ul>
+											<li><a href="?q=helpgest/listino2pratiche&amp;ID=@tag_ID#FLAT@&amp;OP=@tag_operatore_responsabile.Operatore.ID#FLAT@" onclick="return confirm('Procedo con la creazione/aggiornamento della pratiche anno corrente in base al listino?');" title="genera/aggiorna pratiche anno corrente da listino">genera/aggiorna pratiche anno corrente da listino</a></li>
+											<li><a href="?q=helpgest/listino2pratiche&amp;ID=@tag_ID#FLAT@&amp;OP=@tag_operatore_responsabile.Operatore.ID#FLAT@&amp;I=2" onclick="return confirm('Procedo con la creazione/aggiornamento della pratiche anno corrente in base al listino? Attenzione: prezzi di listino e pratiche saranno indicizzati!');" title="genera/aggiorna pratiche anno corrente da listino indicizzato">genera/aggiorna pratiche anno corrente da listino indicizzato</a></li>
+										</ul>
+									   </div>
+									  </td></tr>
+									  
+									  <tr class="reset-calendario">
+									  	<th scope="row">calendario fatturazione</th>
+									  		<td>
+									  		<div class="object-link">
+									   			<ul>
+										   			<li><a title="vai al calendario di fatturazione del cliente" href="?q=object/list&amp;p=CalendarioFatturazione/_a_per_cliente/_v_@tag_ID#FLAT@">vai al calendario</a></li>
+									   				<li><a @popup="dimensions=small,title=Reset calendario fatturazione cliente" href="?q=helpgest/resetinvoicingcalendar4client&amp;ID=@tag_ID#FLAT@" title="reset entries calendario fatturazione del cliente">reset</a></li>
+									   			</ul>
+									   			</td>
+									  </tr>
+									@tag_avvisi_scadenze@@tag_sms_inviati@
+								</tbody>
+							</table>
+						</div>
+
+		</div>	
+	</div>
+</div>
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#pannello-2">Monitor e Strumenti</a>
+   </h4>
+  </div>
+  <div id="pannello-2" class="panel-collapse collapse in">
+  <div class="panel-body">			
+		
+
+			<h4>Consistenza dati</h4>
+				<div id="isconsistent" class="alert alert-success" role="alert">Controllo consistenza superato!</div>
+				<div id="isnotconsistent" class="alert alert-warning" role="alert">Mancano ancora alcuni dati!</div>
+				
+					@BEGIN_tipo_cliente@
+						@BEGIN__system_decode@
+							<script type="text/javascript">
+								var unTipo="@tag_sd_description#FLAT@";
+								if ($("#dati_contabili_per_"+unTipo).html()==null && needsDatiContabili(unTipo))	{
+									$("#panel").append("<div class=\"panel_entry\">Dati contabili/fiscali per tipo cliente <em>"+unTipo+"</em> non presenti: <a href=\"?q=object/detail_edit&amp;p=DatiContabili&amp;a=_a_tipo_cliente/_v_"+unTipo+"/_a_inverse_of_dati_contabili/_c_Cliente/_a_ID/_v_@tag_<-.<-.ID#FLAT@\" title=\"registra dati contabili/fiscali per "+unTipo+ "\">registrali!</div>");
+									$("#isconsistent").hide();
+									$("#isnotconsistent").show();
+								};
+							</script>
+						@END__system_decode@
+					@END_tipo_cliente@
+					
+					([[[@tag_operatore_responsabile.Operatore.ID#FLAT@]==[]]??[
+						<div class="panel_entry">Manca assegnazione operatore responsabile: <a href="?q=object/detail_edit&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@" title="assegna operatore responsabile">assegnalo</a> altrimenti questo falser&agrave; controlli e operazioni successive.</div> 
+						<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+						</script>
+					]])
+					
+					([[[@tag_stato_cliente#FLAT@]!=[verificato dal responsabile]]??[
+						<div class="panel_entry">Manca conferma di verifica del responsabile: <a href="?q=object/detail&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@" title="conferma verifica (solo se sei l'operatore responsabile)">conferma verifica (solo se sei l'operatore responsabile!)</a> altrimenti questo falser&agrave; controlli e operazioni successive.</div> 
+						<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+						</script>
+					]])
+					
+					([[[@tag_tipo_cliente@]==[]]??[
+						<div class="panel_entry">Tipologia cliente non assegnata: <a href="?q=object/detail_edit&amp;p=Cliente/_a_ID/_v_@tag_ID#FLAT@" title="assegna tipologia cliente">assegnala</a> altrimenti questo falser&agrave; controlli e operazioni successive.</div> 
+						<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+						</script>
+					]])
+					
+					([[[@tag_dati_fatturazione@]==[]] ?? [
+						<div class="panel_entry">Listino non presente: <a href="?q=object/detail_edit&amp;p=DatiFatturazione&amp;a=_a_inverse_of_dati_fatturazione/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@" title="registra dati fatturazione">registralo!</a></div>
+							<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+							</script>
+						]
+					])
+					
+					
+					([[[@FUN_MODULE(q=object/list,p=Pratica/_a_ID_Cliente_pratiche/_v_@tag_ID#FLAT@/_a_anno_contabile/_v_@FUN_SUBSTRING(string=@FUN_TODAY()@,begin=6,end=10)@,t=PraticaTestExists)@]==[]]??[
+						<div class="panel_entry">Non sono ancora state create le pratiche per l'anno corrente: 
+						
+						</div>
+						<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+						</script>
+					]::[
+					]
+					])
+					
+					
+					
+					([[[@tag_dati_crm@]==[]] ?? [
+						<div class="panel_entry">Dati CRM non presenti: <a href="?q=object/detail_edit&amp;p=DatiCRM&amp;a=_a_df_cliente/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@" title="registra dati CRM">registrali!</div>
+							<script type="text/javascript">
+								$("#isconsistent").hide();
+								$("#isnotconsistent").show();
+							</script>
+						]::[
+												
+					<h4>Strumenti CRM</h4>
+					<div class="tool_entry">
+						Contratto: 
+						<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Contratto/TYPE=pdf/ID=@tag_ID#FLAT@" title="Contratto">
+							<img alt="Contratto" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+						</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Contratto @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Contratto&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera Contratto e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione contratto e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+							<img alt="Delega cassetto fiscale" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+						</a>
+					</div>
+					
+					<!-- cassetto fiscale, non piu' 
+					<div class="tool_entry">
+					([[[@tag_dati_crm.DatiCRM.cassetto_fiscale#FLAT@]==[no]] ?? [
+						Delega cassetto fiscale: 
+						<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_cassetto_fiscale/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega cassetto fiscale">
+							<img alt="Delega cassetto fiscale" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+						</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Delega cassetto fiscale @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Delega_cassetto_fiscale&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera la delega cassetto fiscale e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione delega cassetto fiscale e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+							<img alt="Delega cassetto fiscale" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+						</a>]::[
+						Registra nuova metascadenza cassetto fiscale: <a @popup="dimensions=small,title=Scadenza cassetto fiscale di @tag_cliente#FLAT@" href="?q=object/detail_edit&amp;p=Scadenza&amp;a=/_a_inverse_of_scadenze/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=Scadenza_cassetto_fiscale&amp;nome=@tag_cliente#FLAT@" title="Registra nuova metascadenza cassetto fiscale">
+							<img alt="Registra nuova metascadenza cassetto fiscale" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-deadline.png" />
+						</a>
+						]
+					])
+					</div>
+					-->
+					
+					([[[@tag_dati_crm.DatiCRM.f24_cumulativo#FLAT@]==[si]] ?? [
+					
+						<div class="tool_entry">Delega F24 cumulativo:
+						<ul>
+						<li>societ&agrave;: 
+							<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_F24_cumulativo/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega f24 cumulativo">
+								<img alt="Delega f24 cumulativo" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+							</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Delega f24 cumulativo @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Delega_F24_cumulativo&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera la delega f24 e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione delega f24 e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+								<img alt="Genera la delega f24 e registra documento DMS pronto per invio" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+							</a>
+						</li>
+						<li>persona fisica: 
+							<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_F24_cumulativo_PF/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega f24 cumulativo">
+								<img alt="Delega f24 cumulativo" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+							</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Delega f24 cumulativo @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Delega_F24_cumulativo_PF&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera la delega f24 e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione delega f24 e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+								<img alt="Genera la delega f24 e registra documento DMS pronto per invio" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+							</a>
+						</li>
+						</ul>						
+						</div>
+						
+						<div class="tool_entry">Delega F24 compensazioni:
+						<ul>
+						<li>societ&agrave;:  
+							<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_F24_compensazioni/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega f24 compensazioni">
+								<img alt="Delega f24 compensazioni" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+							</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Delega f24 compensazioni @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Delega_F24_compensazioni&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera la delega f24 e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione delega f24 e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+								<img alt="Genera la delega f24 e registra documento DMS pronto per invio " src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+							</a>
+						</li>
+						<li>persona fisica:
+							<a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_F24_compensazioni_PF/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega f24 compensazioni">
+								<img alt="Delega f24 compensazioni" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+							</a> | <a href="?q=helpgest/birt2documento&amp;titolo=Delega f24 compensazioni @tag_cliente#FLAT@&amp;tipologia=DOC. INIZIALI CLIENTI&amp;report=Delega_F24_compensazioni_PF&amp;class=Cliente&amp;id=@tag_ID#FLAT@&amp;cliente=@tag_ID#FLAT@&amp;estensione=pdf" title="Genera la delega f24 e registra documento DMS pronto per invio" onclick="return confirm('Confermare generazione delega f24 e registrazione documento in DMS. Ricordarsi poi di lanciare il workflow per invio al cliente.');">
+								<img alt="Genera la delega f24 e registra documento DMS pronto per invio " src="@CONTEXT@/app/Template/metaAmbiente/img/icon-new-revision.png" /> 
+							</a>
+						</li>
+						</ul> 
+						</div>
+						
+					]])
+					
+					([[[@tag_dati_crm.DatiCRM.conservazione_sostitutiva_delega_studio#FLAT@]==[no]] ?? [
+						<div class="tool_entry">Delega servizio conservazione sostitutiva: <a href="ModuleIndex?q=report/give/CLS=Cliente/DOC=Delega_conservazione_sostitutiva/TYPE=pdf/ID=@tag_ID#FLAT@" title="Delega servizio conservazione sostitutiva">
+							<img alt="Delega servizio conservazione sostitutiva" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-acrobat.gif" />
+						</a></div>]
+					])
+					
+					([[[@tag_dati_crm.DatiCRM.conservazione_libro_giornale#FLAT@]==[si]] ?? [
+						<div class="tool_entry">Registra nuova metascadenza data versamento diritti conservazione libro giornale: 
+							<a @popup="dimensions=small,title=Scadenza data versamento diritti conservazione libro giornale di @tag_cliente#FLAT@" href="?q=object/detail_edit&amp;p=Scadenza&amp;a=/_a_inverse_of_scadenze/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@&amp;t=Scadenza_versamento_diritti_libro_giornale&amp;nome=@tag_cliente#FLAT@" title="Registra nuova metascadenza data versamento diritti conservazione libro giornale">
+							<img alt="Registra nuova metascadenza data versamento diritti conservazione libro giornale" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-deadline.png" />					
+						</a></div>]
+					])
+						
+						
+					]
+				])
+								
+									
+				<br /><br />
+				<strong>Attenzione!</strong> Il controllo se le varie deleghe e relative metascadenze esistano o meno va fatto manualemente aiutandosi con le seguenti liste:
+						<div class="tool_entry">
+						<h4>Le Metascadenze del cliente:</h4>
+						@FUN_MODULE(q=object/list,p=Scadenza/_a_inverse_of_scadenze/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@,t=Scadenza_cliente_inpage)@
+						<!--  
+							<a @popup="dimensions=big,title=Le scadenze di @tag_cliente#FLAT@" href="?q=object/list&amp;p=Scadenza/_a_inverse_of_scadenze/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@" title="Scadenze del cliente">
+								<img alt="Metascadenze del cliente" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-deadline.png" />
+						</a> -->
+						</div>
+
+						<div class="tool_entry">
+						<h4>I documenti iniziali del cliente:</h4>
+						@FUN_MODULE(q=object/list,p=StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_ID/_v_@tag_ID#FLAT@,data_source=workflow-doc-iniziali,t=StoriaDocumento_cliente_inpage)@
+
+     			</div>
+						
+					
+		</div>
+		
+	</div>
+</div>
+				
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_Cliente@
+		</div>@END_TEMPLATE@

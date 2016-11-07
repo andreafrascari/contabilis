@@ -1,0 +1,143 @@
+	@BEGIN_TEMPLATE@
+	
+	<script type="text/javascript">
+			 
+		function notify(id,title,to)	{
+		
+		
+		 }
+			
+	</script>
+	
+	
+	
+		<div class="operation-result">
+			<div id="splash">
+				
+			</div>
+
+
+			@BLOCK_BEGIN_RESULT_SUCCESS@
+				<div class="alert alert-success" role="alert">
+<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Operazione effettuata correttamente!
+				</div>
+
+				<div class="send-notification">
+				
+				@BEGIN_Attivita@
+								
+					([[[@tag_assegnata_a.Operatore.account_operatore._system_user.ID#FLAT@]!=[@FUN_GET_USER_INFO(param=id)@]]?? [
+					
+						<script type="text/javascript"> 
+							
+							var idAtt = "@tag_ID#FLAT@";
+							var titoloAtt = "@tag_titolo#FLAT@";
+							var emailOp = "@tag_assegnata_a.Operatore.email#FLAT@";
+							var nomeOp = "@tag_assegnata_a.Operatore.nome_e_cognome#FLAT@";
+							var path="ModuleIndex?q=helpgest/notifyactivity/idatt="+idAtt+"/to="+nomeOp+"/email="+emailOp+"/nomeatt="+titoloAtt;
+	
+							var rep = $.ajax({
+					        	url: path,
+					        	async: false,
+					        	type: "GET",
+					        	cache: false
+					        	}).responseText;		
+							try
+							{
+								var xmlrep = Anastasis.Utils.parseXML(rep);
+								anastasis.logger.info("res = " + rep);
+								var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+								if(msg.isErrorMessage())
+								{
+									alert("il sistema non riesce a notificare assegnamento!");
+								} else {
+									alert("Assegnamento attivita notificato a "+nomeOp);
+								}
+							}
+							catch(e){alert("errore: "+e);}
+							
+						</script>
+					]])
+									
+				@END_Attivita@
+				</div>    
+				    
+				<div class="navigation-options">
+					@BLOCK_BEGIN_MAP@
+						&Egrave; ora possibile continuare la navigazione in base alla seguente mappa:
+						@MAP@
+					@BLOCK_END_MAP@
+					<br />
+					Possibilit&agrave; di navigazione per l'oggetto Operatore:
+					<ul>
+						@BLOCK_BEGIN_BACK_TO_CURRENT_OPERATION@
+							<li class="highlight"><a title="Tornare all'operazione in corso" href="@HREF_CURRENT_OPERATION@">Tornare all'operazione in corso</a></li>
+						@BLOCK_END_BACK_TO_CURRENT_OPERATION@
+						@BLOCK_BEGIN_NEW@
+							<li><a title="Inserire un nuovo oggetto" href="@HREF_NEW@">Inserire un nuovo oggetto</a></li>
+						@BLOCK_END_NEW@
+						<li><a title="Tornare al filtro di ricerca" href="@HREF_FILTER@">Tornare al filtro di ricerca</a></li>
+						<li><a title="Tornare all'ultima lista visualizzata" href="@HREF_LIST@&amp;page=XML-QUERY">Tornare all'ultima lista visualizzata</a></li>
+						@BLOCK_BEGIN_BACK_TO_RESOURCE@
+							<li><a title="Tornare all&apos;oggetto" href="@HREF_DETAIL@">Tornare all&apos;oggetto</a></li>
+							<li><a title="Tornare alla modifica dell&apos;oggetto" href="@HREF_DETAIL_EDIT@">Tornare alla modifica dell&apos;oggetto</a></li>
+						@BLOCK_END_BACK_TO_RESOURCE@
+					</ul>
+				</div>
+			@BLOCK_END_RESULT_SUCCESS@
+		
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>        
+    
+				<div class="navigation-options">
+					Operazioni disponibili: 
+					<ul>
+						@BLOCK_BEGIN_UNDELETE@
+							<li><a title="Ripristina l'oggetto esistente" href="@HREF_UNDELETE@">Ripristina l&apos;oggetto esistente</a></li>
+						@BLOCK_END_UNDELETE@
+						@BLOCK_BEGIN_REPLACE_OLD@
+							<li><a title="Sostituisci l'oggetto esistente con quello nuovo" href="@HREF_REPLACE_OLD@">Sostituisci l&apos;oggetto esistente con quello nuovo</a></li>
+							<li><a title="Modificare l&apos;oggetto esistente" href="@HREF_EDIT_OLD@">Modificare l&apos;oggetto esistente</a></li>
+						@BLOCK_END_REPLACE_OLD@
+						<li><a title="Inserire un nuovo oggetto" href="@HREF_NEW@">Inserire un nuovo oggetto  @CLASS_NAME@</a></li>
+						<li><a title="Tornare al filtro di ricerca" href="@HREF_FILTER@">Tornare al filtro di ricerca</a></li>
+					</ul>
+					
+					@BLOCK_BEGIN_EXISTING@
+						<div id="existing-instance">
+							<p>Ecco l&apos;oggetto @CLASS_NAME@ presente:</p>
+							@OLD_OBJECT@
+						</div>
+						<!-- @FUN_MODULE(q=object/detail,p=@CLASS@/_a_ID/_v_@ID@/_a_deletion_flag/_v_1)@ -->
+					@BLOCK_END_EXISTING@
+					
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+		</div>
+		
+		<!-- lista errori -->
+		@BLOCK_BEGIN_DUPLICATE_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave; gi&agrave; presente nel sistema.
+		@BLOCK_END_DUPLICATE_ENTRY@
+
+		@BLOCK_BEGIN_DUPLICATE_DELETED_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma era stato precedentemente stato cancellato.
+		@BLOCK_END_DUPLICATE_DELETED_ENTRY@
+
+		@BLOCK_BEGIN_NULL_IN_OBLIGATORY@
+			uno o pi&ugrave; attributi obbligatori non sono stati inseriti.
+		@BLOCK_END_NULL_IN_OBLIGATORY@
+
+		@BLOCK_BEGIN_DUPLICATE_ENTRY_NO_PERMISSION@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non si hanno i permessi per rispristinarlo o sostituirlo.
+		@BLOCK_END_DUPLICATE_ENTRY_NO_PERMISSION@
+
+		@BLOCK_BEGIN_RECOVER_IMPOSSIBLE@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non &egrave; possibile procedere con rispristino o sostituzione: contattare il supporto tecnico
+		@BLOCK_END_RECOVER_IMPOSSIBLE@
+		
+	@END_TEMPLATE@

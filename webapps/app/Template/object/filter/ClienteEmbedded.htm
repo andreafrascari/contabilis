@@ -1,0 +1,34 @@
+@BEGIN_TEMPLATE@<div class="filter">
+		<script type="text/javascript">			
+			$(document).ready(function() {
+				 $("#accessodiretto").submit(function() {
+				 	var action = $("#accessodiretto").attr('action');
+				 	var cli = $("#KEY_cliente").val();
+				 	var codcli = $("#KEY_codice_cliente").val();
+				 	if (!cli && !codcli)	{
+				 		alert("Inserire un criterio di ricerca!");
+				 		return false;
+				 	}
+				 	var who = cli?cli:codcli;
+				 	var attr = cli?"cliente":"codice_cliente";
+				 	action = action.replace('@VAL@',encodeURIComponent(who));
+				 	action = action.replace('@ATTR@',encodeURIComponent(attr));
+				 	$("#accessodiretto").attr('action',action);
+				 	$("#accessodiretto").submit();
+				 });
+			});
+		</script>
+
+
+			<div class="form-container">
+				<form id="accessodiretto" method="post" action="?q=object/detail&amp;p=Cliente/_a_@ATTR@/_v_@VAL@/_a_cessata_assistenza_il/_v_null">
+						<div class="alert alert-info" role="alert">Accedi direttamente al fascicolo del cliente specificando 3 lettere di cognome, nome o ragione sociale
+						</div>
+						@BEGIN_Cliente@@tag_cliente@@tag_codice_cliente@@END_Cliente@
+							<input class="home-button" type="submit" name="post_search"  title="apri fascicolo" value="apri fascicolo" />
+						
+				</form>
+ 
+				
+			</div>
+		</div>@END_TEMPLATE@

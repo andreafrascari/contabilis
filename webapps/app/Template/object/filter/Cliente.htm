@@ -1,0 +1,71 @@
+		@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+			
+		<script type="text/javascript">			
+			$(document).ready(function() {
+				 $("#accessodiretto").submit(function() {
+				 	if (!$("#KEY_cliente").val())	{
+				 		alert("Inserire almeno le prime 2 lettere del nome/cognome del cliente!");
+				 		return false;
+				 	}
+				 	var action = $("#accessodiretto").attr('action');
+				 	action = action.replace('@VAL@',encodeURIComponent($("#KEY_cliente").val()));
+				 	$("#accessodiretto").attr('action',action);
+				 	$("#accessodiretto").submit();
+				 });
+			});
+		</script>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			@BLOCK_BEGIN_EDIT@
+							<div class="form-container">
+								<form id="fake" action="">
+									<fieldset>
+										<legend>nuova scheda:</legend>
+										<div class="object-new">
+											Segui questo link per inserire una <a href="@HREF_DETAIL_EDIT@" title="nuova scheda">nuova scheda</a>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+			@BLOCK_END_EDIT@
+
+			<div class="form-container">
+				<form id="accessodiretto" method="post" action="?q=object/detail&amp;p=Cliente/_a_cliente/_v_@VAL@/_a_cessata_assistenza_il/_v_null">
+					<fieldset>
+						<legend>accesso diretto</legend>
+						<div class="alert alert-info" role="alert">Accedi direttamente al fascicolo del cliente specificando 3 lettere di cognome, nome o ragione sociale
+						</div>
+						@BEGIN_Cliente@@tag_cliente@@END_Cliente@
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="apri fascicolo" value="apri fascicolo" />
+						</div>
+					</fieldset>
+				</form>
+				
+				
+				<form id="filter" method="post" action="@ACTION@/_a_cessata_assistenza_il/_v_null">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_Cliente@@tag_cliente@@tag_codice_cliente@@tag_codice_fiscale@@tag_tipo_cliente@@tag_non_profit@@tag_email@@tag_email2@@tag_email3@@tag_cellulare@@tag_telefono@@tag_fax@@tag_tipo_sollecito@@tag_operatore_responsabile@@tag_stato_cliente@@tag_cliente_dal@@tag_comune@@tag_recapito_comune@@tag_note@@END_Cliente@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+		version="2.5">
+    <display-name>Contabilis DMS - HelpGest</display-name>
+    <description>Contabilis DMS - HelpGest</description>
+    
+    <!-- LISTENER -->
+    <!--
+    	Da decommentare per attivare sessioni univoche 
+    <listener>
+		<listener-class>eu.anastasis.serena.auth.listeners.SerenaSessionListener</listener-class>
+	</listener>
+     -->
+     
+    <!-- SERVLET -->
+    <welcome-file-list>
+   		<welcome-file>Index</welcome-file>
+    </welcome-file-list>
+
+	<!-- Inizializzatore -->
+	<servlet>
+    	<servlet-name>SerenaInitializer</servlet-name>
+    	<servlet-class>eu.anastasis.serena.application.core.SerenaInitializer</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+ 	</servlet>
+	
+    <!--  Index -->
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.Index</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>Index</servlet-name>
+      	<url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Attachment -->
+    <servlet>
+        <servlet-name>Attachment</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.Attachment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>Attachment</servlet-name>
+      	<url-pattern>/Attachment</url-pattern>
+    </servlet-mapping>
+    
+        <!-- DandL - download and lod -->
+    <servlet>
+        <servlet-name>DandL</servlet-name>
+        <servlet-class>eu.anastasis.it.tullinidms.servlet.DandL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>DandL</servlet-name>
+      	<url-pattern>/DandL</url-pattern>
+    </servlet-mapping>
+    
+    <!-- PhonecallServer - redir to phonecall method -->
+    <servlet>
+        <servlet-name>phonecall</servlet-name>
+        <servlet-class>eu.anastasis.it.tullinidms.servlet.PhonecallServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>phonecall</servlet-name>
+      	<url-pattern>/phonecall</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- ServerAgent - upload from agent -->
+    <servlet>
+        <servlet-name>AgentServer</servlet-name>
+        <servlet-class>eu.anastasis.it.tullinidms.servlet.AgentServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>AgentServer</servlet-name>
+      	<url-pattern>/AgentServer</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Image -->
+    <servlet>
+        <servlet-name>Image</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.Image</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>Image</servlet-name>
+      	<url-pattern>/Image</url-pattern>
+    </servlet-mapping>
+    
+    <!-- DisplayChart -->
+    <servlet> 
+         <servlet-name>DisplayChart</servlet-name> 
+         <servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class> 
+    </servlet>  
+    <servlet-mapping>  
+    	<servlet-name>DisplayChart</servlet-name>  
+    	<url-pattern>/Stat</url-pattern>  
+    </servlet-mapping>
+      
+    <!-- Admin (manager) -->
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.Admin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+   		<servlet-name>Admin</servlet-name>
+      	<url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
+       
+    <!-- ModuleIndex-->
+    <servlet>
+        <servlet-name>ModuleIndex</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.ModuleIndex</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>ModuleIndex</servlet-name>
+      	<url-pattern>/ModuleIndex</url-pattern>
+    </servlet-mapping>
+    
+    <!--  RSS -->
+    <servlet>
+        <servlet-name>Rss</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.index.Rss</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>Rss</servlet-name>
+      	<url-pattern>/Rss</url-pattern>
+    </servlet-mapping>
+    
+	<servlet>
+        <servlet-name>jcaptcha</servlet-name>
+        <servlet-class>eu.anastasis.serena.application.captcha.ImageCaptchaServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>jcaptcha</servlet-name>
+        <url-pattern>/JCaptcha</url-pattern>
+    </servlet-mapping>
+
+    <!-- Timeout standard serena: 2 ore = 120 minuti -->
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+    
+    <context-param>
+    	<param-name>loggedUserTimeout</param-name>
+    	<param-value>120</param-value>
+    </context-param>
+        
+    <!--Persistence Node-->	
+    <!-- Di default il nodo non e' configurato
+    <servlet>
+        <servlet-name>PersistenceNode</servlet-name>
+        <servlet-class>eu.anastasis.serena.nodes.PersistenceFullOptionalNode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>PersistenceNode</servlet-name>
+      	<url-pattern>/PersistenceNode</url-pattern>
+    </servlet-mapping>
+    -->
+    
+    <!-- Web Services -->
+	<servlet>
+		<display-name>Apache-Axis Servlet</display-name>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>*.jws</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>Apache-Axis Admin Servlet Web Admin</display-name>
+		<servlet-name>AxisAdminServlet</servlet-name>
+		<servlet-class>org.apache.axis2.webapp.AxisAdminServlet</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisAdminServlet</servlet-name>
+		<url-pattern>/axis2-admin/*</url-pattern>
+	</servlet-mapping>
+    
+    
+    <!-- FILTRI -->
+    
+    <!-- PathFilter: Impedisce l'accesso ai file di sistema -->
+	<filter>
+		<filter-name>PathFilter</filter-name>
+		<filter-class>eu.anastasis.serena.application.filters.PathFilter</filter-class>
+		<init-param>
+			<param-name>allowed_paths</param-name>
+			<param-value>/app/public,/app/Template/metaAmbiente,/app/Javascript</param-value>
+		</init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>PathFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- SetCharacterEncoding: Gestisce l'annoso problema delle accentate -->
+    <filter>
+        <filter-name>SetCharacterEncoding</filter-name>
+        <filter-class>eu.anastasis.serena.application.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SetCharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

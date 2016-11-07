@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="it" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="author" content="Cooperativa Anastasis" />
+    <meta http-equiv="Content-type" content="text/xhtml; charset=ISO-8859-1" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="language" content="it" />
+    <title>DMS Contabilis</title>
+    <link rel="shortcut icon" href="app/Template/metaAmbiente/img/favicon.ico" type="image/x-icon" />
+	<link href="app/Template/metaAmbiente/common.css" rel="stylesheet" type="text/css" />
+	<link href="app/Template/metaAmbiente/widgets.css" rel="stylesheet" type="text/css" />
+	<link href="app/Template/metaAmbiente/standard/theme.css" rel="stylesheet" type="text/css" />
+
+
+	<!--[if IE 6]>
+  		<link rel="stylesheet" type="text/css" href="app/Template/metaAmbiente/fix-ie.css" />
+  		<link rel="stylesheet" type="text/css" href="app/Template/metaAmbiente/@METAENVIRONMENT@/fix-ie.css" />
+	<![endif]-->
+  </head>
+  <body id="home" class="normale">
+    <div id="headwrap">
+		<div class="NoVisibility">
+	    	<a accesskey="k" href="#anastasis_ancora_contenuto" title="Salta al contenuto della pagina" >link al contenuto della pagina</a> |
+	      	<a accesskey="m" href="#anastasis_ancora_menu_generale" title="Salta al menu generale">link al menu generale</a> |
+     	</div>
+	  <div id="head">
+        <div id="header-sx">
+	        <img alt="Contabilis" src="app/Template/metaAmbiente/standard/img/logo.jpg">
+        </div>
+        <div id="header-centre">
+			<object width="579" height="135" id="object1" type="application/x-shockwave-flash" data="app/Template/metaAmbiente/standard/img/banner.swf">
+  	     			<param value="app/Template/metaAmbiente/standard/img/banner.swf" name="movie">
+     	  			<param value="high" name="quality">
+       				<img width="579" height="135" alt="player flash non disponibile" src="app/Template/metaAmbiente/standard/img/banner.jpg">      
+   			</object>
+   		</div>
+        <div id="nav">
+			 <ul>
+ 			 <li><a title="vai alla home page" href="Index">Home</a></li>   
+			 <li><a title="Modulo di contatto" href="?q=object/contact/FORM=_system_contact">Contatti</a></li>
+			 <li><a title="Caratteri normali" href="javascript:Anastasis.FontSize.carattereNormale();">A</a></li>
+			 <li><a title="Caratteri ingranditi" href="javascript:Anastasis.FontSize.carattereIngrandito1();">A+</a></li>
+			 </ul>
+
+		</div>
+      </div>
+    </div>
+    <div id="wrap">
+          <!--SPLASH TITLE-->
+          <div id="main" class="clearfix">
+
+            <div id="sidebarwrap">
+              <div id="sidebar">
+				<a id="anastasis_ancora_menu_generale" class="NoVisibility">menu generale:</a>
+
+						<div class="loginbox">
+						<h2>Effettua l'accesso</h2>
+							<form method="post" action="Index">
+								<div>
+									<label for="user">Username:</label> <input class="campo" type="text" name="user" id="user" />
+									<br style="clear:both" />
+									<label for="pass">Password:</label> <input class="campo" type="password" name="pass" id="pass" />
+					      
+									<input name="invia" type="submit" value="Entra" title="Entra nel sistema" class="bottone" />
+					      
+									<input type="hidden" name="q" value="@MODULE@/login" />
+									<input type="hidden" name="d" value="@FUN_GET_URL_PARAM(param=d)@" />
+									<input type="hidden" name="a" value="@FUN_GET_URL_PARAM(param=a)@" />
+									<input type="hidden" name="f" value="@FUN_GET_URL_PARAM(param=f)@" />
+								</div>
+							</form>
+						</div>
+
+              </div>
+            </div>
+            
+                        <div id="contentwrap">
+              <div id="menu_h">
+	              <!--Menu orizzontale di navigazione-->
+	            </div>
+              <a id="anastasis_ancora_contenuto" class="NoVisibility">contenuto della pagina:</a>
+              					<h2>Download Documenti</h2>
+							<h4>Per scaricare questo documento, lo Studio richiede il logon con le tue credenziali</h4>
+              
+            </div>
+
+
+            
+            
+          </div>
+          <div id="footer" class="clearfix">
+            <p id="credits">
+              Realizzato dalla <a href="http://www.anastasis.it" title="Cooperativa Anastasis">Cooperativa Anastasis<a/> tramite il Framework open source Sere-na: <a href="http://www.sere-na.it" title="Vai al sito del progetto Sere-na">http://www.sere-na.it</a>
+			</p>
+          </div>
+        </div>
+  </body>
+</html>

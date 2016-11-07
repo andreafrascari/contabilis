@@ -1,0 +1,89 @@
+@BEGIN_TEMPLATE@
+<script type="text/javascript">
+	anastasis.syncLoadScript("serena/PopupDetailEdit",true);
+	Anastasis.PopupDetailEdit.prototype.invioFormPrincipale=function()
+	{
+	var $dialog=this.$theDialog;
+	var afterSend=function()
+	{																
+		$dialog.dialog('option','buttons', {'Chiudi': function() {$(this).dialog('close');}});
+		
+	}
+
+	ajaxSubmit($('#'+this.idFormPrincipale),this.idContainerDiv,false,'ModuleIndex'+$('#'+this.idFormPrincipale).attr("action"),null,false,'',afterSend);							
+}
+</script>
+<div class="operation-result">
+			
+
+			@BLOCK_BEGIN_RESULT_SUCCESS@
+				<div class="alert alert-success" role="alert">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Operazione effettuata correttamente!
+				</div>
+				<br />
+					E' ora possibile:
+				<br /><br />
+				<div class="list-group">
+				@BEGIN_HDThreadStep@
+				([[[@tag_canale#FLAT@]==[email] && [@tag_th_direzione#FLAT@]==[studio cliente]]??[
+					<a class="list-group-item active" href="?q=object/detail&amp;p=HDThreadStep/_a_ID/_v_@ID@&amp;t=HDThreadStep_MailPreview" @popup="dimensions=medium,title=Preview invio mail" title="Inviare email al cliente">Inviare email al cliente</a>
+				]])
+				([[[@tag_inverse_of_thread.HDTicket.assegnatoApratica.Pratica.ID#FLAT@]!=[]]??[
+						<a class="list-group-item"  @popup="title=Contabilizza messaggio in sessione di lavoro,dimension=medium" href="?q=object/detail_edit&amp;p=HDThreadStep/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDThreadStep_contabilizza" title="contabilizza in sessione di lavoro">Contabilizzare il messaggio</a>
+				]::[<p>Ticket non contabilizzabile perche' non assegnato a pratica...</p>]
+				])					
+					<a class="list-group-item"  title="Tornare al ticket corrente" href="?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_inverse_of_thread.HDTicket.ID#FLAT@">Tornare al ticket corrente</a></li>
+						<a class="list-group-item"  @popup="dimensions=small,title=Conferma chiusura ticket" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_inverse_of_thread.HDTicket.ID#FLAT@&amp;t=HDTicket_closeOk" title="chiudi come risolto">Chiudere il ticket come risolto</a></li>
+						<a class="list-group-item"  @popup="dimensions=small,title=Conferma chiusura ticket" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_inverse_of_thread.HDTicket.ID#FLAT@&amp;t=HDTicket_closeNo" title="chiudi come non risolvibile">Chiudere come non risolvibile</a></li>						
+					@END_HDThreadStep@
+			</div>
+			@BLOCK_END_RESULT_SUCCESS@
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-warning" role="alert">
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+
+				<div class="navigation-options">
+					Operazioni disponibili:
+					<ul>
+						@BLOCK_BEGIN_UNDELETE@
+							<li><a title="Ripristina l'oggetto esistente" href="@HREF_UNDELETE@">Ripristina l&apos;oggetto esistente</a></li>
+						@BLOCK_END_UNDELETE@
+						@BLOCK_BEGIN_REPLACE_OLD@
+							<li><a title="Sostituisci l'oggetto esistente con quello nuovo" href="@HREF_REPLACE_OLD@">Sostituisci l&apos;oggetto esistente con quello nuovo</a></li>
+						@BLOCK_END_REPLACE_OLD@
+					</ul>
+
+					@BLOCK_BEGIN_EXISTING@
+						<div id="existing-instance">
+							<p>Ecco l&apos;oggetto @CLASS_NAME@ presente:</p>
+							@OLD_OBJECT@
+						</div>
+					@BLOCK_END_EXISTING@
+
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+		</div>
+
+		
+		@BLOCK_BEGIN_DUPLICATE_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave; gi&agrave; presente nel sistema.
+		@BLOCK_END_DUPLICATE_ENTRY@
+
+		@BLOCK_BEGIN_DUPLICATE_DELETED_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma era stato precedentemente stato cancellato.
+		@BLOCK_END_DUPLICATE_DELETED_ENTRY@
+
+		@BLOCK_BEGIN_NULL_IN_OBLIGATORY@
+			uno o pi&ugrave; attributi obbligatori non sono stati inseriti.
+		@BLOCK_END_NULL_IN_OBLIGATORY@
+
+		@BLOCK_BEGIN_DUPLICATE_ENTRY_NO_PERMISSION@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non si hanno i permessi per rispristinarlo o sostituirlo.
+		@BLOCK_END_DUPLICATE_ENTRY_NO_PERMISSION@
+
+		@BLOCK_BEGIN_RECOVER_IMPOSSIBLE@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non &egrave; possibile procedere con rispristino o sostituzione: contattare il supporto tecnico
+		@BLOCK_END_RECOVER_IMPOSSIBLE@@END_TEMPLATE@

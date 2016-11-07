@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<CONFIGURAZIONE>
+	<!-- Per maggiori informazioni sui parametri di questo file
+		 visitare la pagina:
+		 http://doc.sere-na.it/Serena_Application/config_application.html
+	-->
+	<PARAMETRI>
+		<!-- CONFIGURAZIONE PRINCIPALE -->
+		<!--
+			PORTAL_TITLE. Il nome del portale.
+		-->
+		<PARAM NOME="PORTAL_TITLE">HelGest Contabilis</PARAM>
+
+        <PARAM NOME="SMS_USERNAME">C04332_HQS</PARAM>
+        <PARAM NOME="SMS_PASSWORD">8f9u2y2z</PARAM>
+        
+		<!--
+			DEFAULT_LANGUAGE: Indica la lingua di default dell'applicazione
+			ovvero la lingua in cui viene preimpostata una nuova sessione di
+			lavoro.
+
+			VALORI AMMESSI nella versione 1.2:
+			it italiano
+			en inglese britannico
+
+			DEFAULT=IT
+		 -->
+		<PARAM NOME="DEFAULT_LANGUAGE">it</PARAM>
+
+		<!--
+			EXECUTION_MODE: Indica se l'esecuzione deve produrre all'utente
+			dei messaggi di debug.
+			VALORI AMMESSI nella versione 1.2:
+			0=MODALITA' DEBUG con messaggi di errore a video
+			1=MODALITA' PRODUZIONE con gestione dei messaggi di errore per gli utenti
+
+			DEFAULT=1
+		 -->
+		<PARAM NOME="EXECUTION_MODE">0</PARAM>
+
+		<!--
+			DEFAULT_METAENVIRONMENT. Il metaambiente predefinito.
+			Se non impostato sara' il metaambiente standard
+		-->
+		<PARAM NOME="DEFAULT_METAENVIRONMENT">standard</PARAM>
+
+		<!--
+			INTERFACE_DATE_FORMAT. Il formato da usare per le date.
+			Solitamente e' dd/MM/yyyy
+		-->
+		<PARAM NOME="INTERFACE_DATE_FORMAT">dd/MM/yyyy</PARAM>
+
+		<!--
+			ATTACHMENT_REPOSITORY. Il percorso dove salvare gli allegati
+		-->
+		<PARAM NOME="ATTACHMENT_REPOSITORY">/var/serena/TulliniHelpGest/upload/</PARAM>
+
+
+		<!-- ************* -->
+		<!-- SEZIONE CACHE -->
+	    <!--
+	    	TEMPLATE_CACHE. Se impostato a 0, i template vengono
+	    	ricaricati/ricreati dinamicamente ad ogni occorrenza.
+	    	Se impostato a 1, i template vengono messi in una cache.
+	    	Si consiglia di impostarlo a 0 durante le fasi di sviluppo
+	    	dell'applicazione e a 1 quando l'applicazione
+	    	entra in produzione
+	    -->
+		<PARAM NOME="TEMPLATE_CACHE">0</PARAM>
+	    <!--
+		    TEMPLATE_RECURSIVE_CACHE. Se impostato a 0, i metatemplate vengono
+			ricaricati/ricreati dinamicamente ad ogni occorrenza.
+			Se impostato a 1, i template generati da metatemplate
+			vengono messi in una cache.
+			Si consiglia di impostarlo a 0 durante le fasi di sviluppo
+			dell'applicazione e a 1 quando l'applicazione entra in produzione
+	    -->
+		<PARAM NOME="TEMPLATE_RECURSIVE_CACHE">0</PARAM>
+
+		<!--  @NOMEFUNZIONE@_CACHE: Ogni funzione Sere-na puo' essere
+			cachata o meno, impostando a 1 il relativo parametro.
+			Es. per cachare la funzione FUN_MENU:
+				<PARAM NOME="FUN_MENU_CACHE">1</PARAM>
+		-->
+
+		<!-- ************ -->
+		<!-- SEZIONE MAIL -->
+		<!--
+			MAIL_NOTIFICATION_CLASSES. Il sistema di invio notifiche
+			provvede ad inviare una mail ad ogni inserimento di
+			istanze delle classi che compaiono (separate da virgole)
+			come valore di questo attributo.
+			Solitamente contiene solo l'oggetto di sistema _system_contact
+		-->
+		<PARAM NOME="MAIL_NOTIFICATION_CLASSES">_system_contact,DocumentoCliente</PARAM>
+    	<!--
+    		MAIL_NOTIFICATION_RECIPIENTS. L'indirizzo email a cui inviare
+    		le notifiche di sistema. Volendo e' possibile indicare piu' indirizzi,
+    		separati tra loro da virgola
+    	-->
+		<PARAM NOME="MAIL_NOTIFICATION_RECIPIENTS">none</PARAM>
+    	<!--
+	    	MAIL_SYSTEM_ADDRESS. L'indirizzo email che verra' indicato
+	    	come mittente delle mail di notifica
+    	-->
+		<PARAM NOME="MAIL_SYSTEM_ADDRESS">afrascari@gmail.com</PARAM>
+    	<!--
+    		SMTP_SERVER. Il server SMTP da usare per inviare le mail di notifica
+    	-->
+		<PARAM NOME="SMTP_SERVER">localhost</PARAM>
+		<!--
+			SMTP_USERNAME. Il nome utente per accedere al server SMTP
+			da usare per inviare le mail di notifica.
+			Non impostarlo se non si vuole usare l'autenticazione
+		-->
+		<PARAM NOME="SMTP_USERNAME">none</PARAM>
+		<!--
+			SMTP_PASSWORD. La password per accedere al server SMTP
+			da usare per inviare le mail di notifica.
+			Non impostarlo se non si vule usare l'autenticazione
+		-->
+		<PARAM NOME="SMTP_PASSWORD">none</PARAM>
+
+		<!-- SEZIONE SMS -->
+		<!--
+			SMS_USERNAME. Il nome utente per accedere all'account Mobyt
+			di invio SMS.
+		<PARAM NOME="SMS_USERNAME">username</PARAM> 
+		-->
+		<!--
+			SMS_USERNAME. La password per accedere all'account Mobyt
+			di invio SMS.
+		<PARAM NOME="SMS_PASSWORD">password</PARAM> 
+		-->
+		
+		
+		<!-- SEZIONE LOG -->
+		<!--
+			LOG4J. Il percorso dove cercare il file di configurazione per la
+			gestione dei log. Solitamente e' /conf/system/logservice.xml
+		-->
+		<PARAM NOME="LOG4J">/conf/system/logservice.xml</PARAM>
+
+		<!--
+			ACCESS_LOG_CLASSES. La classe (o le classi, separate da virgola)
+			di cui si vogliono i log degli accessi.
+			Solitamente e' _system_cms_node.
+			NB: Se si vuole tracciare tutti i login, aggiungere a questo parametro
+			anche la classe _system_user.
+		-->
+		<PARAM NOME="ACCESS_LOG_CLASSES"></PARAM>
+
+		<!--
+			<<LOG_LEVEL>>. Indica il livello di log automatico delle azioni
+			sul database. I log sono salvati nella tabella _system_log.
+			I valori possibili sono:
+				NONE (disabilita il log degli accessi al db)
+				SET (abilita il log solo in operazioni di tipo SET)
+				GET (abilita il log solo in operazioni di tipo GET)
+				ALL (abilita il log su qualsiasi tipo di accesso al database).
+			Se non impostato, il valore predefinito e' <NONE>.
+			Si consiglia eventualmente di usare solo <SET>:
+			per le <GET> e' molto piu' efficace l'uso di ACCESS_LOG_CLASSES.
+		-->
+		<PARAM NOME="LOG_LEVEL">SET</PARAM>
+
+
+		<!-- ********************* -->
+		<!-- SEZIONE MODULO OBJECT -->
+	    <!--
+	    	PAGE_DIMENSION. Indica quanti oggetti vanno mostrati nelle liste.
+	    	Volendo tale valore puo' essere impostato
+	    	per ogni singolo oggetto, cambiando il relativo
+	    	Sere-na Interface Bean
+	    -->
+		<PARAM NOME="PAGE_DIMENSION">10</PARAM>
+
+	    <!--
+	    	USE_CAPTCHA
+	    	Impone il riconoscimento di un captcha al fine di inviare la form
+	    	I valori ammissi sono
+	    		0 = NEVER_USE_CAPTCHA 0
+	    		1 = USE_CAPTCHA_ONLY_FOR_ANONIMOUS
+				2 = ALWAYS_USE_CAPTCHA
+			Il valore di DEFAULT � 0.
+		-->
+		<PARAM NOME="USE_CAPTCHA">1</PARAM>
+
+
+	    <!--
+	    	RELATIONSHIP_PRELOADING. Se impostato a 1, nelle liste
+	    	vengono mostrate anche le informazioni relative
+	    	alle relazioni precaricate.
+	    -->
+		<PARAM NOME="RELATIONSHIP_PRELOADING">1</PARAM>
+
+		<!--
+    		REL1_N_GOTO_LIST. Di default, il componente detail->rel1_n porta,
+    		nel caso esista 1! oggetto a codominio, al DETTAGLIO dell'aoggetto.
+    		Questo parametro, se settato a 1, FORZA il passaggio alla lista
+    	-->
+		<PARAM NOME="REL1_N_GOTO_LIST">0</PARAM>
+
+    	<!--
+    		M_N_IN_NEW_PAGE. Di default Application gestisce le relazioni n-m
+    		"in-page" con select multiselezione ordinata alfabeticamente.
+			Se questo parametro e' settato a 1, invece, per collegare un oggetto
+			preesistente comparira' un link "seleziona un oggetto esistente"
+			che porta ad una nuova pagina con un checkbox per ogni oggetto
+			collegabile.
+    	 -->
+		<PARAM NOME="M_N_IN_NEW_PAGE">0</PARAM>
+
+    	<!--
+    		Stabilisce il criterio con cui filterlist esegue le ricerche.
+    		Valori possibili:
+    		- starts-with (default)
+    		- contains
+    	 -->
+		<PARAM NOME="FILTERLIST_CRITERION">starts-with</PARAM>
+
+    	<!--
+    		Determina se l'uso dei token monouso e' attivo oppure no.
+    		Di default (anche nel caso che il parametro non sia specificato) e' attivo.
+    	 -->
+		<PARAM NOME="USE_TOKEN">1</PARAM>
+
+
+		<!-- ******************* -->
+		<!-- SEZIONE MODULO MENU -->
+		<!--
+			MENU_STYLE. Lo stile da usare per disegnare i menu.
+			Si puo' lasciare vuoto (viene usato la modalita'
+			di default di Sere-na)
+			oppure indicare drupal, per avere un comportamento
+			simile al CMS Drupal.
+		-->
+		<PARAM NOME="MENU_STYLE"></PARAM>
+
+    	<!--
+    		MAX_MENU_DEPTH. La profondita' massima del menu
+    		che puo' essere disegnata. Se il menu e' piu'
+    		profondo, si ferma a questo valore.
+    	 -->
+		<PARAM NOME="MAX_MENU_DEPTH">5</PARAM>
+
+
+    	<!-- **************************** -->
+		<!-- SEZIONE MODULO SEARCH ENGINE -->
+		<!--
+			SEARCHENGINE_REPOSITORY. Indica il percorso della cartella
+			che viene utilizzata dal motore di ricerca per salvare
+			i propri file di indicizzazione.
+		-->
+		<PARAM NOME="SEARCHENGINE_REPOSITORY">/var/serena/TulliniHelpGest/searchengine/</PARAM>
+
+    	<!--
+    		SEARCHENGINE_INDEXABLE_CLASSES. Indica, separate da una virgola,
+    		le classi che il motore di ricerca dovra' indicizzare.
+    	-->
+		<PARAM NOME="SEARCHENGINE_INDEXABLE_CLASSES">_system_cms_node,Documento,Cliente</PARAM>
+
+
+		<!-- **************************** -->
+		<!-- SEZIONE MODULO LOGIN -->
+    	<!--
+    		Dato che il modulo di login deve essere eseguito prima di tutti gli altri,
+    		e' necessario conoscere il suo nome. Di default e' 'login' (minuscolo).
+    	 -->
+		<PARAM NOME="LOGIN_MODULE_NAME">login</PARAM>
+    </PARAMETRI>
+</CONFIGURAZIONE>

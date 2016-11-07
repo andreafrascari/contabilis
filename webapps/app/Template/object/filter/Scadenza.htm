@@ -1,0 +1,50 @@
+@BEGIN_TEMPLATE@<div class="filter">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+			</div>
+
+			@BLOCK_BEGIN_DESCRIPTION@
+				<div class="class-description">
+					@CLASS_DESCRIPTION@
+				</div>
+			@BLOCK_END_DESCRIPTION@
+
+			@BLOCK_BEGIN_EDIT@
+							<div class="form-container">
+								<form id="fake" action="">
+									<fieldset>
+										<legend>nuova prenotazione:</legend>
+										<div class="object-new">
+										<ul>
+											<li><a href="@HREF_DETAIL_EDIT@&amp;t=Scadenza_cliente" title="nuova prenotazione per un cliente">per un cliente</a></li>
+											<li><a href="@HREF_DETAIL_EDIT@&amp;t=Scadenza_operatore" title="nuova prenotazione per un operatore">per un operatore</a></li>
+											<li><a href="@HREF_DETAIL_EDIT@&amp;t=Scadenza_profilo_dinamico_clienti" title="nuova prenotazione per un profilo (dinamico) clienti">per profilo dinamico clienti</a></li>
+											<!--<li><a href="@HREF_DETAIL_EDIT@&amp;t=Scadenza_profilo_clienti" title="nuova prenotazione per tipoloigia di clienti">per tipologia di clienti</a></li>-->
+										</ul>
+											
+										</div>
+									</fieldset>
+								</form>
+							</div>
+			@BLOCK_END_EDIT@
+
+			<div class="form-container">
+				 
+				<form id="filter" method="post" action="@ACTION@">
+					<fieldset>
+						<legend>ricerca avanzata</legend>
+						<div class="alert alert-info" role="alert">Specifica i parametri desiderati e premi invio per avviare la ricerca. <br />
+							Premere il bottone <em>cerca</em> senza specificare parametri significa reperire tutte le schede presenti.
+						</div>
+						@BEGIN_Scadenza@@tag_inverse_of_scadenze@@tag_inverse_of_op_scadenze@@tag_inverse_of_pratica_scadenza@@tag_inverse_of_attivita_scadenza@@tag_profili_clienti@@tag_data@@tag_oggetto_scadenza@@tag_descrizione_scadenza@@tag_ricorrenza@@END_Scadenza@
+						<br class="clearBoth" />
+						<input type="hidden" name="fetch_from" value="@FETCH_FROM_VALUE@" />
+						<input type="hidden" name="fetch_to" value="@FETCH_TO_VALUE@" />
+						<div class="buttonrow">
+							<input type="submit" name="post_search" class="button" title="avvia la ricerca" value="cerca" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>@END_TEMPLATE@

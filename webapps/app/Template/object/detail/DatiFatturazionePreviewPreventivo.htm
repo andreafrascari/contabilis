@@ -1,0 +1,119 @@
+@BEGIN_TEMPLATE@
+
+<div id="detail">
+<script type="text/javascript">
+function update_totals()	{
+		var forfait=0;
+		var prestazione=0;			
+		$("input[name^=forfait]").each(function()	{
+			if ($(this).val())	{
+				forfait +=parseInt($(this).val());
+			}			
+		 });
+		$("input[name^=prestazione]").each(function()	{
+			if ($(this).val())	{
+				prestazione +=parseInt($(this).val());
+			}			
+		 });
+		 $("#totaleforfait").html(forfait);
+		$("#totaleprestazione").html(prestazione);
+}
+</script>
+ 
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_DatiFatturazione@
+			
+			<div class="object-title">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella titolo scheda">
+							<tbody>
+							([[[@tag_inverse_of_dati_fatturazione@]!=[]]??[@tag_inverse_of_dati_fatturazione@]::[@tag_inverse_of_preventivo_listino@]])
+							</tbody>
+						</table>
+			</div>
+					
+				
+				<div id="object-body">
+				numero rate: @tag_n_rate#FLAT@
+				<h3>Listino</h3>
+								@BEGIN_listino@
+								
+									<div class="detail-component link1-N listino">
+									 <h4>fatturatazione a ora:</h4>
+										<ul>
+									@BEGIN_ItemListino[tipo='a ora']@
+  											<li>
+  												([[[@tag_titolo_per_fattura#FLAT@]!=[]]??
+  													[@tag_titolo_per_fattura#FLAT@]::[@tag_titolo#FLAT@]
+  												])
+  												 <span style="display:none">@tag_tipo#FLAT@</span>
+  											</li>
+									@END_ItemListino@
+										</ul>
+									</div>
+									
+									<div class="detail-component link1-N listino">
+									 <h4>fatturatazione a prestazione:</h4>
+										<ul>
+									@BEGIN_ItemListino[tipo='a prestazione']@
+  											<li>
+  												([[[@tag_titolo_per_fattura#FLAT@]!=[]]??
+  													[@tag_titolo_per_fattura#FLAT@]::[@tag_titolo#FLAT@]
+  												])
+												@tag_prezzo#FLAT@&euro; <span style="display:none">@tag_tipo#FLAT@</span>
+  												<input type="hidden" name="prestazione_@tag_ID#FLAT@" id="prestazione_@tag_ID#FLAT@" value="@tag_prezzo#FLAT@" />
+  											</li>
+									@END_ItemListino@
+											<li><strong>totale: </strong><span id="totaleprestazione">&euro;</span></li>
+									</ul></div>
+									
+									<div class="detail-component link1-N listino">
+									 <h4>fatturatazione a forfait:</h4>
+										<ul>
+									@BEGIN_ItemListino[tipo='a forfait']@
+  											<li>
+  												([[[@tag_titolo_per_fattura#FLAT@]!=[]]??
+  													[@tag_titolo_per_fattura#FLAT@]::[@tag_titolo#FLAT@]
+  												])
+  												@tag_prezzo#FLAT@&euro; (il prezzo non compare nel preventivo)<span style="display:none">@tag_tipo#FLAT@</span>
+  												@tag_descrizione#FLAT@
+  												<input type="hidden" name="forfait_@tag_ID#FLAT@"  id="forfait_@tag_ID#FLAT@" value="@tag_prezzo#FLAT@" />
+  											</li>
+									@END_ItemListino@
+										<li><strong>totale: </strong><span id="totaleforfait">&euro;</span></li>
+									</ul></div>
+									
+								@END_listino@ 
+					</div>
+
+		<script type="text/javascript">
+			update_totals();
+		</script>
+
+				
+				@END_DatiFatturazione@
+		</div>@END_TEMPLATE@

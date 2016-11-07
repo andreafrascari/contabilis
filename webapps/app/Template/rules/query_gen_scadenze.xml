@@ -1,0 +1,74 @@
+<serena>
+	<service name="get">
+		<Scadenza target="?" operation="select">
+			<ID />
+			<inverse_of_scadenze>
+				<Cliente target="?" operation="select">
+					<ID />
+				</Cliente>
+			</inverse_of_scadenze>
+			<inverse_of_op_scadenze>
+				<Operatore target="?" operation="select">
+					<ID />
+				</Operatore>
+			</inverse_of_op_scadenze>
+			<inverse_of_pratica_scadenza>
+				<Pratica target="?" operation="select">
+					<ID />
+					<codice />
+					<note />
+					<data_chiusura />
+					<stato />
+					<titolo />
+					<responsabile>
+						<Operatore>
+							<ID />
+						</Operatore>
+					</responsabile>
+					<cliente_pratica>
+						<Cliente>
+							<ID />
+						</Cliente>
+					</cliente_pratica>
+				</Pratica>
+			</inverse_of_pratica_scadenza>
+			<inverse_of_attivita_scadenza>
+				<Attivita target="?" operation="select">
+					<ID />
+					<titolo />
+					<stato_attivita />
+					<note />
+					<assegnata_a>
+						<Operatore>
+							<ID />
+						</Operatore>
+					</assegnata_a>
+					<inverse_of_attivita>
+						<Pratica>
+							<responsabile>
+								<Operatore>
+									<ID />
+								</Operatore>
+							</responsabile>
+						</Pratica>
+					</inverse_of_attivita>
+				</Attivita>
+			</inverse_of_attivita_scadenza>
+			<profili_clienti>
+				<ProfiloDinamicoClienti target-levels="1" target="?"
+					operation="select">
+					<ID />
+					<query />
+					<nome />
+				</ProfiloDinamicoClienti>
+			</profili_clienti>
+			<data />
+			<preavviso_gg />
+			<oggetto_scadenza />
+			<descrizione_scadenza />
+			<forza_sms />
+			<ricorrenza />
+			<fine_ricorrenza />
+		</Scadenza>
+	</service>
+</serena>

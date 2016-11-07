@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>ItemListino</title>  
+  <title_view>Item Listino Cliente</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_prestazioni_extra_forfait</name>  
+      <label>dati fatturazione</label>  
+      <detail>dati fatturazione</detail>  
+      <filter>dati fatturazione</filter>  
+      <list>dati fatturazione</list>  
+      <heading>5</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>da_metapratica</name>  
+      <label>da metapratica</label>  
+      <detail>da metapratica</detail>  
+      <detail_edit no-link-new="1">da metapratica</detail_edit>  
+      <filter>da metapratica</filter>  
+      <list>da metapratica</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>15</order>  
+      <detail_help>la scelta della metrapratica determina il preassegnamento dei relativi attributi .... che puoi pero sovrascrivere!</detail_help> 
+    </item>  
+    <item> 
+      <name>tipo</name>  
+      <label>tipo</label>  
+      <detail>tipo di fatturazione</detail>  
+      <detail_edit>tipo di fatturazione</detail_edit>  
+      <filter>tipo di fatturazione</filter>  
+      <list>tipo di fatturazione</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>titolo</name>  
+      <label>titolo</label>  
+      <detail>titolo</detail>  
+      <detail_edit>titolo</detail_edit>  
+      <filter>titolo</filter>  
+      <list>titolo</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>titolo_per_fattura</name>  
+      <label>titolo per fattura</label>  
+      <detail>titolo per fattura</detail>  
+      <detail_edit>titolo per fattura</detail_edit>
+      <detail_help>questa voce compare, se presente, in preventivi e proforma in luogo del titolo</detail_help>  
+      <filter>titolo per fattura</filter>  
+      <list>titolo per fattura</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>prezzo</name>  
+      <label>prezzo</label>  
+      <detail>prezzo</detail>  
+      <detail_edit>prezzo</detail_edit>  
+      <filter>prezzo</filter>  
+      <list>prezzo</list>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>55</order>  
+      <detail_help>solo nei casi di A FORFAIT (comunque non compare nel preventivo) e A PRESTAZIONE</detail_help> 
+    </item>  
+    <item> 
+      <name>descrizione</name>  
+      <label>descrizione</label>  
+      <detail>descrizione</detail>  
+      <detail_edit>descrizione</detail_edit>  
+      <detail_help>se presente, confluisce nel preventivo come specifica della voce (es per specificare cosa comprende un item a prestazione)</detail_help> 
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>61</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

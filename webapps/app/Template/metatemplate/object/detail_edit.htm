@@ -1,0 +1,164 @@
+@METABEGIN_TEMPLATE@
+	@BEGIN_TEMPLATE@
+		<script src="app/Javascript/anastasis/FormSender.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+
+		<div class="detail-edit detail-edit-@METAtag_bean.title@">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				<!--
+					<ul>
+						<li>inserire o modificare i dati proposti (asterisco = campi obbligatori)</li>
+						<li>premere il bottone <img src="app/Template/metaAmbiente/img/icon-edit.gif" alt="bottone editor" />, se presente, per avviare l'editor ed inserire campi formattati</li>
+						<li>caricare, se presenti, gli allegati desiderati nella sezione in fondo alla pagina</li>
+						<li>premere il bottone salva</li>
+					</ul>
+				-->
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato.
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@METABEGIN_bean@
+				@BEGIN_@METAtag_title@@
+					<div class="form-container form-container-@METAtag_title@">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="Indietro">
+												<img alt="Indietro" title="Indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+											</a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="Salva">
+												<img alt="Salva" title="Salva" src="app/Template/metaAmbiente/img/icon-save.gif" />
+											</a>
+										</li>
+										<!-- sava as new
+											<li>
+												<a tabindex="51" href="javascript:detailEdit.saveObjectAsNew();" title="Salva come nuovo">
+													<img alt="Salva come nuovo" title="Salva come nuovo" src="app/Template/metaAmbiente/img/icon-save-new.gif" />
+												</a>
+											</li>
+										-->
+
+										([
+											[ [@tag_ID#FLAT@] != [] && [@METAtag_no_deletion@] != [1]]
+											?? [
+												<li>
+													<a tabindex="51" href="javascript:detailEdit.delObject('forced_post_save');" title="Cancella">
+														<img alt="Cancella" title="Cancella" src="app/Template/metaAmbiente/img/icon-delete.gif" />
+													</a>
+												</li>
+											]
+										])
+										<!-- da approvare: set permessi -->
+										<!--
+											@BLOCK_BEGIN_AUTH@
+												<li>
+													<a href="?q=@MODULE@/instance_auth_edit&amp;p=@CLASS@/_a_ID/_v_@INSTANCE@" title="setta i permessi"><img alt="setta i permessi" title="setta i permessi" src="app/Template/metaAmbiente/img/icon-auth.gif" /></a>
+												</li>
+											@BLOCK_END_AUTH@
+										-->
+									</ul>
+									<!--
+										<div class="object-legenda">
+											obbligatorio<div class="object-needed">*</div>
+											<br />
+											falcoltativo<div class="object-optional">*</div>
+										</div>
+									-->
+								</div>
+
+								<!--CORPO-->
+								<div class="detail-body">
+									@METABEGIN_attributes@
+										@METABEGIN_item[not(heading=2) and detail_edit and not(admin_only)]@
+											@tag_@METAtag_name@@
+										@METAEND_item@
+									@METAEND_attributes@
+								</div>
+								<!--FINE CORPO-->
+
+								<!--SYSTEM -->
+								<div class="detail-edit-system">
+									<!-- In questa sezione si abilita, mediante la configurazione
+										 degli interface per i campi di sistema, la
+										 possibilita' di modificarli, per esempio per activation flag-->
+									@METABEGIN_attributes@
+										@METABEGIN_item[admin_only and not(read_only)]@
+											@tag_@METAtag_name@@
+										@METAEND_item@
+									@METAEND_attributes@
+								</div>
+								<!--FINE SYSTEM-->
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							@METABEGIN_attributes@
+								@METABEGIN_item[(heading=2) and detail_edit]@
+									@tag_@METAtag_name@@
+								@METAEND_item@
+							@METAEND_attributes@
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								<!-- sava as new
+									<li>
+										<a href="javascript:detailEdit.saveObjectAsNew();" title="salva la scheda come nuovo oggetto"><img alt="salva la scheda come nuovo oggetto" title="salva la scheda come nuovo oggetto" src="app/Template/metaAmbiente/img/icon-save-new.gif" /></a>
+									</li>
+								-->
+
+								([
+											[ [@tag_ID#FLAT@] != [] && [@METAtag_no_deletion@] != [1]]
+											?? [
+										<li>
+											<a href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+										</li>
+									]
+								])
+							</ul>
+
+							<!--
+								<div class="object-legenda">
+									obbligatorio<div class="object-needed">*</div>
+									<br />
+									falcoltativo<div class="object-optional">*</div>
+								</div>
+							-->
+						</div>
+					</div>
+				@END_@METAtag_title@@
+			@METAEND_bean@
+		</div>
+	@END_TEMPLATE@
+@METAEND_TEMPLATE@

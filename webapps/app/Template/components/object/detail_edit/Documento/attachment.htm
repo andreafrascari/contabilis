@@ -1,0 +1,113 @@
+<script type="text/javascript">
+	var registrar=detailEdit;
+	if(typeof(popupDetailEdit)!="undefined") registrar=popupDetailEdit;
+	/**
+	 * Comando per rimuovere un file allegato
+	 */
+	Anastasis.FormSender.prototype.remove=function(url,idForm,nomeCampoFile,contenitoreID,callback)
+	{
+	  var action=function(response)
+	  			{
+	  				if(!response.nodeType) response=Anastasis.Utils.parseXML(response);
+	    			var msg=Anastasis.XMessage.buildXMessage(response);
+
+	  				if(msg.isErrorMessage()) alert(msg.error);
+	  				else if(callback) callback();
+	  			}
+	  anastasis.ajax.send(null,url,"GET",false,true,action);
+	}
+	
+</script>
+<div class="object-attachment">
+  <div class="object-label">@LABEL@
+	([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+  </div>
+  <div class="object-data">
+    <form class="form_upload" id="upload_@ELEM@" method="post" enctype="multipart/form-data" action="@CONTEXT@/Attachment?q=upload">
+     <fieldset style="border:none;">
+      <!-- ATTENZIONE!!!!! il file deve essere IL PRIMO ELEMENTO!!!!!! -->
+      @BLOCK_BEGIN_NEW@
+      <div id="div_@ELEM@">
+        <label for="file_@ELEM@">Oggetto da caricare:</label>
+        <input tabindex="10" title="Oggetto da caricare" type="file" size="34" name="file" id="file_@ELEM@" onchange="if(this.value) {document.getElementById('required_title_@ELEM@').value='true';document.getElementById('required_alt_@ELEM@').value='true'; try{if(!document.getElementById('title_@ELEM@').value) { var val=this.value.split('\\'); val=val[val.length-1]; document.getElementById('title_@ELEM@').value=val; document.getElementById('alt_@ELEM@').value=val;}}catch(e){}} else {document.getElementById('required_title_@ELEM@').value='false';document.getElementById('required_alt_@ELEM@').value='false';  }"/>
+	      <br style="clear:both" />
+
+		<label for="is_external_link_@ELEM@">Si tratta invece di un link esterno:</label>
+        <input tabindex="10" title="Si tratta di un link esterno" type="checkbox" name="is_external_link" id="is_external_link_@ELEM@" onclick="document.getElementById('file_@ELEM@').disabled=this.checked; if(this.checked) {document.getElementById('required_title_@ELEM@').value='true';document.getElementById('required_alt_@ELEM@').value='true';} else {document.getElementById('required_title_@ELEM@').value='false';document.getElementById('required_alt_@ELEM@').value='false';}" />
+
+        <!-- Trucchetto per l'obbligatorieta' del testo alternativo -->
+        <input type="hidden" id="type_title_@ELEM@" value="1" />
+	  	<input type="hidden" id="required_title_@ELEM@" value="false" />
+	  	<input type="hidden" id="label_title_@ELEM@" value="@LABEL@ - Testo alternativo" />
+	  	<!-- e del testo -->
+        <input type="hidden" id="type_alt_@ELEM@" value="1" />
+	  	<input type="hidden" id="required_alt_@ELEM@" value="false" />
+	  	<input type="hidden" id="label_alt_@ELEM@" value="@LABEL@ - Link/didascalia/href" />
+
+
+      </div>
+      @BLOCK_END_NEW@
+      @BLOCK_BEGIN_REMOVE@
+        <div id="div_@ELEM@" style="display: none">
+          <label for="file_@ELEM@">Oggetto da caricare:</label>
+          <input disabled="disabled" title="Oggetto da caricare" type="file" size="50" name="file" id="file_@ELEM@" />
+        </div>
+        <div id="divremove_@ELEM@">
+          <label for="remove_@ELEM@">Allegato presente:</label>
+          <input tabindex="10" type="button" id="remove_@ELEM@" onclick="registrar.remove('@CONTEXT@/DandL?q=revision&amp;id=@ID@','upload_@ELEM@','file'); document.getElementById('required_title_@ELEM@').value='false'" value="nuova revisione" title="nuova revisione" />
+          <input type="hidden" name="id_attachment" value ="@ID@" />
+        </div>
+
+        <!-- Trucchetto per l'obbligatorieta' del testo alternativo -->
+        <input type="hidden" id="type_title_@ELEM@" value="1" />
+	  	<input type="hidden" id="required_title_@ELEM@" value="true" />
+	  	<input type="hidden" id="label_title_@ELEM@" value="Testo alternativo" />
+
+      @BLOCK_END_REMOVE@
+      <br style="clear:both" />
+
+      <label for="title_@ELEM@">Testo alternativo: <span class="object-needed">*</span></label>
+      <input tabindex="10" title="Testo alternativo" type="text" name="title" id="title_@ELEM@" size="60" value="@ALT_VAL@"
+      		 onchange="try{if(this.value.match('^'+document.getElementById('alt_@ELEM@').value)) document.getElementById('alt_@ELEM@').value=this.value;}catch(e){}" />
+
+
+      <br style="clear:both" />
+
+      <label for="alt_@ELEM@">Link/didascalia/href: <span class="object-needed">*</span></label>
+      <input tabindex="10" title="Link/didascalia/href" type="text" name="link" id="alt_@ELEM@" size="60" value="@LINK_VAL@" />
+      <br style="clear:both" />
+
+	  <div class="object-help">Per gli <strong>allegati</strong>: il testo su cui cliccare per il download; per le <strong>immagini</strong>: la didascalia; per i <strong>link esterni</strong>: l'href del link <br />@HELP@</div>
+
+      <input type="hidden" name="class" value="@CLASS@" />
+      <input type="hidden" name="instance" value="@INSTANCE@" />
+      <input type="hidden" name="type" value="@TYPE@" />
+      </fieldset>
+    </form>
+    <div id="progressbar_@ELEM@" style="display: none">
+      File:
+      <span id="nomefile_@ELEM@">
+      </span>
+      <br />
+      Progresso:
+      <span id="progresso_@ELEM@">
+        0
+      </span>%
+      <div class="contenitore_progressbar">
+        <div id="indicatore_progressbar_@ELEM@" class="indicatore_progressbar" style="width: 0%;">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@BLOCK_BEGIN_NEW1@
+<script type="text/javascript">
+	registrar.register("upload_@ELEM@","file","INP_@ELEM@");
+</script>
+@BLOCK_END_NEW1@
+@BLOCK_BEGIN_REMOVE1@
+<script type="text/javascript">
+	registrar.register("upload_@ELEM@",null,"INP_@ELEM@");
+</script>
+@BLOCK_END_REMOVE1@

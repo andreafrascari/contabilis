@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<CONFIGURAZIONE>
+	<!-- Per maggiori informazioni sui parametri di questo file
+		 visitare la pagina:
+		 http://doc.sere-na.it/Serena_Persistence/config_persistence.html
+	-->
+	<DATABASE>
+		<!--
+			STRINGA_CONNESSIONE. La stringa JDBC di connessione. 
+			
+			Mysql: Ad esempio, se il database server e' MySql, 
+			il server host e' localhost, la porta e' la 3306 
+			e il nome del database e' database_serena, 
+			la stringa di connessione sara':
+			jdbc:mysql://localhost:3306/database_serena
+			
+			SQL Server: Se il database server e' SQL Server 
+			(stesso host, stessa porta, stesso nome di database), 
+			la stringa di connessione sara':
+			jdbc:jtds:sqlserver://localhost:3306/database_serena
+
+			Microsoft Access: Se il database server e' Microsoft Access
+			(stesso host, stessa porta, stesso nome di database,
+			nome del file data/database.mdb), 
+			la stringa di connessione sara':
+			jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=data/database.mdb
+			
+			Oracle: Se il database server e' Oracle
+			jdbc:oracle:thin:@//localhost:1521/XE			 
+			
+			H2: Se il database e' H2 database e supponendo di avere un db
+			nella posizione ./database/serena_db  
+			jdbc:h2:database/serena_db
+			
+			Per maggiori informazioni si veda la pagina di Wikipedia su JDBC:
+			http://it.wikipedia.org/wiki/JDBC
+		-->
+    	
+    	<STRINGA_CONNESSIONE>jdbc:mysql://localhost:3306/tullini</STRINGA_CONNESSIONE>
+		<!--
+			NOME_UTENTE. L'username da usare per accedere al database. 
+		-->    	
+		<NOME_UTENTE>tullini</NOME_UTENTE>
+		<!--
+			PASSWORD. La password da usare per accedere al database. 
+		-->
+		<PASSWORD>h4w%pi!M</PASSWORD>
+		<!--
+			DRIVER. Il driver JDBC da usare. 
+			
+			Per MySql (MySqlConnector) indicare:
+			<DRIVER>com.mysql.jdbc.Driver</DRIVER>
+			
+			Per SQL Server indicare:
+			<DRIVER>net.sourceforge.jtds.jdbc.Driver</DRIVER>
+			
+			Per Microsoft Access indicare:
+			<DRIVER>sun.jdbc.odbc.JdbcOdbcDriver</DRIVER>
+			
+			Per Oracle Indicare:
+			<DRIVER>oracle.jdbc.driver.OracleDriver</DRIVER>
+			
+			Per H2 Indicare:
+			<DRIVER>org.h2.Driver</DRIVER>
+		-->
+		<DRIVER>com.mysql.jdbc.Driver</DRIVER> 
+    	
+		<!--
+			LOG_FILE. Il file di log relativo alle connessioni al database. 
+		-->		
+		<LOG_FILE>/var/serena/TulliniHelpGest/log/pool_log.log</LOG_FILE>		
+		
+		<!--
+			MIN_IDLE_CONNECTIONS. Il numero minimo di connessioni al database da
+			lasciare sempre aperte, anche quando non utilizzate. Serve per 
+			velocizzare gli accessi (se c'e' una connessione gia' libera, 
+			non bisogna perdere tempo per crearla). 
+		-->
+		<MIN_IDLE_CONNECTIONS>5</MIN_IDLE_CONNECTIONS>
+    	<!--
+	    	MAX_IDLE_CONNECTIONS. Il numero massimo di connessioni al database 
+	    	inutilizzate. Inserendo un numero non eccessivamente elevato, 
+	    	si evita di sprecare connessioni (considerando che il 
+	    	database server ha sempre un limite massimo di connessioni aperte
+	    	che riesce a gestire). 
+    	-->
+		<MAX_IDLE_CONNECTIONS>20</MAX_IDLE_CONNECTIONS> <!-- valore importante: la somma di tutti le applicazioni deve essere < del max_connection di mysql -->
+    	<!--
+    		MAX_ACTIVE_CONNECTIONS. Il numero massimo di connessioni 
+    		al database attive. Superato il numero, il sistema attendera' 
+    		che se ne liberi qualcuna prima di crearne una nuova.
+    		Per una stima sul valore utilizzare la seguente formula:
+    		**** MAX_ACTIVE_CONNECTIONS = massimo_numero_di_utenti_contemporanei * profondita_media_delle_query ****
+    		Come "profondita_media_delle_query" si pu� utilizzare 2: 
+    		il default proposto supporta quindi una 50 di utenti che lavorano contemporaneamente
+    		IMPORTANTE: finite le connessioni, i richiedenti in attesa registreranno errori, 
+    		ma al termine del picco tutto si ripristiner� 
+    	-->
+		<MAX_ACTIVE_CONNECTIONS>200</MAX_ACTIVE_CONNECTIONS>
+    	<!--
+    		MAX_WAIT. Il tempo (in millisecondi) che il persistence attende, 
+    		dopo aver richiesto una connessione al server, 
+    		prima di andare in timeout. 
+    	-->
+		<MAX_WAIT>2000</MAX_WAIT> <!-- in msecs (attesa per richiesta in caso di "rotten connection"...-->
+    	<!--
+    		MIN_EVICTABLE_IDLE_TIME. Il tempo (in millisecondi) oltre il quale 
+    		una connessione inutilizzata viene candidata per essere distrutta.
+    		(OPTIMISATION: 18-2-2011) 
+    	-->
+		<MIN_EVICTABLE_IDLE_TIME>30000</MIN_EVICTABLE_IDLE_TIME> <!-- 30 secs -->
+		<!--
+			EVICTION_RUN_TIME. Il tempo (in millisecondi) ogni quanto il sistema 
+			controllera' se ci sono connessioni da distruggere. 
+		-->
+		<EVICTION_RUN_TIME>60000</EVICTION_RUN_TIME> <!-- 1 min -->
+
+		<!--
+			Si consiglia di inserire i valori in modo che:
+				* EVICTION_RUN_TIME < MIN_EVICTABLE_IDLE_TIME < Wait_timeout_del_server
+    			* la somma delle MAX_IDLE_CONNECTIONS di tutte le applicazioni 
+    			  sia minore del max_connections del database server 
+		-->
+		
+		<!--
+	    	DB_TYPE infica che tipo db si sta utilizzando. 
+	    	I valori che puo' assumere sono: 
+			1 se il DB e' MS SQLServer 2000
+			2 se il DB e' MySql  
+			3 se il DB e' Access
+			4 se il DB e' Oracle
+			5 se il DB e' H2 
+		-->
+		<DB_TYPE>2</DB_TYPE>
+	</DATABASE>
+
+	<PARAMETRI>
+		<!--
+			DELETE_TYPE. Il tipo di cancellazione dei record da usare. 
+			Il valore puo' essere logical (i record non vengono cancellati; 
+			viene solo impostato a 1 il relativo deletion_flag) 
+			oppure physical (il record viene cancellato davvero). 
+		-->
+		<PARAM NOME="DELETE_TYPE">logical</PARAM>
+		<!--
+			ONTHOLOGY_MAX_DEPTH. Profondita' massima che possono avere 
+			le query inviate al Sere-na Persistence. Viene utilizzato
+			per evitare i loop infiniti (in assenza di <inverse> nell'entity). 
+		-->						
+		<PARAM NOME="ONTHOLOGY_MAX_DEPTH">5</PARAM>
+		<!--
+			INTERFACE_DATE_FORMAT. Il formato usato dall'applicazione 
+			per il campo con la data. Si consiglia di usare il formato 
+			dd/mm/yyyy. 
+		-->
+		<PARAM NOME="INTERFACE_DATE_FORMAT">dd/MM/yyyy</PARAM>
+		<!--
+			INTERFACE_DATE_FORMAT_2. Un formato alternativo usato dall'applicazione
+			per il campo con la data. Si consiglia di usare il formato dd-mm-yyyy 
+		-->
+		<PARAM NOME="INTERFACE_DATE_FORMAT_2">dd-MM-yyyy</PARAM>
+		<!--
+			FROM_DB_DATE_FORMAT. Il formato usato dal database per il campo
+			con la data. Si consiglia di usare il formato yyyy-mm-dd 
+		--> 
+		<PARAM NOME="FROM_DB_DATE_FORMAT">yyyy-MM-dd</PARAM>
+
+		<!--
+			INTERFACE_DATETIME_FORMAT. Il formato usato dall'applicazione 
+			per i campi con data e ora. Si consiglia di usare 
+			il formato dd/mm/yyyy HH:mm:ss 
+		-->		
+		<PARAM NOME="INTERFACE_DATETIME_FORMAT">dd/MM/yyyy HH:mm:ss</PARAM>
+ 		<!--
+ 			INTERFACE_DATETIME_FORMAT_2. Un formato alternativo usato 
+ 			dall'applicazione per i campi con data e ora. Si consiglia di usare
+ 			il formato dd-mm-yyyy HH:mm:ss 
+ 		-->
+		<PARAM NOME="INTERFACE_DATETIME_FORMAT_2">dd-MM-yyyy HH:mm:ss</PARAM>
+		<!--
+			FROM_DB_DATETIME_FORMAT. Il formato usato dal database per i campi 
+			con data e ora. Solitamente non e' settato. Si consiglia di usare 
+			il formato yyyy-mm-dd HH:mm:ss 
+		--> 
+		<PARAM NOME="FROM_DB_DATETIME_FORMAT">yyyy-MM-dd HH:mm:ss</PARAM>
+
+		<!--
+			LOG4J. Il percorso relativo dove trovare il file logservice.xml 
+			da usare per effettuare i log delle operazioni del Persistence. 
+			Solitamente e' settato a /conf/system/logservice.xml 
+		-->
+		<PARAM NOME="LOG4J">/conf/system/logservice.xml</PARAM>
+		
+		<!--
+			DATA_CONTAINER_MAX_SIZE. Dimensione massima per i contenitori degli xml x-serena.
+			Evita che una richiesta produca il caricamento e la creazione di un numero tale di istanze da 
+			causare errori di tipo "out of memory".
+			Non inserire valori minori di 100, che potrebbero interferire con numero di moduli abilitati
+		-->
+		<PARAM NOME="DATA_CONTAINER_MAX_SIZE">50000</PARAM>
+		
+		<!--
+			EXCLUDE_ID_RESERVATION_CACHE_FOR. Per escludere determinate classi dalla IDReservationCache.
+			Per queste classi (lista separata da virgole MA SENZA SPAZI) ad ogni inser viene chiesto l'ID dal database
+			ATTENZIONE!!!! Potrebbero verificarsi problemi in casi di insert multilivello in cui le istanze delle classi
+			elenacate compaiono a diverse profondita. 
+		 
+		<PARAM NOME="EXCLUDE_ID_RESERVATION_CACHE_FOR">X,Y</PARAM>
+		-->
+		
+	</PARAMETRI>
+</CONFIGURAZIONE>

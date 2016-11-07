@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>DatiFatturazione</title>  
+  <title_view>Listino</title_view>  
+  <no_insert_in_filter>1</no_insert_in_filter>
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>inverse_of_dati_fatturazione</name>  
+      <label>cliente</label>  
+      <detail>cliente</detail>  
+      <filter>cliente</filter>  
+      <list>cliente</list>  
+      <heading>5</heading>
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>1</order> 
+    </item>  
+    <item> 
+      <name>inverse_of_preventivo_listino</name>  
+      <label>candidato cliente</label>  
+      <detail>candidato cliente</detail>  
+      <heading>5</heading>  
+      <max_length/>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <default/>  
+      <order>11</order> 
+    </item> 
+    <item> 
+      <name>n_rate</name>  
+      <label>numero rate</label>  
+      <detail>numero rate</detail>  
+      <detail_edit>numero rate</detail_edit>  
+      <filter>numero rate</filter>  
+      <list>numero rate</list>  
+      <detail_help>massimo 12 rate: in base al numero di rate, il sistema desume il calendario di fatturazione. ATTENZIONE: se si cambia il numero a calendario fatturazione creato, AGGIORNARE IL CALENDARIO a mano!</detail_help>  
+      <heading>1</heading> 
+      <needed>1</needed>   
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>data_prima_rata</name>  
+      <label>data fatturazione</label> 
+      <detail_edit>data fatturazione</detail_edit>
+      <detail>data fatturazione</detail>
+      <detail_help>specificare (facoltativamente) solo nel caso di rata singola</detail_help>   
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>listino</name>  
+      <label>listino</label>  
+      <detail inpage="1">item listino</detail>  
+      <detail_edit>item listino</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order>  
+      <popup_detail_edit>big</popup_detail_edit> 
+    </item>   
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

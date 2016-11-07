@@ -1,0 +1,71 @@
+@BEGIN_TEMPLATE@<div class="operation-result">
+			<div id="splash">
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_SUCCESS@
+				<div class="alert alert-success" role="alert">
+<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Operazione effettuata correttamente!
+				</div>
+    
+				<div class="navigation-options">
+					
+					<br />
+					E' ora possibile:
+					<div class="list-group">
+							<a class="list-group-item active"  title="Tornare al ticket per contabilizzarne i messaggi" href="@HREF_DETAIL@">Tornare al ticket per contabilizzarne i messaggi</a>
+						
+							<a class="list-group-item" title="Modificare il ticket" href="@HREF_DETAIL_EDIT@">Modificare il ticket</a>
+						
+							<a class="list-group-item" title="Tornare al cruscotto" href="Index">Tornare al cruscotto</a> 
+					</div>
+				</div>
+			@BLOCK_END_RESULT_SUCCESS@
+		
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>        
+    
+				<div class="navigation-options">
+					Operazioni disponibili: 
+					<ul>
+					
+						<li><a title="Tornare al filtro di ricerca" href="@HREF_FILTER@">Tornare al filtro di ricerca</a></li>
+					</ul>
+					
+					@BLOCK_BEGIN_EXISTING@
+						<div id="existing-instance">
+							<p>Ecco l&apos;oggetto @CLASS_NAME@ presente:</p>
+							@OLD_OBJECT@
+						</div>
+						
+					@BLOCK_END_EXISTING@
+					
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+		</div>
+		
+		
+		@BLOCK_BEGIN_DUPLICATE_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave; gi&agrave; presente nel sistema.
+		@BLOCK_END_DUPLICATE_ENTRY@
+
+		@BLOCK_BEGIN_DUPLICATE_DELETED_ENTRY@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma era stato precedentemente cancellato.
+		@BLOCK_END_DUPLICATE_DELETED_ENTRY@
+
+		@BLOCK_BEGIN_NULL_IN_OBLIGATORY@
+			uno o pi&ugrave; attributi obbligatori non sono stati inseriti.
+		@BLOCK_END_NULL_IN_OBLIGATORY@
+
+		@BLOCK_BEGIN_DUPLICATE_ENTRY_NO_PERMISSION@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non si hanno i permessi per ripristinarlo o sostituirlo.
+		@BLOCK_END_DUPLICATE_ENTRY_NO_PERMISSION@
+
+		@BLOCK_BEGIN_RECOVER_IMPOSSIBLE@
+			l&apos;oggetto che si sta tentando di inserire &egrave;  gi&agrave; presente nel sistema, ma non &egrave; possibile procedere con ris
+			pristino o sostituzione: contattare il supporto tecnico
+		@BLOCK_END_RECOVER_IMPOSSIBLE@@END_TEMPLATE@

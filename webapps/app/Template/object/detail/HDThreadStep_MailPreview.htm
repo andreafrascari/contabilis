@@ -1,0 +1,51 @@
+@BEGIN_TEMPLATE@<div id="detail">
+			
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_HDThreadStep@
+
+
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_th_messaggio@
+								
+								@tag_allegato@
+								@tag_allegato_1@
+							</tbody>
+						</table>
+					</div>
+
+			
+
+					@BLOCK_BEGIN_EDIT@
+				<div class="list-group">
+							<a class="list-group-item active"  href="?q=ticket/sendmail/CLS=HDThreadStep/ID=@tag_ID#FLAT@" title="Invia email al cliente" @ajaxable="target=id_mail_result">Invia email al cliente</a>
+							<a class="list-group-item" href="@HREF_DETAIL_EDIT@" title="Modifica i dati dello scambio col cliente">Modifica</a>
+				<div class="btn-group">
+
+					@BLOCK_END_EDIT@
+
+					<div id="id_mail_result" class="alert alert-success" role="alert"></div>
+				</div>
+				
+				
+			@END_HDThreadStep@
+		</div>@END_TEMPLATE@

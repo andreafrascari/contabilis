@@ -1,0 +1,33 @@
+@BEGIN_TEMPLATE@
+    @BEGIN__system_cms_node@
+    @PAGE_TITLE@@tag_title@/@PAGE_TITLE@
+
+   
+([ [ [@tag_ID#FLAT@] != [1] ] ?? [
+	    <h2>@tag_title@</h2>
+  ]])
+
+
+	
+
+	([ [ [@tag_teaser@] != [] ] ?? [<h4 class="teaser">@tag_teaser@</h4>] ])
+	<div class="testo">@tag_body@</div>
+
+	@END__system_cms_node@
+
+	@BLOCK_BEGIN_RESULT_ERROR@
+	    <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	    	Si &egrave; verificato un errore: @ERROR_MESSAGE@
+		</div>
+    @BLOCK_END_RESULT_ERROR@
+
+    @BLOCK_BEGIN_RESULT_EMPTY@
+		<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	    	Ci dispiace: la pagina cercata non esiste.
+	    </div>
+    @BLOCK_END_RESULT_EMPTY@
+
+
+@END_TEMPLATE@

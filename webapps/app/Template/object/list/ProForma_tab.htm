@@ -1,0 +1,131 @@
+@BEGIN_TEMPLATE@<div>
+			<div id="list" class="tabbed">
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+
+													
+						@BLOCK_BEGIN_EDIT@
+							([
+									[[] != [1] && [] != [1]]
+									?? [
+										<li>
+											<a href="@HREF_DETAIL_EDIT@" title="inserisci una nuova scheda"><img alt="inserisci una nuova scheda" title="inserisci una nuova scheda" src="app/Template/metaAmbiente/img/icon-new.gif" /></a>
+										</li>
+									]
+								])
+						@BLOCK_END_EDIT@
+					</ul>
+				</div>
+
+				<h2>@FUN_CURRENT_DATA(class=Cliente,param=cliente)@</h2>
+
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+				([
+						[[@tag_ProForma.ID#FLAT@] != []]
+						?? [
+						
+						
+			@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_ProForma.inverse_of_proforma.Cliente.ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('ProForma');
+		});
+		</script>
+						
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+									@BLOCK_BEGIN_HEADER@
+										<th scope="col">
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													<a href="@HEADER_HREF@" @ajaxable="target=list,replace=true,target_result=list" ;>
+												]
+											])
+											@HEADER_LABEL@
+											([
+												[[@HEADER_HREF@] != []]
+												?? [
+													</a>
+												]
+											])
+										</th>
+									@BLOCK_END_HEADER@
+									<th scope="col">Azioni</th>
+								</tr>
+	
+								@BEGIN_ProForma@([
+										[[@XPATH_FUN((count(preceding-sibling::ProForma)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										<td>@tag_inverse_of_proforma.Cliente.cliente#FLAT@</td>@tag_anno_contabile@@tag_numero@@tag_stato_proforma@@tag_data@@tag_data_pagamento@@tag_competenza@@tag_non_incassabile@<td>([[[@tag_fattura.Fattura.numero#FLAT@] != []] ?? [<a href="?q=object/detail&amp;p=Fattura/_a_ID/_v_@tag_fattura.Fattura.ID#FLAT@" title="vai alla fattura @tag_fattura.Fattura.numero#FLAT@">@tag_fattura.Fattura.numero#FLAT@</a>] :: [&nbsp;]])</td>
+										<td>@FUN_MODULE(q=object/detail,p=SollecitoPagamento/_a_inverse_of_solleciti_pagamento/_c_ProForma/_a_ID/_v_@tag_ID#FLAT@,t=SollecitoPagamento_cell,page=null)@</td>
+											<td>
+												<a class="link_map" href="?q=@MODULE@/detail&amp;p=ProForma/_a_ID/_v_@tag_ID#FLAT@" title="Vai alla scheda dell'oggetto"><img alt="Vai alla scheda dell'oggetto" title="Vai alla scheda dell'oggetto"  src="app/Template/metaAmbiente/img/icon-forth.gif" /></a>
+												([
+												[[@FUN_CHECK_INSTANCE_AUTH(CLS=@CLASS@,ID=@tag_ID#FLAT@,LEVEL=2,CREATION_USER=@tag_creation_user#FLAT@)@] == [true] && [@tag_stato_proforma#FLAT@] != [spedita]]
+												?? [
+													<span class="NoVisibility">|</span>
+																	<a class="link_map" href="?q=@MODULE@/detail_edit&amp;p=ProForma/_a_ID/_v_@tag_ID#FLAT@" title="Modifica i dati dell'oggetto">
+																		<img alt="Modifica i dati dell'oggetto" title="Modifica i dati dell'oggetto"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+																	</a>
+												]
+												])
+												
+											</td>
+									</tr>@END_ProForma@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

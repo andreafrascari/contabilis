@@ -1,0 +1,102 @@
+@BEGIN_TEMPLATE@<div>
+<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li>
+							<a href="javascript:history.back();" title="indietro">
+								<img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" />
+							</a>
+						</li>
+											
+					</ul>
+				</div>
+
+			<div id="list" class="tabbed">
+				<h2>@FUN_CURRENT_DATA(class=Cliente,param=cliente)@</h2>
+		
+				
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+				
+				
+			@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_DocumentoCliente.da_cliente.Cliente.ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('DocumentoCliente');
+		});
+		</script>
+				
+
+				([
+						[[@tag_DocumentoCliente.ID#FLAT@] != []]
+						?? [
+							<table width="100%" summary="tabella risultati" border="0" cellspacing="0" cellpadding="0" class="sortable" id="risultati">
+								<tr>
+										<th scope="col">data</th>
+										<th scope="col">oggetto</th>
+										<th scope="col">note</th>
+										<th scope="col">scarica</th>
+										<th scope="col">archiviato in DMS</th>
+								</tr>
+	
+								@BEGIN_DocumentoCliente@([
+										[[@XPATH_FUN((count(preceding-sibling::DocumentoCliente)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+	
+										@tag_data@@tag_oggetto@@tag_note@
+										<td class="attachment">
+											<a title="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" target="_blank" 
+											href="Attachment?q=get&id=@tag_allegato._system_attachment.ID#FLAT@"><img src="app/Template/metaAmbiente/img/icon-attachment.png" alt="scarica il documento @tag_allegato._system_attachment.sa_link_text#FLAT@ (size: @tag_allegato._system_attachment.sa_size#FLAT@KB)" /></a>
+										</td>
+										<td>
+										([[[@tag_archiviato#FLAT@]==[true]]??[SI]::[NO: <a title="marca il doc come archiviato in DMS" @popup="dimensions=small,title=Marca come archiviato in DMS" href="?q=object/detail_edit&amp;t=DocumentoCliente_marca_archiviato&amp;p=DocumentoCliente/_a_ID/_v_@tag_ID#FLAT@">marca come archiviato in DMS<em></a>]])
+										</td>
+										
+									</tr>@END_DocumentoCliente@
+					  		</table>
+						]
+					])
+
+		  		
+
+		  		
+
+		  		<div class="pagine">
+					<ul>
+						@BLOCK_BEGIN_INDIETRO@
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_FIRST@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla prima pagina"><img src="app/Template/metaAmbiente/img/page-first.gif" alt="Vai alla prima pagina" /></a>
+							</li>
+							<li>
+								<a class="linkprev" href="@HREF_LIST_BACK@" @ajaxable="target=list,replace=true,target_result=list"  title="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)"><img src="app/Template/metaAmbiente/img/page-rw.gif" alt="Vai alla pagina precedente (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+						@BLOCK_END_INDIETRO@
+
+						<li><strong>@NUMERO_ELEMENTI@ elementi</strong> trovati - pagina @PAGINA_CORRENTE@</li>
+
+						@BLOCK_BEGIN_AVANTI@
+							<li>
+								<a class="linknext" href="@HREF_LIST@"  @ajaxable="target=list,replace=true,target_result=list" title="Vai alla pagina successiva (@PAGINA_SUCCESSIVA@)"><img src="app/Template/metaAmbiente/img/page-fw.gif" alt="Vai alla pagina successiva (@PAGINA_PRECEDENTE@)" /></a>
+							</li>
+							<li>
+								<a class="linkfirst" href="@HREF_LIST_LAST@" @ajaxable="target=list,replace=true,target_result=list" title="Vai all'ultima pagina"><img src="app/Template/metaAmbiente/img/page-last.gif" alt="Vai all'ultima pagina" /></a>
+							</li>
+						@BLOCK_END_AVANTI@
+					</ul>
+				</div>
+			</div>
+			<span id="apri-chiudi-filtro" title="apri/chiudi filtro di raffinamento">affina la ricerca</span>
+			<div @toggable="controller=apri-chiudi-filtro,init_state=closed">
+			 	@FUN_MODULE(q=object/simplefilter)@  
+			</div>
+		</div>@END_TEMPLATE@

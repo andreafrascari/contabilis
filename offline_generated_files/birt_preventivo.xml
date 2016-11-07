@@ -1,0 +1,34 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<ClienteCandidato>
+			<ID>1</ID>
+			<comune>Bologna</comune>
+			<codice_fiscale>02730111206</codice_fiscale>
+			<partita_iva>PI</partita_iva>
+			<cliente>AF Snc</cliente>
+			<email>afrascari@anastasis.it</email>
+			<cap>34000</cap>
+			<note>SP</note>
+			<indirizzo>via del pallone 23</indirizzo>
+			<telefono  />
+			<cliente_dal>2/2/12</cliente_dal>
+			<preventivo>il preventivo</preventivo>
+			<preventivo_listino>
+				<DatiFatturazione>
+					<n_rate>2</n_rate>
+					<data_prima_rata>2/2/12</data_prima_rata> 
+					<listino>
+						<ItemListino>
+							<tipo>a prestazione</tipo>
+							<titolo>titolo</titolo>	
+							<titolo_per_fattura>titolo_per_fattura</titolo_per_fattura>
+							<prezzo>230</prezzo>
+							<descrizione><ul><li>1</li><li>2</li></ul></descrizione>
+						</ItemListino>
+					</listino>
+				</DatiFatturazione>
+			</preventivo_listino> 
+		</ClienteCandidato>
+	</service>
+</serena>

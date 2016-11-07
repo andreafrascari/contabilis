@@ -1,0 +1,50 @@
+@BEGIN_TEMPLATE@<div class="inpage_detail">
+
+			<div class="inserto">
+				<ul class="clearfix toolbar">
+					([[[] != []]
+							?? [	
+							<li><a href="ModuleIndex?q=birtReport/give/CLS=@CLASS@/ID=@ID@/DOC=@CLASS@/FILE=@FILE@/TYPE=pdf" title="Genera versione pdf"><img alt="Genera versione pdf"  src="app/Template/metaAmbiente/img/icon-acrobat.gif" /></a></li>
+							]])
+							@BLOCK_BEGIN_EDIT@
+							([
+								[[] != [1]]
+								?? [
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+								]
+							])
+						@BLOCK_END_EDIT@
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_ItemListino@
+					<div class="object-inpage-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_da_metapratica@@tag_tipo@@tag_titolo@@tag_titolo_per_fattura@@tag_prezzo@@tag_descrizione@
+							</tbody>
+						</table>
+						<div class="aggiornamentoal">Prezzo aggiornato al @tag_last_modification_date#FLAT@ da @tag_last_modification_user#FLAT@</div>
+					</div>
+
+				
+				@END_ItemListino@
+		</div>@END_TEMPLATE@

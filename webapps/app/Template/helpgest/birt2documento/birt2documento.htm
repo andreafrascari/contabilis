@@ -1,0 +1,46 @@
+@BEGIN_TEMPLATE@
+		<div class="operation-result">
+			<div id="splash">
+				
+			</div>
+
+	@BLOCK_BEGIN_RESULT_SUCCESS@
+    	
+			<div class="alert alert-success" role="alert">
+<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Operazione avvenuta correttamente.
+				</div>
+    		<br />
+			<div class="navigation-options">
+				<ul>
+
+							<li>
+								Vai al <a title="vai al documento inserito" href="?q=object/detail&amp;p=Documento/_a_ID/_v_@ID@">documento inserito</a>
+							</li>
+							<li>
+								Lancia il <a title="lancia il workflow" href="?q=object/detail_edit&amp;p=DescrizioneDocumento/_a_inverse_of_tipologia/_c_Documento/_a_ID/_v_@ID@&amp;t=WizardUploadAndSendDocument&amp;cliente=@CLIENTE@">workflow relativo</a>
+							</li>
+				</ul>		
+			</div>    
+			 
+			
+	@BLOCK_END_RESULT_SUCCESS@
+		
+	@BLOCK_BEGIN_RESULT_ERROR@
+		<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			Si &egrave; verificato un errore: @ERROR_MESSAGE@
+		</div>        
+
+		<div class="navigation-options">
+				<ul>
+
+							<li><a href="javascript:history.back();" title="torna indietro">Indietro</a>
+							</li>
+				</ul>
+		</div>		 
+	@BLOCK_END_RESULT_ERROR@
+		</div>
+ 
+		
+	@END_TEMPLATE@

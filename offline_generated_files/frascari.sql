@@ -1,0 +1,1 @@
+ update `Cliente` set `cellulare` = '3287684316', email = 'andreafrascari@katamail.com', email3 = 'andreafrascari@katamail.com', email2 = 'andreafrascari@katamail.com', fax = 'andreafrascari@katamail.com';

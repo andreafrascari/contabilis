@@ -1,0 +1,87 @@
+@BEGIN_TEMPLATE@<script src="app/Javascript/anastasis/FormSender.js" type="text/javascript"></script>
+		<script src="app/Javascript/anastasis/serena/DetailEdit.js" type="text/javascript"></script>		
+		<script type="text/javascript">
+			detailEdit=new Anastasis.DetailEdit('detail-edit','Attachment?q=prepare','Attachment?q=status&amp;id=');
+		</script>
+
+		<div class="form-container form-container-">
+			<div id="splash">
+				<h2>@TITLE@</h2>
+				
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			@BEGIN_Sms@<div class="form-container">
+						<form id="detail-edit" method="post" action="@ACTION@">
+							<fieldset>
+								<legend>Inserire/modificare i dati</legend>
+								<div class="inserto">
+									<ul id="toolbar" class="clearfix">
+										<li>
+											<a tabindex="53" href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+										</li>
+										<li>
+											<a tabindex="50" href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+										</li>
+										
+										
+										
+									</ul>
+									
+								</div>
+
+								
+								<div class="detail-body">
+									@tag_ora_ricezione@
+								</div>
+								
+
+								
+
+								<input type="hidden" name="class" value="@CLASS@" />
+								<input type="hidden" name="r" value="@REDIRECT@" />
+								<input type="hidden" name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+							</fieldset>
+						</form>
+						<div class="detail-attachments">
+							
+						</div>
+
+						<div class="inserto">
+							<ul id="toolbar2" class="clearfix">
+								<li>
+									<a href="@BACK@" onclick="return confirm_exit();" title="indietro"><img alt="indietro" title="indietro" src="app/Template/metaAmbiente/img/icon-back.gif" /></a>
+								</li>
+								<li>
+									<a href="javascript:detailEdit.saveObject();" title="salva la scheda"><img alt="salva la scheda" title="salva la scheda" src="app/Template/metaAmbiente/img/icon-save.gif" /></a>
+								</li>
+								
+
+								([
+									[ [@tag_ID#FLAT@] != []  ]
+									?? [
+										<li>
+											<a href="javascript:detailEdit.delObject('forced_post_save');" title="cancella la scheda"><img alt="cancella la scheda" title="cancella la scheda"  src="app/Template/metaAmbiente/img/icon-delete.gif" /></a>
+										</li>
+									]
+								])
+							</ul>
+
+							
+						</div>
+					</div>@END_Sms@
+		</div>@END_TEMPLATE@

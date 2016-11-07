@@ -1,0 +1,55 @@
+@BEGIN_TEMPLATE@
+		<div class="operation-result">
+			<div id="splash">
+				
+			</div>
+
+			@BLOCK_BEGIN_RESULT_SUCCESS@
+				<div class="alert alert-success" role="alert">
+<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Operazione effettuata correttamente!
+				</div>
+				
+				@MESSAGE@
+    
+				<div class="navigation-options">
+					<h5>Possibilit&agrave; di navigazione:</h5>
+					<ul>
+						<li><a title="Tornare alla lista clienti" href="?q=object/list&amp;p=Cliente">Tornare alla lista clienti</a></li>
+						<li><a title="Tornare al filtro di ricerca clienti" href="?q=object/filter&amp;p=Cliente">Tornare al filtro di ricerca clienti</a></li>
+					</ul>
+				</div>
+			@BLOCK_END_RESULT_SUCCESS@
+			
+			@BLOCK_BEGIN_CONDITIONAL_SUCCESS@
+				
+				@MESSAGE@
+    
+				<div class="navigation-options">
+					<h5>Possibilit&agrave; di navigazione:</h5>
+					<ul>
+						<li><a title="Tornare alla lista clienti" href="?q=object/list&amp;p=Cliente">Tornare alla lista clienti</a></li>
+						<li><a title="Tornare al filtro di ricerca clienti" href="?q=object/filter&amp;p=Cliente">Tornare al filtro di ricerca clienti</a></li>
+					</ul>
+				</div>
+			@BLOCK_END_CONDITIONAL_SUCCESS@
+		
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>        
+    
+				<div class="navigation-options">
+					<h5>Operazioni disponibili:</h5>
+					<ul>
+						<li><a title="Tornare indietro e riprova modificando i dati" href="javascript:history.back();">Tornare indietro e riprova modificando i dati e premendo F5 prima di risalvare</a></li>
+						<li><a title="Tornare alla lista clienti" href="?q=object/list&amp;p=Cliente">Tornare alla lista clienti</a></li>
+						<li><a title="Tornare al filtro di ricerca clienti" href="?q=object/filter&amp;p=Cliente">Tornare al filtro di ricerca clienti</a></li>
+					</ul>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+		</div>
+		
+		
+	@END_TEMPLATE@

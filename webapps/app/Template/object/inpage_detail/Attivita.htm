@@ -1,0 +1,109 @@
+@BEGIN_TEMPLATE@
+
+
+		
+
+<div class="inpage_detail">
+
+@BEGIN_Attivita@
+			<div class="inserto">
+				<ul class="clearfix toolbar">
+									<li>
+										<a href="?q=object/detail&amp;p=Attivita/_a_ID/_v_@tag_ID#FLAT@" title="Dettaglio attivita">
+											<img alt="Dettaglio attivita" src="app/Template/metaAmbiente/img/icon-forth.gif" />
+										</a>
+									</li>
+					@BLOCK_BEGIN_EDIT@
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto">
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+					@BLOCK_END_EDIT@
+([[[@tag_inverse_of_attivita.Pratica.stato#FLAT@]!=[Chiusa]] ?? [
+					
+	<script type="text/javascript" >
+function prenotaTassametro@tag_ID#FLAT@() {
+		var path="ModuleIndex?q=helpgest/activitycache/id_att=@tag_ID#FLAT@/desc_att=@tag_titolo#FLAT@/desc_pra=@tag_inverse_of_attivita.Pratica.titolo#FLAT@/cliente=@tag_inverse_of_attivita.Pratica.cliente_pratica.Cliente.cliente#FLAT@";
+		var rep = $.ajax({
+	        url: path,
+	        async: false,
+	        type: "GET",
+	        cache: false
+	        }).responseText;		
+		try
+		{
+			var xmlrep = Anastasis.Utils.parseXML(rep);
+			anastasis.logger.info("res = " + rep);
+			var msg = Anastasis.XMessage.buildXMessage(xmlrep);
+			if(msg.isErrorMessage())
+			{
+				alert("Il sistema non riesce a prenotare il tassametro...");
+				return;
+			}
+			var mess=msg.selectSingleNode("result/message");
+			alert(Anastasis.Ajax.getText(mess));
+		} catch(e){alert("errore: "+e);}
+}
+</script>				
+					
+					<li>
+						<a href="javascript:prenotaTassametro@tag_ID#FLAT@();" title="prenota il tassametro per questa attivita"><img alt="prenota il tassametro per questa attivita" src="app/Template/metaAmbiente/img/icon-workflow.png" /></a>
+					</li>
+					<!-- 
+					<li>
+						<a @popup="dimensions=big" title="Registra lavoro su attivita" href="?q=object/popup_detail_edit&amp;p=LavoroSuAttivita&amp;a=_a_inverse_of_sessioni_di_lavoro/_c_Attivita/_a_ID/_v_@tag_ID#FLAT@" title="Contabilizza lavoro su attivita"><img alt="Contabilizza lavoro su attivita" src="app/Template/metaAmbiente/img/icon-workflow.png" /></a>
+					</li>
+					 -->
+					<li>
+						<a  href="?q=object/detail_edit&amp;p=LavoroSuAttivita&amp;a=_a_inverse_of_sessioni_di_lavoro/_c_Attivita/_a_ID/_v_@tag_ID#FLAT@" title="Contabilizza lavoro su attivita"><img alt="Contabilizza lavoro su attivita" src="app/Template/metaAmbiente/img/icon-hourglass.png" /></a>
+					</li>
+					
+					
+					
+]])					
+				</ul>
+			</div>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+			<div class="object-inpage-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_titolo@@tag_assegnata_a@
+								
+								<tr class="stato_attivita">
+									<th scope="row">minuti fatturati</th>
+									<td class="minutifatturati">@tag_stato_attivita#FLAT@</td>
+								</tr>
+								@tag_note@@tag_attivita_scadenza@@tag_cliente@
+							</tbody>
+						</table>
+					</div>
+
+				
+				([
+					[ [@tag_spese_anticipate@@tag_sessioni_di_lavoro@] != []]
+					?? [
+						<div class="object-inpage-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+									@tag_spese_anticipate@@tag_sessioni_di_lavoro@
+								</tbody>
+							</table>
+						</div>
+					]
+				])@END_Attivita@
+		</div>@END_TEMPLATE@

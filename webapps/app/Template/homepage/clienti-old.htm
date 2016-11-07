@@ -1,0 +1,38 @@
+<script type="text/javascript">
+$(document).ready(function()	{
+	toggle(null,'toggle_106','default_display_for_toggle_106','slow');
+});
+</script>
+
+
+
+<div id="home-cliente">
+<h2>Benvenuti nel Servizio DMS, il document manager di Studio Tullini</h2>
+
+<div id="welcome">
+Gentile cliente,<br />
+il servizio ha lo scopo di facilitarti la comunicazione con lo Studio, in particolare nello scambio di documenti, e prevede servizi che speriamo possano esserti utili come il memorandum delle <em>tue scadenze</em> (giorni in evidenza nel calendario).
+</div>
+<div id="left-box">
+<h3 class="ui-corner-all">Documenti DALLO Studio</h3>
+	@FUN_MODULE(q=object/list,p=Documento/_a_storia_documento/_c_StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,data_source=cliente-documenti,t=Documento_cliente_home,title=Documenti dallo Studio,order-by=data_riferimento desc)@
+	@FUN_MODULE(q=object/list,p=Documento/_a_storia_documento/_c_StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,data_source=cliente-corrispondenza,t=Documento_cliente_home,title=Corrispondenza dallo Studio,order-by=data_riferimento desc)@
+</div>
+
+
+<div id="right-box">
+<h3 class="ui-corner-all">Documenti PER LO Studio</h3>
+<div class="alert alert-info" role="alert">
+Hai della documentazione da inviare allo Studio? Compatta tutti i documenti in un file ZIP, e invialo premendo questo bottone:
+</div>
+		<div class="new-entry">
+			<a @popup="title=Caricamento e invio ZIP di documenti allo Studio,dimensions=big" title="invia nuovo documento zip" href="?q=object/detail_edit&amp;p=DocumentoCliente&amp;a=_a_da_cliente/_c_Cliente/_a_ID/_v_@FUN_CLIENTE_FROM_SYS_USER()@">Invia nuovo ZIP</a>
+		</div>
+
+	@FUN_MODULE(q=object/list,p=DocumentoCliente/_a_da_cliente/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,t=DocumentoCliente_cliente_home,title=Documenti inviati allo Studio,order-by=data desc)@
+</div>	
+
+
+</div>	
+
+

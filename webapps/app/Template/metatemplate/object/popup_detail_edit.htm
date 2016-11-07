@@ -1,0 +1,73 @@
+@METABEGIN_TEMPLATE@
+	@BEGIN_TEMPLATE@					
+		<div id="popup-detail-edit-window">
+			@METABEGIN_bean@
+				@BEGIN_@METAtag_title@@		
+					<div class="detail-edit">
+						<div id="splash">
+							<h2>@TITLE@</h2>
+						</div>
+		
+						@BLOCK_BEGIN_RESULT_ERROR@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Si &egrave; verificato un errore: @ERROR_MESSAGE@
+							</div>
+						@BLOCK_END_RESULT_ERROR@
+		
+						@BLOCK_BEGIN_RESULT_EMPTY@
+							<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								Nessun elemento trovato.
+							</div>
+						@BLOCK_END_RESULT_EMPTY@
+		
+						<div class="form-container form-container-@METAtag_title@">
+							<form id="popup-detail-edit" method="post" action="@ACTION@" @ajaxable="target=popup-detail-edit-window">
+								<fieldset>
+									<legend>Inserire/modificare i dati</legend>
+	
+									<!--CORPO-->
+									<div class="detail-body">
+										@METABEGIN_attributes@
+											@METABEGIN_item[not(heading=2) and detail_edit and not(admin_only)]@
+												@tag_@METAtag_name@@
+											@METAEND_item@
+										@METAEND_attributes@
+									</div>
+									<!--FINE CORPO-->
+		
+									<!--SYSTEM -->
+									<div class="detail-edit-system">
+										<!-- In questa sezione si abilita, mediante la configurazione
+											 degli interface per i campi di sistema, la
+											 possibilita' di modificarli, per esempio per activation flag-->
+										@METABEGIN_attributes@
+											@METABEGIN_item[admin_only and not(read_only)]@
+												@tag_@METAtag_name@@
+											@METAEND_item@
+										@METAEND_attributes@
+									</div>
+									<!--FINE SYSTEM-->
+		
+									<input type="hidden" name="class" value="@CLASS@" />
+									<input type="hidden" name="r" value="@REDIRECT@" />
+									<input type="hidden" name="forced_post_save" id="popup_forced_post_save" value="@POST_SAVE@" />																	
+								</fieldset>
+							</form>
+		
+							<div class="detail-attachments">
+								@METABEGIN_attributes@
+									@METABEGIN_item[(heading=2) and detail_edit]@
+										@tag_@METAtag_name@@
+									@METAEND_item@
+								@METAEND_attributes@
+							</div>
+		
+						</div>
+					</div>
+				@END_@METAtag_title@@
+			@METAEND_bean@
+		</div>
+	@END_TEMPLATE@
+@METAEND_TEMPLATE@

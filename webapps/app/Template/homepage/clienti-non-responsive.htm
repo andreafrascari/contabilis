@@ -1,0 +1,141 @@
+
+<br />
+<div class="row">
+	<div class="alert alert-success" role="alert">
+	<h4>Benvenuti nel Servizio DMS, il document manager di Studio Tullini!<!-- <img src="app/Template/metaAmbiente/standard/img/logo.jpg" alt="Studio Tullini" /> --></h4>
+	<!-- 
+	</div>
+
+	<div class="alert alert-info" role="alert">
+	 -->
+		Gentile cliente,<br /> il servizio ha lo scopo di facilitarti la
+		comunicazione con lo Studio, in particolare nello scambio di
+		documenti, e prevede servizi che speriamo possano esserti utili come
+		il memorandum delle <em>tue scadenze</em> (giorni in evidenza nel
+		calendario).
+	</div>
+
+
+	<div class="panel-group" id="accordion">
+
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion" href="#pannello-1">Le mie scadenze</a>
+				</h4>
+			</div>
+			<div id="pannello-1" class="panel-collapse collapse in">
+				<div class="panel-body">
+
+
+					<div class="col-lg-6 col-md-6 home-box">
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+								<h3 id="panel-title" class="panel-title">Prossime scadenze </h3>
+							</div>
+							<div class="panel-body">
+								@FUN_MODULE(q=object/list,p=NotificaScadenza/_a_inverse_of_avvisi_scadenze_cliente/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,data_source=prossime,list_page_dimension=5,order-by=data asc,t=NotificaScadenza_cliente_prossime)@
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-lg-6 col-md-6 home-box">
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+								<h3 id="panel-title" class="panel-title">Il calendario delle mie scadenze</h3>
+							</div>
+							<div class="panel-body">
+								@FUN_MODULE(q=clientCalendar/month)@</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion" href="#pannello-2">Documenti</a>
+				</h4>
+			</div>
+			<div id="pannello-2" class="panel-collapse collapse in">
+				<div class="panel-body">
+
+
+
+					<div class="col-lg-4 col-md-4 home-box">
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+								<h3 id="panel-title" class="panel-title">Documenti DALLO
+									Studio</h3>
+							</div>
+							<div class="panel-body">
+								@FUN_MODULE(q=object/list,p=Documento/_a_storia_documento/_c_StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,data_source=cliente-documenti,t=Documento_cliente_home,title=Documenti
+								dallo Studio,order-by=data_riferimento desc)@</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-4 home-box">
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+								<h3 id="panel-title" class="panel-title">Corrispondenza
+									DALLO Studio</h3>
+							</div>
+							<div class="panel-body">
+								@FUN_MODULE(q=object/list,p=Documento/_a_storia_documento/_c_StoriaDocumento/_a_cliente_doc/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,data_source=cliente-corrispondenza,t=Documento_cliente_home,title=Corrispondenza
+								dallo Studio,order-by=data_riferimento desc)@</div>
+						</div>
+					</div>
+
+
+					<div class="col-lg-4 col-md-4 home-box">
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+								<h3 id="panel-title" class="panel-title">Documenti PER LO
+									Studio</h3>
+							</div>
+							<div class="panel-body">
+
+								<div class="alert alert-info" role="alert">Hai della
+									documentazione da inviare allo Studio?<br /> 
+									Compatta tutti i
+									documenti in un file ZIP: per caricarlo e inviarlo, premi questo bottone:
+									
+									<div style="text-align:center">
+										
+									<a class="btn btn-default btn-warning" 
+										@popup="title=Caricamento e invio ZIP di documenti allo Studio,dimensions=big"
+										title="invia nuovo documento zip"
+										href="?q=object/detail_edit&amp;p=DocumentoCliente&amp;a=_a_da_cliente/_c_Cliente/_a_ID/_v_@FUN_CLIENTE_FROM_SYS_USER()@">
+										<span aria-hidden="true" class="glyphicon glyphicon-upload"></span>
+									</a>
+									</div>
+									
+								</div>
+
+								@FUN_MODULE(q=object/list,p=DocumentoCliente/_a_da_cliente/_c_Cliente/_a_account/_v_@FUN_GET_USER_INFO(param=id)@,t=DocumentoCliente_cliente_home,title=Documenti
+								inviati allo Studio,order-by=data desc)@
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+</div>
+
+

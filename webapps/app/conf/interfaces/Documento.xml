@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean> 
+  <title>Documento</title>  
+  <title_view>Documento</title_view>  
+  <attributes> 
+    <item> 
+      <name>ID</name>  
+      <type>1</type>  
+      <label>ID</label> 
+    </item>  
+    <item> 
+      <name>titolo</name>  
+      <label>titolo</label>  
+      <detail>titolo</detail>  
+      <detail_edit>titolo</detail_edit>  
+      <filter autocomplete="">titolo</filter>  
+      <list>titolo</list>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <needed>1</needed>  
+      <description_field>1</description_field>  
+      <list_active_field>1</list_active_field>  
+      <max_length/>  
+      <default/>  
+      <order>11</order> 
+    </item>  
+    <item> 
+      <name>tipologia</name>  
+      <label>tipologia</label>  
+      <detail>tipologia</detail>  
+      <detail_edit no-link-new="1">tipologia</detail_edit>  
+      <filter>tipologia</filter>  
+      <list>tipologia</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>21</order> 
+    </item>  
+    <item> 
+      <name>abstract</name>  
+      <label>abstract</label>  
+      <detail>abstract</detail>  
+      <detail_edit>abstract</detail_edit>  
+      <filter>abstract</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>31</order> 
+    </item>  
+    <item> 
+      <name>anno_contabile</name>  
+      <label>anno contabile</label>  
+      <detail>anno contabile</detail>  
+      <detail_edit>anno contabile</detail_edit>  
+      <filter>anno contabile</filter>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>41</order> 
+    </item>  
+    <item> 
+      <name>data_riferimento</name>  
+      <label>data riferimento</label>  
+      <detail>data riferimento</detail>  
+      <detail_edit>data riferimento</detail_edit>  
+      <filter>data riferimento</filter>  
+      <list>data riferimento</list>  
+      <heading>1</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default>@TODAY@</default>  
+      <order>51</order> 
+    </item>  
+    <item> 
+      <name>free_tag</name>  
+      <label>free tag</label>  
+      <detail>free tag</detail>  
+      <detail_edit autocomplete="">free tag</detail_edit>  
+      <filter autocomplete="">free tag</filter>  
+      <heading>1</heading>  
+      <index>1</index>  
+      <max_length/>  
+      <default/>  
+      <order>71</order> 
+    </item>  
+    <item> 
+      <name>revisioni</name>  
+      <label>revisioni</label>  
+      <detail inpage="1">revisioni</detail>  
+      <detail_edit>revisioni</detail_edit>  
+      <heading>1</heading>  
+      <max_length/>  
+      <default/>  
+      <order>81</order> 
+    </item>  
+    <item> 
+      <name>storia_documento</name>  
+      <label>workflow documento</label>  
+      <detail>workflow documento</detail>  
+      <detail_edit>workflow documento</detail_edit>  
+      <heading>4</heading>  
+      <max_length/>  
+      <default/>  
+      <order>101</order> 
+    </item>  
+    <item> 
+      <name>allegato</name>  
+      <label>allegato</label>  
+      <detail>scarica</detail>  
+      <detail_edit>allegato</detail_edit>  
+      <list>scarica</list>  
+      <heading>2</heading>  
+      <needed>1</needed>  
+      <max_length/>  
+      <default/>  
+      <order>201</order> 
+    </item>  
+    <item> 
+      <name>creation_user</name>  
+      <label>creation_user</label>  
+      <detail>utente creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>creation_date</name>  
+      <label>data creazione</label>  
+      <detail>data creazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_user</name>  
+      <label>deletion_user</label>  
+      <detail>utente cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_date</name>  
+      <label>deletion_date</label>  
+      <detail>data cancellazione</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_user</name>  
+      <label>last_modification_user</label>  
+      <detail>utente ultima modifica</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>last_modification_date</name>  
+      <label>last_modification_date</label>  
+      <detail>data ultima modifica</detail>  
+      <list>ultima modifica</list>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>activation_flag</name>  
+      <label>activation_flag</label>  
+      <detail>attivo</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item>  
+    <item> 
+      <name>deletion_flag</name>  
+      <label>deletion_flag</label>  
+      <detail>cancellato</detail>  
+      <admin_only>1</admin_only>  
+      <read_only>1</read_only>  
+      <heading>3</heading> 
+    </item> 
+  </attributes> 
+</bean>

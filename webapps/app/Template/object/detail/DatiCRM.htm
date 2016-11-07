@@ -1,0 +1,82 @@
+@BEGIN_TEMPLATE@<div id="detail" class="tabbed">
+						@BEGIN_DatiCRM@
+
+			<div class="inserto">
+				<ul id="toolbar" class="clearfix">
+					<li>
+						<a href="javascript:history.back();" title="indietro"><img alt="indietro" title="indietro" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-back.gif" /></a>
+					</li>
+					@BLOCK_BEGIN_EDIT@
+									<li>
+										<a href="@HREF_DETAIL_EDIT@" title="Modifica i dati dell'oggetto" ([[[] != []] ?? [popup="dimensions="]])>
+											<img alt="modifica la scheda" title="modifica la scheda"  src="app/Template/metaAmbiente/img/icon-edit.gif" />
+										</a>
+									</li>
+					@BLOCK_END_EDIT@
+					<li>
+						<a href="?q=object/list&amp;p=StoricoModifiche/_a_classe/_v_DatiCRM/_a_istanza/_v_@tag_ID#FLAT@" title="storia delle modifiche"><img alt="storia delle modifiche" src="@CONTEXT@/app/Template/metaAmbiente/img/icon-history.png" /></a>
+					</li>
+					
+				</ul>
+			</div>
+
+				<h2>@FUN_CURRENT_DATA(class=Cliente,param=cliente)@</h2>
+
+			@BLOCK_BEGIN_RESULT_ERROR@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Si &egrave; verificato un errore: @ERROR_MESSAGE@
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_ERROR@
+
+			@BLOCK_BEGIN_RESULT_EMPTY@
+				<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Nessun elemento trovato!
+					<br /><br />
+      				<a href="javascript:history.back();" title="Indietro">Indietro</a>
+				</div>
+			@BLOCK_END_RESULT_EMPTY@
+
+
+			
+			@FUN_MODULE(q=object_tab_header/detail,p=Cliente/_a_ID/_v_@tag_df_cliente.Cliente.ID#FLAT@)@
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			Anastasis.SerenaUtils.getCurrentTabSheet('DatiCRM');
+		});
+		</script>
+				
+				<div id="object-body">
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+							<tbody>
+								@tag_sostituto_imposta@@tag_immobili@@tag_ici@@tag_note_ici@@tag_cassetto_fiscale@@tag_f24_cumulativo@@tag_antireciclaggio@@tag_privacy@@tag_privacy_acquisita@@tag_conservazione_sostitutiva@@tag_conservazione_sostitutiva_delega_studio@@tag_verifica_validita_firma_digitale@@tag_conservazione_libro_giornale@@tag_conservazione_sostitutiva_note@@tag_conservazione_libro_giornale_data_versamento_diritti@@tag_data_invio_impronta_digitale@@tag_note@
+							</tbody>
+						</table>
+					</div>
+					
+				([
+					[ [@tag_allegato_contratto@@tag_allegato_delega_cassetto_fiscale@@tag_allegato_delega_f24_cumulativo@@tag_allegato_delega_f24_compensazioni@] != []]
+					?? [
+						<div id="object-body-links">
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati scheda">
+								<tbody>
+							@tag_allegato_contratto@@tag_allegato_delega_cassetto_fiscale@@tag_allegato_delega_f24_cumulativo@@tag_allegato_delega_f24_compensazioni@
+							</tbody>
+							</table>
+						</div>
+					]
+				])
+				
+				
+				<div id="object-system" @toggable="label=apri/chiudi attributi di sistema,init_state=closed">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0" summary="tabella dati di sistema">
+						<tbody>
+							@tag_creation_user@@tag_creation_date@@tag_deletion_user@@tag_deletion_date@@tag_last_modification_user@@tag_last_modification_date@@tag_activation_flag@@tag_deletion_flag@
+						</tbody>
+					</table>
+				</div>@END_DatiCRM@
+		</div>@END_TEMPLATE@

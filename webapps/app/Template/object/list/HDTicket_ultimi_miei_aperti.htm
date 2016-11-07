@@ -1,0 +1,74 @@
+@BEGIN_TEMPLATE@
+			
+				@BLOCK_BEGIN_RESULT_ERROR@
+					<div class="alert alert-danger" role="alert">Si &egrave; verificato un errore: @ERROR_MESSAGE@.</div>
+				@BLOCK_END_RESULT_ERROR@
+
+				@BLOCK_BEGIN_RESULT_EMPTY@
+					<div class="alert alert-warning" role="alert">Nessun elemento trovato.</div>
+				@BLOCK_END_RESULT_EMPTY@
+
+<div role="toolbar" class="btn-toolbar" style="float:right">
+		<a class="btn btn-default btn-success btn-lg" href="?q=object/detail_edit&amp;p=HDTicket&amp;t=NuovaTelefonataInCorso&amp;a" title="apri nuovo ticket da chiamata telefonica"><span aria-hidden="true" class="glyphicon glyphicon-headphones"></span></a>
+</div>
+
+
+				([
+						[[@tag_HDTicket.ID#FLAT@] != []]
+						?? [
+							<table class="table sortable" id="risultati">
+							<thead>
+								<tr>
+										<th>ID</th>
+										<th>data</th>
+										<th>cliente</th>
+										<th>note</th>
+										
+								</tr>
+								</thead>
+								<tbody>	
+								@BEGIN_HDTicket@([
+										[[@XPATH_FUN((count(preceding-sibling::HDTicket)+ 1) mod 2)@@] == [0.0] ]
+										?? [
+											<tr class="lista_linea_pari">
+										] :: [
+											<tr class="lista_linea_dispari">
+										]
+									])
+										<td>
+										<strong>@tag_identificativo#FLAT@</strong>
+										<div role="toolbar">
+											<a class="btn btn-default btn-xs btn-info" href="?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@" title="consulta, controlla, contabilizza il ticket"><span aria-hidden="true" class="glyphicon glyphicon-play"></span></a>
+											<a class="btn btn-default btn-xs btn-info" href="?q=object/detail_edit&amp;p=HDThreadStep&amp;a=_a_inverse_of_thread/_c_HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDThreadStep_add" title="aggiungi messaggio"><span aria-hidden="true" class="glyphicon glyphicon-envelope"></span></a>
+											<a class="btn btn-default btn-xs btn-info" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket" title="modifica il ticket (assegna pratica etc.)"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span></a>
+											([[[@tag_assegnatoApratica.Pratica.ID#FLAT@]==[]] ?? [
+										 		<a class="btn btn-default btn-xs btn-info" @popup="title=Assegna a pratica,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_pratica" title="assegna a pratica"><span aria-hidden="true" class="glyphicon glyphicon-pushpin"></span></a>
+											]])
+									<!--		<a class="btn btn-default btn-xs btn-info" href="?q=object/detail&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@" title="controlla e contabilizza il ticket"><span aria-hidden="true" class="glyphicon glyphicon-euro"></span></a>    -->
+											<a class="btn btn-default btn-xs btn-success" @popup="title=Confermare chiusura ticket,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_closeOk" title="chiudi il ticket come risolto"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span></a>
+											<a class="btn btn-default btn-xs btn-danger" @popup="title=Confermare chiusura ticket COME NON RISOLVIBILE,dimensions=medium" href="?q=object/detail_edit&amp;p=HDTicket/_a_ID/_v_@tag_ID#FLAT@&amp;t=HDTicket_closeNo" title="chiudi il ticket come insolubile"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></a>
+										</div>
+										</td>
+										
+										@tag_dataArrivo@
+										<td>
+										@tag_daCliente.Cliente.cliente#FLAT@
+										@tag_contattoNonRiconosciuto#FLAT@
+										</td>
+										<td>
+										([[[@tag_priorita_ticket#FLAT@]==[urgente]]??[<span class="label label-warning">New!</span>]::[
+											<em>azione: </em>@tag_azioneRichiesta#FLAT@
+										]])
+											<br />
+											<em>canale: </em>@tag_thread.HDThreadStep.canale#FLAT@
+											
+										</td>	
+									</tr>
+									
+									@END_HDTicket@
+									</tbody>
+					  		</table>
+						]
+					])
+
+@END_TEMPLATE@

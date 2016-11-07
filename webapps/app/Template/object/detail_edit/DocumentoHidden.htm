@@ -1,0 +1,15 @@
+@BEGIN_TEMPLATE@
+
+	@BEGIN_Documento@
+	
+		<h3>@tag_titolo#FLAT@</h3>
+			
+		<input type="hidden" name="INP_Documento_ID" value="@tag_ID#FLAT@" />
+		<textarea style="display:none;" name="INP_Documento_titolo">@tag_titolo#FLAT@</textarea>
+		<textarea style="display:none;" name="INP_Documento_abstract">@tag_abstract#FLAT@</textarea>
+		<input type="hidden" name="INP_Documento_data_riferimento" value="@tag_data_riferimento#FLAT@" />
+		<input type="hidden" name="INP_Documento_allegato" value="@tag_allegato._system_attachment.ID#FLAT@" />
+			
+	@END_Documento@
+
+@END_TEMPLATE@

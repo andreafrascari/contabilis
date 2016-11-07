@@ -1,0 +1,188 @@
+@BEGIN_TEMPLATE@ @BEGIN_HDThreadStep@
+
+<script
+	src="app/Javascript/anastasis/FormSender.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@"
+	type="text/javascript"></script>
+<script
+	src="app/Javascript/anastasis/serena/DetailEdit.js?s=@SERENA_VERSION@&amp;a=@APP_VERSION@"
+	type="text/javascript"></script>
+<script src="app/Javascript/helpGest/helpGest.js" type="text/javascript"></script>
+<script type="text/javascript">
+	detailEdit = new Anastasis.DetailEdit('detail-edit',
+			'Attachment?q=prepare', 'Attachment?q=status&amp;id=');
+
+	$(document)
+			.ready(
+					function() {
+						
+						var ticket=@FUN_GET_URL_PARAM(param=a,pre=_a_inverse_of_thread/_c_HDTicket/_a_ID/_v_)@; 
+
+						demoteTicket(ticket);
+						
+						prenotaTassametro(ticket);
+
+						$("#INP_canale").val("email");
+
+						$("#INP_th_messaggio").blur(function() {
+							$("#knowledge-add").show();
+						});
+
+						$("#add-banca-risposte")
+								.click(
+										function() {
+											var theURl = "ModuleIndex?q=ticket/a2rispesteStandard";
+											var theID = $("#id-riposta").val();
+											var theAnsw = $("#INP_th_messaggio")
+													.val();
+											var theNote = $("#INP_note").val();
+											if (theID && theAnsw) {
+												$
+														.ajax({
+															type : "GET",
+															url : theURl,
+															data : {
+																id : theID,
+																risposta : theAnsw,
+																note : theNote
+															},
+															async : false,
+															cache : false,
+															dataType : "json",
+															success : function(
+																	data) {
+																console
+																		.log("SUCCESS "
+																				+ data);
+																alert("Risposta registrata!");
+																$(
+																		"#knowledge-add")
+																		.hide();
+															},
+															error : function(
+																	data) {
+																alert("Errore in registrazione risposta.");
+															},
+														});
+											} else {
+												alert("Per arichiviare la risposta, inserirne un identificatore");
+												$("#id-riposta").focus();
+											}
+										});
+					});
+</script>
+
+<div class="detail-edit detail-edit-HDThreadStep">
+	<h2>@TITLE@</h2>
+
+	@BLOCK_BEGIN_RESULT_ERROR@
+	<div class="alert alert-danger" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		Si &egrave; verificato un errore: @ERROR_MESSAGE@
+	</div>
+	@BLOCK_END_RESULT_ERROR@ @BLOCK_BEGIN_RESULT_EMPTY@
+	<div class="alert alert-danger" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		Nessun elemento trovato.
+	</div>
+	@BLOCK_END_RESULT_EMPTY@
+
+	<div class="form-container form-container-HDThreadStep">
+		<form id="detail-edit" method="post" action="@ACTION@">
+			<fieldset>
+				<legend>Inserire/modificare i dati</legend>
+				<div class="inserto">
+					<ul id="toolbar" class="clearfix">
+						<li><a tabindex="53" href="@BACK@"
+							onclick="return confirm_exit();" title="Indietro"> <img
+								alt="Indietro" title="Indietro"
+								src="app/Template/metaAmbiente/img/icon-back.gif" />
+						</a></li>
+						<li><a tabindex="50"
+							href="javascript:detailEdit.saveObject();" title="Salva"> <img
+								alt="Salva" title="Salva"
+								src="app/Template/metaAmbiente/img/icon-save.gif" />
+						</a></li>
+
+					</ul>
+
+				</div>
+
+
+				<div class="detail-body">
+					<div class="alert alert-success" role="alert" id="tassametro-yes"
+						style="display: none;"></div>
+					<div class="alert alert-danger" role="alert" id="tassametro-no"
+						style="display: none;"></div>
+					@tag_th_data@@tag_th_direzione@@tag_canale@
+
+					<div id="knowledge-select" class="detail-component">
+						<label for="INP_note">banca delle risposte </label>
+						<div role="toolbar">
+							<a class="btn btn-default btn-info"
+								@popup="title=Banca delle risposte,dimensions=medium"
+								href="?q=object/list&amp;p=HDRispostaStandard&amp;t=HDRispostaStandard_choose"
+								title="consulta la banca delle risposte"><span
+								aria-hidden="true" class="glyphicon glyphicon-piggy-bank"></span></a>
+						</div>
+						<div class="object-help">se la risposta al cliente &egrave;
+							presente nella banca, selezionala con la check per copiarla nel
+							messaggio</div>
+					</div>
+
+
+					@tag_th_messaggio@@tag_note@
+
+					<div id="knowledge-add" class="detail-component"
+						style="display: none;">
+						<label for="INP_note">vuoi aggiungere alla banca delle
+							risposte?</label>
+						<div role="toolbar">
+							<input type="text" id="id-riposta" name="id-risposta" /> <a
+								href="#" class="btn btn-default btn-warning"
+								id="add-banca-risposte"
+								title="aggiungi alla banca delle risposte"><span
+								aria-hidden="true" class="glyphicon glyphicon-plus"></span></a>
+						</div>
+						<div class="object-help">inserisci l'identificativo della
+							risposta standard e archivia MESSAGGIO e NOTE con il bottone +</div>
+					</div>
+
+				</div>
+
+
+
+				<div class="detail-edit-system"></div>
+
+
+				<input type="hidden" name="class" value="@CLASS@" /> <input
+					type="hidden" name="r" value="@REDIRECT@" /> <input type="hidden"
+					name="forced_post_save" id="forced_post_save" value="@POST_SAVE@" />
+			</fieldset>
+		</form>
+		<div class="detail-attachments">@tag_allegato@@tag_allegato_1@</div>
+
+		<div class="inserto">
+			<ul id="toolbar2" class="clearfix">
+				<li><a href="@BACK@" onclick="return confirm_exit();"
+					title="indietro"><img alt="indietro" title="indietro"
+						src="app/Template/metaAmbiente/img/icon-back.gif" /></a></li>
+				<li><a href="javascript:detailEdit.saveObject();"
+					title="salva la scheda"><img alt="salva la scheda"
+						title="salva la scheda"
+						src="app/Template/metaAmbiente/img/icon-save.gif" /></a></li> ([ [
+				[@tag_ID#FLAT@] != [] && [] != [1]] ?? [
+				<li><a
+					href="javascript:detailEdit.delObject('forced_post_save');"
+					title="cancella la scheda"><img alt="cancella la scheda"
+						title="cancella la scheda"
+						src="app/Template/metaAmbiente/img/icon-delete.gif" /></a></li> ] ])
+			</ul>
+
+
+
+
+		</div>
+	</div>
+	@END_HDThreadStep@
+</div>
+@END_TEMPLATE@

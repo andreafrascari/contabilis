@@ -1,0 +1,29 @@
+<serena>
+	<service name="get">
+		<result dimension="1">1</result>
+		<Statistica>
+			<ID>1</ID>
+			<p1>2012</p1>
+			<p2>Fratelli Choen</p2>
+			<p3>STUDIO</p3>
+			<p4>1000</p4>
+			<p5>1050</p5>
+			<p6>50</p6>
+			<p7>50</p7>
+			<p8>50</p8>
+			<p9>50</p9>
+		</Statistica>
+		<Statistica>
+			<ID>2</ID>
+			<p1>2013</p1>
+			<p2>Fratelli Marx</p2>
+			<p3>CONTABILIS</p3>
+			<p4>1500</p4>
+			<p5>2050</p5>
+			<p6>550</p6>
+			<p7>50</p7>
+			<p8>50</p8>
+			<p9>50</p9>
+		</Statistica>
+	</service>
+</serena>

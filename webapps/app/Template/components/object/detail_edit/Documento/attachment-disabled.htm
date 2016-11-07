@@ -1,0 +1,58 @@
+<!-- 
+Componente utilizzato quando ci sono piu' campi attachment equivalenti: 
+mostra solo il primo e gli altri invece sono chiusi e si aprono premendo sull'iconcina + 
+-->
+
+<div class="object-attachment" id="div_upload_@ELEM@" style="display: none">
+  <div class="object-label">@LABEL@
+  	([ [[@NEEDED@] == [object-needed]] ?? [*] ])
+  </div>
+  <div class="object-data">
+    <form class="form_upload" id="upload_@ELEM@" name="upload_@ELEM@"  method="post" ENCTYPE="multipart/form-data" action="@CONTEXT@/Attachment?q=upload">
+      <!-- ATTENZIONE!!!!! il file deve essere IL PRIMO ELEMNTO!!!!!! -->
+      <div id="div_@ELEM@">
+        <label for="fileToUpload">Oggetto da caricare:</label>
+        <input title="Oggetto da caricare" type="file" size="50" name="file" id="file_@ELEM@" onchange="if(this.value) document.getElementById('required_title_@ELEM@').value='true'; else document.getElementById('required_title_@ELEM@').value='false';"/>
+      </div>       
+      <br style="clear:both" />
+      <label for="is_external_link_@ELEM@">Si tratta invece di un link esterno:</label>
+      <input title="Si tratta di un link esterno" type="checkbox" name="is_external_link" id="is_external_link_@ELEM@" onclick="document.getElementById('file_@ELEM@').disabled=this.checked" />     
+      <br style="clear:both" />
+      <label for="title_@ELEM@">Testo alternativo: <span class="object-needed">*</span></label>
+      <input title="Testo alternativo" type="text" name="title" id="title_@ELEM@" size="60" value="@ALT_VAL@" />
+      <input type="hidden" id="type_title_@ELEM@" value="1" />
+	  <input type="hidden" id="required_title_@ELEM@" value="false" />
+	  <input type="hidden" id="label_title_@ELEM@" value="Testo alternativo" />
+      <br style="clear:both" />
+      <label for="alt_@ELEM@">Link/didascalia/href: <span class="object-needed">*</label>
+      <input title="Testo del link" type="text" name="link" id="alt_@ELEM@" size="60" value="@LINK_VAL@" />
+      <div class="object-help">Per gli <strong>allegati</strong>: il testo su cui cliccare per il download; per le <strong>immagini</strong>: la didascalia; per i <strong>link esterni</strong>: l'href del link <br />@HELP@</div>
+      <br style="clear:both" />
+      <input type="hidden" name="class" value="@CLASS@" />
+      <input type="hidden" name="instance" value="@INSTANCE@" />
+      <input type="hidden" name="type" value="@TYPE@" />      
+    </form>
+    <div id="progressbar_@ELEM@" style="display: none">
+      File: 
+      <span id="nomefile_@ELEM@">
+      </span>
+      <br />
+      Progresso: 
+      <span id="progresso_@ELEM@">
+        0
+      </span>%
+      <div class="contenitore_progressbar">
+        <div id="indicatore_progressbar_@ELEM@" class="indicatore_progressbar" style="width: 0%;">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="object-help">@HELP@</div>		
+</div>
+<div class="addbutton-div" id="addbutton-div_@ELEM@" >
+	<a href="javascript:document.getElementById('addbutton-div_@ELEM@').style.display='none';document.getElementById('div_upload_@ELEM@').style.display='';detailEdit.register('upload_@ELEM@','file','INP_@ELEM@');" title="Aggiungi un altro elemento">[+]</a>
+</div>
+
+
+
