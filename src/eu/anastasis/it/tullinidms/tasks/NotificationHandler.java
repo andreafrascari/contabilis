@@ -9,7 +9,6 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 
 import eu.anastasis.it.tullinidms.modules.Cliente;
-import eu.anastasis.it.tullinidms.modules.MailAndSmsSender;
 import eu.anastasis.it.tullinidms.modules.StoriaDocumento;
 import eu.anastasis.serena.application.index.Index;
 import eu.anastasis.serena.application.index.util.ApplicationConfiguration;
@@ -17,7 +16,7 @@ import eu.anastasis.serena.application.index.util.MailHandler;
 import eu.anastasis.serena.application.modules.object.ObjectUtils;
 import eu.anastasis.serena.constants.ConstantsXSerena;
 import eu.anastasis.serena.dataManager.DataManagerHome;
-
+import eu.anastasis.tulliniHelpGest.utils.MailAndSmsSender;
 /**
  * Lanciato da una sorta di cron settato da config_tasks, controlla gli operatori che hanno data_ultima_modifica_password 
  * a NULL (mai settato) o "scaduta" con riferimento la 196 (3 mesi) e ne mette activation_flag a 0.
@@ -90,7 +89,7 @@ public class NotificationHandler implements Runnable
 						if (ilCliente.notificheViaSms())	
 							sendResult = msh.sendSms(laStoria, ilCliente);
 						else 
-							sendResult = (ilCliente.notificheViaFax())?"notifiche via fax disattivate":new MailAndSmsSender().sendMail(laStoria, ilCliente);
+							sendResult = (ilCliente.notificheViaFax())?"notifiche via fax disattivate":msh.sendMail(laStoria, ilCliente);
 						
 						// 3) update
 						currentElement = ObjectUtils.getXserenaRequestStandardHeader("fake"+ilCliente.getID(), ConstantsXSerena.ACTION_SET, StoriaDocumento.MY_CLASS);

@@ -129,7 +129,7 @@
       <filter autocomplete="">responsabile</filter>  
       <list>responsabile</list>  
       <heading>1</heading>  
-      <needed>1</needed>  
+<!--        <needed>1</needed>  -->
       <max_length/>  
       <default/>  
       <order>21</order> 

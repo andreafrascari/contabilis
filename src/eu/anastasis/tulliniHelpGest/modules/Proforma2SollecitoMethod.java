@@ -74,7 +74,7 @@ public class Proforma2SollecitoMethod extends DefaultMethod
 			testo = testo.replace("@DATA@", data);
 			testo = testo.replace("@NUMERO@", numero);
 			testo = testo.replace("@IMPORTO@", formatImporto(importo));
-			String fullCompetenza = (competenza.equals(ProForma.COMPETENZA__CONTABILIS))?"Contabilis Srl":"Dott. Fabio Tullini";
+			String fullCompetenza = (competenza.equals(ProForma.COMPETENZA__CONTABILIS))?"Contabilis Srl":"Studio Associato Sammali - Roubaud";
 			testo = testo.replace("@COMPETENZA@", fullCompetenza);
 			String coordinateBancarie = (competenza.equals(ProForma.COMPETENZA__CONTABILIS))?ModuleParameterConfiguration.getInstance().getValue("helpgest","COORDINATE_BANCARIE_CONTABILIS"):ModuleParameterConfiguration.getInstance().getValue("helpgest","COORDINATE_BANCARIE_STUDIO"); 
 			testo = testo.replace("@COORDINATE_BANCARIE@", coordinateBancarie);

@@ -30,7 +30,6 @@ import eu.anastasis.it.tullinidms.ConstantsTulliniDMS;
 import eu.anastasis.it.tullinidms.modules.Cliente;
 import eu.anastasis.it.tullinidms.modules.DescrizioneDocumento;
 import eu.anastasis.it.tullinidms.modules.Documento;
-import eu.anastasis.it.tullinidms.modules.MailAndSmsSender;
 import eu.anastasis.it.tullinidms.modules.RevisioneDocumento;
 import eu.anastasis.it.tullinidms.modules.StoriaDocumento;
 import eu.anastasis.it.tullinidms.modules.Targa;
@@ -53,6 +52,7 @@ import eu.anastasis.serena.exception.SerenaException;
 import eu.anastasis.serena.persistence.utils.IdReservationCache;
 import eu.anastasis.serena.query.SelectQuery;
 import eu.anastasis.tulliniHelpGest.serenabeans.tullinihelpgest.TulliniHelpGestBeanDataManager;
+import eu.anastasis.tulliniHelpGest.utils.MailAndSmsSender;
 
 /**
  * Servlet x agent Tullini 
@@ -87,13 +87,21 @@ public class AgentServer extends SerenaServlet
 		
 	private static CronPersistenceHome cph = null;
 	
+	private MailAndSmsSender mailAndSmsSender = null;
+	
+	private MailAndSmsSender getMailAndSmsSender()	{
+		if (mailAndSmsSender==null)	{
+			mailAndSmsSender = new MailAndSmsSender();
+		}
+		return mailAndSmsSender;
+	}
+	
 
 	private CronPersistenceHome getMyCronPersistenceHome(){
 		if (cph==null)
 			cph = new CronPersistenceHome();
 		return cph; 
 	}
-	
 	
 	/********************************* SERVLET POST ************/
 	@Override
@@ -380,7 +388,7 @@ public class AgentServer extends SerenaServlet
 				unaStoria.setTesto_sms(ilTesto);
 				
 				// 4.2.2: invio sms
-				sendResult = new MailAndSmsSender().sendSms(unaStoria, questoCliente);
+				sendResult = getMailAndSmsSender().sendSms(unaStoria, questoCliente);
 				
 			} else {
 			
@@ -421,14 +429,14 @@ public class AgentServer extends SerenaServlet
 					theLink = theLink.replace("@WORKFLOWID@", willbeWorkflow);
 					theLink = theLink.replace("@USERID@", questoCliente.getID()); 	
 					
-					theLink = "<a href=\"" + theLink + "\" title=\"clicca per scaricare il documento\">DMS Contabilis</a>"; 
+					theLink = "<a href=\"" + theLink + "\" title=\"clicca per scaricare il documento\">DMS</a>"; 
 						
 					ilTesto = ilTesto.replace("@LINK@", theLink); 
 				}
 				unaStoria.setTesto_mail(ilTesto);
 				
 				// 4.2.4: invio mail (o fax)
-				sendResult = (questoCliente.notificheViaFax())?new MailAndSmsSender().sendFax(unaStoria, questoCliente,d.getAllegato()):new MailAndSmsSender().sendMail(unaStoria, questoCliente);
+				sendResult = (questoCliente.notificheViaFax())?getMailAndSmsSender().sendFax(unaStoria, questoCliente,d.getAllegato()):getMailAndSmsSender().sendMail(unaStoria, questoCliente);
 			}
 
 			logger.trace("Notification sent with result (null = OK) "+sendResult);

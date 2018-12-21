@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.6.1.v20100902 Build &lt;2.6.1.v20100915-1750></property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -1087,9 +1087,7 @@ ruoli rateizzati richiedendo quindi il ricalcolo del Mod. F24 già ricevuto;
         <text id="88">
             <property name="textAlign">justify</property>
             <property name="contentType">html</property>
-            <text-property name="content"><![CDATA[lo Studio del Dott. Fabio Tullini (via S.Stefano, 30 - 40125 Bologna, c.f. TLLFBA67S13A944G, p.iva
-01718191206) e/o la società CONTABILIS SRL (via S.Stefano, 30 – 40125 Bologna, c.f. 01802150381,
-p.iva 01802150381) da qualsiasi responsabilità in ordine a sanzioni che dovessero essere irrogate in
+            <text-property name="content"><![CDATA[lo Studio Associato Sammali Roubaud da qualsiasi responsabilità in ordine a sanzioni che dovessero essere irrogate in
 conseguenza del mancato rispetto degli impegni assunti con le modalità e le tempistiche sopra indicate e
 ciò per qualsiasi Mod. F24 comunicato dagli stessi, indipendentemente dal fatto che sia stato richiesto o
 meno il versamento telematico dei suddetti Mod. F24.

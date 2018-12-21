@@ -24,7 +24,7 @@ public class MyFattura extends Fattura{
 		f.setData(new Date());
 		String annoContabile = new Integer(new SerenaDate().getYear()).toString();
 		
-		Integer numeroFattura = (p.getCompetenza().equals(COMPETENZA__CONTABILIS))?MyFattura.getNextNumberContabilis(annoContabile, request):MyFattura.getNextNumberStudio( p.getAnno_contabile(), request);
+		Integer numeroFattura = (p.getCompetenza().equals(COMPETENZA__CONTABILIS))?MyFattura.getNextNumberContabilis(annoContabile, request):MyFattura.getNextNumberStudio( annoContabile, request);
 		if (p.getNumero()!=null) {
 			f.setNumero(numeroFattura);
 		}

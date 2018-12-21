@@ -1142,7 +1142,7 @@
                         <property name="fontSize">20pt</property>
                         <property name="fontStyle">italic</property>
                         <property name="paddingTop">10pt</property>
-                        <text-property name="text">CONTABILIS S.R.L.</text-property>
+                        <text-property name="text">CONTABILIS S.R.L. IN LIQUIDAZIONE</text-property>
                     </label>
                     <label id="57">
                         <property name="paddingTop">10pt</property>
@@ -1165,7 +1165,7 @@
                                     <property name="fontWeight">bold</property>
                                     <property name="color">#000066</property>
                                     <property name="textAlign">center</property>
-                                    <text-property name="text">WEB</text-property>
+                                    <text-property name="text">EMAIL</text-property>
                                 </label>
                                 <label id="99">
                                     <property name="color">#000066</property>
@@ -1183,25 +1183,31 @@
                                     <property name="textAlign">center</property>
                                     <text-property name="text">SEDE</text-property>
                                 </label>
-                                <label id="101">
+                                <label id="269">
                                     <property name="color">#000066</property>
+                                    <property name="marginTop">14pt</property>
                                     <property name="textAlign">center</property>
-                                    <text-property name="text">Via S.Stefano,30</text-property>
+                                    <text-property name="text">Via Speranza, 35</text-property>
                                 </label>
-                                <label id="102">
+                                <label id="261">
                                     <property name="color">#000066</property>
                                     <property name="textAlign">center</property>
-                                    <text-property name="text">40125 Bologna</text-property>
+                                    <text-property name="text">San Lazzaro di Savena</text-property>
                                 </label>
-                                <label id="103">
+                                <label id="262">
                                     <property name="color">#000066</property>
                                     <property name="textAlign">center</property>
-                                    <text-property name="text">tel. 051 239860</text-property>
+                                    <text-property name="text">40068 Bologna (BO)</text-property>
                                 </label>
-                                <label id="104">
+                                <label id="263">
                                     <property name="color">#000066</property>
                                     <property name="textAlign">center</property>
-                                    <text-property name="text">fax 051 7450778</text-property>
+                                    <text-property name="text">tel. 051 461294</text-property>
+                                </label>
+                                <label id="284">
+                                    <property name="color">#000066</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">fax 051 397070</text-property>
                                 </label>
                             </cell>
                         </row>

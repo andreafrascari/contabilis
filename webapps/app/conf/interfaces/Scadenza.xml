@@ -127,7 +127,7 @@
       <index>1</index>  
       <needed>1</needed>  
       <max_length>134</max_length>  
-      <default>Contabilis - Memo Scadenze</default>  
+      <default>Sammali Roubaud - Memo Scadenze</default>  
       <order>66</order>  
       <detail_help>oggetto mail o testo SMS: in ogni caso max 134 caratteri. Usare il tag @DATA@ per riportare la data scadenza.</detail_help> 
     </item>  

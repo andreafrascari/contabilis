@@ -1662,3 +1662,8 @@ li.thd ul li {list-style-type:none; margin:1px; padding:1px;}
 li.thd ul li a {color:#333; }
 
 .welcome {padding-left:7%;}
+
+#list tr.nonincassabiletrue {
+	/*background: rgba(243,11,11,0.1);*/
+	color:#ccc; 
+}

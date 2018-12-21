@@ -20,6 +20,7 @@ import eu.anastasis.serena.constants.ConstantsXSerena;
 import eu.anastasis.serena.exception.SerenaException;
 import eu.anastasis.serena.presentation.templates.ActiveTemplate;
 import eu.anastasis.serena.presentation.templates.TemplateFactory;
+import eu.anastasis.tulliniHelpGest.utils.MailAndSmsSender;
 
 
 /**

@@ -28,6 +28,7 @@ import eu.anastasis.serena.exception.SerenaException;
 import eu.anastasis.serena.persistence.utils.IdReservationCache;
 import eu.anastasis.serena.presentation.templates.ActiveTemplate;
 import eu.anastasis.serena.presentation.templates.TemplateFactory;
+import eu.anastasis.tulliniHelpGest.utils.MailAndSmsSender;
 
 /**
  * Metodo che gestisce il post processing di un documento caricato, consistente
@@ -52,6 +53,15 @@ public class UploadAndSendMethod extends DefaultMethod {
 			String[] defaultParameters) {
 		super(parentModule, defaultParameters);
 		// TODO Auto-generated constructor stub
+	}
+	
+	private MailAndSmsSender mailAndSmsSender = null;
+	
+	private MailAndSmsSender getMailAndSmsSender()	{
+		if (mailAndSmsSender==null)	{
+			mailAndSmsSender = new MailAndSmsSender();
+		}
+		return mailAndSmsSender;
 	}
 
 	@Override
@@ -164,6 +174,9 @@ public class UploadAndSendMethod extends DefaultMethod {
 				template.publish();
 				return template.getContenuto();
 			}
+			// init mail sender for bulk sending:
+			getMailAndSmsSender().initBulkSend();
+			
 			for (Cliente questoCliente : destinatari) {
 
 				// 1: allochiamo un istanza di StoriaDocumento
@@ -199,7 +212,7 @@ public class UploadAndSendMethod extends DefaultMethod {
 					unaStoria.setTesto_sms(ilTesto);
 
 					// 4.2.2: invio sms
-					sendResult = new MailAndSmsSender().sendSms(unaStoria,
+					sendResult = getMailAndSmsSender().sendSms(unaStoria,
 							questoCliente);
 					if (sendResult == null)
 						output.append("<p>Inviato sms notifica/sollecito a "
@@ -255,7 +268,7 @@ public class UploadAndSendMethod extends DefaultMethod {
 
 					theLink = "<a href=\""
 							+ theLink
-							+ "\" title=\"clicca per scaricare il documento\">DMS Contabilis</a>";
+							+ "\" title=\"clicca per scaricare il documento\">DMS</a>";
 
 					ilTesto = ilTesto.replace("@LINK@", theLink);
 
@@ -263,19 +276,19 @@ public class UploadAndSendMethod extends DefaultMethod {
 
 					// 4.2.4: invio mail (o fax)
 					try {
-						sendResult = (questoCliente.notificheViaFax()) ? new MailAndSmsSender()
+						sendResult = (questoCliente.notificheViaFax()) ? getMailAndSmsSender()
 								.sendFax(unaStoria, questoCliente, doc_attach)
-								: new MailAndSmsSender().sendMail(unaStoria,
+								: getMailAndSmsSender().sendMailInBulkLot(unaStoria,
 										questoCliente);
 					} catch (Exception e) {
 						logger.error("Cannot send mail: " + e.getMessage());
 						sendResult = "Si sono verificati problemi di invio mail: controllare la configurazione del server con l'assistenza.";
 					}
-					if (sendResult == null)
+					if (sendResult == null){
 						output.append("<p>Inviata mail notifica/sollecito a <a href=\"?q=object/detail&amp;p=Cliente/_a_ID/_v_"+questoCliente.getID()+"\" title=\"vai alla scheda del cliente\">"+ questoCliente.getNome()+"</a>");
-					else
+					} else {
 						output.append("<p>" + sendResult);
-
+					}
 				}
 
 				// 7: EVENTUALE registrazione oggetto StoriaDocumento con

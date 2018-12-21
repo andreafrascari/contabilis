@@ -18,6 +18,7 @@ public class Cliente implements SerenaMarshallable
 	public static final java.lang.String TIPO_CLIENTE__NP = "NP";
 	public static final java.lang.String TIPO_CLIENTE__SC = "SC";
 	public static final java.lang.String TIPO_CLIENTE__CP = "CP";
+	public static final java.lang.String TIPO_CLIENTE__F = "F"; // forfait, aggiunto manualemente
 
 	public static final java.lang.String TIPO_SOLLECITO__SMS = "sms";
 	public static final java.lang.String TIPO_SOLLECITO__MAIL = "mail";

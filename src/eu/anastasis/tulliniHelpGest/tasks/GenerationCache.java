@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
-import eu.anastasis.tulliniHelpGest.utils.MetascadenzeProcessor;
-
 
 public class GenerationCache {
 
@@ -51,49 +49,67 @@ public class GenerationCache {
 	 * @param operatore
 	 * @param scadenza
 	 */
+	
+	protected ArrayList<String> initItemSent4Operator(String operatore)	{
+		HashMap<String,ArrayList<String>> sent =operatorcache.get(SENT_KEY);
+		if (!sent.containsKey(operatore))	{
+			sent.put(operatore, new ArrayList<String>());
+		}
+		return sent.get(operatore);
+	}
+	
+	protected ArrayList<String> initItemStored4Operator(String operatore)	{
+		HashMap<String,ArrayList<String>> stored =operatorcache.get(STORED_KEY);
+		if (!stored.containsKey(operatore))	{
+			stored.put(operatore, new ArrayList<String>());
+		}
+		return stored.get(operatore);
+	}
+	
+	protected ArrayList<String> initItemSent4Client(String client)	{
+		HashMap<String,ArrayList<String>> sent =clientcache.get(SENT_KEY);
+		if (!sent.containsKey(client))	{
+			sent.put(client, new ArrayList<String>());
+		}
+		return sent.get(client);
+	}
+	
+	protected ArrayList<String> initItemStored4Client(String client)	{
+		HashMap<String,ArrayList<String>> stored =clientcache.get(STORED_KEY);
+		if (!stored.containsKey(client))	{
+			stored.put(client, new ArrayList<String>());
+		}
+		return stored.get(client);
+	}
+
 	public void assertItemSent4Operator(String operatore, String scadenza, String date){
 		String thisInstance = scadenza+date;
-		HashMap<String,ArrayList<String>> sent =operatorcache.get(SENT_KEY);
-		if (!sent.containsKey(operatore))
-			sent.put(operatore, new ArrayList<String>());		
-		ArrayList<String> thisOp = sent.get(operatore);
+		ArrayList<String> thisOp = initItemSent4Operator(operatore);
 		thisOp.add(thisInstance);
 	}
 	
 	public void assertItemStored4Operator(String operatore, String scadenza, String date){
 		String thisInstance = scadenza+date;
-		HashMap<String,ArrayList<String>> sent =operatorcache.get(STORED_KEY);
-		if (!sent.containsKey(operatore))
-			sent.put(operatore, new ArrayList<String>());		
-		ArrayList<String> thisOp = sent.get(operatore);
+		ArrayList<String> thisOp = initItemStored4Operator(operatore);
 		thisOp.add(thisInstance);
 	}
 	
 	public void assertItemSent4Client(String cliente, String scadenza, String date){
 		String thisInstance = scadenza+date;
-		HashMap<String,ArrayList<String>> sent =clientcache.get(SENT_KEY);
-		if (!sent.containsKey(cliente))
-			sent.put(cliente, new ArrayList<String>());		
-		ArrayList<String> thisOp = sent.get(cliente);
-		thisOp.add(thisInstance);
+		ArrayList<String> thisCli = initItemSent4Client(cliente);
+		thisCli.add(thisInstance);
 	}
 	
 	public void assertItemStored4Client(String cliente, String scadenza, String date){
 		String thisInstance = scadenza+date;
-		HashMap<String,ArrayList<String>> sent =clientcache.get(STORED_KEY);
-		if (!sent.containsKey(cliente))
-			sent.put(cliente, new ArrayList<String>());		
-		ArrayList<String> thisOp = sent.get(cliente);
-		thisOp.add(thisInstance);
+		ArrayList<String> thisCli = initItemStored4Client(cliente);
+		thisCli.add(thisInstance);
 	}
 	
 	public boolean itemStored4Operator(String operatore, String scadenza, String date){
-		try	{
-			String thisInstance = scadenza+date;
-			return operatorcache.get(STORED_KEY).get(operatore).contains(thisInstance);
-		} catch (Exception e) {
-			return false;
-		}
+		String thisInstance = scadenza+date;
+		ArrayList<String> thisOp = initItemStored4Operator(operatore);
+		return thisOp.contains(thisInstance);
 	}
 	
 	/**
@@ -104,23 +120,17 @@ public class GenerationCache {
 	 * @return
 	 */
 	public boolean itemSent4Operator(String operatore, String scadenza, String date){
-		try	{
-			String thisInstance = scadenza+date;
-			boolean res = operatorcache.get(SENT_KEY).get(operatore).contains(thisInstance);
-			logger.debug("Messaggio " + thisInstance + " gia' inviato ad operatore " + operatore + "?" + res);
-			return res;
-		} catch (Exception e) {
-			return false;
-		}
+		String thisInstance = scadenza+date;
+		ArrayList<String> thisOp = initItemSent4Operator(operatore);
+		boolean res =thisOp.contains(thisInstance);
+		logger.debug("itemSent4Operator " + operatore + " - " + scadenza + " - " + date+ ": "+ res);
+		return res;
 	}
 	
 	public boolean itemStored4Client(String cliente, String scadenza, String date)	{
-		try	{
-			String thisInstance = scadenza+date;
-			return clientcache.get(STORED_KEY).get(cliente).contains(thisInstance);
-		} catch (Exception e) {
-			return false;
-		}
+		String thisInstance = scadenza+date;
+		ArrayList<String> thisCli = initItemStored4Client(cliente);
+		return thisCli.contains(thisInstance);
 	}
 
 	/**
@@ -131,12 +141,11 @@ public class GenerationCache {
 	 * @return
 	 */
 	public boolean itemSent4Client(String cliente, String scadenza, String date)	{
-		try	{
-			String thisInstance = scadenza+date;
-			return clientcache.get(SENT_KEY).get(cliente).contains(thisInstance);
-		} catch (Exception e) {
-			return false;
-		}
+		String thisInstance = scadenza+date;
+		ArrayList<String> thisCli = initItemSent4Client(cliente);
+		boolean res =thisCli.contains(thisInstance);
+		logger.debug("itemSent4Client " + cliente + " - " + scadenza + " - " + date+ ": "+ res);
+		return res;
 	}
 	
 }

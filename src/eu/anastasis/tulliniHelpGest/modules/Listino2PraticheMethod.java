@@ -146,7 +146,7 @@ public class Listino2PraticheMethod extends DefaultMethod
 					p.setPrezzo(indicizzaPrezzo(request,indicizza, anItem, prezzo));
 				}
 				if (o!=null){
-					p.setResponsabile(o);
+					// p.setResponsabile(o); nov 16: su richiesta di Luana, non viene piu' impostato il responsabile della pratica
 				}
 				// metapratica? se si, copio attivita
 				if (anItem.element("da_metapratica").element("Metapratica")!=null){

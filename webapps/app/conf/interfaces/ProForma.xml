@@ -48,7 +48,7 @@
       <description_field>1</description_field>  
       <list_active_field>1</list_active_field>  
       <max_length/>  
-      <default>@FUN_NEXT_PROFORMA(competenza=CONTABILIS)@</default>  
+      <default>@FUN_NEXT_PROFORMA(competenza=STUDIO)@</default>  
       <order>21</order> 
     </item>  
     <item> 
@@ -110,7 +110,7 @@
       <heading>1</heading>  
       <needed>1</needed>  
       <max_length/>  
-      <default>CONTABILIS</default>  
+      <default>STUDIO</default>  
       <order>51</order> 
     </item>  
     <item> 

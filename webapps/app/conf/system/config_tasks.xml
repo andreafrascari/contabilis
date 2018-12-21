@@ -37,7 +37,6 @@
 		<month>*</month>
 		<day_of_week>*</day_of_week>
 	</task>
-		-->
 	<task>  
 		<class>eu.anastasis.tulliniHelpGest.helpDesk.PollStarter</class>
 		<minute>*/4</minute>
@@ -54,4 +53,5 @@
 		<month>01</month>
 		<day_of_week>*</day_of_week>
 	</task>
+		-->
 </tasks>

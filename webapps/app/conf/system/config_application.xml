@@ -9,7 +9,7 @@
 		<!--
 			PORTAL_TITLE. Il nome del portale.
 		-->
-		<PARAM NOME="PORTAL_TITLE">HelGest Contabilis</PARAM>
+		<PARAM NOME="PORTAL_TITLE">HelGest Sammali Roubaud</PARAM>
 
         <PARAM NOME="SMS_USERNAME">C04332_HQS</PARAM>
         <PARAM NOME="SMS_PASSWORD">8f9u2y2z</PARAM>
@@ -98,12 +98,12 @@
     		le notifiche di sistema. Volendo e' possibile indicare piu' indirizzi,
     		separati tra loro da virgola
     	-->
-		<PARAM NOME="MAIL_NOTIFICATION_RECIPIENTS">none</PARAM>
+		<PARAM NOME="MAIL_NOTIFICATION_RECIPIENTS">documenti@contabilis.it</PARAM>
     	<!--
 	    	MAIL_SYSTEM_ADDRESS. L'indirizzo email che verra' indicato
 	    	come mittente delle mail di notifica
     	-->
-		<PARAM NOME="MAIL_SYSTEM_ADDRESS">afrascari@gmail.com</PARAM>
+		<PARAM NOME="MAIL_SYSTEM_ADDRESS">no-reply@gmail.com</PARAM>
     	<!--
     		SMTP_SERVER. Il server SMTP da usare per inviare le mail di notifica
     	-->

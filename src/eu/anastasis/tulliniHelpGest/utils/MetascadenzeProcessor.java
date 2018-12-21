@@ -45,6 +45,8 @@ public class MetascadenzeProcessor
 	protected static int GENERATE_MONTHS_AHEAD = 12;
 	public static final String ID_FAKE_OPERATOR_METASCADENZE_DOUBLECHECK = "104";
 	
+//	MailAndSmsSender2 sender=null;
+	MailAndSmsSender sender=null;
 
 	/**
 	 * Logger for this class
@@ -74,6 +76,20 @@ public class MetascadenzeProcessor
 	protected static String LINK_PRATICA = "<br /><a href=\"" + TAG_BASEURL + "?q=object/detail&p=Pratica/_a_ID/_v_" + TAG_ID + "\" title=\"vai alla pratica (se loggata/o)\">Vai alla pratica " + TAG_CODICE + " (se loggata/o nel sistema)</a>";
 	protected static String LINK_ATTIVITA = "<br /><a href=\"" + TAG_BASEURL + "?q=object/detail&p=Attivita/_a_ID/_v_" + TAG_ID + "\" title=\"vai alla attivita (se loggata/o)\">Vai alla attivita " + TAG_CODICE + " (se loggata/o nel sistema)</a>";
 
+	/*
+	private  MailAndSmsSender2 getMailSmsSender()	{
+		if (this.sender==null){
+			sender = new MailAndSmsSender2();
+		}
+		return sender;
+	}
+	*/
+	private  MailAndSmsSender getMailSmsSender()	{
+		if (this.sender==null){
+			sender = new MailAndSmsSender();
+		}
+		return sender;
+	}
 	/**
 	 * Dalla lista delle richieste ricorrenti, si tengono solo: - quelle di oggi
 	 * (al netto del preavviso) se invio = true - quelle di oggi (con 3 mesi di
@@ -294,6 +310,7 @@ public class MetascadenzeProcessor
 	{
 		try
 		{
+			logger.info("Running MetascadenzeProcessor.processProfiledGroup");
 			Element currentElement = ObjectUtils.getXserenaRequestStandardHeader("clientiprofilo", ConstantsXSerena.ACTION_GET, SuperCliente.INSTANCE_NAME);
 			currentElement.addAttribute(ConstantsXSerena.ATTR_OPERATION, ConstantsXSerena.VAL_SELECT);
 			currentElement.addAttribute(ConstantsXSerena.ATTR_TARGET, ConstantsXSerena.TARGET_SPECIFIED);
@@ -372,12 +389,13 @@ public class MetascadenzeProcessor
 				String oggetto = aRequest.elementText(Scadenza.SLOT_OGGETTO_SCADENZA);
 				String descrizione = aRequest.elementText(Scadenza.SLOT_DESCRIZIONE_SCADENZA);
 				oggetto = oggetto.replace(TAG_DATA, date);
-				MailAndSmsSender sender = new MailAndSmsSender();
-
 				// processing all clients matching condition(s) in List
 				List<Element> iClienti = data.selectNodes(".//SuperCliente");
 				
 				String listaClienti = "<br /><strong>Destinatari</strong>:<ul>";
+				logger.info("sending to " + iClienti.size() + " clienti....");
+				getMailSmsSender().initBulkSend();
+				String refDate = new SerenaDate().toString();
 				for (Element unCliente : iClienti)
 				{
 					Cliente unClienteObj = new Cliente();
@@ -404,23 +422,26 @@ public class MetascadenzeProcessor
 						if (invio)
 						{
 							// mail/fax/sms
-							if (!g.itemSent4Client(theID, id_richiesta,date))
+							if (!g.itemSent4Client(theID, id_richiesta,refDate))
 							{
-								g.assertItemSent4Client(theID, id_richiesta,date);
+								g.assertItemSent4Client(theID, id_richiesta,refDate);
+								logger.debug("sending mail to  " +  unClienteObj.getEmail() + " on date " + refDate + " for metascadenza "+ id_richiesta);
 								if (unClienteObj.notificheViaSms() || forceSMS)
-									sender.sendSms(myoggetto, unClienteObj);
+									getMailSmsSender().sendSms(myoggetto, unClienteObj);
 								else if (unClienteObj.notificheViaFax())
-									sender.sendFax(myoggetto, mydescrizione, unClienteObj, null);
-								else
-									sender.sendMail(myoggetto, mydescrizione, unClienteObj);
+									getMailSmsSender().sendFax(myoggetto, mydescrizione, unClienteObj, null);
+								else	{
+									getMailSmsSender().sendMailInBulkLot(myoggetto, mydescrizione, unClienteObj);
+								}
 							}
 						} 
 						if (record)
 						{
 							// istanza di NotificaScadenza in bacheca
-							if (allowsMultipleEntries || !g.itemStored4Client(theID, id_richiesta,date))
+							if (allowsMultipleEntries || !g.itemStored4Client(theID, id_richiesta,refDate))
 							{
-								g.assertItemSent4Client(theID, id_richiesta,date);
+								logger.debug("storing notifica for op  " +  unClienteObj.getCodicecliente() + " on date " + refDate + " for metascadenza "+ id_richiesta);
+								g.assertItemSent4Client(theID, id_richiesta,refDate);
 								insertNotifica(date, myoggetto, mydescrizione, null, unClienteObj.getID(), id_richiesta);
 							}
 						}
@@ -459,6 +480,7 @@ public class MetascadenzeProcessor
 	 */
 	private void processOperatore(Element aRequest, Element operatore, Element pratica, Element attivita, boolean invio, boolean record, boolean allowsMultipleEntries) throws SerenaException
 	{
+		logger.info("Running MetascadenzeProcessor.processOperatore");
 		try
 		{
 			GenerationCache g = new GenerationCache(new SerenaDate().toString());
@@ -494,6 +516,7 @@ public class MetascadenzeProcessor
 			{
 				idOperatore = operatore.elementText("ID");
 			}
+			logger.debug("processOperatore " + idOperatore + " on metascadenza " +id_richiesta);
 			oggettoRegistrazione = oggetto.replace(TAG_DATA, link); // oggetto
 																	// della
 																	// registrazione:
@@ -503,23 +526,25 @@ public class MetascadenzeProcessor
 																	// serve il
 																	// link
 			oggetto = oggetto.replace(TAG_DATA, data);
+			String refDate = new SerenaDate().toString();
 			if (invio)
 			{
-				if (!g.itemSent4Operator(idOperatore, id_richiesta,data))
+				if (!g.itemSent4Operator(idOperatore, id_richiesta,refDate))
 				{
-					g.assertItemSent4Operator(idOperatore, id_richiesta,data);
+					g.assertItemSent4Operator(idOperatore, id_richiesta,refDate);
 					MyOperatore questoOperatore = new MyOperatore().getInstance(idOperatore);
 					descrizione += link;
-					MailAndSmsSender sender = new MailAndSmsSender();
-					sender.sendMail(oggetto, descrizione, questoOperatore.getPersonalEmail()); // la mandiamo all'email personale, non di HG
+					logger.debug("sending mail to  " +  questoOperatore.getPersonalEmail() + " on date " + refDate + " for metascadenza "+ id_richiesta);
+					getMailSmsSender().sendMail(oggetto, descrizione, questoOperatore.getPersonalEmail()); // la mandiamo all'email personale, non di HG
 				}
 			}
 			if (record)
 			{
 				// istanza di NotificaScadenza in bacheca
-				if (allowsMultipleEntries || !g.itemStored4Operator(idOperatore, id_richiesta,data))
+				if (allowsMultipleEntries || !g.itemStored4Operator(idOperatore, id_richiesta,refDate))
 				{
-					g.assertItemStored4Operator(idOperatore, id_richiesta,data);
+					g.assertItemStored4Operator(idOperatore, id_richiesta,refDate);
+					logger.debug("storing notifica for op  " +  idOperatore + " on date " + refDate + " for metascadenza "+ id_richiesta);
 					insertNotifica(data, oggettoRegistrazione, descrizione, idOperatore, null, id_richiesta);
 					insertNotifica(data, oggettoRegistrazione, descrizione, ID_FAKE_OPERATOR_METASCADENZE_DOUBLECHECK, null, id_richiesta);
 
@@ -544,11 +569,13 @@ public class MetascadenzeProcessor
 	 */
 	private void processCliente(Element aRequest, Element cliente, Element pratica, Element attivita, boolean invio, boolean record, boolean allowsMultipleEntries) throws SerenaException
 	{
+		logger.info("Running MetascadenzeProcessor.processCliente");
 		try
 		{
 			GenerationCache g = new GenerationCache(new SerenaDate().toString());
 			boolean forceSMS = new Boolean(aRequest.elementText(Scadenza.SLOT_FORZA_SMS));
 			String id_richiesta = aRequest.elementText("ID");
+
 			String data = aRequest.elementText(Scadenza.SLOT_DATA);
 			// String preavviso =
 			// aRequest.elementText(Scadenza.SLOT_PREAVVISO_GG);
@@ -569,6 +596,7 @@ public class MetascadenzeProcessor
 			{
 				idCliente = cliente.elementText("ID");
 			}
+			logger.debug("processCliente" + idCliente + " on metascadenza " +id_richiesta);
 			oggetto = oggetto.replace(TAG_DATA, data);
 			Cliente questoCliente = new Cliente().getInstance(idCliente);
 			descrizione = descrizione.replace("@CLIENTE@", questoCliente.getNome());
@@ -579,29 +607,32 @@ public class MetascadenzeProcessor
 				logger.trace("Impossibile reperire cliente " + idCliente + ", probabilmente a causa di cessata assistenza.");
 				return;
 			}
+			String refDate = new SerenaDate().toString();
+
 			if (invio)
 			{
-				if (!g.itemSent4Client(idCliente, id_richiesta,data))
+				if (!g.itemSent4Client(idCliente, id_richiesta,refDate))
 				{
 					// non ancora spedito
-					g.assertItemSent4Client(idCliente, id_richiesta,data);
-					MailAndSmsSender sender = new MailAndSmsSender();
+					logger.debug("sending mail to  " +  questoCliente.getEmail() + " on date " + refDate + " for metascadenza "+ id_richiesta);
+					g.assertItemSent4Client(idCliente, id_richiesta,refDate);
 					// mail/fax/sms
 					if (questoCliente.notificheViaSms() || forceSMS)
-						sender.sendSms(oggetto, questoCliente);
+						getMailSmsSender().sendSms(oggetto, questoCliente);
 					else if (questoCliente.notificheViaFax())
-						sender.sendFax(oggetto, descrizione, questoCliente, null);
+						getMailSmsSender().sendFax(oggetto, descrizione, questoCliente, null);
 					else
-						sender.sendMail(oggetto, descrizione, questoCliente);
+						getMailSmsSender().sendMail(oggetto, descrizione, questoCliente);
 					// aggiorna cache spedizioni
 				}
 			}
 			if (record)
 			{
 				// istanza di NotificaScadenza in bacheca
-				if (allowsMultipleEntries || !g.itemStored4Client(idCliente, id_richiesta,data))
+				if (allowsMultipleEntries || !g.itemStored4Client(idCliente, id_richiesta,refDate))
 				{
-					g.assertItemStored4Client(idCliente, id_richiesta,data);
+					logger.debug("storing notifica for op  " +  idCliente + " on date " + refDate + " for metascadenza "+ id_richiesta);
+					g.assertItemStored4Client(idCliente, id_richiesta,refDate);
 					insertNotifica(data, oggetto, descrizione, null, idCliente, id_richiesta);
 
 					// double check:
@@ -620,17 +651,21 @@ public class MetascadenzeProcessor
 
 	private void insertNotifica(String data, String oggetto, String testo, String operatore, String cliente, String richiesta) throws SerenaException
 	{
-		NotificaScadenza theBean = new NotificaScadenza();
-		theBean.setData(data);
-		theBean.setOggetto(oggetto);
-		theBean.setDescrizione(testo);
-		theBean.setId_richiesta(richiesta);
-		if (operatore != null)
-			theBean.setId_operatore(operatore);
-		if (cliente != null)
-			theBean.setId_cliente(cliente);
-		theBean.insert();
-	}
+		try	{
+			NotificaScadenza theBean = new NotificaScadenza();
+			theBean.setData(data);
+			theBean.setOggetto(oggetto);
+			theBean.setDescrizione(testo);
+			theBean.setId_richiesta(richiesta);
+			if (operatore != null)
+				theBean.setId_operatore(operatore);
+			if (cliente != null)
+				theBean.setId_cliente(cliente);
+			theBean.insert();
+		} catch (Exception e){
+			logger.warn("Notifica gia' presente (M-D-O-C): " + richiesta + " - " + data + " - "  + operatore + " - " +cliente);
+		}
+		}
 
 	private void processRicorrenzaPerPrimiMesi(Element aReq) throws SerenaException
 	{

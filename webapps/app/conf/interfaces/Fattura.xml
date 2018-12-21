@@ -49,7 +49,7 @@
       <description_field>1</description_field>  
       <list_active_field>1</list_active_field>  
       <max_length/>  
-      <default>@FUN_NEXT_FATTURA(competenza=CONTABILIS)@</default>  
+      <default>@FUN_NEXT_FATTURA(competenza=STUDIO)@</default>  
       <order>13</order> 
     </item>  
     <item> 
@@ -76,7 +76,7 @@
       <heading>1</heading>  
       <needed>1</needed>  
       <max_length/>  
-      <default>CONTABILIS</default> 
+      <default>STUDIO</default> 
       <order>17</order> 
     </item>  
     <item> 
